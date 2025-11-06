@@ -16,7 +16,8 @@ internal class Cursor : MonoBehaviour
     //если интерактивный объект будет null, то имеет смысл присваивать свойству объект голой земли через ??
     void InteractWith(ref IInteractable interactableObject)
     {
-        interactableObject?.Interact(ref CurrentItem);
+        //закомментил для проверки передвижения персонажа, выдавало тут ошибку
+        //interactableObject?.Interact(ref CurrentItem);
     }
     
     private void OnTriggerEnter(Collider interactableObject)
@@ -40,7 +41,8 @@ internal class Cursor : MonoBehaviour
     {
         if (Input.GetKeyDown(ActionKey))
         {
-            InteractWith(ref interactableObject);
+            //закомментил для проверки передвижения персонажа, выдавало тут ошибку
+            //InteractWith(ref interactableObject);
         }
         SetPosition();
     }
