@@ -5,4 +5,9 @@ using UnityEngine;
 public class GrowableObject : ScriptableObject
 {
     [SerializeField] List<Sprite> GrowingPhaseSprites;
+
+    public Sprite GetGrowingPhase(int index)
+    {
+        return GrowingPhaseSprites[index];
+    }
 }
