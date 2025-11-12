@@ -5,8 +5,8 @@ internal class Cursor : MonoBehaviour
     
     internal IItem CurrentItem { get; private set; }
     internal IInteractable interactableObject {get; private set;}
-    internal KeyCode ActionKey { get; set;}
     [SerializeField] private Transform Archor;
+    private Transform thisTransform;
 
     public void SetItem(ref IItem newItem)
     {
@@ -27,23 +27,22 @@ internal class Cursor : MonoBehaviour
 
     private void SetPosition()
     {
-        gameObject.transform.position = new Vector3(Mathf.Round(Archor.position.x), 1, Mathf.Round(Archor.position.z));
+        thisTransform.position = new Vector3(Mathf.Round(Archor.position.x), thisTransform.position.y, Mathf.Round(Archor.position.z));
         this.interactableObject = null;
     }
 
 
-    void awake()
+    void Awake()
     {
-        ActionKey = KeyCode.F;
+        thisTransform = GetComponent<Transform>();
     }
 
-    void update()
+    void Update()
     {
-        if (Input.GetKeyDown(ActionKey))
-        {
+        SetPosition();
+        
             //закомментил для проверки передвижения персонажа, выдавало тут ошибку
             //InteractWith(ref interactableObject);
-        }
-        SetPosition();
+        
     }
 }
