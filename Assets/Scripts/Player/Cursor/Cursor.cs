@@ -7,6 +7,7 @@ internal class Cursor : MonoBehaviour
     internal IInteractable interactableObject {get; private set;}
     [SerializeField] private Transform Archor;
     private Transform thisTransform;
+    private PlayerInputActions _playerInputActions;
 
     public void SetItem(ref IItem newItem)
     {
@@ -14,9 +15,9 @@ internal class Cursor : MonoBehaviour
     }
    
     //если интерактивный объект будет null, то имеет смысл присваивать свойству объект голой земли через ??
-    void InteractWith(ref IInteractable interactableObject)
+    void InteractWith(IInteractable interactableObject)
     {
-        //закомментил для проверки передвижения персонажа, выдавало тут ошибку
+        Debug.Log("Вызван метод действия с объектом");
         //interactableObject?.Interact(ref CurrentItem);
     }
     
@@ -34,15 +35,24 @@ internal class Cursor : MonoBehaviour
 
     void Awake()
     {
+        _playerInputActions = new PlayerInputActions();
         thisTransform = GetComponent<Transform>();
+        _playerInputActions.Player.Interact.performed += context => InteractWith(interactableObject);
     }
 
     void Update()
     {
         SetPosition();
-        
-            //закомментил для проверки передвижения персонажа, выдавало тут ошибку
-            //InteractWith(ref interactableObject);
-        
+    }
+
+
+    private void OnEnable()
+    {
+        _playerInputActions.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _playerInputActions.Disable();
     }
 }
