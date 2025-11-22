@@ -9,6 +9,39 @@ public class PlowedLand : MonoBehaviour, IInteractable
     [SerializeField] private SpriteRenderer overGroundSpriteRenderer;
 
 
+    void Awake()
+    {
+        DayLightHandler.AddTime(12, 00);
+        DayLightHandler.AddTime(18, 00);
+        DayLightHandler._OnTimeReached += ToNextPhasePlant;
+
+    }
+
+    void ToNextPhasePlant((int hh, int mm) time)
+    {
+        switch (time)
+        {
+            case (12, 00):
+                if (wet)
+                    plant.Grow();
+                break;
+            case (18, 00):
+                if (!wet)
+                {
+                    if ((int)plant.plantStatus > 0 && (int)plant.plantStatus < 4)
+                    {
+                        plant.plantStatus += 4;
+                        plant.ToNextPhase();
+                    }
+                }
+                break;
+
+
+        }
+
+    }
+
+
     //Метод-событие для смены дня и ночи
 
     void IInteractable.Interact(IItem item)
@@ -26,6 +59,8 @@ public class PlowedLand : MonoBehaviour, IInteractable
         plantGameObject = item.GameObject;
         overGroundSpriteRenderer.sprite = plant.PhaseSprite;
         plant.plantStatus = PlantStatus.seed;
+
+
 
         //для руки
         //Зачисление игроку 1 единицы продукта

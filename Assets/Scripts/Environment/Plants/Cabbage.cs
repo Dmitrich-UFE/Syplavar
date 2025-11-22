@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Cabbage : MonoBehaviour, IPlant, IInteractable
+public class Cabbage : MonoBehaviour, IPlant
 {
     [SerializeField] private int _growingPhase;
     [SerializeField] private Sprite _phaseSprite;
@@ -31,7 +31,12 @@ public class Cabbage : MonoBehaviour, IPlant, IInteractable
         } 
     }
     GrowableObject IPlant.growableObject { get; }
-    PlantStatus IPlant.plantStatus { get; set; }
+
+    PlantStatus IPlant.plantStatus 
+    {
+        get { return _plantStatus; }
+        set { _plantStatus = value; }
+    }
 
     void IPlant.ToNextPhase()
     {
@@ -41,15 +46,15 @@ public class Cabbage : MonoBehaviour, IPlant, IInteractable
 
     void IPlant.Grow()
     {
+        if ((int)_plantStatus < 4)
+        {
+            _plantStatus++;
+            _phaseSprite = _growingPhasesSprites.GetGrowingPhase((int)_plantStatus);
+        }
+            
 
 
     }
-
-
-    void IInteractable.Interact(IItem item){}
-
-
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
