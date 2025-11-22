@@ -40,7 +40,7 @@ public class DayLightHandler : MonoBehaviour
     
     void Update()
     {
-        lightTransform.localEulerAngles = new Vector3(dayProgress * 360 - 90, dayProgress * 360, dayProgress * 360 - 90);
+        lightTransform.localEulerAngles = new Vector3(0, dayProgress * 360, 0);
         dayProgress += Time.deltaTime / DayDuration;
 
         if (dayProgress > 1f) 
