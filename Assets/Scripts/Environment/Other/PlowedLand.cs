@@ -14,7 +14,6 @@ public class PlowedLand : MonoBehaviour, IInteractable
         DayLightHandler.AddTime(12, 00);
         DayLightHandler.AddTime(18, 00);
         DayLightHandler._OnTimeReached += ToNextPhasePlant;
-
     }
 
     void ToNextPhasePlant((int hh, int mm) time)

@@ -17,8 +17,8 @@ internal class Cursor : MonoBehaviour
     //если интерактивный объект будет null, то имеет смысл присваивать свойству объект голой земли через ??
     void InteractWith(IInteractable interactableObject)
     {
-        Debug.Log("Вызван метод действия с объектом");
-        //interactableObject?.Interact(ref CurrentItem);
+        //Debug.Log("Вызван метод действия с объектом");
+        interactableObject?.Interact(CurrentItem);
     }
     
     private void OnTriggerEnter(Collider interactableObject)
