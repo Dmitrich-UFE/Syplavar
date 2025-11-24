@@ -1786,9 +1786,11 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 8
     m_NumAlphaKeys: 2
-  DayDuration: 120
+  DayDuration: 1440
   lightTransform: {fileID: 2058095658}
   dayProgress: 0
+  hours: 0
+  minutes: 0
 --- !u!4 &1642198580
 Transform:
   m_ObjectHideFlags: 0

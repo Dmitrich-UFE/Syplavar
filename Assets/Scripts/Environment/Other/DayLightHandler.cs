@@ -27,12 +27,14 @@ public class DayLightHandler : MonoBehaviour
     public int Hours {get; private set;}
     public int Minutes {get; private set;}
 
-    public int hours;
-    public int minutes;
-
     void Awake()
     {
-        
+        DayLightHandler.AddTime(12, 00);
+        DayLightHandler.AddTime(18, 00);
+        DayLightHandler.AddTime(22, 00);
+        DayLightHandler.AddTime(00, 00);
+        DayLightHandler.AddTime(02, 00);
+        DayLightHandler.AddTime(06, 00);
     }
 
     void Start()
@@ -48,9 +50,6 @@ public class DayLightHandler : MonoBehaviour
         dayProgress += Time.deltaTime / DayDuration;
         Hours = (int)Math.Floor(dayProgress * 24);
         Minutes = (int)Math.Floor(dayProgress * 1440 % 60);
-        hours = Hours;
-        minutes = Minutes;
-
 
         //выбор солнечного или облачного дня и действия при смене дня
         if (dayProgress > 1f) 
@@ -73,8 +72,8 @@ public class DayLightHandler : MonoBehaviour
         (int hh, int mm) time = GetReachedTime();
         if (time.hh != -1 && !Times[time]) 
         {
-            _OnTimeReached.Invoke(time);
             Times[time] = true;
+            _OnTimeReached.Invoke(time);
         }
             
     }
@@ -94,6 +93,8 @@ public class DayLightHandler : MonoBehaviour
         if (!Times.Remove( (hh, mm) ))
             throw new InvalidOperationException("This value cant be deleted because this value is no exists");
     }
+
+
 
     //если время в контейнере совпадает с нынешним, то возвращается подходящее время
     internal (int hh, int mm) GetReachedTime()
