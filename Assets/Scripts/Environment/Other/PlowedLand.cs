@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlowedLand : MonoBehaviour, IInteractable
@@ -40,8 +41,10 @@ public class PlowedLand : MonoBehaviour, IInteractable
 
 
     //Метод-событие для смены дня и ночи
-    bool IInteractable.Interact(IItem item)
+    (bool, List<IItem>) IInteractable.Interact(IItem item)
     {
+        List<IItem> items = new List<IItem>();
+
         //для мотыги 
         //разрушение культуры: 
         plant = null;
@@ -61,9 +64,10 @@ public class PlowedLand : MonoBehaviour, IInteractable
         //для руки
         //Зачисление игроку 1 единицы продукта
 
+
         //для лейки
         wet = true;
 
-        return true;
+        return (true, items);
     }
 }
