@@ -6,6 +6,7 @@ internal class Cursor : MonoBehaviour
     internal IItem CurrentItem { get; private set; }
     internal IInteractable interactableObject {get; private set;}
     [SerializeField] private Transform Archor;
+    [SerializeField] private InventorySystem _inventorySystem;
     private Transform thisTransform;
     private PlayerInputActions _playerInputActions;
 
@@ -27,14 +28,16 @@ internal class Cursor : MonoBehaviour
 
         if (val.isDebitNeed)
         {
-            // Списать предмет, если вернул true. 
+            // Списать предмет, если вернул true.
+
         }
 
-        if (val.gettingItems.Count > 0)
+        if (val.gettingItems != null && val.gettingItems.Count > 0)
         {
             foreach (var item in val.gettingItems)
             {
                 //закинуть по предмету в инвентарь
+                _inventorySystem.AddToInventory((ItemData)item, 1);
             }
 
 

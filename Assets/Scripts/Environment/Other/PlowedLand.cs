@@ -14,6 +14,7 @@ public class PlowedLand : MonoBehaviour, IInteractable
 
     void Awake()
     {
+
         DayLightHandler._OnTimeReached += ToNextPhasePlant;
     }
 
@@ -69,7 +70,6 @@ public class PlowedLand : MonoBehaviour, IInteractable
     //реакция объекта на айтем
     (bool, List<IItem>) IInteractable.Interact(IItem item)
     {
-        List<IItem> items = new List<IItem>();
 
         //для мотыги 
         //разрушение культуры: 
@@ -89,6 +89,7 @@ public class PlowedLand : MonoBehaviour, IInteractable
 
         //для руки
         //Зачисление игроку 1 единицы продукта
+        List<IItem> items = new List<IItem>(getable.Get());
 
 
         //для лейки
