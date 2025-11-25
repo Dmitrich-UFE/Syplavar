@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class PlowedLand : MonoBehaviour, IInteractable
 {
-    [SerializeField] private GameObject plantGameObject;
     private IPlant plant;
+    private IGetable getable;
     private bool wet = false;
 
     [SerializeField] private SpriteRenderer seedPlaceSpriteRenderer;
@@ -74,14 +74,14 @@ public class PlowedLand : MonoBehaviour, IInteractable
         //для мотыги 
         //разрушение культуры: 
         plant = null;
-        plantGameObject = null;
+        getable = null;
         plantSpriteRenderer.sprite = null;
         overGroundSpriteRenderer.sprite = null;
 
         
         //для семян(универсальный)
         plant = item.GameObject.GetComponent<IPlant>();
-        plantGameObject = item.GameObject;
+        getable = item.GameObject.GetComponent<IGetable>();
         seedPlaceSpriteRenderer.sprite = plant.PhaseSprite;
         plant.plantStatus = PlantStatus.seed;
 

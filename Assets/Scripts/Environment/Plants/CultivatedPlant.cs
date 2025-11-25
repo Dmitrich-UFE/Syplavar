@@ -1,12 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Cabbage : MonoBehaviour, IPlant
+public class CultivatedPlant : MonoBehaviour, IPlant, IGetable
 {
     [SerializeField] private int _growingPhase;
     [SerializeField] private Sprite _phaseSprite;
     [SerializeField] private PlantStatus _plantStatus;
     [SerializeField] private GrowableObject _growingPhasesSprites;
-
+    [SerializeField] private ItemData _returningItem;
 
 
     int IPlant.GrowingPhase
@@ -55,15 +56,15 @@ public class Cabbage : MonoBehaviour, IPlant
 
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    List<IItem> IGetable.Get()
     {
-        
-    }
+        int count = UnityEngine.Random.Range(1, 2);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        List<IItem> items = new List<IItem>(count);
+
+        for (int i = 0; i < count; i++)
+            items.Add(_returningItem);
+
+        return items;
     }
 }
