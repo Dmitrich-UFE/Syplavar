@@ -40,8 +40,7 @@ public class Cabbage : MonoBehaviour, IPlant
 
     void IPlant.ToNextPhase()
     {
-
-
+         _phaseSprite = _growingPhasesSprites.GetGrowingPhase((int)_plantStatus);
     }
 
     void IPlant.Grow()

@@ -6,6 +6,8 @@ public class PlowedLand : MonoBehaviour, IInteractable
     [SerializeField] private GameObject plantGameObject;
     private IPlant plant;
     private bool wet = false;
+
+    [SerializeField] private SpriteRenderer seedPlaceSpriteRenderer;
     [SerializeField] private SpriteRenderer plantSpriteRenderer;
     [SerializeField] private SpriteRenderer overGroundSpriteRenderer;
 
@@ -15,32 +17,56 @@ public class PlowedLand : MonoBehaviour, IInteractable
         DayLightHandler._OnTimeReached += ToNextPhasePlant;
     }
 
+    //Метод-событие для смены дня и ночи
     void ToNextPhasePlant((int hh, int mm) time)
     {
-        switch (time)
+        if (plant != null)
         {
-            case (12, 00):
-                if (wet)
-                    plant.Grow();
-                break;
-            case (18, 00):
-                if (!wet)
-                {
-                    if ((int)plant.plantStatus > 0 && (int)plant.plantStatus < 4)
+            switch (time)
+            {
+                case (12, 00):
+                    if (wet)
+                        plant.Grow();   
+                    break;
+                case (18, 00):
+                    if (!wet)
                     {
-                        plant.plantStatus += 4;
-                        plant.ToNextPhase();
-                    }
-                }
-                break;
+                        if ((int)plant.plantStatus > 0 && (int)plant.plantStatus < 4)
+                        {
+                            plant.plantStatus += 4;
+                            plant.ToNextPhase();
+                       }
+                   }
+                   break;
+            }
 
-
+            UpdatePlowedLand();
+        }
+        else
+        {
+            if (time == (00, 00))
+                Destroy(this.gameObject);
         }
 
     }
 
+    //обновление информации о грядке
+    public void UpdatePlowedLand()
+    {
+        if (plantSpriteRenderer != null)
+            plantSpriteRenderer.sprite = plant.PhaseSprite;
 
-    //Метод-событие для смены дня и ночи
+        if (plant.plantStatus != 0)
+            seedPlaceSpriteRenderer.sprite = null;
+
+        if (wet)
+            overGroundSpriteRenderer.color = new Color(0.7f, 0.7f, 0.7f, 1f);
+        else
+            overGroundSpriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+    }
+
+
+    //реакция объекта на айтем
     (bool, List<IItem>) IInteractable.Interact(IItem item)
     {
         List<IItem> items = new List<IItem>();
@@ -56,7 +82,7 @@ public class PlowedLand : MonoBehaviour, IInteractable
         //для семян(универсальный)
         plant = item.GameObject.GetComponent<IPlant>();
         plantGameObject = item.GameObject;
-        overGroundSpriteRenderer.sprite = plant.PhaseSprite;
+        seedPlaceSpriteRenderer.sprite = plant.PhaseSprite;
         plant.plantStatus = PlantStatus.seed;
 
 
@@ -68,6 +94,14 @@ public class PlowedLand : MonoBehaviour, IInteractable
         //для лейки
         wet = true;
 
+
+        UpdatePlowedLand();
         return (true, items);
+    }
+
+    //поведение при уничтожении объекта
+    void OnDestroy()
+    {
+        DayLightHandler._OnTimeReached -= ToNextPhasePlant;
     }
 }

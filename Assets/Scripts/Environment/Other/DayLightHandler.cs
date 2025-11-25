@@ -80,7 +80,7 @@ public class DayLightHandler : MonoBehaviour
         if (time.hh != -1 && !Times[time]) 
         {
             Times[time] = true;
-            _OnTimeReached.Invoke(time);
+            _OnTimeReached?.Invoke(time);
         }
             
     }
@@ -146,5 +146,10 @@ public class DayLightHandler : MonoBehaviour
         {
             Times[time] = false;
         }
+    }
+
+    void OnDestroy()
+    {
+        DayLightHandler._OnTimeReached -= CheckWakeTime;
     }
 }

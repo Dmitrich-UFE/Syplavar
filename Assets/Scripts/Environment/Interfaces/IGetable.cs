@@ -1,4 +1,4 @@
 public interface IGetable
 {
-       IItem Get();
+       System.Collections.Generic.List<IItem> Get();
 }
