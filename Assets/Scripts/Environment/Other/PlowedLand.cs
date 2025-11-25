@@ -51,7 +51,7 @@ public class PlowedLand : MonoBehaviour, IInteractable
     }
 
     //обновление информации о грядке
-    public void UpdatePlowedLand()
+    private void UpdatePlowedLand()
     {
         if (plantSpriteRenderer != null)
             plantSpriteRenderer.sprite = plant.PhaseSprite;

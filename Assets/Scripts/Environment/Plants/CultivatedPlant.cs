@@ -51,9 +51,6 @@ public class CultivatedPlant : MonoBehaviour, IPlant, IGetable
             _plantStatus++;
             _phaseSprite = _growingPhasesSprites.GetGrowingPhase((int)_plantStatus);
         }
-            
-
-
     }
 
     List<IItem> IGetable.Get()
