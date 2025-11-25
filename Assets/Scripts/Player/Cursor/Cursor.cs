@@ -18,12 +18,30 @@ internal class Cursor : MonoBehaviour
     void InteractWith(IInteractable interactableObject)
     {
         //Debug.Log("Вызван метод действия с объектом");
-        interactableObject?.Interact(CurrentItem);
+        if (interactableObject != null)
+        {
+            if (interactableObject.Interact(CurrentItem))
+            {
+            //Функция interact выполняется всегда. Списать предмет, если вернул true. 
+            }
+        }
+        else
+        {
+            //присвоение объекта голой земли
+
+            interactableObject.Interact(CurrentItem);
+        }
+        
     }
     
     private void OnTriggerEnter(Collider interactableObject)
     {
-        this.interactableObject = interactableObject.gameObject.GetComponent<IInteractable>();
+        if (interactableObject.CompareTag("InteractableObject"))
+        {
+            this.interactableObject = interactableObject.gameObject.GetComponent<IInteractable>();
+            Debug.Log($"столкновение с {interactableObject.gameObject.name}");
+        }
+            
     }
 
     private void SetPosition()

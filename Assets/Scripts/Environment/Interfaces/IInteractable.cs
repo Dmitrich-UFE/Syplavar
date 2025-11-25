@@ -1,6 +1,5 @@
-using UnityEngine;
-
+//Булевая переменная отвечает за то, нужно ли списывать предмет
 public interface IInteractable
 {
-    void Interact(IItem item);
+    bool Interact(IItem item);
 }

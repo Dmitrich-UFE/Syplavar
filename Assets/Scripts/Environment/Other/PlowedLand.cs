@@ -40,8 +40,7 @@ public class PlowedLand : MonoBehaviour, IInteractable
 
 
     //Метод-событие для смены дня и ночи
-
-    void IInteractable.Interact(IItem item)
+    bool IInteractable.Interact(IItem item)
     {
         //для мотыги 
         //разрушение культуры: 
@@ -64,5 +63,7 @@ public class PlowedLand : MonoBehaviour, IInteractable
 
         //для лейки
         wet = true;
+
+        return true;
     }
 }
