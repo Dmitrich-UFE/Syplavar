@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef9168880b6fe5843b6ab4dabd974c1f, type: 3}
   m_Name: TomatoSpriteSet
   m_EditorClassIdentifier: 
-  GrowingPhaseSprites: []
+  GrowingPhaseSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

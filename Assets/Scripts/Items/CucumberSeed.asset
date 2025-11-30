@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc48404ab25b87b4ca4e18851c35b81d, type: 3}
   m_Name: CucumberSeed
   m_EditorClassIdentifier: 
-  _texture: {fileID: 0}
-  _name: 
-  _maxStack: 0
-  _gameObject: {fileID: 0}
+  _texture: {fileID: -1073551309, guid: 85db6010576b9a94eafb67120b13473f, type: 3}
+  _name: "\u0421\u0435\u043C\u0435\u043D\u0430 \u043E\u0433\u0443\u0440\u0446\u0430"
+  _maxStack: 99
+  _gameObject: {fileID: 1246113933929022538, guid: 909fd93afee7a684e99ca05f04d648d9, type: 3}

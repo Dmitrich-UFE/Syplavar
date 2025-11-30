@@ -2,6 +2,7 @@ using UnityEngine;
 
 internal class Cursor : MonoBehaviour
 {
+    [SerializeField] private ItemData _CurrentItem;
     
     internal IItem CurrentItem { get; private set; }
     internal IInteractable interactableObject {get; private set;}
@@ -46,6 +47,8 @@ internal class Cursor : MonoBehaviour
     
     private void OnTriggerEnter(Collider interactableObject)
     {
+        this.interactableObject = null;
+
         if (interactableObject.CompareTag("InteractableObject"))
         {
             this.interactableObject = interactableObject.gameObject.GetComponent<IInteractable>();
@@ -57,12 +60,13 @@ internal class Cursor : MonoBehaviour
     private void SetPosition()
     {
         thisTransform.position = new Vector3(Mathf.Round(Archor.position.x), thisTransform.position.y, Mathf.Round(Archor.position.z));
-        this.interactableObject = null;
     }
 
 
     void Awake()
     {
+        CurrentItem = _CurrentItem;
+
         _playerInputActions = new PlayerInputActions();
         thisTransform = GetComponent<Transform>();
         _playerInputActions.Player.Interact.performed += context => InteractWith(interactableObject);

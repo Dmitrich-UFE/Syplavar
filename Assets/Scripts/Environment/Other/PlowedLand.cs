@@ -56,9 +56,16 @@ public class PlowedLand : MonoBehaviour, IInteractable
     {
         if (plantSpriteRenderer != null)
             plantSpriteRenderer.sprite = plant.PhaseSprite;
+        else
+        {
+            seedPlaceSpriteRenderer.sprite = null;
+            plantSpriteRenderer.sprite = null;
+        }
 
         if (plant.plantStatus != 0)
             seedPlaceSpriteRenderer.sprite = null;
+        else
+            plantSpriteRenderer.sprite = null;
 
         if (wet)
             overGroundSpriteRenderer.color = new Color(0.7f, 0.7f, 0.7f, 1f);
@@ -70,20 +77,27 @@ public class PlowedLand : MonoBehaviour, IInteractable
     //реакция объекта на айтем
     (bool, List<IItem>) IInteractable.Interact(IItem item)
     {
-
+        
+        //if(item.GameObject.CompareTag("Plant"))
         //для мотыги 
         //разрушение культуры: 
-        plant = null;
-        getable = null;
-        plantSpriteRenderer.sprite = null;
-        overGroundSpriteRenderer.sprite = null;
+        //plant = null;
+        //getable = null;
+        //plantSpriteRenderer.sprite = null;
+        //overGroundSpriteRenderer.sprite = null;
 
         
         //для семян(универсальный)
-        plant = item.GameObject.GetComponent<IPlant>();
-        getable = item.GameObject.GetComponent<IGetable>();
-        seedPlaceSpriteRenderer.sprite = plant.PhaseSprite;
-        plant.plantStatus = PlantStatus.seed;
+        if(item.GameObject.CompareTag("Plant"))
+        {
+            plant = item.GameObject.GetComponent<IPlant>();
+            getable = item.GameObject.GetComponent<IGetable>();
+
+
+            seedPlaceSpriteRenderer.sprite = plant.PhaseSprite;
+            plant.plantStatus = PlantStatus.seed;
+        }
+        
 
 
 
@@ -93,7 +107,7 @@ public class PlowedLand : MonoBehaviour, IInteractable
 
 
         //для лейки
-        wet = true;
+        //wet = true;
 
 
         UpdatePlowedLand();
