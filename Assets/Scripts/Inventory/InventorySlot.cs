@@ -23,6 +23,20 @@ public class InventorySlot
         ClearSlot();
     }
 
+    public void AssignItem(InventorySlot slot)
+    {
+        if (_itemData == slot.ItemData)
+        {
+            AddToStack(slot.StackSize);
+        }
+        else
+        {
+            _itemData = slot.ItemData;
+            _stackSize = 0;
+            AddToStack(slot.StackSize);
+        }
+    }
+
     public void UpdateInventorySlot(ItemData data, int amount)
     {
         _itemData = data;

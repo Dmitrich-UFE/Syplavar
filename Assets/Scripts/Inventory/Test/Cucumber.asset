@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc48404ab25b87b4ca4e18851c35b81d, type: 3}
   m_Name: Cucumber
   m_EditorClassIdentifier: 
-  _texture: {fileID: 0}
+  _texture: {fileID: 635479278, guid: 6c57acb9a0215cb4f893e8492db5b641, type: 3}
   _name: Pomidor
   _maxStack: 5
   _gameObject: {fileID: 0}

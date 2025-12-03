@@ -2,7 +2,7 @@ using UnityEngine;
 
 public interface IInstrument
 {
-    float damage { get; }
+    float Damage { get; }
 
     //IItem Use();
 }
