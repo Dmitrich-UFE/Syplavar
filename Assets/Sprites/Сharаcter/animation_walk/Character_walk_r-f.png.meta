@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0ebc3543e15c52d4388183a742520391
+guid: 056dcccde9b68b84ab8a58739bcb5bfb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -93,17 +93,56 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: charecte_walk_l-f_0
+      name: Character_walk_r-f_0
       rect:
         serializedVersion: 2
         x: 2
         y: 0
         width: 45
-        height: 126
+        height: 127
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,20 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc549f582e819ed4793faeae11296448
-      internalID: 1332028451
+      spriteID: 98df586880da55d469de8a0e6817c404
+      internalID: 1931036421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charecte_walk_l-f_1
+      name: Character_walk_r-f_1
       rect:
         serializedVersion: 2
-        x: 54
+        x: 53
         y: 0
-        width: 45
-        height: 126
+        width: 47
+        height: 127
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ffe80f6ae8e7754a95aeb134c0ae8c5
-      internalID: -1764224468
+      spriteID: 550836dfaf2e6f84287c240c2530dee1
+      internalID: 664669851
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charecte_walk_l-f_2
+      name: Character_walk_r-f_2
       rect:
         serializedVersion: 2
         x: 105
         y: 0
         width: 46
-        height: 126
+        height: 127
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9fec6e7798ba4f438638d75a64c721c
-      internalID: -817686367
+      spriteID: 36e0c1f9b7b2eba44b94a12e8a415a15
+      internalID: 234153392
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charecte_walk_l-f_3
+      name: Character_walk_r-f_3
       rect:
         serializedVersion: 2
         x: 158
         y: 0
         width: 45
-        height: 124
+        height: 127
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,8 +217,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f3a23b4f96ccbd47b951f2731aa1092
-      internalID: -945601407
+      spriteID: 7213ddf860e306d439c81196245ae40a
+      internalID: -1686313088
       vertices: []
       indices: 
       edges: []
@@ -188,7 +227,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7ee3398ec4b94864a9edfb2800d59c57
+    spriteID: ce4fb35e667c79c48b195461b3e977de
     internalID: 0
     vertices: []
     indices: 
@@ -200,10 +239,10 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      charecte_walk_l-f_0: 1332028451
-      charecte_walk_l-f_1: -1764224468
-      charecte_walk_l-f_2: -817686367
-      charecte_walk_l-f_3: -945601407
+      Character_walk_r-f_0: 1931036421
+      Character_walk_r-f_1: 664669851
+      Character_walk_r-f_2: 234153392
+      Character_walk_r-f_3: -1686313088
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

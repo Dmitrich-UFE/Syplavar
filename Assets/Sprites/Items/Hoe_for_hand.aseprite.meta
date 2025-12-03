@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ac0262af5e88f9545b375e6bd7b4e090
+guid: aaeb58de0eaea4e4cb51142462b0196d
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,7 +127,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: "\u043C\u043E\u0442\u044B\u0433\u0430"
+  - name: "\u896E\tG"
     originalName: 
     pivot: {x: 0.5, y: -0.07692308}
     alignment: 9
@@ -149,7 +149,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
   spriteSheetImportData:
-  - name: "\u043C\u043E\u0442\u044B\u0433\u0430_0"
+  - name: Hoe_0
     originalName: 
     pivot: {x: 0.25594014, y: 0.29040623}
     alignment: 9
@@ -157,10 +157,10 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 1
+      x: 2
       y: 2
-      width: 33
-      height: 33
+      width: 32
+      height: 32
     spriteID: 212320f2c5aaaf7429ab1141573ec43d
     spriteBone: []
     spriteOutline: []
@@ -179,12 +179,12 @@ ScriptedImporter:
       value2: 0
       value3: 0
     guid: 0
-    name: "\u043C\u043E\u0442\u044B\u0433\u0430"
+    name: 
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: "\u043C\u043E\u0442\u044B\u0433\u0430"
+    - name: Hoe_for_hand
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:

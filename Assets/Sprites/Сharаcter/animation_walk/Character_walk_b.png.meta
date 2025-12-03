@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 57df1b1fd3b96304bae3e6a903dd5016
+guid: a1ae3c1e3a15936479002d685bfcb256
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -93,17 +93,56 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: charecte_walk_l-b_0
+      name: Character_walk_b_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 45
-        height: 126
+        width: 47
+        height: 127
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,20 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8560046a514365f47a31c529f1ccd207
-      internalID: 1485615561
+      spriteID: ae882b631958eb3419a38c12b90028c3
+      internalID: -1301696875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charecte_walk_l-b_1
+      name: Character_walk_b_1
       rect:
         serializedVersion: 2
         x: 53
         y: 0
         width: 46
-        height: 126
+        height: 127
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ee4a101ca9c0f840b773973a8a5d8aa
-      internalID: 791691033
+      spriteID: 6e169374e460ddc47a32fff32fcb0c5a
+      internalID: 1675159913
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charecte_walk_l-b_2
+      name: Character_walk_b_2
       rect:
         serializedVersion: 2
         x: 105
         y: 0
-        width: 45
-        height: 126
+        width: 47
+        height: 127
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb5af55dc1aee4243ba4c781517614ce
-      internalID: -666479272
+      spriteID: b55c839b874b51d4e8d91374f8b6de59
+      internalID: -478739010
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: charecte_walk_l-b_3
+      name: Character_walk_b_3
       rect:
         serializedVersion: 2
         x: 157
         y: 0
         width: 46
-        height: 126
+        height: 127
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,8 +217,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 284e53411a18a2740b32a317a3d68ba1
-      internalID: 390592569
+      spriteID: 38430eb06590b454a971e6fc8aa76401
+      internalID: -114934189
       vertices: []
       indices: 
       edges: []
@@ -188,7 +227,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9230660e19daf4f4e980dd767dcf6934
+    spriteID: 57373b33296c6d84683a98898834bf03
     internalID: 0
     vertices: []
     indices: 
@@ -200,10 +239,10 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      charecte_walk_l-b_0: 1485615561
-      charecte_walk_l-b_1: 791691033
-      charecte_walk_l-b_2: -666479272
-      charecte_walk_l-b_3: 390592569
+      Character_walk_b_0: -1301696875
+      Character_walk_b_1: 1675159913
+      Character_walk_b_2: -478739010
+      Character_walk_b_3: -114934189
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
