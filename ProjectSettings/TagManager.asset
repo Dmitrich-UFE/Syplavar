@@ -7,6 +7,7 @@ TagManager:
   - InteractableObject
   - Plant
   - Instrument
+  - Hand
   layers:
   - Default
   - TransparentFX

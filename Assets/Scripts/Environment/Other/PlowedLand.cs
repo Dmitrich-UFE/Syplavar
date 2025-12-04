@@ -77,14 +77,14 @@ public class PlowedLand : MonoBehaviour, IInteractable
     //реакция объекта на айтем
     (bool, List<IItem>) IInteractable.Interact(IItem item)
     {
-        
-        //if(item.GameObject.CompareTag("Plant"))
         //для мотыги 
         //разрушение культуры: 
-        //plant = null;
-        //getable = null;
-        //plantSpriteRenderer.sprite = null;
-        //overGroundSpriteRenderer.sprite = null;
+        
+        if(item.GameObject.CompareTag("Hoe"))
+        {
+            ClearCulture();
+            return (false, null);
+        }  
 
         
         //для семян(универсальный)
@@ -93,17 +93,25 @@ public class PlowedLand : MonoBehaviour, IInteractable
             plant = item.GameObject.GetComponent<IPlant>();
             getable = item.GameObject.GetComponent<IGetable>();
 
-
             seedPlaceSpriteRenderer.sprite = plant.PhaseSprite;
             plant.plantStatus = PlantStatus.seed;
+
+            return (true, null);
         }
         
 
-
-
         //для руки
         //Зачисление игроку 1 единицы продукта
-        List<IItem> items = new List<IItem>(getable.Get());
+        if (item.GameObject.CompareTag("Hand"))
+        {
+            if (plant.plantStatus == PlantStatus.has_growed)
+            {
+                List<IItem> items = new List<IItem>(getable.Get());
+                ClearCulture();
+                return (false, items);
+            }    
+        }
+            
 
 
         //для лейки
@@ -111,12 +119,21 @@ public class PlowedLand : MonoBehaviour, IInteractable
 
 
         UpdatePlowedLand();
-        return (true, items);
+        return (false, null);
     }
 
     //поведение при уничтожении объекта
     void OnDestroy()
     {
         DayLightHandler._OnTimeReached -= ToNextPhasePlant;
+    }
+
+    //разрушение культуры: 
+    void ClearCulture()
+    {
+        plant = null;
+        getable = null;
+        plantSpriteRenderer.sprite = null;
+        overGroundSpriteRenderer.sprite = null;
     }
 }
