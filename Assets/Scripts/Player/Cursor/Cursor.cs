@@ -7,7 +7,7 @@ internal class Cursor : MonoBehaviour
     internal IItem CurrentItem { get; private set; }
     internal IInteractable interactableObject {get; private set;}
     [SerializeField] private Transform Archor;
-    [SerializeField] private InventorySystem _inventorySystem;
+    [SerializeField] private InventoryHolder _inventoryHolder;
     private Transform thisTransform;
     private PlayerInputActions _playerInputActions;
 
@@ -38,7 +38,7 @@ internal class Cursor : MonoBehaviour
             foreach (var item in val.gettingItems)
             {
                 //закинуть по предмету в инвентарь
-                _inventorySystem.AddToInventory((ItemData)item, 1);
+                _inventoryHolder.InventorySystem.AddToInventory((ItemData)item, 1);
             }
 
 
