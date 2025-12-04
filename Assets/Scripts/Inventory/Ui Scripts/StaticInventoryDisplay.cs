@@ -155,4 +155,22 @@ public class StaticInventoryDisplay : InventoryDisplay
 
         return _slots[_currentSelectedIndex].AssignedInventorySlot;
     }
+
+    // Для курсора, событие обновления выбранного слота, если в него добавляется объект
+    protected override void UpdateSlot(InventorySlot updatedSlot)
+    {
+        base.UpdateSlot(updatedSlot);
+
+        foreach (var slotPair in _slotDictionary)
+        {
+            if (slotPair.Value == updatedSlot)
+            {
+                if (slotPair.Key == _slots[_currentSelectedIndex])
+                {
+                    OnSelectedSlotChanged?.Invoke(_currentSelectedIndex, updatedSlot);
+                }
+                break;
+            }
+        }
+    }
 }

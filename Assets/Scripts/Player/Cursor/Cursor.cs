@@ -3,7 +3,8 @@ using UnityEngine;
 internal class Cursor : MonoBehaviour
 {
     [SerializeField] private ItemData _CurrentItem;
-    
+    [SerializeField] private StaticInventoryDisplay _hotbar;
+
     internal IItem CurrentItem { get; private set; }
     internal IInteractable interactableObject {get; private set;}
     [SerializeField] private Transform Archor;
@@ -11,7 +12,7 @@ internal class Cursor : MonoBehaviour
     private Transform thisTransform;
     private PlayerInputActions _playerInputActions;
 
-    public void SetItem(ref IItem newItem)
+    public void SetItem(ItemData newItem)
     {
         CurrentItem = newItem;
     }
@@ -30,7 +31,7 @@ internal class Cursor : MonoBehaviour
         if (val.isDebitNeed)
         {
             // Списать предмет, если вернул true.
-
+            _hotbar.UseSelectItem();
         }
 
         if (val.gettingItems != null && val.gettingItems.Count > 0)
@@ -63,6 +64,18 @@ internal class Cursor : MonoBehaviour
     }
 
 
+    private void OnHotbarSelectionChanged(int slotIndex, InventorySlot slot)
+    {
+        if (slot != null && slot.ItemData != null)
+        {
+            SetItem(slot.ItemData);
+        }
+        else
+        {
+            SetItem(null);
+        }
+    }
+
     void Awake()
     {
         CurrentItem = _CurrentItem;
@@ -70,6 +83,14 @@ internal class Cursor : MonoBehaviour
         _playerInputActions = new PlayerInputActions();
         thisTransform = GetComponent<Transform>();
         _playerInputActions.Player.Interact.performed += context => InteractWith(interactableObject);
+
+        _hotbar.OnSelectedSlotChanged += OnHotbarSelectionChanged;
+
+        InventorySlot slot = _hotbar.GetSelectedSlot();
+        if (slot != null && slot.ItemData != null)
+        {
+            SetItem(slot.ItemData);
+        }
     }
 
     void Update()
