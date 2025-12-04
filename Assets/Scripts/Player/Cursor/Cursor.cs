@@ -12,6 +12,10 @@ internal class Cursor : MonoBehaviour
     private Transform thisTransform;
     private PlayerInputActions _playerInputActions;
 
+    //голая земля
+    [SerializeField] GameObject unplowedLand_GameObject;
+    IInteractable unplowedLand;
+
     public void SetItem(ItemData newItem)
     {
         CurrentItem = newItem;
@@ -20,11 +24,6 @@ internal class Cursor : MonoBehaviour
     //если интерактивный объект будет null, то имеет смысл присваивать свойству объект голой земли через ??
     void InteractWith(IInteractable interactableObject)
     {
-        //Debug.Log("Вызван метод действия с объектом");
-        if (interactableObject == null)
-        {
-             //присвоение объекта голой земли
-        }
         
         var val = interactableObject.Interact(CurrentItem);
 
@@ -48,7 +47,7 @@ internal class Cursor : MonoBehaviour
     
     private void OnTriggerEnter(Collider interactableObject)
     {
-        this.interactableObject = null;
+        this.interactableObject = unplowedLand;
 
         if (interactableObject.CompareTag("InteractableObject"))
         {
@@ -78,6 +77,7 @@ internal class Cursor : MonoBehaviour
 
     void Awake()
     {
+        unplowedLand = unplowedLand_GameObject.GetComponent<IInteractable>();
         CurrentItem = _CurrentItem;
 
         _playerInputActions = new PlayerInputActions();

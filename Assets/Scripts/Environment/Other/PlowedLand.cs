@@ -79,13 +79,13 @@ public class PlowedLand : MonoBehaviour, IInteractable
     {
         //для мотыги 
         //разрушение культуры: 
-        
         if(item.GameObject.CompareTag("Hoe"))
         {
             ClearCulture();
+
+            UpdatePlowedLand();
             return (false, null);
         }  
-
         
         //для семян(универсальный)
         if(item.GameObject.CompareTag("Plant"))
@@ -96,9 +96,9 @@ public class PlowedLand : MonoBehaviour, IInteractable
             seedPlaceSpriteRenderer.sprite = plant.PhaseSprite;
             plant.plantStatus = PlantStatus.seed;
 
+            UpdatePlowedLand();
             return (true, null);
         }
-        
 
         //для руки
         //Зачисление игроку 1 единицы продукта
@@ -108,14 +108,21 @@ public class PlowedLand : MonoBehaviour, IInteractable
             {
                 List<IItem> items = new List<IItem>(getable.Get());
                 ClearCulture();
+
+                UpdatePlowedLand();
                 return (false, items);
             }    
         }
-            
-
 
         //для лейки
-        //wet = true;
+        if (item.GameObject.CompareTag("WateringCan"))
+        {
+
+            wet = true;
+
+            UpdatePlowedLand();
+            return (false, null);
+        }
 
 
         UpdatePlowedLand();
