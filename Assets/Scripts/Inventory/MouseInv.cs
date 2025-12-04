@@ -25,7 +25,7 @@ public class MouseInv : MonoBehaviour
 
     private void Update()
     {
-        if (AssignedInventorySlot.ItemData != null)
+        if (!AssignedInventorySlot.IsEmpty())
         {
             transform.position = Mouse.current.position.ReadValue();
 

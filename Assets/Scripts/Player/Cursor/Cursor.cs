@@ -62,7 +62,7 @@ internal class Cursor : MonoBehaviour
         thisTransform.position = new Vector3(Mathf.Round(Archor.position.x), thisTransform.position.y, Mathf.Round(Archor.position.z));
     }
 
-
+    // Обработка события изменения выбранного слота
     private void OnHotbarSelectionChanged(int slotIndex, InventorySlot slot)
     {
         if (slot != null && slot.ItemData != null)

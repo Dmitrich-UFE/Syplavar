@@ -487,7 +487,7 @@ MonoBehaviour:
   ItemSprite: {fileID: 569334940}
   ItemCount: {fileID: 1400026436}
   AssignedInventorySlot:
-    _itemData: {fileID: 0}
+    _itemData: {fileID: 11400000, guid: 320e89b9df67eac48a131d5e9fe18b25, type: 2}
     _stackSize: -1
 --- !u!1 &198891097
 GameObject:
@@ -4086,6 +4086,7 @@ MonoBehaviour:
     _inventory:
     - _itemData: {fileID: 11400000, guid: da3436f41fbef2b48bd058b1eb975210, type: 2}
       _stackSize: 3
+  _defaultItem: {fileID: 11400000, guid: 320e89b9df67eac48a131d5e9fe18b25, type: 2}
 --- !u!54 &7341127507069902291
 Rigidbody:
   m_ObjectHideFlags: 0

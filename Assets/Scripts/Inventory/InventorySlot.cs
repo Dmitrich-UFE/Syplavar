@@ -9,9 +9,16 @@ public class InventorySlot
     [SerializeField] private ItemData _itemData;
     [SerializeField] private int _stackSize;
 
+    private static ItemData _defaultSlot;
+
     public ItemData ItemData => _itemData;
     public int StackSize => _stackSize;
-    
+
+    public static void SetDefaultItem(ItemData handItem)
+    {
+        _defaultSlot = handItem;
+    }
+
     public InventorySlot(ItemData source, int amount)
     {
         _itemData = source;
@@ -25,15 +32,23 @@ public class InventorySlot
 
     public void AssignItem(InventorySlot slot)
     {
-        if (_itemData == slot.ItemData)
+        if (slot.ItemData == _defaultSlot)
         {
-            AddToStack(slot.StackSize);
+            ClearSlot();
         }
         else
         {
-            _itemData = slot.ItemData;
-            _stackSize = 0;
-            AddToStack(slot.StackSize);
+            if (_itemData == slot.ItemData || _itemData == _defaultSlot)
+            {
+                _itemData = slot.ItemData;
+                _stackSize = 0;
+                AddToStack(slot.StackSize);
+            }
+            else
+            {
+                _itemData = slot.ItemData;
+                _stackSize = slot.StackSize;
+            }
         }
     }
 
@@ -67,7 +82,12 @@ public class InventorySlot
 
     public void ClearSlot()
     {
-        _itemData = null;
-        _stackSize = -1;
+        _itemData = _defaultSlot;
+        _stackSize = 1;
+    }
+
+    public bool IsEmpty()
+    {
+        return _itemData == _defaultSlot;
     }
 }

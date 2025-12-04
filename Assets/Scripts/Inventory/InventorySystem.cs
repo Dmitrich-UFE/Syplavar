@@ -56,7 +56,7 @@ public class InventorySystem
 
     public bool HasFreeSlot(out InventorySlot freeSlot)
     {
-        freeSlot = InventorySlots.FirstOrDefault(i => i.ItemData == null);
+        freeSlot = InventorySlots.FirstOrDefault(i => i.IsEmpty());
         return freeSlot == null ? false : true;
     }
 }
