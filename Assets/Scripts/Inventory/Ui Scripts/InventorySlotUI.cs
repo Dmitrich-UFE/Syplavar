@@ -8,6 +8,7 @@ public class InventorySlotUI : MonoBehaviour
     [SerializeField] private Image _itemSprite;
     [SerializeField] private TextMeshProUGUI _itemCount;
     [SerializeField] private InventorySlot _assignedInventorySlot;
+    [SerializeField] private Image _selectionSprite;
 
     private Button button;
 
@@ -22,6 +23,8 @@ public class InventorySlotUI : MonoBehaviour
         button?.onClick.AddListener(OnUISlotClick);
 
         ParentDisplay = transform.parent.GetComponent<InventoryDisplay>();
+
+        SetSelected(false);
     }
 
     public void Init(InventorySlot slot)
@@ -63,6 +66,15 @@ public class InventorySlotUI : MonoBehaviour
     public void OnUISlotClick()
     {
         ParentDisplay?.SlotClicked(this);
+    }
+
+    // ¬кл/выкл рамки дл€ выбранного слота
+    public void SetSelected(bool selected)
+    {
+        if (_selectionSprite != null)
+        {
+            _selectionSprite.enabled = selected;
+        }
     }
 
     public void ClearSlot()

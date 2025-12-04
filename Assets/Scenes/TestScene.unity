@@ -4047,6 +4047,10 @@ PrefabInstance:
       propertyPath: Archor
       value: 
       objectReference: {fileID: 1132704583}
+    - target: {fileID: 1524991225314251940, guid: 5d31eac0235fdda4989a0efba357d4e2, type: 3}
+      propertyPath: _inventoryHolder
+      value: 
+      objectReference: {fileID: 7341127507069902290}
     - target: {fileID: 3125901383021305690, guid: 5d31eac0235fdda4989a0efba357d4e2, type: 3}
       propertyPath: m_Name
       value: Cursor
