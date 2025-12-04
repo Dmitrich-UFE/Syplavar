@@ -6,6 +6,7 @@ TagManager:
   tags:
   - InteractableObject
   - Plant
+  - Instrument
   layers:
   - Default
   - TransparentFX
