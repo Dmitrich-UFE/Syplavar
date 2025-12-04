@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 5364814946000839253}
   m_Layer: 0
   m_Name: Hoe
-  m_TagString: Instrument
+  m_TagString: Hoe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

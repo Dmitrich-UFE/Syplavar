@@ -360,6 +360,11 @@ Transform:
   - {fileID: 1322635415}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &127784153 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8221541217921427055, guid: 5d31eac0235fdda4989a0efba357d4e2, type: 3}
+  m_PrefabInstance: {fileID: 8390486569090497059}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &169834225
 GameObject:
   m_ObjectHideFlags: 0
@@ -4345,6 +4350,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3074829243285253739, guid: de9e5d06ac9f9c449aad88f1b77c07bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4050077406446258344, guid: de9e5d06ac9f9c449aad88f1b77c07bf, type: 3}
+      propertyPath: CursorTransform
+      value: 
+      objectReference: {fileID: 127784153}
     - target: {fileID: 4409446904313236607, guid: de9e5d06ac9f9c449aad88f1b77c07bf, type: 3}
       propertyPath: m_Name
       value: UnplowedLand
@@ -4402,6 +4415,7 @@ SceneRoots:
   - {fileID: 4220505668655397989}
   - {fileID: 8390486569090497059}
   - {fileID: 5987379231488684002}
+  - {fileID: 8766716043748464057}
   - {fileID: 632120600}
   - {fileID: 1906599201}
   - {fileID: 111826478}
@@ -4414,6 +4428,5 @@ SceneRoots:
   - {fileID: 2012840194}
   - {fileID: 46902418}
   - {fileID: 6591837538159120641}
-  - {fileID: 8766716043748464057}
   - {fileID: 1472481294}
   - {fileID: 7596176467663744114}

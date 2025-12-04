@@ -4,7 +4,8 @@ using UnityEngine;
 public class UnplowedLand : MonoBehaviour, IInteractable
 {
     [SerializeField] private GameObject _plowedLandPrefab;
-    [SerializeField] private SpriteRenderer _groundSpriteRenderer;
+    [SerializeField] private Transform CursorTransform;
+
     private void Awake()
     {
         
@@ -12,11 +13,10 @@ public class UnplowedLand : MonoBehaviour, IInteractable
 
     public (bool isDebitNeed, List<IItem> gettingItems) Interact(IItem item)
     {
-        if (item.GameObject.CompareTag("Instrument"))
+        if (item.GameObject.CompareTag("Hoe"))
         {
-            GameObject plowedLand = Instantiate(_plowedLandPrefab, transform.position, transform.rotation, transform.parent);
+            Instantiate(_plowedLandPrefab, CursorTransform.position, Quaternion.identity);
 
-            Destroy(this.gameObject);
             return (false, null);
         }
 
