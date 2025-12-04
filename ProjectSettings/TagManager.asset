@@ -8,6 +8,8 @@ TagManager:
   - Plant
   - Instrument
   - Hand
+  - Hoe
+  - WateringCan
   layers:
   - Default
   - TransparentFX

@@ -2014,6 +2014,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132704582}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1156892836 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4409446904313236607, guid: de9e5d06ac9f9c449aad88f1b77c07bf, type: 3}
+  m_PrefabInstance: {fileID: 8766716043748464057}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1165656358 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5366525842103288287, guid: f35205ba0e8c98342978d15b3daf51d5, type: 3}
@@ -4279,6 +4284,10 @@ PrefabInstance:
       propertyPath: _inventoryHolder
       value: 
       objectReference: {fileID: 7341127507069902290}
+    - target: {fileID: 1524991225314251940, guid: 5d31eac0235fdda4989a0efba357d4e2, type: 3}
+      propertyPath: unplowedLand_GameObject
+      value: 
+      objectReference: {fileID: 1156892836}
     - target: {fileID: 3125901383021305690, guid: 5d31eac0235fdda4989a0efba357d4e2, type: 3}
       propertyPath: m_Name
       value: Cursor
