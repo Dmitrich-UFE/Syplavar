@@ -33,6 +33,29 @@ public class StaticInventoryDisplay : InventoryDisplay
     {
         MouseScroll();
         KeyboardScroll();
+
+        /*if (Input.GetKeyDown(KeyCode.Space)) 
+        {
+            UseSelectItem();
+        }*/
+    }
+
+    public void UseSelectItem(int amount = 1)
+    {
+        InventorySlot slot = GetSelectedSlot();
+        if (slot != null && slot.ItemData != null && slot.StackSize >= amount)
+        {
+            slot.RemoveFromStack(amount);
+
+            if (slot.StackSize <= 0)
+            {
+                slot.ClearSlot();
+            }
+
+            UpdateSlot(slot);
+
+            OnSelectedSlotChanged?.Invoke(_currentSelectedIndex, GetSelectedSlot());
+        }
     }
 
     // выбор слота клавиатурой
