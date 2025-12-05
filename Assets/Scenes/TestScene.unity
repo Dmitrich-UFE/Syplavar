@@ -301,6 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 101755511}
   - component: {fileID: 101755512}
+  - component: {fileID: 101755513}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -378,6 +379,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &101755513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101755510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca8da817adb81df49a3c251a02d872a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleAnimations:
+  - {fileID: -1073551309, guid: 85db6010576b9a94eafb67120b13473f, type: 3}
+  - {fileID: -1673649964, guid: 85db6010576b9a94eafb67120b13473f, type: 3}
+  - {fileID: 986738006, guid: 85db6010576b9a94eafb67120b13473f, type: 3}
+  - {fileID: 518111152, guid: 85db6010576b9a94eafb67120b13473f, type: 3}
+  - {fileID: 1167776054, guid: 85db6010576b9a94eafb67120b13473f, type: 3}
+  - {fileID: 888542536, guid: 85db6010576b9a94eafb67120b13473f, type: 3}
+  - {fileID: -700621720, guid: 85db6010576b9a94eafb67120b13473f, type: 3}
+  - {fileID: 630361621, guid: 85db6010576b9a94eafb67120b13473f, type: 3}
+  playerSP: {fileID: 101755512}
 --- !u!1 &111826475
 GameObject:
   m_ObjectHideFlags: 0
@@ -4895,7 +4918,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: DayDuration
-      value: 20
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: dayProgress
