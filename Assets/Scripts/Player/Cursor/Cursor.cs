@@ -15,6 +15,7 @@ internal class Cursor : MonoBehaviour
     //голая земля
     [SerializeField] GameObject unplowedLand_GameObject;
     internal IInteractable unplowedLand {get; private set;}
+    [SerializeField] private SpriteRenderer _cursorSpriteR;
 
     public void SetItem(ItemData newItem)
     {
@@ -55,6 +56,7 @@ internal class Cursor : MonoBehaviour
     {
         if (interactableObject.CompareTag("InteractableObject"))
         {
+            _cursorSpriteR.color = new Color(1, 1, 1, 1); 
             Debug.Log($"столкновение с {interactableObject.gameObject.name}");
             this.interactableObject = interactableObject.gameObject.GetComponent<IInteractable>();
         }
@@ -64,6 +66,7 @@ internal class Cursor : MonoBehaviour
     {
         if (interactableObject.CompareTag("InteractableObject"))
         {
+            _cursorSpriteR.color = new Color(1, 0, 0, 1); 
             this.interactableObject = null;
         }
     }

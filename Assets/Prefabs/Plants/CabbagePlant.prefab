@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8866122169056907206}
   - component: {fileID: 2083055869436519621}
   m_Layer: 0
-  m_Name: CucumberPlant
+  m_Name: CabbagePlant
   m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _growingPhase: 0
-  _phaseSprite: {fileID: 1328265821, guid: 024f2f45f7de2ba438f4503de1745e6a, type: 3}
+  _phaseSprite: {fileID: 927177795, guid: 4f7c1563b875d1e44a870174be4fa06c, type: 3}
   _plantStatus: 0
-  _growingPhasesSprites: {fileID: 11400000, guid: a06d1c26769c30f4b9a240d10b1a2094, type: 2}
-  _returningItem: {fileID: 11400000, guid: c810aba57baf6eb4b93ff84eb671c07e, type: 2}
+  _growingPhasesSprites: {fileID: 11400000, guid: fbee66b7790457b4085ef2ff7f418145, type: 2}
+  _returningItem: {fileID: 11400000, guid: 96183a61f12fe4d498c44aabb3dcc9d7, type: 2}

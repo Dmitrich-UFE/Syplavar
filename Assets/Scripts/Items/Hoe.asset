@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc48404ab25b87b4ca4e18851c35b81d, type: 3}
   m_Name: Hoe
   m_EditorClassIdentifier: 
-  _texture: {fileID: -953113724, guid: dcb9958b166f2e847a6080b336c31f94, type: 3}
+  _texture: {fileID: -5740268428473783659, guid: ac0262af5e88f9545b375e6bd7b4e090, type: 3}
   _name: "\u041C\u043E\u0442\u044B\u0433\u0430"
   _maxStack: 1
   _gameObject: {fileID: 5801704649025712638, guid: 510890039703ddb47b4f8cdd03495636, type: 3}

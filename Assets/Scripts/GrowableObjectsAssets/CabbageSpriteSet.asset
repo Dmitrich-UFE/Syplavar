@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: CabbageSpriteSet
   m_EditorClassIdentifier: 
   GrowingPhaseSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 927177795, guid: 4f7c1563b875d1e44a870174be4fa06c, type: 3}
+  - {fileID: 375299417, guid: 4f7c1563b875d1e44a870174be4fa06c, type: 3}
+  - {fileID: -937685327, guid: 4f7c1563b875d1e44a870174be4fa06c, type: 3}
+  - {fileID: -281161670, guid: 4f7c1563b875d1e44a870174be4fa06c, type: 3}
+  - {fileID: 1538174574, guid: 4f7c1563b875d1e44a870174be4fa06c, type: 3}
+  - {fileID: -1561389389, guid: 4f7c1563b875d1e44a870174be4fa06c, type: 3}
+  - {fileID: -995160339, guid: 4f7c1563b875d1e44a870174be4fa06c, type: 3}
+  - {fileID: -1240692583, guid: 4f7c1563b875d1e44a870174be4fa06c, type: 3}

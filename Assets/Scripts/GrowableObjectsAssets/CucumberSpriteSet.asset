@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: CucumberSpriteSet
   m_EditorClassIdentifier: 
   GrowingPhaseSprites:
-  - {fileID: -1073551309, guid: 85db6010576b9a94eafb67120b13473f, type: 3}
-  - {fileID: -1673649964, guid: 85db6010576b9a94eafb67120b13473f, type: 3}
-  - {fileID: 518111152, guid: 85db6010576b9a94eafb67120b13473f, type: 3}
-  - {fileID: 888542536, guid: 85db6010576b9a94eafb67120b13473f, type: 3}
-  - {fileID: 630361621, guid: 85db6010576b9a94eafb67120b13473f, type: 3}
-  - {fileID: 986738006, guid: 85db6010576b9a94eafb67120b13473f, type: 3}
-  - {fileID: 1167776054, guid: 85db6010576b9a94eafb67120b13473f, type: 3}
-  - {fileID: -700621720, guid: 85db6010576b9a94eafb67120b13473f, type: 3}
+  - {fileID: 1328265821, guid: 024f2f45f7de2ba438f4503de1745e6a, type: 3}
+  - {fileID: -892008665, guid: 024f2f45f7de2ba438f4503de1745e6a, type: 3}
+  - {fileID: 1088243857, guid: 024f2f45f7de2ba438f4503de1745e6a, type: 3}
+  - {fileID: -787274357, guid: 024f2f45f7de2ba438f4503de1745e6a, type: 3}
+  - {fileID: 1449071254, guid: 024f2f45f7de2ba438f4503de1745e6a, type: 3}
+  - {fileID: -77316508, guid: 024f2f45f7de2ba438f4503de1745e6a, type: 3}
+  - {fileID: -307812397, guid: 024f2f45f7de2ba438f4503de1745e6a, type: 3}
+  - {fileID: 799243495, guid: 024f2f45f7de2ba438f4503de1745e6a, type: 3}
