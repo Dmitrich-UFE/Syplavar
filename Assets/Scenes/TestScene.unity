@@ -360,6 +360,17 @@ Transform:
   - {fileID: 1322635415}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &127784151 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1524991225314251940, guid: 5d31eac0235fdda4989a0efba357d4e2, type: 3}
+  m_PrefabInstance: {fileID: 8390486569090497059}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a146ed7a2ab1054ca67245204aa5f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &127784153 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8221541217921427055, guid: 5d31eac0235fdda4989a0efba357d4e2, type: 3}
@@ -3992,63 +4003,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
---- !u!1001 &6591837538159120641
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5556610479304142379, guid: 0730a0a3fdb5ada40bb7f5c817b6c420, type: 3}
-      propertyPath: m_Name
-      value: PlowedLand
-      objectReference: {fileID: 0}
-    - target: {fileID: 7106322691526523101, guid: 0730a0a3fdb5ada40bb7f5c817b6c420, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7106322691526523101, guid: 0730a0a3fdb5ada40bb7f5c817b6c420, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7106322691526523101, guid: 0730a0a3fdb5ada40bb7f5c817b6c420, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7106322691526523101, guid: 0730a0a3fdb5ada40bb7f5c817b6c420, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7106322691526523101, guid: 0730a0a3fdb5ada40bb7f5c817b6c420, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7106322691526523101, guid: 0730a0a3fdb5ada40bb7f5c817b6c420, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7106322691526523101, guid: 0730a0a3fdb5ada40bb7f5c817b6c420, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7106322691526523101, guid: 0730a0a3fdb5ada40bb7f5c817b6c420, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7106322691526523101, guid: 0730a0a3fdb5ada40bb7f5c817b6c420, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7106322691526523101, guid: 0730a0a3fdb5ada40bb7f5c817b6c420, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0730a0a3fdb5ada40bb7f5c817b6c420, type: 3}
 --- !u!1 &7341127507069902289
 GameObject:
   m_ObjectHideFlags: 0
@@ -4269,6 +4223,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1229566903553532540, guid: 5d31eac0235fdda4989a0efba357d4e2, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1229566903553532540, guid: 5d31eac0235fdda4989a0efba357d4e2, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1524991225314251940, guid: 5d31eac0235fdda4989a0efba357d4e2, type: 3}
       propertyPath: Archor
       value: 
@@ -4355,6 +4317,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4050077406446258344, guid: de9e5d06ac9f9c449aad88f1b77c07bf, type: 3}
+      propertyPath: _cursor
+      value: 
+      objectReference: {fileID: 127784151}
+    - target: {fileID: 4050077406446258344, guid: de9e5d06ac9f9c449aad88f1b77c07bf, type: 3}
       propertyPath: CursorTransform
       value: 
       objectReference: {fileID: 127784153}
@@ -4427,6 +4393,5 @@ SceneRoots:
   - {fileID: 921127790}
   - {fileID: 2012840194}
   - {fileID: 46902418}
-  - {fileID: 6591837538159120641}
   - {fileID: 1472481294}
   - {fileID: 7596176467663744114}

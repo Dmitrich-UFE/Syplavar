@@ -14,7 +14,7 @@ internal class Cursor : MonoBehaviour
 
     //голая земля
     [SerializeField] GameObject unplowedLand_GameObject;
-    IInteractable unplowedLand;
+    internal IInteractable unplowedLand {get; private set;}
 
     public void SetItem(ItemData newItem)
     {
@@ -24,7 +24,13 @@ internal class Cursor : MonoBehaviour
     //если интерактивный объект будет null, то имеет смысл присваивать свойству объект голой земли через ??
     void InteractWith(IInteractable interactableObject)
     {
-        
+        if (interactableObject == null)
+        {
+            this.interactableObject = unplowedLand;
+            interactableObject = unplowedLand;
+        }
+
+        //Debug.Log($"взаимодействие с {interactableObject} чем? {CurrentItem.Name}");
         var val = interactableObject.Interact(CurrentItem);
 
         if (val.isDebitNeed)
@@ -47,14 +53,19 @@ internal class Cursor : MonoBehaviour
     
     private void OnTriggerEnter(Collider interactableObject)
     {
-        this.interactableObject = unplowedLand;
-
         if (interactableObject.CompareTag("InteractableObject"))
         {
-            this.interactableObject = interactableObject.gameObject.GetComponent<IInteractable>();
             Debug.Log($"столкновение с {interactableObject.gameObject.name}");
+            this.interactableObject = interactableObject.gameObject.GetComponent<IInteractable>();
         }
-            
+    }
+
+    private void OnTriggerExit(Collider interactableObject)
+    {
+        if (interactableObject.CompareTag("InteractableObject"))
+        {
+            this.interactableObject = null;
+        }
     }
 
     private void SetPosition()

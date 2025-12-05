@@ -141,6 +141,6 @@ public class PlowedLand : MonoBehaviour, IInteractable
         plant = null;
         getable = null;
         plantSpriteRenderer.sprite = null;
-        overGroundSpriteRenderer.sprite = null;
+        seedPlaceSpriteRenderer.sprite = null;
     }
 }

@@ -10,6 +10,7 @@ TagManager:
   - Hand
   - Hoe
   - WateringCan
+  - WorldObject
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Water
   - UI
   - DirectRender
-  - 
+  - InteractableObjects
   - 
   - 
   - 
