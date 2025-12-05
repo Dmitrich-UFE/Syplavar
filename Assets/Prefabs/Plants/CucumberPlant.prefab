@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _growingPhase: 0
   _phaseSprite: {fileID: -1073551309, guid: 85db6010576b9a94eafb67120b13473f, type: 3}
-  _plantStatus: 0
+  _plantStatus: 2
   _growingPhasesSprites: {fileID: 11400000, guid: a06d1c26769c30f4b9a240d10b1a2094, type: 2}
   _returningItem: {fileID: 11400000, guid: c810aba57baf6eb4b93ff84eb671c07e, type: 2}

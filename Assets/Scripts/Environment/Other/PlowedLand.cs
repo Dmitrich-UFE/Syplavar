@@ -34,11 +34,14 @@ public class PlowedLand : MonoBehaviour, IInteractable
                     {
                         if ((int)plant.plantStatus > 0 && (int)plant.plantStatus < 4)
                         {
+                            Debug.Log("растение высохло");
                             plant.plantStatus += 4;
                             plant.ToNextPhase();
-                       }
-                   }
-                   break;
+                        }
+                    }
+                    else
+                        wet = false;
+                    break;
             }
 
             UpdatePlowedLand();
@@ -55,14 +58,14 @@ public class PlowedLand : MonoBehaviour, IInteractable
     private void UpdatePlowedLand()
     {
         if (plantSpriteRenderer != null)
-            plantSpriteRenderer.sprite = plant.PhaseSprite;
+            plantSpriteRenderer.sprite = plant?.PhaseSprite;
         else
         {
             seedPlaceSpriteRenderer.sprite = null;
             plantSpriteRenderer.sprite = null;
         }
 
-        if (plant.plantStatus != 0)
+        if (plant?.plantStatus != 0)
             seedPlaceSpriteRenderer.sprite = null;
         else
             plantSpriteRenderer.sprite = null;
@@ -90,11 +93,14 @@ public class PlowedLand : MonoBehaviour, IInteractable
         //для семян(универсальный)
         if(item.GameObject.CompareTag("Plant"))
         {
-            plant = item.GameObject.GetComponent<IPlant>();
-            getable = item.GameObject.GetComponent<IGetable>();
+            GameObject _gameObject = Instantiate(item.GameObject, this.transform);
+            plant = _gameObject.GetComponent<IPlant>();
+            getable =_gameObject.GetComponent<IGetable>();
 
-            seedPlaceSpriteRenderer.sprite = plant.PhaseSprite;
             plant.plantStatus = PlantStatus.seed;
+            plant.GrowingPhase = 0;
+            plant.ToNextPhase();
+            seedPlaceSpriteRenderer.sprite = plant?.PhaseSprite;
 
             UpdatePlowedLand();
             return (true, null);
@@ -104,7 +110,11 @@ public class PlowedLand : MonoBehaviour, IInteractable
         //Зачисление игроку 1 единицы продукта
         if (item.GameObject.CompareTag("Hand"))
         {
-            if (plant.plantStatus == PlantStatus.has_growed)
+            Debug.Log("растение полито");
+            wet = true;
+            UpdatePlowedLand();
+
+            if (plant?.plantStatus == PlantStatus.has_growed)
             {
                 List<IItem> items = new List<IItem>(getable.Get());
                 ClearCulture();
@@ -117,7 +127,7 @@ public class PlowedLand : MonoBehaviour, IInteractable
         //для лейки
         if (item.GameObject.CompareTag("WateringCan"))
         {
-
+            Debug.Log("растение полито");
             wet = true;
 
             UpdatePlowedLand();
