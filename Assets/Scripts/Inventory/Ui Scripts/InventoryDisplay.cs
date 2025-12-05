@@ -33,7 +33,7 @@ public abstract class InventoryDisplay : MonoBehaviour
     public void SlotClicked(InventorySlotUI clickedUISlot)
     {
         //Берем предмет в мышь
-        if (clickedUISlot.AssignedInventorySlot.ItemData != null && mouseInv.AssignedInventorySlot.ItemData == null)
+        if (!clickedUISlot.AssignedInventorySlot.IsEmpty() && mouseInv.AssignedInventorySlot.IsEmpty())
         {
             mouseInv.UpdateMouseSlot(clickedUISlot.AssignedInventorySlot);
             clickedUISlot.ClearSlot();
@@ -41,8 +41,9 @@ public abstract class InventoryDisplay : MonoBehaviour
         }
 
         //Кладем предмет с мыщи в пустой слот
-        if (clickedUISlot.AssignedInventorySlot.ItemData == null && mouseInv.AssignedInventorySlot.ItemData != null)
+        if (clickedUISlot.AssignedInventorySlot.IsEmpty() && !mouseInv.AssignedInventorySlot.IsEmpty())
         {
+            Debug.Log("1");
             clickedUISlot.AssignedInventorySlot.AssignItem(mouseInv.AssignedInventorySlot);
             clickedUISlot.UpdateUISlot();
 

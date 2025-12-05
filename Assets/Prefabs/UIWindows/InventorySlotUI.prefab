@@ -141,6 +141,7 @@ MonoBehaviour:
   _assignedInventorySlot:
     _itemData: {fileID: 0}
     _stackSize: -1
+    _defoltSlot: {fileID: 11400000, guid: 320e89b9df67eac48a131d5e9fe18b25, type: 2}
   _selectionSprite: {fileID: 3542440306603696215}
 --- !u!1 &5107276184371747165
 GameObject:

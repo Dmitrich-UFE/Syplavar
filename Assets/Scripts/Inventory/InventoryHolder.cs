@@ -6,6 +6,7 @@ public class InventoryHolder : MonoBehaviour
 {
     [SerializeField] private int _inventorySize;
     [SerializeField] protected InventorySystem _inventorySystem;
+    [SerializeField] private ItemData _defaultItem;
 
     public InventorySystem InventorySystem => _inventorySystem;
 
@@ -13,6 +14,8 @@ public class InventoryHolder : MonoBehaviour
 
     public void Awake()
     {
+        InventorySlot.SetDefaultItem(_defaultItem);
+
         _inventorySystem = new InventorySystem(_inventorySize);
     }
 }
