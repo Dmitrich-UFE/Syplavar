@@ -4,5 +4,7 @@ public interface IInstrument
 {
     float Damage { get; }
 
-    //IItem Use();
+    (IItem item, bool isSucceed) Use();
+
+    void GetRes();
 }

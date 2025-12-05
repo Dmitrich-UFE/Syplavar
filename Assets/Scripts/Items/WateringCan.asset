@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc48404ab25b87b4ca4e18851c35b81d, type: 3}
-  m_Name: Hoe
+  m_Name: WateringCan
   m_EditorClassIdentifier: 
-  _texture: {fileID: -953113724, guid: dcb9958b166f2e847a6080b336c31f94, type: 3}
-  _name: "\u041C\u043E\u0442\u044B\u0433\u0430"
+  _texture: {fileID: 0}
+  _name: "\u041B\u0435\u0439\u043A\u0430"
   _maxStack: 1
-  _gameObject: {fileID: 5801704649025712638, guid: 510890039703ddb47b4f8cdd03495636, type: 3}
+  _gameObject: {fileID: 2989280604609430281, guid: 7d89c2523d497ac4dadda18d7afda8d6, type: 3}

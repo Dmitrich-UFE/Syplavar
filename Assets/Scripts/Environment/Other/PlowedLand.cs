@@ -110,9 +110,9 @@ public class PlowedLand : MonoBehaviour, IInteractable
         //Зачисление игроку 1 единицы продукта
         if (item.GameObject.CompareTag("Hand"))
         {
-            Debug.Log("растение полито");
-            wet = true;
-            UpdatePlowedLand();
+            //Debug.Log("растение полито");
+            //wet = true;
+            //UpdatePlowedLand();
 
             if (plant?.plantStatus == PlantStatus.has_growed)
             {
@@ -127,8 +127,16 @@ public class PlowedLand : MonoBehaviour, IInteractable
         //для лейки
         if (item.GameObject.CompareTag("WateringCan"))
         {
-            Debug.Log("растение полито");
-            wet = true;
+            IInstrument wateringCan = item.GameObject.GetComponent<IInstrument>();
+
+            (IItem item, bool isSucceed) waterCanReturned = wateringCan.Use();
+
+            if (waterCanReturned.isSucceed)
+            {
+                wet = true;
+                Debug.Log("растение полито");
+            }
+            
 
             UpdatePlowedLand();
             return (false, null);
