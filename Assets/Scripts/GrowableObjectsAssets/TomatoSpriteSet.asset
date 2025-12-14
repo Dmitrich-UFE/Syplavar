@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: TomatoSpriteSet
   m_EditorClassIdentifier: 
   GrowingPhaseSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 449873101, guid: 6227219165459204f841061146f9eae0, type: 3}
+  - {fileID: 116497483, guid: 6227219165459204f841061146f9eae0, type: 3}
+  - {fileID: 597501792, guid: 6227219165459204f841061146f9eae0, type: 3}
+  - {fileID: 1975131249, guid: 6227219165459204f841061146f9eae0, type: 3}
+  - {fileID: 809105392, guid: 6227219165459204f841061146f9eae0, type: 3}
+  - {fileID: 902312341, guid: 6227219165459204f841061146f9eae0, type: 3}
+  - {fileID: 323699648, guid: 6227219165459204f841061146f9eae0, type: 3}
+  - {fileID: 652109525, guid: 6227219165459204f841061146f9eae0, type: 3}
