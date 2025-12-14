@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc48404ab25b87b4ca4e18851c35b81d, type: 3}
+  m_Name: CucumberSeed
+  m_EditorClassIdentifier: 
+  _texture: {fileID: 1328265821, guid: 024f2f45f7de2ba438f4503de1745e6a, type: 3}
+  _name: "\u0421\u0435\u043C\u0435\u043D\u0430 \u043E\u0433\u0443\u0440\u0446\u0430"
+  _maxStack: 99
+  _gameObject: {fileID: 1246113933929022538, guid: 909fd93afee7a684e99ca05f04d648d9, type: 3}
