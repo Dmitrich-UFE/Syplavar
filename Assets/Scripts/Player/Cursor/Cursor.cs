@@ -109,7 +109,7 @@ internal class Cursor : MonoBehaviour
 
     void Update()
     {
-        SetPosition();
+        //SetPosition();
     }
 
 
