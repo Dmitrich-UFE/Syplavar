@@ -80,66 +80,65 @@ public class PlowedLand : MonoBehaviour, IInteractable
     //реакция объекта на айтем
     (bool, List<IItem>) IInteractable.Interact(IItem item)
     {
-        //для мотыги 
-        //разрушение культуры: 
-        if(item.GameObject.CompareTag("Hoe"))
+        if (plant?.plantStatus != PlantStatus.has_growed)
         {
-            ClearCulture();
-
-            UpdatePlowedLand();
-            return (false, null);
-        }  
-        
-        //для семян(универсальный)
-        if(item.GameObject.CompareTag("Plant"))
-        {
-            GameObject _gameObject = Instantiate(item.GameObject, this.transform);
-            plant = _gameObject.GetComponent<IPlant>();
-            getable =_gameObject.GetComponent<IGetable>();
-
-            plant.plantStatus = PlantStatus.seed;
-            plant.GrowingPhase = 0;
-            plant.ToNextPhase();
-            seedPlaceSpriteRenderer.sprite = plant?.PhaseSprite;
-
-            UpdatePlowedLand();
-            return (true, null);
-        }
-
-        //для руки
-        //Зачисление игроку 1 единицы продукта
-        if (item.GameObject.CompareTag("Hand"))
-        {
-            //Debug.Log("растение полито");
-            //wet = true;
-            //UpdatePlowedLand();
-
-            if (plant?.plantStatus == PlantStatus.has_growed)
+            //для мотыги 
+            //разрушение культуры: 
+            if(item.GameObject.CompareTag("Hoe"))
             {
-                List<IItem> items = new List<IItem>(getable.Get());
                 ClearCulture();
 
                 UpdatePlowedLand();
-                return (false, items);
-            }    
-        }
-
-        //для лейки
-        if (item.GameObject.CompareTag("WateringCan"))
-        {
-            IInstrument wateringCan = item.GameObject.GetComponent<IInstrument>();
-
-            (IItem item, bool isSucceed) waterCanReturned = wateringCan.Use();
-
-            if (waterCanReturned.isSucceed)
+                return (false, null);
+            }  
+        
+            //для семян(универсальный)
+            if(item.GameObject.CompareTag("Plant"))
             {
-                wet = true;
-                Debug.Log("растение полито");
+                GameObject _gameObject = Instantiate(item.GameObject, this.transform);
+                plant = _gameObject.GetComponent<IPlant>();
+                getable =_gameObject.GetComponent<IGetable>();
+
+                plant.plantStatus = PlantStatus.seed;
+                plant.GrowingPhase = 0;
+                plant.ToNextPhase();
+                seedPlaceSpriteRenderer.sprite = plant?.PhaseSprite;
+
+                UpdatePlowedLand();
+                return (true, null);
             }
+
+            //для руки
+            //Зачисление игроку 1 единицы продукта
+            if (item.GameObject.CompareTag("Hand"))
+            {
+            }
+
+            //для лейки
+            if (item.GameObject.CompareTag("WateringCan"))
+            {
+                IInstrument wateringCan = item.GameObject.GetComponent<IInstrument>();
+
+                (IItem item, bool isSucceed) waterCanReturned = wateringCan.Use();
+
+                if (waterCanReturned.isSucceed)
+                {
+                    wet = true;
+                Debug.Log("растение полито");
+                }
             
 
+                UpdatePlowedLand();
+                return (false, null);
+            }
+        }
+        else
+        {
+            List<IItem> items = new List<IItem>(getable.Get());
+            ClearCulture();
+
             UpdatePlowedLand();
-            return (false, null);
+            return (false, items);
         }
 
 
