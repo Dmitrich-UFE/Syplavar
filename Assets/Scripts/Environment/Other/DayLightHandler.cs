@@ -118,7 +118,6 @@ public class DayLightHandler : MonoBehaviour
     //вспомогательный метод для ускорения времени во время сна
     private static void CheckWakeTime((int hh, int mm) time)
     {
-        Debug.Log($"{time.hh} {time.mm}");
         if (time == (07, 00))
         {
             daySpeedMultiple = 1;

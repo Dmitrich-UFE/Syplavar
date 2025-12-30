@@ -12,6 +12,8 @@ internal class Cursor : MonoBehaviour
     private Transform thisTransform;
     private PlayerInputActions _playerInputActions;
 
+    public event System.Action<IItem> OnSelectedItemUsed;
+
     //голая земля
     [SerializeField] GameObject unplowedLand_GameObject;
     internal IInteractable unplowedLand {get; private set;}
@@ -33,6 +35,7 @@ internal class Cursor : MonoBehaviour
 
         //Debug.Log($"взаимодействие с {interactableObject} чем? {CurrentItem.Name}");
         var val = interactableObject.Interact(CurrentItem);
+        OnSelectedItemUsed?.Invoke(CurrentItem);
 
         if (val.isDebitNeed)
         {
