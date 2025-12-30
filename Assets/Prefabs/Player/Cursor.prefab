@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1524991225314251940}
   - component: {fileID: 1229566903553532540}
   - component: {fileID: 5389429327641014306}
+  - component: {fileID: 8390662367918558992}
   m_Layer: 5
   m_Name: Cursor
   m_TagString: Untagged
@@ -156,3 +157,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &8390662367918558992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3125901383021305690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af3d2253da2de443b4ebda35830258c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ArchorTransform: {fileID: 0}
+  allowedLayers:
+    serializedVersion: 2
+    m_Bits: 256

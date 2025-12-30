@@ -8,6 +8,10 @@ public class CursorFollowingMouse : MonoBehaviour
     private Transform _cursorPosTransform;
     [SerializeField] private Transform ArchorTransform;
 
+    Ray ray;
+    RaycastHit hit;
+    Vector3 worldPos;
+
     [Header("Настройки фильтрации")]
     [SerializeField] private LayerMask allowedLayers;
 
@@ -20,11 +24,8 @@ public class CursorFollowingMouse : MonoBehaviour
             {
                 SetCursorPosition(value);
                 _cursorPosTransform.position = value; 
-            }
-
-            
+            }            
         }
-
     }
 
     void Awake()
@@ -48,9 +49,8 @@ public class CursorFollowingMouse : MonoBehaviour
     
     private void CalculateCursorPosition(InputAction.CallbackContext context)
     {
-        Ray ray = Camera.main.ScreenPointToRay(context.ReadValue<Vector2>());
-        RaycastHit hit;
-        Vector3 worldPos;
+        ray = Camera.main.ScreenPointToRay(context.ReadValue<Vector2>());
+        
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, allowedLayers))
         {
