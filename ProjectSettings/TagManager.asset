@@ -11,6 +11,7 @@ TagManager:
   - Hoe
   - WateringCan
   - WorldObject
+  - Axe
   layers:
   - Default
   - TransparentFX

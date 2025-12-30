@@ -1,16 +1,17 @@
 using UnityEngine;
 
-public class Axe : MonoBehaviour
+public class Axe : MonoBehaviour, IInstrument
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    float IInstrument.Damage {get;} = 5;
+
+
+    (IItem item, bool isSucceed) IInstrument.Use()
     {
-        
+        return (null, true);
     }
 
-    // Update is called once per frame
-    void Update()
+    void IInstrument.GetRes()
     {
-        
+       
     }
 }
