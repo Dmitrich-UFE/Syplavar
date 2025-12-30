@@ -12,6 +12,7 @@ TagManager:
   - WateringCan
   - WorldObject
   - Axe
+  - Monster
   layers:
   - Default
   - TransparentFX
