@@ -50,7 +50,7 @@ public class DayLightHandler : MonoBehaviour
     }
 
     
-    void Update()
+    void FixedUpdate()
     {
         //движение солнца и счёт времени
         lightTransform.localEulerAngles = new Vector3(0, dayProgress * 360, 0);
@@ -118,6 +118,7 @@ public class DayLightHandler : MonoBehaviour
     //вспомогательный метод для ускорения времени во время сна
     private static void CheckWakeTime((int hh, int mm) time)
     {
+        Debug.Log($"{time.hh} {time.mm}");
         if (time == (07, 00))
         {
             daySpeedMultiple = 1;
@@ -131,7 +132,7 @@ public class DayLightHandler : MonoBehaviour
     {
         foreach (var time in Times)
         {
-            if (math.abs((time.Key.hh * 60 + time.Key.mm) - (Hours * 60 + Minutes)) < 2)
+            if (math.abs((time.Key.hh * 60f + time.Key.mm) - (Hours * 60f + Minutes)) <= 2f)
                 return time.Key;
         }
 
