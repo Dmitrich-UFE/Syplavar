@@ -32,7 +32,7 @@ public class ShowItemName : MonoBehaviour
     //Использование объектов
     private void OnCurrentObjUsed(IItem item)
     {
-        if (item.GameObject.CompareTag("WateringCan"))
+        if (item.GameObject != null && item.GameObject.CompareTag("WateringCan"))
         {
             WateringCan waterCan = item.GameObject.GetComponent<WateringCan>();
             ShowActItemText($"Лейка. Осталось использований: {waterCan._waterCapaсity}");

@@ -40,7 +40,7 @@ public class AttackCursor : MonoBehaviour
 
             for (int i = 0; i < monsters.Count; i++)
             {
-                monsters[i].GetDamage(CurrentItem.Damage);
+                monsters[i].GetDamage(CurrentItem?.Damage ?? 0);
 
                 if (monsters[i].Health < 0.00001f)
                 {
@@ -90,7 +90,7 @@ public class AttackCursor : MonoBehaviour
 
     private void OnItemChanged(int slotIndex, InventorySlot slot)
     {
-        if (slot != null && slot.ItemData != null && slot.ItemData.GameObject.GetComponent<IInstrument>() != null)
+        if (slot.ItemData != null && slot.ItemData.GameObject != null && slot.ItemData.GameObject.GetComponent<IInstrument>() != null)
         {
             SetItem(slot.ItemData);
         }

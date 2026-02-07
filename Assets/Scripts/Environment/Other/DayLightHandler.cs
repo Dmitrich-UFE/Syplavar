@@ -17,6 +17,7 @@ public class DayLightHandler : MonoBehaviour
 
     [SerializeField] private int DayDuration;
     [SerializeField] private Transform lightTransform;
+    [SerializeField] private float delta;
     [SerializeField, Range(0f, 1f)] private float dayProgress;
 
     private static float daySpeedMultiple = 1;
@@ -55,7 +56,7 @@ public class DayLightHandler : MonoBehaviour
     void FixedUpdate()
     {
         //движение солнца и счёт времени
-        lightTransform.localEulerAngles = new Vector3(0, dayProgress * 360, 0);
+        lightTransform.localEulerAngles = new Vector3(0, (dayProgress * 360 + delta) % 360, 0);
         dayProgress += Time.deltaTime / DayDuration * daySpeedMultiple;
         Hours = (int)Math.Floor(dayProgress * 24);
         Minutes = (int)Math.Floor(dayProgress * 1440 % 60);

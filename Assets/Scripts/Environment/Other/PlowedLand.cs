@@ -80,8 +80,13 @@ public class PlowedLand : MonoBehaviour, IInteractable
     //реакция объекта на айтем
     (bool, List<IItem>) IInteractable.Interact(IItem item)
     {
-        if (plant?.plantStatus != PlantStatus.has_growed)
+        if (plant?.plantStatus != PlantStatus.has_growed )
         {
+            if (item.GameObject == null)
+            {
+                return (false, null);
+            }
+
             //для мотыги 
             //разрушение культуры: 
             if(item.GameObject.CompareTag("Hoe"))
