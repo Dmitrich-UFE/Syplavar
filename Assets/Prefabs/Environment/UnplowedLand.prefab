@@ -155,4 +155,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _plowedLandPrefab: {fileID: 5556610479304142379, guid: 0730a0a3fdb5ada40bb7f5c817b6c420, type: 3}
-  _groundSpriteRenderer: {fileID: 6645445409418003454}
+  _TreeAdapterPrefab: {fileID: 5344230646840769349, guid: 64943c4ce2891354d9d998fb52f98c39, type: 3}
+  _cursor: {fileID: 0}

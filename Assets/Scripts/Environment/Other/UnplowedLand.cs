@@ -4,6 +4,7 @@ using UnityEngine;
 public class UnplowedLand : MonoBehaviour, IInteractable
 {
     [SerializeField] private GameObject _plowedLandPrefab;
+    [SerializeField] private GameObject _TreeAdapterPrefab;
     [SerializeField] private Cursor _cursor;
 
     private void Awake()
@@ -19,6 +20,13 @@ public class UnplowedLand : MonoBehaviour, IInteractable
 
             return (false, null);
         }
+
+        if (item != null && item.Name == "Саженец дерева" && !(_cursor.interactableObject is PlowedLand))
+        {
+            Instantiate(_TreeAdapterPrefab, _cursor.gameObject.transform.position, Quaternion.identity);
+
+            return (false, null);
+        } 
 
         return (false, null);
     }
