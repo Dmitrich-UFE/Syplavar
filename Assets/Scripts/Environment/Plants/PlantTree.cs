@@ -16,7 +16,7 @@ public class PlantTree : MonoBehaviour, IInteractable
 
     void Awake()
     {
-        daysBeforeGrow = Random.Range(2, 10);
+        daysBeforeGrow = Random.Range(4, 12);
         DayLightHandler._OnTimeReached += Growing;
         actualTreeObject = Instantiate(smallTreeObject, this.transform);
     }
@@ -38,7 +38,7 @@ public class PlantTree : MonoBehaviour, IInteractable
             Debug.Log($"Нанесено {damage} урона дереву");
 
 
-            if (health <= 0)
+            if (actualTreeObject != null && health <= 0)
             {
                 if (isGrowed)
                 {
@@ -47,7 +47,7 @@ public class PlantTree : MonoBehaviour, IInteractable
 
                     foreach (ItemData returningitem in returningItems)
                     {
-                        for (int i = 0; i < Random.Range(3, 6); i++)
+                        for (int i = 0; i < Random.Range(2, 5); i++)
                         {
                             retItems.Add(returningitem);
                         }
@@ -97,6 +97,7 @@ public class PlantTree : MonoBehaviour, IInteractable
     {
         Destroy(actualTreeObject);
         actualTreeObject = Instantiate(GrowedTreeObjects[Random.Range(0, GrowedTreeObjects.Count - 1)], this.transform);
+        isGrowed = true;
         health = Random.Range(10, 70);
     }
 
