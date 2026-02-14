@@ -25,7 +25,7 @@ public class UnplowedLand : MonoBehaviour, IInteractable
         {
             Instantiate(_TreeAdapterPrefab, _cursor.gameObject.transform.position, Quaternion.identity);
 
-            return (false, null);
+            return (true, null);
         } 
 
         return (false, null);

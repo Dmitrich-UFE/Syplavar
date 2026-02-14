@@ -50,7 +50,7 @@ MonoBehaviour:
   returningItems:
   - {fileID: 11400000, guid: 7f99dd9d3c89c884daa772998c71b281, type: 2}
   - {fileID: 11400000, guid: c7a51efce309f144b9c0f145c013c136, type: 2}
-  actualTreeObject: {fileID: 6299266095500019138, guid: 20bd474f848c6a847a4eae80c2b01220, type: 3}
+  smallTreeObject: {fileID: 6299266095500019138, guid: 20bd474f848c6a847a4eae80c2b01220, type: 3}
   GrowedTreeObjects:
   - {fileID: 6486694774368947603, guid: 21bbbede09346d4428f16421774103a5, type: 3}
 --- !u!65 &2743246507100379181
@@ -72,5 +72,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.8, y: 2, z: 0.8}
+  m_Size: {x: 0.6, y: 2, z: 0.6}
   m_Center: {x: 0, y: 0, z: 0}

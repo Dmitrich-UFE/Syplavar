@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class Tree : MonoBehaviour, IInteractable
+public class PlantTree : MonoBehaviour, IInteractable
 {
     
     [SerializeField] private float health;
@@ -9,15 +9,16 @@ public class Tree : MonoBehaviour, IInteractable
     private int daysBeforeGrow;
     [SerializeField] private ItemData[] returningItems;
 
-    [SerializeField] private GameObject actualTreeObject;
+    [SerializeField] private GameObject smallTreeObject;
     [SerializeField] private List<GameObject> GrowedTreeObjects;
+    private GameObject actualTreeObject;
 
 
     void Awake()
     {
         daysBeforeGrow = Random.Range(2, 10);
         DayLightHandler._OnTimeReached += Growing;
-        Instantiate(actualTreeObject, this.transform);
+        actualTreeObject = Instantiate(smallTreeObject, this.transform);
     }
 
 
@@ -32,7 +33,10 @@ public class Tree : MonoBehaviour, IInteractable
         if(item.GameObject.CompareTag("Axe"))
         {
             IInstrument axe = item.GameObject.GetComponent<IInstrument>();
-            health -= axe?.Damage ?? 0;
+            float damage = axe?.Damage ?? 0;
+            health -= damage;
+            Debug.Log($"Нанесено {damage} урона дереву");
+
 
             if (health <= 0)
             {
@@ -91,6 +95,7 @@ public class Tree : MonoBehaviour, IInteractable
 
     void Growed()
     {
+        Destroy(actualTreeObject);
         actualTreeObject = Instantiate(GrowedTreeObjects[Random.Range(0, GrowedTreeObjects.Count - 1)], this.transform);
         health = Random.Range(10, 70);
     }
