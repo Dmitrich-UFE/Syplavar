@@ -27,7 +27,7 @@ public class DayLightHandler : MonoBehaviour
 
     //События
     public delegate void OnTimeReached((int hh, int mm) time);
-    public static event OnTimeReached? _OnTimeReached;
+    public static event OnTimeReached _OnTimeReached;
     private static Dictionary<(int hh, int mm), bool> Times = new Dictionary<(int hh, int mm), bool>();
 
     //Время
