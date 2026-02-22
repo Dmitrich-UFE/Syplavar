@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -34,27 +34,27 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,12 +95,298 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: foliage_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 156
+        width: 46
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7862df7fd5b211f4db1ca4bb82686a9e
+      internalID: 240505599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: foliage_2
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 155
+        width: 37
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeb32c551c08784478098e3267d18b35
+      internalID: -157182538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branch_1
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 118
+        width: 19
+        height: 20
+      alignment: 9
+      pivot: {x: 0.0346114, y: 0.0530983}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6ec8cb3ef9b92043a2695e2de31303f
+      internalID: 562025573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branch_2
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 123
+        width: 23
+        height: 9
+      alignment: 9
+      pivot: {x: 0.020871866, y: 0.20939128}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 181997ebaefaa02418e6b4de83e8d71c
+      internalID: -436838326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branch_3
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 87
+        width: 34
+        height: 17
+      alignment: 9
+      pivot: {x: 0.019937837, y: 0.0697385}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a2a06819149d784dac00e6eb4e4f129
+      internalID: -1347244549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branch_4
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 89
+        width: 39
+        height: 13
+      alignment: 9
+      pivot: {x: 0.016964644, y: 0.7208463}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 199b8155e9628934bbfe06ee36a65188
+      internalID: 1702556111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branch_5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 54
+        width: 30
+        height: 19
+      alignment: 9
+      pivot: {x: 0.51158875, y: 0.022795025}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69fee566c8a04634e9950d2acd42d5b2
+      internalID: -1835936712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branch_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 55
+        width: 17
+        height: 16
+      alignment: 9
+      pivot: {x: 0.07985126, y: 0.091014385}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1712bfdf2371826498d45c21ff51673d
+      internalID: -1081508419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branch_7
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 57
+        width: 26
+        height: 13
+      alignment: 9
+      pivot: {x: 0.030154742, y: 0.04178414}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c52cb0c9bcb0214da2c794260922911
+      internalID: 456614519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branch_8
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 57
+        width: 13
+        height: 15
+      alignment: 9
+      pivot: {x: 0.06711872, y: 0.020647176}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fd5aaffb3bebf14fb9e748880bfb3cc
+      internalID: 1581576715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trunk_1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 3
+        width: 29
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe1483454d94e3944b9dc2c1160b2f41
+      internalID: 1006187730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trunk_2
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 9
+        width: 14
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0419e16581be11a4db761323347aad8a
+      internalID: 1792763586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trunk_3
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 5
+        width: 12
+        height: 37
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8f11c0e9cfe31c49a98a2b78a945b37
+      internalID: -424658937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3ae6ff5097cbbac45a9395ed6d831e64
     internalID: 0
     vertices: []
     indices: 
@@ -109,7 +395,20 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      branch_1: 562025573
+      branch_2: -436838326
+      branch_3: -1347244549
+      branch_4: 1702556111
+      branch_5: -1835936712
+      branch_6: -1081508419
+      branch_7: 456614519
+      branch_8: 1581576715
+      foliage_1: 240505599
+      foliage_2: -157182538
+      trunk_1: 1006187730
+      trunk_2: 1792763586
+      trunk_3: -424658937
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
