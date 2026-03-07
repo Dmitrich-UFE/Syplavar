@@ -7,6 +7,7 @@ public class MusicBox : MonoBehaviour
     [SerializeField] private List<AudioSource> MusicForBattle;
 
     [SerializeField] private List<AudioSource> MusicForClassic;
+    [SerializeField] private AudioSource _audioSource;
 
 
     

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: IronFrags
   m_EditorClassIdentifier: 
   _texture: {fileID: 0}
-  _name: 
-  _maxStack: 0
+  _name: "\u041A\u0443\u0441\u043E\u0447\u043A\u0438 \u0436\u0435\u043B\u0435\u0437\u0430"
+  _maxStack: 99
   _gameObject: {fileID: 0}

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Wheat
   m_EditorClassIdentifier: 
   _texture: {fileID: 0}
-  _name: 
-  _maxStack: 0
+  _name: "\u041F\u0448\u0435\u043D\u0438\u0446\u0430"
+  _maxStack: 99
   _gameObject: {fileID: 0}
