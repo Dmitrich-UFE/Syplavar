@@ -20,6 +20,7 @@ public class MusicBox : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        Clips = new Queue<AudioClip>();
         BattleStatusTracker.SetBattleMode(false); //здесь идет вызов событий
         BattleStatusTracker._OnBattleModeOn += SwitchMusicToBattleMode;
         BattleStatusTracker._OnBattleModeOff += SwitchMusicToClassicMode;

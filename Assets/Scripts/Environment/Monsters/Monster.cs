@@ -4,6 +4,10 @@ public abstract class Monster : MonoBehaviour
 {
     public string Name { get; protected set; }
     public float Health { get; protected set; }
+
+    public float SeekRadius { get; protected set; }
+    public float Damage { get; protected set; }
+
     
     internal void GetDamage(float damage)
     {
@@ -19,6 +23,8 @@ public abstract class Monster : MonoBehaviour
         if (Health < 0.00001f)
             Destroy(this.gameObject);
     }
+
+
 
 
 
