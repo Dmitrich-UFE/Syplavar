@@ -13,6 +13,7 @@ TagManager:
   - WorldObject
   - Axe
   - Monster
+  - Sword
   layers:
   - Default
   - TransparentFX
