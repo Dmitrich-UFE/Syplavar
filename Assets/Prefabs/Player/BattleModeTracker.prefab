@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6435215685814760265}
   - component: {fileID: 2227290460074595602}
+  - component: {fileID: 6483198714167040442}
   m_Layer: 0
   m_Name: BattleModeTracker
   m_TagString: Untagged
@@ -44,3 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a499654c241ef6449e65c774a0880e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6483198714167040442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8491730984547748988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2101fa971c0b18346a2757118e9430de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 0}
