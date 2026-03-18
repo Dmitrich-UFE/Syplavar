@@ -9,6 +9,7 @@ public class Slime: Monster
     [SerializeField] private float _seekDist;
     [SerializeField] private float _attkDist;
     [SerializeField] private NavMeshAgent agent;
+    //[SerializeField] private ??? PlayerHealth;
 
 
     void Awake()
@@ -23,7 +24,27 @@ public class Slime: Monster
         Agent = agent;
     }
 
+    void Attack()
+    {
+        
+    }
 
+    
+    private void OnTriggerEnter(Collider playerObj)
+    {
+        if (playerObj.CompareTag("Player"))
+        {
+
+        }
+    }
+
+    private void OnTriggerExit(Collider playerObj)
+    {
+        if (playerObj.CompareTag("Player"))
+        {
+
+        }
+    }
 
 
     

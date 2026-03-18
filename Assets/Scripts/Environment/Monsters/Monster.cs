@@ -11,7 +11,6 @@ public abstract class Monster : MonoBehaviour
     public float Damage { get; protected set; }
     public float AttackDistance { get; protected set; }
     public NavMeshAgent Agent { get; protected set; }
-
     
     void Start()
     {
@@ -47,8 +46,14 @@ public abstract class Monster : MonoBehaviour
         {
             // Состояние: Атака (остановка и выполнение действия)
             Agent.SetDestination(transform.position); 
+            Attack();
             Debug.Log("Атакую игрока!");
         }
+    }
+
+    void Attack()
+    {
+
     }
 
 }
