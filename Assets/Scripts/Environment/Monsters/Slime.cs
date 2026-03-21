@@ -9,7 +9,7 @@ public class Slime: Monster
     [SerializeField] private float _seekDist;
     [SerializeField] private float _attkDist;
     [SerializeField] private NavMeshAgent agent;
-    //[SerializeField] private ??? PlayerHealth;
+    [SerializeField] private PlayerHealth playerHealth;
 
 
     void Awake()
@@ -26,7 +26,7 @@ public class Slime: Monster
 
     void Attack()
     {
-        
+        playerHealth.Health -= Damage;
     }
 
     
