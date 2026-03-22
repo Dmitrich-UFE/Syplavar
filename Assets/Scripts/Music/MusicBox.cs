@@ -13,7 +13,12 @@ public class MusicBox : MonoBehaviour
     [SerializeField] private Queue<AudioClip> Clips;
 
     [SerializeField] private Coroutine musicCoroutine;
+    [SerializeField] private Coroutine checkingBattleModeCoroutine;
 
+    private bool CheckingBattleMode;
+    private bool isStartMusicCalled;
+    private bool isSetToBattleModeCalled;
+    private bool isSetToClassicModeCalled;
 
     
 
@@ -22,29 +27,75 @@ public class MusicBox : MonoBehaviour
     {
         Clips = new Queue<AudioClip>();
         BattleStatusTracker.SetBattleMode(false); //здесь идет вызов событий
-        BattleStatusTracker._OnBattleModeOn += SwitchMusicToBattleMode;
-        BattleStatusTracker._OnBattleModeOff += SwitchMusicToClassicMode;
+        //BattleStatusTracker._OnBattleModeOn += SwitchMusicToBattleMode;
+        //BattleStatusTracker._OnBattleModeOff += SwitchMusicToClassicMode;
     }
 
     void Start()
     {
-        musicCoroutine =  StartCoroutine(PlayMusic());
+        StartMusic();
+        checkingBattleModeCoroutine = StartCoroutine(CheckBattleMode());
+    }
+    
+    void StartMusic()
+    {
+        if (!isStartMusicCalled)
+        {
+            SetVolume(1f, 1f);
+            musicCoroutine = StartCoroutine(PlayMusic());
+            isStartMusicCalled = true;
+        }
+    }
+
+    void CheckBattleStatus1()
+    {
+        if (BattleStatusTracker.BattleMode == CheckingBattleMode)
+        {
+            StartMusic();
+            CheckingBattleMode = BattleStatusTracker.BattleMode;
+            isSetToClassicModeCalled = false;
+        }
+    }
+
+    void CheckBattleStatus2()
+    {
+        if (BattleStatusTracker.BattleMode == CheckingBattleMode)
+        {
+            StartMusic();
+            CheckingBattleMode = BattleStatusTracker.BattleMode;
+            isSetToBattleModeCalled = false;
+        }
     }
 
     void SwitchMusicToBattleMode()
     {
         Clips.Clear();
-        SetVolume(0f, 14f);
-        AddMusicForBattleMode();
-        SetVolume(1f, 1f);
+        SetVolume(0f, 9f);
+
+        StopCoroutine(musicCoroutine);
+        //CheckingBattleMode = BattleStatusTracker.BattleMode;
+        
+        //if (!isSetToBattleModeCalled) Invoke("CheckBattleStatus2", 1.25f);
+        Invoke("StartMusic", 1.25f);
+        //isSetToBattleModeCalled = true;
+        
     }
 
     void SwitchMusicToClassicMode()
     {
-        Clips.Clear();
-        SetVolume(0f, 34f);
-        AddMusicForClassicMode();
-        SetVolume(0f, 1f);
+        if (!BattleStatusTracker.BattleMode)
+        {
+            Clips.Clear();
+            SetVolume(0f, 24f);
+
+            StopCoroutine(musicCoroutine);
+        //CheckingBattleMode = BattleStatusTracker.BattleMode;
+        
+        //if (!isSetToClassicModeCalled) Invoke("CheckBattleStatus1", 7f);
+        //isSetToClassicModeCalled = true;
+            Invoke("StartMusic", 7f);
+        }
+        
     }
 
 
@@ -70,9 +121,38 @@ public class MusicBox : MonoBehaviour
 
     void OnDestroy()
     {
-        BattleStatusTracker._OnBattleModeOn -= SwitchMusicToBattleMode;
-        BattleStatusTracker._OnBattleModeOff -= SwitchMusicToClassicMode;
+        //BattleStatusTracker._OnBattleModeOn -= SwitchMusicToBattleMode;
+        //BattleStatusTracker._OnBattleModeOff -= SwitchMusicToClassicMode;
         StopCoroutine(musicCoroutine);
+        StopCoroutine(checkingBattleModeCoroutine);
+    }
+
+    IEnumerator CheckBattleMode()
+    {
+        while (true)
+        {
+            if (BattleStatusTracker.BattleMode == CheckingBattleMode)
+            {
+                if (BattleStatusTracker.BattleMode && !isStartMusicCalled)
+                {
+                    SwitchMusicToBattleMode();
+                }
+                else if (!BattleStatusTracker.BattleMode && !isStartMusicCalled)
+                {
+                    Invoke("SwitchMusicToClassicMode", 3f);
+                }
+
+                
+            }
+            else
+            {
+                isStartMusicCalled = false;
+            }
+
+            CheckingBattleMode = BattleStatusTracker.BattleMode;
+
+            yield return new WaitForSecondsRealtime(0.5f);
+        }
     }
 
     IEnumerator PlayMusic()

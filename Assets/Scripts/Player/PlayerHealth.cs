@@ -6,6 +6,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float maxHealth;
 
     private float _health;
+
+    internal bool isDeath { get; private set; }
     internal float Health 
     {
         get
@@ -18,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 Debug.LogWarning("The health is less or equal zero!!!"); 
                 value = 0;
-                TryDeath();
+                isDeath = TryDeath();
             }
             if (value > maxHealth) _health = maxHealth;
             _health = value;

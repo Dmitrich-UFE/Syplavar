@@ -18,7 +18,7 @@ public abstract class Monster : MonoBehaviour
     protected bool isRegedAsBattling;
     protected Coroutine LifeCoroutine;
     
-    void Start()
+    protected virtual void Start()
     {
         isAvailableForAttack = true;
         LifeCoroutine = StartCoroutine(Life());
@@ -38,10 +38,9 @@ public abstract class Monster : MonoBehaviour
         if (Health < 0.00001f)
         {
             StopCoroutine(LifeCoroutine);
-            BattleStatusTracker.RemoveMonsterInBattleMode();
+            if (isRegedAsBattling) BattleStatusTracker.RemoveMonsterInBattleMode();
 
             BattleStatusTracker.BattleMode = BattleStatusTracker.MonstersInBattleMode != 0;
-
             Destroy(this.gameObject);
         }
     }
@@ -79,13 +78,14 @@ public abstract class Monster : MonoBehaviour
                 }   
            
             }
-            else
+            else if (distance > SeekDistance)
             {
                 if (isRegedAsBattling) BattleStatusTracker.RemoveMonsterInBattleMode();
+                BattleStatusTracker.BattleMode = BattleStatusTracker.MonstersInBattleMode != 0;
                 isRegedAsBattling = false;
-
             }
 
+            //Debug.Log(BattleStatusTracker.MonstersInBattleMode);
             yield return new WaitForSecondsRealtime(0.2f);
         }
     }

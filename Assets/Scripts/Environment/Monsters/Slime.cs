@@ -13,7 +13,7 @@ public class Slime: Monster
     [SerializeField] private PlayerHealth playerHealth;
 
 
-    void Awake()
+    protected override void Start()
     {
         Name = _name;
         Health = _health;
@@ -26,6 +26,8 @@ public class Slime: Monster
 
         agent = GetComponent<NavMeshAgent>();
         Agent = agent;
+
+        base.Start();
     }
 
     internal override void Attack()
