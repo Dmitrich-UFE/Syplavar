@@ -8,6 +8,7 @@ public abstract class Monster : MonoBehaviour
     public float Health { get; protected set; }
 
     public float SeekDistance { get; protected set; }
+    public float MaxSeekDistance { get; protected set; }
     public float Damage { get; protected set; }
     public float AttackDistance { get; protected set; }
     public NavMeshAgent Agent { get; protected set; }
@@ -78,7 +79,7 @@ public abstract class Monster : MonoBehaviour
                 }   
            
             }
-            else if (distance > SeekDistance)
+            else if (distance > MaxSeekDistance)
             {
                 if (isRegedAsBattling) BattleStatusTracker.RemoveMonsterInBattleMode();
                 BattleStatusTracker.BattleMode = BattleStatusTracker.MonstersInBattleMode != 0;
