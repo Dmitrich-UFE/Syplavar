@@ -39,6 +39,11 @@ public class MusicBoxAI : MonoBehaviour
 
     //BattleStatusTracker.BattleMode
 
+    void OnDestroy()
+    {
+        BattleStatusTracker._OnBattleModeOn -= SwitchToBattleMusic;
+        BattleStatusTracker._OnBattleModeOff -= SwitchToClassicMusic;
+    }
 
 
     void SwitchMode(bool isCombat)
