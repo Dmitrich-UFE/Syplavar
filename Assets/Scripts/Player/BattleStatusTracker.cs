@@ -4,6 +4,8 @@ public class BattleStatusTracker : MonoBehaviour
 {
     private static bool battleMode;
 
+
+    internal static int MonstersInBattleMode {get; private set; }
     internal static bool BattleMode 
     {
         get
@@ -35,4 +37,7 @@ public class BattleStatusTracker : MonoBehaviour
     {
         BattleMode = _battleMode;
     }
+
+    internal static void AddMonsterInBattleMode() {++MonstersInBattleMode;}
+    internal static void RemoveMonsterInBattleMode() {--MonstersInBattleMode;}
 }

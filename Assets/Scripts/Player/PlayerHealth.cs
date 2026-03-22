@@ -14,7 +14,12 @@ public class PlayerHealth : MonoBehaviour
         }
         set
         {
-            if (value <= 0) Debug.LogError("The health is less or equal zero!!!"); 
+            if (value <= 0) 
+            {
+                Debug.LogWarning("The health is less or equal zero!!!"); 
+                value = 0;
+                TryDeath();
+            }
             if (value > maxHealth) _health = maxHealth;
             _health = value;
         }
@@ -26,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (Health <= 0)
         {
+            Debug.Log("Чел умер");
             return true;
         }
 

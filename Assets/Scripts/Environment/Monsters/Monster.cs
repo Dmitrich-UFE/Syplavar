@@ -11,11 +11,17 @@ public abstract class Monster : MonoBehaviour
     public float Damage { get; protected set; }
     public float AttackDistance { get; protected set; }
     public NavMeshAgent Agent { get; protected set; }
+
+    public float CoolDownSec { get; protected set; }
+
+    protected bool isAvailableForAttack;
+    protected bool isRegedAsBattling;
+    protected Coroutine LifeCoroutine;
     
     void Start()
     {
-
-         
+        isAvailableForAttack = true;
+        LifeCoroutine = StartCoroutine(Life());
     }
 
     internal void GetDamage(float damage)
@@ -30,30 +36,68 @@ public abstract class Monster : MonoBehaviour
     internal void TryDeath()
     {
         if (Health < 0.00001f)
+        {
+            StopCoroutine(LifeCoroutine);
+            BattleStatusTracker.RemoveMonsterInBattleMode();
+
+            BattleStatusTracker.BattleMode = BattleStatusTracker.MonstersInBattleMode != 0;
+
             Destroy(this.gameObject);
+        }
     }
 
     void Update()
     {
-        float distance = Vector3.Distance(PlayerSeeker.GetPlayerTransform().position, transform.position);
-
-        if (distance <= SeekDistance && distance > AttackDistance)
-        {
-            // Состояние: Преследование
-            Agent.SetDestination(PlayerSeeker.GetPlayerTransform().position);
-        }
-        else if (distance <= AttackDistance)
-        {
-            // Состояние: Атака (остановка и выполнение действия)
-            Agent.SetDestination(transform.position); 
-            Attack();
-            Debug.Log("Атакую игрока!");
-        }
+        
     }
 
-    void Attack()
+    IEnumerator Life()
     {
+        while (true)
+        {
+            float distance = Vector3.Distance(PlayerSeeker.GetPlayerTransform().position, transform.position);
 
+            if (distance <= SeekDistance && distance > AttackDistance)
+            {
+                // Состояние: Преследование
+                Agent.SetDestination(PlayerSeeker.GetPlayerTransform().position);
+                
+                if (BattleStatusTracker.BattleMode == false) BattleStatusTracker.BattleMode = true;
+                if (!isRegedAsBattling) BattleStatusTracker.AddMonsterInBattleMode();
+                isRegedAsBattling = true;
+            }
+            else if (distance <= AttackDistance)
+            {
+                // Состояние: Атака (остановка и выполнение действия)
+                Agent.SetDestination(transform.position); 
+
+                if (isAvailableForAttack)
+                {
+                    Attack();
+                    Invoke("switchisAvailableforAttackToTrue", CoolDownSec);
+                    Debug.Log("Атакую игрока!");
+                }   
+           
+            }
+            else
+            {
+                if (isRegedAsBattling) BattleStatusTracker.RemoveMonsterInBattleMode();
+                isRegedAsBattling = false;
+
+            }
+
+            yield return new WaitForSecondsRealtime(0.2f);
+        }
     }
 
+
+
+
+    internal abstract void Attack();
+    
+
+    void switchisAvailableforAttackToTrue()
+    {
+        isAvailableForAttack = true;
+    }
 }

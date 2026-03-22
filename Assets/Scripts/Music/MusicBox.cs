@@ -77,23 +77,25 @@ public class MusicBox : MonoBehaviour
 
     IEnumerator PlayMusic()
     {
-        if (Clips.Count < 1)
+        while(true)
         {
-            if (BattleStatusTracker.BattleMode)
+            if (Clips.Count < 1)
             {
-                AddMusicForBattleMode();
+                if (BattleStatusTracker.BattleMode)
+                {
+                    AddMusicForBattleMode();
+                }
+                else
+                {
+                    AddMusicForClassicMode();
+                }
             }
-            else
-            {
-                AddMusicForClassicMode();
-            }
+
+            _audioSource.clip = Clips.Peek();
+            _audioSource.Play();
+
+            yield return new WaitForSecondsRealtime(Clips.Dequeue().length + UnityEngine.Random.Range(30, 50));
         }
-
-        _audioSource.clip = Clips.Peek();
-        _audioSource.Play();
-
-
-        yield return new WaitForSecondsRealtime(Clips.Dequeue().length + UnityEngine.Random.Range(30, 50));
     }
 
     //fadetime здесь 1 - это 0.05 секунд 
@@ -105,11 +107,14 @@ public class MusicBox : MonoBehaviour
 
     IEnumerator SetVolumeEnumerator(float targetvolume, float deltavolume)
     {
-        _audioSource.volume += deltavolume;
+        while (true)
+        {
+            _audioSource.volume += deltavolume;
 
-        if (math.abs(_audioSource.volume - targetvolume) < 0.01) { yield break; }
+            if (math.abs(_audioSource.volume - targetvolume) < 0.01) { yield break; }
 
-        yield return new WaitForSecondsRealtime(0.05f);
+            yield return new WaitForSecondsRealtime(0.05f);
+        }
     }
 
 }
