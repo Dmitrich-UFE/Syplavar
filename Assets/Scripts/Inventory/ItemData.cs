@@ -12,4 +12,18 @@ public class ItemData : ScriptableObject, IItem
     public string Name => _name;
     public int MaxStack => _maxStack;
     public GameObject GameObject => _gameObject;
+
+    //public void SetGameObject(GameObject go)
+    //{
+    //    _gameObject = go;
+    //}
+
+    //public IItem Copy()
+    //{
+    //    IItem item = Instantiate(this);
+    //    item.SetGameObject(Instantiate(GameObject));
+    //    return item;
+    //}
+
+    
 }

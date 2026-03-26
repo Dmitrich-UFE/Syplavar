@@ -11,6 +11,9 @@ TagManager:
   - Hoe
   - WateringCan
   - WorldObject
+  - Axe
+  - Monster
+  - Sword
   layers:
   - Default
   - TransparentFX
@@ -20,7 +23,7 @@ TagManager:
   - UI
   - DirectRender
   - InteractableObjects
-  - 
+  - Terrain
   - 
   - 
   - 
@@ -45,8 +48,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: ground
+    uniqueID: 2309148489
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: interactableObjects
+    uniqueID: 3746404023
     locked: 0
   m_RenderingLayers:
   - Default

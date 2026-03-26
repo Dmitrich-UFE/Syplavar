@@ -17,20 +17,22 @@ public class DayLightHandler : MonoBehaviour
 
     [SerializeField] private int DayDuration;
     [SerializeField] private Transform lightTransform;
+    [SerializeField] private float delta;
     [SerializeField, Range(0f, 1f)] private float dayProgress;
 
     private static float daySpeedMultiple = 1;
     private static float timeSpeedDuringSleep;
+    private static int StaticDayDuration;
     [SerializeField] private float NonStaticTimeSpeedDuringSleep;
 
     //События
     public delegate void OnTimeReached((int hh, int mm) time);
-    public static event OnTimeReached? _OnTimeReached;
+    public static event OnTimeReached _OnTimeReached;
     private static Dictionary<(int hh, int mm), bool> Times = new Dictionary<(int hh, int mm), bool>();
 
     //Время
-    public int Hours {get; private set;}
-    public int Minutes {get; private set;}
+    public static int Hours {get; private set;}
+    public static int Minutes {get; private set;}
 
     void Awake()
     {
@@ -46,14 +48,15 @@ public class DayLightHandler : MonoBehaviour
     void Start()
     {
         DayLightHandler.timeSpeedDuringSleep = NonStaticTimeSpeedDuringSleep;
+        StaticDayDuration = DayDuration;
         mainGradient = LightGradient;
     }
 
     
-    void Update()
+    void FixedUpdate()
     {
         //движение солнца и счёт времени
-        lightTransform.localEulerAngles = new Vector3(0, dayProgress * 360, 0);
+        lightTransform.localEulerAngles = new Vector3(0, (dayProgress * 360 + delta) % 360, 0);
         dayProgress += Time.deltaTime / DayDuration * daySpeedMultiple;
         Hours = (int)Math.Floor(dayProgress * 24);
         Minutes = (int)Math.Floor(dayProgress * 1440 % 60);
@@ -104,6 +107,9 @@ public class DayLightHandler : MonoBehaviour
     //ускорение хода времени для сна
     public static void SpeedupForSleep()
     {
+        if (timeSpeedDuringSleep > 0 && StaticDayDuration / timeSpeedDuringSleep < 5)
+            Debug.LogWarning("Time Skip is too fast. Please increase DayDuration or decrease NonStatictimeSpeedDuringSleep");
+
         if (timeSpeedDuringSleep > 0)
         {
             daySpeedMultiple = timeSpeedDuringSleep;
@@ -118,6 +124,7 @@ public class DayLightHandler : MonoBehaviour
     //вспомогательный метод для ускорения времени во время сна
     private static void CheckWakeTime((int hh, int mm) time)
     {
+        //Debug.Log($"{time.hh} {time.mm}");
         if (time == (07, 00))
         {
             daySpeedMultiple = 1;
@@ -131,7 +138,7 @@ public class DayLightHandler : MonoBehaviour
     {
         foreach (var time in Times)
         {
-            if (math.abs((time.Key.hh * 60 + time.Key.mm) - (Hours * 60 + Minutes)) < 2)
+            if (math.abs((time.Key.hh * 60f + time.Key.mm) - (Hours * 60f + Minutes)) <= 2f)
                 return time.Key;
         }
 
