@@ -14,6 +14,11 @@ public class UIHandlerMainMenu : MonoBehaviour
     [SerializeField] private Slider _ambientSlider;
     [SerializeField] private Slider _soundSlider;
 
+    void Awake()
+    {
+        fsToggle.isOn = Screen.fullScreen;
+        fsToggle.onValueChanged.AddListener(SetFullScreen);
+    }
 
     public void OpenGameWorld()
     {
@@ -34,5 +39,11 @@ public class UIHandlerMainMenu : MonoBehaviour
     {
         AudioVolumes.audioVolumes.SaveSettings();
         _settingsMenu.SetActive(false);
+    }
+
+    public void SetFullScreen(bool isfscreen)
+    {
+        Screen.fullScreen = isfscreen;
+        Debug.Log("Fullscreen mode is now: " + isfscreen);
     }
 }

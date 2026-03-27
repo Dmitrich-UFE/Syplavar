@@ -15,4 +15,4 @@ MonoBehaviour:
   _texture: {fileID: 1152538449, guid: 05af6b8ac5e3f744fac7eb5650f3d132, type: 3}
   _name: "\u0421\u0435\u043C\u0435\u043D\u0430 \u0441\u0432\u0435\u043A\u043B\u044B"
   _maxStack: 99
-  _gameObject: {fileID: 0}
+  _gameObject: {fileID: 1246113933929022538, guid: 669d9830163cb01409a6b83a908dfc9d, type: 3}

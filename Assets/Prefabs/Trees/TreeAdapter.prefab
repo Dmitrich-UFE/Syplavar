@@ -53,6 +53,10 @@ MonoBehaviour:
   smallTreeObject: {fileID: 6299266095500019138, guid: 20bd474f848c6a847a4eae80c2b01220, type: 3}
   GrowedTreeObjects:
   - {fileID: 6486694774368947603, guid: 21bbbede09346d4428f16421774103a5, type: 3}
+  - {fileID: 6486694774368947603, guid: e17a89f11154aaa4688aec4eda0ba5c4, type: 3}
+  - {fileID: 6486694774368947603, guid: 3e0acf824ac6f8848b4ae78c23f57851, type: 3}
+  actualTreeObject: {fileID: 0}
+  isNeedGenerate: 1
 --- !u!65 &2743246507100379181
 BoxCollider:
   m_ObjectHideFlags: 0

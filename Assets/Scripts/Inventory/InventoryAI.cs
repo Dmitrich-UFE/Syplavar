@@ -34,6 +34,7 @@ public class InventoryAI : MonoBehaviour
             inventorySlots[i] = new InventorySlotAI(_defaultItem, 1);
             inventorySlots[i].SetDefaultItem(_defaultItem);
             inventorySlotsUI[i].SetInventorySlot(inventorySlots[i]);
+            inventorySlotsUI[i].Index = i;
         }
 
         for (int i = 0; i < _maxCountLowInventory; i++)
@@ -164,6 +165,27 @@ public class InventoryAI : MonoBehaviour
         } 
 
         return count;
+    }
+
+    //меняет элементы местами по индексу
+    internal void SwapElements(int sendIndex, int recIndex)
+    {
+        InventorySlotAI invSlot = inventorySlots[recIndex];
+        inventorySlots[recIndex] = inventorySlots[sendIndex];
+        inventorySlots[sendIndex] = invSlot;
+
+        inventorySlotsUI[recIndex].SetInventorySlot(inventorySlots[recIndex]);
+        inventorySlotsUI[sendIndex].SetInventorySlot(inventorySlots[sendIndex]);
+
+        DrawInventory();
+
+        if (sendIndex < _maxCountLowInventory)
+            lowerInventorySlotsUI[sendIndex].SetInventorySlot(inventorySlots[sendIndex]);
+        if (recIndex < _maxCountLowInventory)
+            lowerInventorySlotsUI[recIndex].SetInventorySlot(inventorySlots[recIndex]);
+        
+
+        DrawLowerInventory();
     }
 
 

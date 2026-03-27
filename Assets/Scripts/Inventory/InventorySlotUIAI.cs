@@ -9,6 +9,7 @@ public class InventorySlotUIAI : MonoBehaviour
     [SerializeField] private Image _selectionSprite;
 
     internal InventorySlotAI MySlot {get; private set;}
+    internal int Index {get; set;}
 
     
 

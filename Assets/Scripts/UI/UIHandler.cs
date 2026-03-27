@@ -9,6 +9,8 @@ public class UIHandler : MonoBehaviour
     private PlayerInputActions _playerInputActions;
     [SerializeField] private InventoryAI _inventoryAI;
     //[SerializeField] private AudioVolumes _audioVolumes;
+    [SerializeField] private GameObject _cursor;
+    [SerializeField] private GameObject _attackCursor;
     [SerializeField] private GameObject _bigInventory;
     [SerializeField] private GameObject _lowerInventory;
     [SerializeField] private GameObject _pauseMenu;
@@ -41,6 +43,8 @@ public class UIHandler : MonoBehaviour
         _pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         _lowerInventory.SetActive(true);
+
+        SetOnCursor();
     }
 
     void OpenBigInventory(InputAction.CallbackContext context)
@@ -48,16 +52,22 @@ public class UIHandler : MonoBehaviour
         if (isBigInvOpen)
         {
             _inventoryAI.DrawLowerInventory();
+            Time.timeScale = 1f;
             _lowerInventory.SetActive(true);
             _bigInventory.SetActive(false);
             isBigInvOpen = false;
+
+            SetOnCursor();
         }
         else if (!isPauseMenuOpen)
         {
             _lowerInventory.SetActive(false);
             _bigInventory.SetActive(true);
+            Time.timeScale = 0f;
             _inventoryAI.DrawInventory();
             isBigInvOpen = true;
+
+            SetOffCursor();
         }
     }
 
@@ -69,6 +79,8 @@ public class UIHandler : MonoBehaviour
             _pauseMenu.SetActive(true);
             Time.timeScale = 0f;
             isPauseMenuOpen = true;
+
+            SetOffCursor();
         }
         else if (isPauseMenuOpen)
         {
@@ -79,6 +91,8 @@ public class UIHandler : MonoBehaviour
             Time.timeScale = 1f;
             isPauseMenuOpen = false;
             _lowerInventory.SetActive(true);
+
+            SetOnCursor();
         }
     }
 
@@ -112,6 +126,18 @@ public class UIHandler : MonoBehaviour
     {
         Screen.fullScreen = isfscreen;
         Debug.Log("Fullscreen mode is now: " + isfscreen);
+    }
+
+    private void SetOffCursor()
+    {
+        _attackCursor.SetActive(false);
+        _cursor.SetActive(false);
+    }
+
+    private void SetOnCursor()
+    {
+        _cursor.SetActive(true);
+        _attackCursor.SetActive(true);
     }
 
     private void OnEnable()

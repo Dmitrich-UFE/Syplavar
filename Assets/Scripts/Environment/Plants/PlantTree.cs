@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class PlantTree : MonoBehaviour, IInteractable
 {
@@ -11,14 +12,29 @@ public class PlantTree : MonoBehaviour, IInteractable
 
     [SerializeField] private GameObject smallTreeObject;
     [SerializeField] private List<GameObject> GrowedTreeObjects;
-    private GameObject actualTreeObject;
+    [SerializeField] private GameObject actualTreeObject;
+    [SerializeField] private bool isNeedGenerate;
 
 
     void Awake()
     {
-        daysBeforeGrow = Random.Range(4, 12);
-        DayLightHandler._OnTimeReached += Growing;
-        actualTreeObject = Instantiate(smallTreeObject, this.transform);
+        this.transform.position = new Vector3(Mathf.Round(this.transform.position.x), this.transform.position.y, Mathf.Round(this.transform.position.z));
+
+        if (isGrowed && isNeedGenerate)
+        {
+            actualTreeObject = Instantiate(GrowedTreeObjects[UnityEngine.Random.Range(0, GrowedTreeObjects.Count - 1)], this.transform);
+            health = UnityEngine.Random.Range(10, 70);
+        }
+        else if (isGrowed && !isNeedGenerate)
+        {
+            health = UnityEngine.Random.Range(10, 70);
+        }
+        else
+        {
+            daysBeforeGrow = UnityEngine.Random.Range(4, 12);
+            DayLightHandler._OnTimeReached += Growing;
+            actualTreeObject = Instantiate(smallTreeObject, this.transform);
+        }
     }
 
 
@@ -47,7 +63,7 @@ public class PlantTree : MonoBehaviour, IInteractable
 
                     foreach (ItemData returningitem in returningItems)
                     {
-                        for (int i = 0; i < Random.Range(2, 5); i++)
+                        for (int i = 0; i < UnityEngine.Random.Range(2, 5); i++)
                         {
                             retItems.Add(returningitem);
                         }
@@ -96,9 +112,9 @@ public class PlantTree : MonoBehaviour, IInteractable
     void Growed()
     {
         Destroy(actualTreeObject);
-        actualTreeObject = Instantiate(GrowedTreeObjects[Random.Range(0, GrowedTreeObjects.Count - 1)], this.transform);
+        actualTreeObject = Instantiate(GrowedTreeObjects[UnityEngine.Random.Range(0, GrowedTreeObjects.Count - 1)], this.transform);
         isGrowed = true;
-        health = Random.Range(10, 70);
+        health = UnityEngine.Random.Range(10, 70);
     }
 
     void OnDestroy()
