@@ -14,10 +14,13 @@ public class PlantTree : MonoBehaviour, IInteractable
     [SerializeField] private List<GameObject> GrowedTreeObjects;
     [SerializeField] private GameObject actualTreeObject;
     [SerializeField] private bool isNeedGenerate;
+    [SerializeField] private GameObject EditorGO;
 
 
     void Awake()
     {
+        Destroy(EditorGO);
+        
         this.transform.position = new Vector3(Mathf.Round(this.transform.position.x), this.transform.position.y, Mathf.Round(this.transform.position.z));
 
         if (isGrowed && isNeedGenerate)

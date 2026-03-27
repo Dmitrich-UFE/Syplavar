@@ -253,8 +253,8 @@ MonoBehaviour:
   _name: "\u0421\u043B\u0430\u0439\u043C"
   _health: 35
   _damage: 7
-  _seekDist: 7
-  _maxseekDist: 8
+  _seekDist: 8
+  _maxseekDist: 9
   _attkDist: 2
   _coolDownSec: 2.5
   agent: {fileID: 3043492201631244412}
