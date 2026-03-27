@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8866122169056907206}
   - component: {fileID: 2083055869436519621}
   m_Layer: 0
-  m_Name: TomatoPlant
+  m_Name: IronFlowerPlant
   m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _growingPhase: 0
-  _phaseSprite: {fileID: 449873101, guid: 6227219165459204f841061146f9eae0, type: 3}
+  _phaseSprite: {fileID: 1373884311, guid: 5607398e5425dc74690ea54b62c7ea82, type: 3}
   _plantStatus: 0
-  _growingPhasesSprites: {fileID: 11400000, guid: 7df0b6ec79512094caf184122a167404, type: 2}
+  _growingPhasesSprites: {fileID: 11400000, guid: d8cebe703bfe02b4cab48df6ca8b32d7, type: 2}
   _returningItems:
-  - {fileID: 11400000, guid: 2130f645b6d96ab48a65e4c8e47b27ce, type: 2}
-  - {fileID: 11400000, guid: 8133053b5c9696b41b4a5e7a5a95648c, type: 2}
+  - {fileID: 11400000, guid: 66797af8420bef74a9c8690947c316da, type: 2}
+  - {fileID: 11400000, guid: b4909a5b7939df94e8567306a08d983a, type: 2}

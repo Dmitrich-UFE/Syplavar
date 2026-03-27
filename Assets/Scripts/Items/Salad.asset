@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc48404ab25b87b4ca4e18851c35b81d, type: 3}
   m_Name: Salad
   m_EditorClassIdentifier: 
-  _texture: {fileID: 0}
+  _texture: {fileID: 21300000, guid: a5c68392a96525a49ac4ab003922f266, type: 3}
   _name: "\u041C\u0438\u0441\u043A\u0430 \u0441\u0430\u043B\u0430\u0442\u0430"
   _maxStack: 99
   _gameObject: {fileID: 0}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc48404ab25b87b4ca4e18851c35b81d, type: 3}
   m_Name: Wood
   m_EditorClassIdentifier: 
-  _texture: {fileID: 0}
+  _texture: {fileID: 21300000, guid: 7e4314bd4b86f3145ba190cc03f170ec, type: 3}
   _name: "\u0414\u0440\u0435\u0432\u0435\u0441\u0438\u043D\u0430"
   _maxStack: 99
   _gameObject: {fileID: 0}

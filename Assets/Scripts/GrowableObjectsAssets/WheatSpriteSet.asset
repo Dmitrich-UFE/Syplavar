@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef9168880b6fe5843b6ab4dabd974c1f, type: 3}
+  m_Name: WheatSpriteSet
+  m_EditorClassIdentifier: 
+  GrowingPhaseSprites:
+  - {fileID: 1879999188, guid: 71f34652e3f57464eb54731197f5d07c, type: 3}
+  - {fileID: -842996439, guid: 71f34652e3f57464eb54731197f5d07c, type: 3}
+  - {fileID: -110519695, guid: 71f34652e3f57464eb54731197f5d07c, type: 3}
+  - {fileID: -1815576612, guid: 71f34652e3f57464eb54731197f5d07c, type: 3}
+  - {fileID: 2057086035, guid: 71f34652e3f57464eb54731197f5d07c, type: 3}
+  - {fileID: 2061935071, guid: 71f34652e3f57464eb54731197f5d07c, type: 3}
+  - {fileID: 1482160261, guid: 71f34652e3f57464eb54731197f5d07c, type: 3}
+  - {fileID: 359559463, guid: 71f34652e3f57464eb54731197f5d07c, type: 3}

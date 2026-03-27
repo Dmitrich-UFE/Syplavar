@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8866122169056907206}
   - component: {fileID: 2083055869436519621}
   m_Layer: 0
-  m_Name: TomatoPlant
+  m_Name: PotatoPlant
   m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,9 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _growingPhase: 0
-  _phaseSprite: {fileID: 449873101, guid: 6227219165459204f841061146f9eae0, type: 3}
+  _phaseSprite: {fileID: 1800462367, guid: a43aec499a9555e41a8b33fa05dd174c, type: 3}
   _plantStatus: 0
-  _growingPhasesSprites: {fileID: 11400000, guid: 7df0b6ec79512094caf184122a167404, type: 2}
+  _growingPhasesSprites: {fileID: 11400000, guid: 3cbed8afcba05f6498a5f2a5387bf22a, type: 2}
   _returningItems:
-  - {fileID: 11400000, guid: 2130f645b6d96ab48a65e4c8e47b27ce, type: 2}
-  - {fileID: 11400000, guid: 8133053b5c9696b41b4a5e7a5a95648c, type: 2}
+  - {fileID: 11400000, guid: 6326a52c08850b44daf84332bf405270, type: 2}
