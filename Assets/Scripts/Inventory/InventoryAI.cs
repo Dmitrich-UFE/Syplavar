@@ -17,7 +17,7 @@ public class InventoryAI : MonoBehaviour
     [SerializeField] private int _length;
     [SerializeField] private int _maxCountLowInventory;
 
-    public UnityAction<InventorySlot> OnInventorySlotChanged;
+    //public UnityAction<InventorySlot> OnInventorySlotChanged;
     public event System.Action<int, InventorySlotAI> OnSelectedSlotChanged;
 
     //инициализация
@@ -70,7 +70,84 @@ public class InventoryAI : MonoBehaviour
 
     //void UseSelectItem(int amount = 1) вызывает OnSelectedSlotChanged?.Invoke(_currentSelectedIndex, GetSelectedSlot());
 
-    //AddToInventory(ItemData itemToAdd, int amountToAdd) вызывает UnityAction<InventorySlot> OnInventorySlotChanged;
+    //bool AddToInventory(ItemData itemToAdd, int amountToAdd) вызывает UnityAction<InventorySlot> OnInventorySlotChanged;
+
+
+    //Добавляет айтемы. Возвращает true, если получилось добавить ВСЁ
+    bool AddToInventory(ItemData itemToAdd, int count)
+    {
+        if (itemToAdd == null || CheckFreePlaces(itemToAdd) < count) return false;
+
+        for (int i = 1; i < _length; i++)
+        {
+            if (count > 0)
+            {
+                count = inventorySlots[i].AddToSlot(count);
+            }
+        }
+
+        DrawLowerInventory();
+        return true;
+    }
+
+
+    //Списывает айтемы. Возвращает true, если получилось
+    bool UseActiveItem(int count = 1)
+    {
+        InventorySlotAI actItem = GetActiveItem();
+        if (actItem != null && count <= CheckCountOfItem(actItem.ItemData))
+        {
+            for (int i = 1; i < _length; i++)
+            {
+                if (count > 0)
+                {
+                    count = inventorySlots[i].RemoveFromSlot(count);
+                }
+            }
+
+            OnSelectedSlotChanged?.Invoke(_activeIndex, GetActiveItem());
+            return true;
+        }
+
+        DrawLowerInventory();
+        return false;
+    }
+
+    //Проверяет кол-во поданного предмета
+    int CheckCountOfItem(ItemData item)
+    {
+        int count = 0;
+
+        for (int i = 1; i < _length; i++)
+        {
+            if (item != null && item == inventorySlots[i].ItemData)
+            {
+                count += inventorySlots[i].StackSize;
+            }
+        }
+
+        return count;
+    }
+
+    //Проверяет кол-во свободного места для этого айтема
+    int CheckFreePlaces(ItemData item)
+    {
+        int count = 0;
+
+        for (int i = 1; i < _length; i++)
+        {
+            if (inventorySlots[i].isEmpty())
+            {
+                count += inventorySlots[i].ItemData.MaxStack;
+            }
+            else if (item == inventorySlots[i].ItemData)
+            {
+                count += inventorySlots[i].ItemData.MaxStack - inventorySlots[i].StackSize;
+            }
+        } 
+
+        return count;
+    }
 
 
     //событие прокрутки мыши для выбора слота
@@ -104,7 +181,7 @@ public class InventoryAI : MonoBehaviour
 
 
     //меняет выбранный элемент из нижнего инвентаря по индексу
-    internal void SetActiveSlot(int index)
+    private void SetActiveSlot(int index)
     {
         if (index < 0 || index >= _maxCountLowInventory) return;
 
