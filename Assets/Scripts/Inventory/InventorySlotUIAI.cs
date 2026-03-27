@@ -15,7 +15,6 @@ public class InventorySlotUIAI : MonoBehaviour
     //отрисовка ячейки
     internal void Redraw()
     {
-        if (MySlot.isEmpty()) return;
         _itemSprite.sprite = MySlot.ItemData.Texture;
         _itemCountText.text = MySlot.StackSize > 1 ? MySlot.StackSize.ToString() : "";
     }

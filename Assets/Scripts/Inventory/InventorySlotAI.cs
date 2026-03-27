@@ -4,6 +4,7 @@ public class InventorySlotAI
 {
     [SerializeField] private ItemData _itemData;
     [SerializeField] private int _stackSize;
+    private ItemData _defaultItem;
 
     public ItemData ItemData => _itemData;
     public int StackSize => _stackSize;
@@ -20,6 +21,11 @@ public class InventorySlotAI
     {
         _itemData = item;
         _stackSize = amount;
+    }
+
+    internal void SetDefaultItem(ItemData item)
+    {
+        _defaultItem = item;
     }
 
     internal InventorySlotAI()
@@ -41,6 +47,7 @@ public class InventorySlotAI
     //Добавляет некоторое кол-во предметов. Возвращает кол-во предметов, которые нужно добавить
     internal int AddToSlot(int amount)
     {
+
         if (_itemData.MaxStack < _stackSize + amount)
         {
             int _size = _stackSize;
@@ -58,7 +65,7 @@ public class InventorySlotAI
         if (_stackSize <= amount)
         {
             int _size = _stackSize;
-            Clear();
+            SetItem(_defaultItem, 1);
             return amount - _size;
         }
 
@@ -69,7 +76,7 @@ public class InventorySlotAI
     //Является ли слот пустым?
     internal bool isEmpty()
     {
-        return _itemData == null;
+        return _itemData == null || _itemData.Name == _defaultItem.Name;
     }
     
 }

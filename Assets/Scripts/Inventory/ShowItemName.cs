@@ -8,6 +8,7 @@ public class ShowItemName : MonoBehaviour
 
 
     [SerializeField] private StaticInventoryDisplay _hotbar;
+    [SerializeField] private InventoryAI _inventoryAI;
     [SerializeField] private Cursor _cursor;
     [SerializeField] private float _delay;
     [SerializeField] private TMP_Text _uiText;
@@ -15,13 +16,14 @@ public class ShowItemName : MonoBehaviour
 
     void Awake()
     {
-        _hotbar.OnSelectedSlotChanged += OnHotbarSelectionChanged;
+        //_hotbar.OnSelectedSlotChanged += OnHotbarSelectionChanged;
+        _inventoryAI.OnSelectedSlotChanged += OnHotbarSelectionChanged;
         _cursor.OnSelectedItemUsed += OnCurrentObjUsed;
         _uiText.text = "";
     }
 
     //Смена слота
-    private void  OnHotbarSelectionChanged(int slotIndex, InventorySlot slot)
+    private void  OnHotbarSelectionChanged(int slotIndex, InventorySlotAI slot)
     {
         if (slot != null && slot.ItemData != null)
         {
