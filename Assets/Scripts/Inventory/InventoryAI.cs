@@ -103,20 +103,30 @@ public class InventoryAI : MonoBehaviour
         InventorySlotAI actItem = GetActiveItem();
         if (actItem != null && count <= CheckCountOfItem(actItem.ItemData))
         {
-            for (int i = 1; i < _length; i++)
+            if (count <= actItem.StackSize)
             {
-                if (count > 0)
+                actItem.RemoveFromSlot(count);
+            }
+            else
+            {
+                ItemData actitemtype = GetActiveItem().ItemData;
+                count = actItem.RemoveFromSlot(count);
+                for (int i = 1; i < _length; i++)
                 {
-                    count = inventorySlots[i].RemoveFromSlot(count);
+                    if (count > 0 && actitemtype == inventorySlots[i].ItemData)
+                    {
+                        count = inventorySlots[i].RemoveFromSlot(count);
+                    }
                 }
             }
 
             OnSelectedSlotChanged?.Invoke(_activeIndex, GetActiveItem());
+            Debug.Log("Списаны предметы");
+            DrawLowerInventory();
             return true;
         }
 
         DrawLowerInventory();
-        Debug.Log("Списаны предметы");
         return false;
     }
 

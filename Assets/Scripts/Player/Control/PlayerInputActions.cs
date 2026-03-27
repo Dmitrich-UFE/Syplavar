@@ -162,6 +162,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""OpenBigInventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""973f9a8a-b6fe-4348-86e8-31b651b4d9b7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -395,6 +404,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""SelectItemByKeyboard"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d2ef6d61-5c78-4eaf-91ec-5cc6fcd5884f"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenBigInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -423,6 +443,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_MouseScroll = m_Player.FindAction("MouseScroll", throwIfNotFound: true);
         m_Player_SelectItemByKeyboard = m_Player.FindAction("SelectItemByKeyboard", throwIfNotFound: true);
+        m_Player_OpenBigInventory = m_Player.FindAction("OpenBigInventory", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -511,6 +532,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_MouseScroll;
     private readonly InputAction m_Player_SelectItemByKeyboard;
+    private readonly InputAction m_Player_OpenBigInventory;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -554,6 +576,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/SelectItemByKeyboard".
         /// </summary>
         public InputAction @SelectItemByKeyboard => m_Wrapper.m_Player_SelectItemByKeyboard;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/OpenBigInventory".
+        /// </summary>
+        public InputAction @OpenBigInventory => m_Wrapper.m_Player_OpenBigInventory;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -604,6 +630,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SelectItemByKeyboard.started += instance.OnSelectItemByKeyboard;
             @SelectItemByKeyboard.performed += instance.OnSelectItemByKeyboard;
             @SelectItemByKeyboard.canceled += instance.OnSelectItemByKeyboard;
+            @OpenBigInventory.started += instance.OnOpenBigInventory;
+            @OpenBigInventory.performed += instance.OnOpenBigInventory;
+            @OpenBigInventory.canceled += instance.OnOpenBigInventory;
         }
 
         /// <summary>
@@ -639,6 +668,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SelectItemByKeyboard.started -= instance.OnSelectItemByKeyboard;
             @SelectItemByKeyboard.performed -= instance.OnSelectItemByKeyboard;
             @SelectItemByKeyboard.canceled -= instance.OnSelectItemByKeyboard;
+            @OpenBigInventory.started -= instance.OnOpenBigInventory;
+            @OpenBigInventory.performed -= instance.OnOpenBigInventory;
+            @OpenBigInventory.canceled -= instance.OnOpenBigInventory;
         }
 
         /// <summary>
@@ -748,5 +780,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSelectItemByKeyboard(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "OpenBigInventory" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOpenBigInventory(InputAction.CallbackContext context);
     }
 }
