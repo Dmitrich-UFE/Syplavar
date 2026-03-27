@@ -111,6 +111,11 @@ internal class Cursor : MonoBehaviour
         //_hotbar.OnSelectedSlotChanged += OnHotbarSelectionChanged;
         _inventoryAI.OnSelectedSlotChanged += OnHotbarSelectionChanged;
         //InventorySlot slot = _hotbar.GetSelectedSlot();
+        
+    }
+
+    void Start()
+    {
         InventorySlotAI slot = _inventoryAI.GetActiveItem();
         if (slot != null && slot.ItemData != null)
         {

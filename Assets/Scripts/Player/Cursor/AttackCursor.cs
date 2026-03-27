@@ -28,6 +28,11 @@ public class AttackCursor : MonoBehaviour
         _inventoryAI.OnSelectedSlotChanged += OnItemChanged;
 
         //InventorySlot slot = _hotbar.GetSelectedSlot();
+        
+    }
+
+    void Start()
+    {
         InventorySlotAI slot = _inventoryAI.GetActiveItem();
         if (slot != null && slot.ItemData != null)
         {

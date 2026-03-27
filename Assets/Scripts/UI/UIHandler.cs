@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+
 
 public class UIHandler : MonoBehaviour
 {
     private PlayerInputActions _playerInputActions;
     [SerializeField] private InventoryAI _inventoryAI;
-    [SerializeField] private AudioVolumes _audioVolumes;
+    //[SerializeField] private AudioVolumes _audioVolumes;
     [SerializeField] private GameObject _bigInventory;
     [SerializeField] private GameObject _lowerInventory;
     [SerializeField] private GameObject _pauseMenu;
@@ -38,6 +40,7 @@ public class UIHandler : MonoBehaviour
         _helpMenu.SetActive(false);
         _pauseMenu.SetActive(false);
         Time.timeScale = 1f;
+        _lowerInventory.SetActive(true);
     }
 
     void OpenBigInventory(InputAction.CallbackContext context)
@@ -81,11 +84,18 @@ public class UIHandler : MonoBehaviour
 
     public void OpenSettings()
     {
+        AudioVolumes.audioVolumes.LoadSettings();
         _settingsMenu.SetActive(true);
         fsToggle.isOn = Screen.fullScreen;
-        _ambientSlider.value = _audioVolumes.AmbientVolume;
-        _musicSlider.value = _audioVolumes.MusicVolume;
-        _soundSlider.value = _audioVolumes.SoundVolume;
+        _ambientSlider.value = AudioVolumes.audioVolumes.AmbientVolume;
+        _musicSlider.value = AudioVolumes.audioVolumes.MusicVolume;
+        _soundSlider.value = AudioVolumes.audioVolumes.SoundVolume;
+    }
+
+    public void CloseSettings()
+    {
+        AudioVolumes.audioVolumes.SaveSettings();
+        _settingsMenu.SetActive(false);
     }
 
     public void OpenHelpMenu()
@@ -95,7 +105,7 @@ public class UIHandler : MonoBehaviour
 
     public void EscapeToMainMenu()
     {
-
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void SetFullScreen(bool isfscreen)
