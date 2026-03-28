@@ -4,7 +4,7 @@ public class WateringCan: MonoBehaviour, IInstrument
 {
     [SerializeField] private uint _maxCapacity;
     float IInstrument.Damage {get;} = 0;
-    [SerializeField] uint _waterCapaсity;
+    [SerializeField] internal uint _waterCapaсity {get; private set;}
 
     void Start()
     {

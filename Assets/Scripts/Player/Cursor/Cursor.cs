@@ -2,20 +2,25 @@ using UnityEngine;
 
 internal class Cursor : MonoBehaviour
 {
-    [SerializeField] private ItemData _CurrentItem;
+    [SerializeField] private ItemData CurrentItem;
+    //[SerializeField] private ItemData _CurrentItem;
     [SerializeField] private StaticInventoryDisplay _hotbar;
+    [SerializeField] private InventoryAI _inventoryAI;
 
-    internal IItem CurrentItem { get; private set; }
+    //internal IItem CurrentItem { get; private set; }
     internal IInteractable interactableObject {get; private set;}
     [SerializeField] private Transform Archor;
     [SerializeField] private InventoryHolder _inventoryHolder;
     private Transform thisTransform;
     private PlayerInputActions _playerInputActions;
 
+    public event System.Action<IItem> OnSelectedItemUsed;
+
     //голая земля
     [SerializeField] GameObject unplowedLand_GameObject;
     internal IInteractable unplowedLand {get; private set;}
     [SerializeField] private SpriteRenderer _cursorSpriteR;
+
 
     public void SetItem(ItemData newItem)
     {
@@ -25,19 +30,23 @@ internal class Cursor : MonoBehaviour
     //если интерактивный объект будет null, то имеет смысл присваивать свойству объект голой земли через ??
     void InteractWith(IInteractable interactableObject)
     {
-        if (interactableObject == null)
+        if (interactableObject == null || interactableObject.Equals(null))
         {
             this.interactableObject = unplowedLand;
             interactableObject = unplowedLand;
         }
 
         //Debug.Log($"взаимодействие с {interactableObject} чем? {CurrentItem.Name}");
+        //if (_inventoryAI.CheckCountOfItem(CurrentItem) < 1) return;
+        
         var val = interactableObject.Interact(CurrentItem);
+        OnSelectedItemUsed?.Invoke(CurrentItem);
 
         if (val.isDebitNeed)
         {
             // Списать предмет, если вернул true.
-            _hotbar.UseSelectItem();
+            //_hotbar.UseSelectItem();
+            _inventoryAI.UseActiveItem();
         }
 
         if (val.gettingItems != null && val.gettingItems.Count > 0)
@@ -45,7 +54,8 @@ internal class Cursor : MonoBehaviour
             foreach (var item in val.gettingItems)
             {
                 //закинуть по предмету в инвентарь
-                _inventoryHolder.InventorySystem.AddToInventory((ItemData)item, 1);
+                _inventoryAI.AddToInventory((ItemData)item, 1);
+                //_inventoryHolder.InventorySystem.AddToInventory((ItemData)item, 1);
             }
 
 
@@ -77,7 +87,7 @@ internal class Cursor : MonoBehaviour
     }
 
     // Обработка события изменения выбранного слота
-    private void OnHotbarSelectionChanged(int slotIndex, InventorySlot slot)
+    private void OnHotbarSelectionChanged(int slotIndex, InventorySlotAI slot)
     {
         if (slot != null && slot.ItemData != null)
         {
@@ -92,15 +102,21 @@ internal class Cursor : MonoBehaviour
     void Awake()
     {
         unplowedLand = unplowedLand_GameObject.GetComponent<IInteractable>();
-        CurrentItem = _CurrentItem;
+        //CurrentItem = _CurrentItem;
 
         _playerInputActions = new PlayerInputActions();
         thisTransform = GetComponent<Transform>();
         _playerInputActions.Player.Interact.performed += context => InteractWith(interactableObject);
 
-        _hotbar.OnSelectedSlotChanged += OnHotbarSelectionChanged;
+        //_hotbar.OnSelectedSlotChanged += OnHotbarSelectionChanged;
+        _inventoryAI.OnSelectedSlotChanged += OnHotbarSelectionChanged;
+        //InventorySlot slot = _hotbar.GetSelectedSlot();
+        
+    }
 
-        InventorySlot slot = _hotbar.GetSelectedSlot();
+    void Start()
+    {
+        InventorySlotAI slot = _inventoryAI.GetActiveItem();
         if (slot != null && slot.ItemData != null)
         {
             SetItem(slot.ItemData);
@@ -109,7 +125,8 @@ internal class Cursor : MonoBehaviour
 
     void Update()
     {
-        SetPosition();
+        //SetPosition();
+        //Debug.Log($"aa {interactableObject}");
     }
 
 

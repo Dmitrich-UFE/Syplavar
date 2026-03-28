@@ -6,4 +6,7 @@ public interface IItem
     string Name { get; }
     int MaxStack { get; }
     GameObject GameObject { get; }
+
+    //IItem Copy();
+    //void SetGameObject(GameObject go);
 }
