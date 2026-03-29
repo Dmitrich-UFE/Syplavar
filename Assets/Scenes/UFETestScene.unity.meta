@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/UFETestScene.unity.meta
+guid: 18898e76aada54e45ab0ad0cccce5c32
+========
+guid: cd95f3b8260b6414cb7a57314cbe4f08
+>>>>>>>> sprites:Assets/Scenes/SpriteTestScene.unity.meta
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

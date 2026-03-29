@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef9168880b6fe5843b6ab4dabd974c1f, type: 3}
+  m_Name: PotatoSpriteSet
+  m_EditorClassIdentifier: 
+  GrowingPhaseSprites:
+  - {fileID: 1800462367, guid: a43aec499a9555e41a8b33fa05dd174c, type: 3}
+  - {fileID: 682042369, guid: a43aec499a9555e41a8b33fa05dd174c, type: 3}
+  - {fileID: -1440472459, guid: a43aec499a9555e41a8b33fa05dd174c, type: 3}
+  - {fileID: 387783939, guid: a43aec499a9555e41a8b33fa05dd174c, type: 3}
+  - {fileID: 1274192382, guid: a43aec499a9555e41a8b33fa05dd174c, type: 3}
+  - {fileID: -786906306, guid: a43aec499a9555e41a8b33fa05dd174c, type: 3}
+  - {fileID: -1384364546, guid: a43aec499a9555e41a8b33fa05dd174c, type: 3}
+  - {fileID: -1304040058, guid: a43aec499a9555e41a8b33fa05dd174c, type: 3}

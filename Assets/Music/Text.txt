@@ -1,0 +1,2 @@
+музыку  и звуки загружать в Music и Sounds соответственно. Эти папки находятся в папке Assets. 
+[Music by] or [Additional Music by] or [Track Title] by Scott Buckley – released under CC-BY 4.0. www.scottbuckley.com.au

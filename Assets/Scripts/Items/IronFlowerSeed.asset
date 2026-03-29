@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc48404ab25b87b4ca4e18851c35b81d, type: 3}
+  m_Name: IronFlowerSeed
+  m_EditorClassIdentifier: 
+  _texture: {fileID: 1373884311, guid: 5607398e5425dc74690ea54b62c7ea82, type: 3}
+  _name: "\u0421\u0435\u043C\u0435\u043D\u0430 \u0436\u0435\u043B\u0435\u0437\u043D\u043E\u0433\u043E
+    \u0446\u0432\u0435\u0442\u043A\u0430"
+  _maxStack: 99
+  _gameObject: {fileID: 1246113933929022538, guid: e52f6e7ec3b1dea41bb1a4a817fca7bf, type: 3}
