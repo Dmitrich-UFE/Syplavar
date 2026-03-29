@@ -2,8 +2,8 @@
 2.5D игра - симулятор фермы с открытым недружелюбным миром
 
 ## Релизы
-[Нулевая версия. Тык](https://github.com/Dmitrich-UFE/Syplavar/releases/tag/MVP)
-[Новая версия. Тык](https://github.com/Dmitrich-UFE/Syplavar/releases/tag/V0.5.4)
+[Нулевая версия. Тык](https://github.com/Dmitrich-UFE/Syplavar/releases/tag/MVP)\
+[Новая версия (ПРЕДЗАЩИТА). Тык](https://github.com/Dmitrich-UFE/Syplavar/releases/tag/V0.5.4)
 
 ### цель проекта
 Создать игру - аналог Stardew Valley, но с недружелюбным миром
@@ -20,7 +20,7 @@ __WASD - перемещение__\
 __E - открыть/закрыть инвентарь__\
 __Left Shift - бег__\
 __Esc - меню паузы__\
-__1-9 или СКМ - выбор ячейки инвентаря__\
+__0-9 или СКМ - выбор ячейки инвентаря__\
 __ПКМ - использование предмета__\
 __ЛКМ - атака__
 
