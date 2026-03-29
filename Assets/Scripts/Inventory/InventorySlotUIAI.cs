@@ -9,13 +9,13 @@ public class InventorySlotUIAI : MonoBehaviour
     [SerializeField] private Image _selectionSprite;
 
     internal InventorySlotAI MySlot {get; private set;}
+    internal int Index {get; set;}
 
     
 
     //отрисовка ячейки
     internal void Redraw()
     {
-        if (MySlot.isEmpty()) return;
         _itemSprite.sprite = MySlot.ItemData.Texture;
         _itemCountText.text = MySlot.StackSize > 1 ? MySlot.StackSize.ToString() : "";
     }

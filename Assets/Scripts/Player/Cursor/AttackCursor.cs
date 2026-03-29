@@ -9,6 +9,7 @@ public class AttackCursor : MonoBehaviour
     internal IInstrument CurrentItem { get; private set; }
     private Transform thisTransform;
     [SerializeField] private StaticInventoryDisplay _hotbar;
+    [SerializeField] private InventoryAI _inventoryAI;
     [SerializeField] private SpriteRenderer _cursorSpriteR;
 
     [SerializeField] private List<Monster> monsters;
@@ -23,9 +24,16 @@ public class AttackCursor : MonoBehaviour
         thisTransform = GetComponent<Transform>();
         _playerInputActions.Player.Attack.performed += context => Attack();
 
-        _hotbar.OnSelectedSlotChanged += OnItemChanged;
+        //_hotbar.OnSelectedSlotChanged += OnItemChanged;
+        _inventoryAI.OnSelectedSlotChanged += OnItemChanged;
 
-        InventorySlot slot = _hotbar.GetSelectedSlot();
+        //InventorySlot slot = _hotbar.GetSelectedSlot();
+        
+    }
+
+    void Start()
+    {
+        InventorySlotAI slot = _inventoryAI.GetActiveItem();
         if (slot != null && slot.ItemData != null)
         {
             SetItem(slot.ItemData);
@@ -88,7 +96,7 @@ public class AttackCursor : MonoBehaviour
         CurrentItem = newItem.GameObject.GetComponent<IInstrument>();
     }
 
-    private void OnItemChanged(int slotIndex, InventorySlot slot)
+    private void OnItemChanged(int slotIndex, InventorySlotAI slot)
     {
         if (slot.ItemData != null && slot.ItemData.GameObject != null && slot.ItemData.GameObject.GetComponent<IInstrument>() != null)
         {

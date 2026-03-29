@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc48404ab25b87b4ca4e18851c35b81d, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  _texture: {fileID: 0}
+  _texture: {fileID: 21300000, guid: 964921319a8195141853aca2a4d1ec67, type: 3}
   _name: "\u041C\u0435\u0447"
   _maxStack: 1
   _gameObject: {fileID: 2636953156372063016, guid: 6be01f8222b0a094693450519181731d, type: 3}

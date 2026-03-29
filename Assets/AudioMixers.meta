@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/AudioMixers.meta
 guid: f95d02c16c387f049a82b0ff8c6855e1
 folderAsset: yes
+========
+guid: 5cb49fc2b482a7044a015ada5a3e4ca5
+>>>>>>>> ui:Assets/Scenes/UITestScene.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

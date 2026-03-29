@@ -7,7 +7,7 @@ public class CultivatedPlant : MonoBehaviour, IPlant, IGetable
     [SerializeField] private Sprite _phaseSprite;
     [SerializeField] private PlantStatus _plantStatus;
     [SerializeField] private GrowableObject _growingPhasesSprites;
-    [SerializeField] private ItemData _returningItem;
+    [SerializeField] private List<ItemData> _returningItems;
 
 
     int IPlant.GrowingPhase
@@ -55,12 +55,17 @@ public class CultivatedPlant : MonoBehaviour, IPlant, IGetable
 
     List<IItem> IGetable.Get()
     {
-        int count = UnityEngine.Random.Range(1, 2);
+        List<IItem> items = new List<IItem>();
 
-        List<IItem> items = new List<IItem>(count);
+        for (int i = 0; i < _returningItems.Count; i++)
+        {
+            int count = UnityEngine.Random.Range(1, 2);
 
-        for (int i = 0; i < count; i++)
-            items.Add(_returningItem);
+            for (int j = 0; j < count; j++)
+            {
+                items.Add(_returningItems[i]);
+            }
+        }
 
         return items;
     }

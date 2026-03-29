@@ -5,6 +5,7 @@ internal class Cursor : MonoBehaviour
     [SerializeField] private ItemData CurrentItem;
     //[SerializeField] private ItemData _CurrentItem;
     [SerializeField] private StaticInventoryDisplay _hotbar;
+    [SerializeField] private InventoryAI _inventoryAI;
 
     //internal IItem CurrentItem { get; private set; }
     internal IInteractable interactableObject {get; private set;}
@@ -36,13 +37,16 @@ internal class Cursor : MonoBehaviour
         }
 
         //Debug.Log($"взаимодействие с {interactableObject} чем? {CurrentItem.Name}");
+        //if (_inventoryAI.CheckCountOfItem(CurrentItem) < 1) return;
+        
         var val = interactableObject.Interact(CurrentItem);
         OnSelectedItemUsed?.Invoke(CurrentItem);
 
         if (val.isDebitNeed)
         {
             // Списать предмет, если вернул true.
-            _hotbar.UseSelectItem();
+            //_hotbar.UseSelectItem();
+            _inventoryAI.UseActiveItem();
         }
 
         if (val.gettingItems != null && val.gettingItems.Count > 0)
@@ -50,7 +54,8 @@ internal class Cursor : MonoBehaviour
             foreach (var item in val.gettingItems)
             {
                 //закинуть по предмету в инвентарь
-                _inventoryHolder.InventorySystem.AddToInventory((ItemData)item, 1);
+                _inventoryAI.AddToInventory((ItemData)item, 1);
+                //_inventoryHolder.InventorySystem.AddToInventory((ItemData)item, 1);
             }
 
 
@@ -82,7 +87,7 @@ internal class Cursor : MonoBehaviour
     }
 
     // Обработка события изменения выбранного слота
-    private void OnHotbarSelectionChanged(int slotIndex, InventorySlot slot)
+    private void OnHotbarSelectionChanged(int slotIndex, InventorySlotAI slot)
     {
         if (slot != null && slot.ItemData != null)
         {
@@ -103,9 +108,15 @@ internal class Cursor : MonoBehaviour
         thisTransform = GetComponent<Transform>();
         _playerInputActions.Player.Interact.performed += context => InteractWith(interactableObject);
 
-        _hotbar.OnSelectedSlotChanged += OnHotbarSelectionChanged;
+        //_hotbar.OnSelectedSlotChanged += OnHotbarSelectionChanged;
+        _inventoryAI.OnSelectedSlotChanged += OnHotbarSelectionChanged;
+        //InventorySlot slot = _hotbar.GetSelectedSlot();
+        
+    }
 
-        InventorySlot slot = _hotbar.GetSelectedSlot();
+    void Start()
+    {
+        InventorySlotAI slot = _inventoryAI.GetActiveItem();
         if (slot != null && slot.ItemData != null)
         {
             SetItem(slot.ItemData);
