@@ -1,0 +1,33 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+public class UnplowedLand : MonoBehaviour, IInteractable
+{
+    [SerializeField] private GameObject _plowedLandPrefab;
+    [SerializeField] private GameObject _TreeAdapterPrefab;
+    [SerializeField] private Cursor _cursor;
+
+    private void Awake()
+    {
+        
+    }
+
+    public (bool isDebitNeed, List<IItem> gettingItems) Interact(IItem item)
+    {
+        if (item.GameObject != null && item.GameObject.CompareTag("Hoe") && !(_cursor.interactableObject is PlowedLand))
+        {
+            Instantiate(_plowedLandPrefab, _cursor.gameObject.transform.position, Quaternion.identity);
+
+            return (false, null);
+        }
+
+        if (item != null && item.Name == "Саженец дерева" && !(_cursor.interactableObject is PlowedLand))
+        {
+            Instantiate(_TreeAdapterPrefab, _cursor.gameObject.transform.position, Quaternion.identity);
+
+            return (true, null);
+        } 
+
+        return (false, null);
+    }
+}
