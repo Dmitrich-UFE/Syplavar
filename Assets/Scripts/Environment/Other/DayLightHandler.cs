@@ -15,7 +15,7 @@ public class DayLightHandler : MonoBehaviour
     //Управляемый градиент
     private Gradient mainGradient;
 
-    [SerializeField] private int DayDuration;
+    [SerializeField] private int dayDuration;
     [SerializeField] private Transform lightTransform;
     [SerializeField] private float delta;
     [SerializeField, Range(0f, 1f)] private float dayProgress;
@@ -33,9 +33,15 @@ public class DayLightHandler : MonoBehaviour
     //Время
     public static int Hours {get; private set;}
     public static int Minutes {get; private set;}
+    public static int DayDuration => StaticDayDuration;
+
 
     void Awake()
     {
+        DayLightHandler.timeSpeedDuringSleep = NonStaticTimeSpeedDuringSleep;
+        StaticDayDuration = DayDuration;
+        mainGradient = LightGradient;
+
         DayLightHandler.AddTime(12, 00);
         DayLightHandler.AddTime(18, 00);
         DayLightHandler.AddTime(22, 00);
@@ -47,9 +53,7 @@ public class DayLightHandler : MonoBehaviour
 
     void Start()
     {
-        DayLightHandler.timeSpeedDuringSleep = NonStaticTimeSpeedDuringSleep;
-        StaticDayDuration = DayDuration;
-        mainGradient = LightGradient;
+        
     }
 
     
