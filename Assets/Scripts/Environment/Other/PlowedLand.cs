@@ -48,8 +48,8 @@ public class PlowedLand : MonoBehaviour, IInteractable
         }
         else
         {
-            if (time == (00, 00))
-                Destroy(this.gameObject);
+            //if (time == (00, 00))
+                //Destroy(this.gameObject);
         }
 
     }
@@ -91,9 +91,15 @@ public class PlowedLand : MonoBehaviour, IInteractable
             //разрушение культуры: 
             if(item.GameObject.CompareTag("Hoe"))
             {
+                if (plant == null)
+                {
+                    Destroy(this.gameObject);
+                }
+
                 ClearCulture();
 
                 UpdatePlowedLand();
+
                 return (false, null);
             }  
         
@@ -156,6 +162,7 @@ public class PlowedLand : MonoBehaviour, IInteractable
     {
         DayLightHandler._OnTimeReached -= ToNextPhasePlant;
     }
+
 
     //разрушение культуры: 
     void ClearCulture()

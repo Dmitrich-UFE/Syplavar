@@ -119,6 +119,7 @@ public class UIHandler : MonoBehaviour
 
     public void EscapeToMainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 

@@ -74,6 +74,7 @@ public class PlantTree : MonoBehaviour, IInteractable
 
                     Destroy(actualTreeObject);
                     actualTreeObject = null;
+                    Destroy(this.gameObject);
                     return (false, retItems);
                 }
 
@@ -81,6 +82,7 @@ public class PlantTree : MonoBehaviour, IInteractable
                 {
                     Destroy(actualTreeObject);
                     actualTreeObject = null;
+                    Destroy(this.gameObject);
                     return (false, null);
                 }
             }
@@ -107,7 +109,7 @@ public class PlantTree : MonoBehaviour, IInteractable
                 break;
             case (0, 0):
                 if (actualTreeObject == null)
-                    Destroy(this);
+                    Destroy(this.gameObject);
                 break;
         }
     }

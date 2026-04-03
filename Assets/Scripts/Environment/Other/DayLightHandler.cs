@@ -39,7 +39,7 @@ public class DayLightHandler : MonoBehaviour
     void Awake()
     {
         DayLightHandler.timeSpeedDuringSleep = NonStaticTimeSpeedDuringSleep;
-        StaticDayDuration = DayDuration;
+        StaticDayDuration = dayDuration;
         mainGradient = LightGradient;
 
         DayLightHandler.AddTime(12, 00);
@@ -61,7 +61,7 @@ public class DayLightHandler : MonoBehaviour
     {
         //движение солнца и счёт времени
         lightTransform.localEulerAngles = new Vector3(0, (dayProgress * 360 + delta) % 360, 0);
-        dayProgress += Time.deltaTime / DayDuration * daySpeedMultiple;
+        dayProgress += Time.deltaTime / dayDuration * daySpeedMultiple;
         Hours = (int)Math.Floor(dayProgress * 24);
         Minutes = (int)Math.Floor(dayProgress * 1440 % 60);
 

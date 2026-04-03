@@ -320,8 +320,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 1, z: 2.25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.5, y: 1, z: 2.2681794}
+  m_Center: {x: 0, y: 0, z: -0.009089768}
 --- !u!114 &1137744390441804665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sleepingPlayer: {fileID: 3908213674161608308}
+  Player: {fileID: 0}
 --- !u!65 &-7569325763590166933
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -354,8 +355,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 1, z: 2.25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.5, y: 1, z: 2.2671876}
+  m_Center: {x: 0, y: 0, z: -0.008593738}
 --- !u!1 &5647966549689919763
 GameObject:
   m_ObjectHideFlags: 0
