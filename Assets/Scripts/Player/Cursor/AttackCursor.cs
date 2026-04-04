@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class AttackCursor : MonoBehaviour
@@ -8,7 +6,6 @@ public class AttackCursor : MonoBehaviour
     private PlayerInputActions _playerInputActions;
     internal IInstrument CurrentItem { get; private set; }
     private Transform thisTransform;
-    [SerializeField] private StaticInventoryDisplay _hotbar;
     [SerializeField] private InventoryAI _inventoryAI;
     [SerializeField] private SpriteRenderer _cursorSpriteR;
 
@@ -24,11 +21,7 @@ public class AttackCursor : MonoBehaviour
         thisTransform = GetComponent<Transform>();
         _playerInputActions.Player.Attack.performed += context => Attack();
 
-        //_hotbar.OnSelectedSlotChanged += OnItemChanged;
         _inventoryAI.OnSelectedSlotChanged += OnItemChanged;
-
-        //InventorySlot slot = _hotbar.GetSelectedSlot();
-        
     }
 
     void Start()
@@ -54,6 +47,8 @@ public class AttackCursor : MonoBehaviour
                 {
                     indexForDeleteMonstas.Insert(0, i);
                     monsters[i].TryDeath();
+
+                    _cursorSpriteR.color = new Color(1, 0, 0, 1); 
                 }
             }
 
@@ -86,11 +81,6 @@ public class AttackCursor : MonoBehaviour
         }
     }
 
-
-
-
-
-
     public void SetItem(ItemData newItem)
     {
         CurrentItem = newItem.GameObject.GetComponent<IInstrument>();
@@ -106,16 +96,6 @@ public class AttackCursor : MonoBehaviour
         {
            CurrentItem = null;
         }
-    }
-
-
-
-
-
-
-    void Update()
-    {
-        
     }
 
     private void OnEnable()

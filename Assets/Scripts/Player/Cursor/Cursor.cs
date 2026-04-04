@@ -1,16 +1,12 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 internal class Cursor : MonoBehaviour
 {
     [SerializeField] private ItemData CurrentItem;
-    //[SerializeField] private ItemData _CurrentItem;
-    [SerializeField] private StaticInventoryDisplay _hotbar;
     [SerializeField] private InventoryAI _inventoryAI;
-
-    //internal IItem CurrentItem { get; private set; }
     internal IInteractable interactableObject {get; private set;}
     [SerializeField] private Transform Archor;
-    [SerializeField] private InventoryHolder _inventoryHolder;
     private Transform thisTransform;
     private PlayerInputActions _playerInputActions;
 
@@ -45,7 +41,6 @@ internal class Cursor : MonoBehaviour
         if (val.isDebitNeed)
         {
             // Списать предмет, если вернул true.
-            //_hotbar.UseSelectItem();
             _inventoryAI.UseActiveItem();
         }
 
@@ -55,11 +50,13 @@ internal class Cursor : MonoBehaviour
             {
                 //закинуть по предмету в инвентарь
                 _inventoryAI.AddToInventory((ItemData)item, 1);
-                //_inventoryHolder.InventorySystem.AddToInventory((ItemData)item, 1);
             }
-
-
         }
+
+        //if (interactableObject.IsUnityNull() || ReferenceEquals(interactableObject, null) || interactableObject == null)
+        //{
+        //    _cursorSpriteR.color = new Color(1, 0, 0, 1); 
+        //}
     }
     
     private void OnTriggerEnter(Collider interactableObject)
@@ -102,16 +99,12 @@ internal class Cursor : MonoBehaviour
     void Awake()
     {
         unplowedLand = unplowedLand_GameObject.GetComponent<IInteractable>();
-        //CurrentItem = _CurrentItem;
 
         _playerInputActions = new PlayerInputActions();
         thisTransform = GetComponent<Transform>();
         _playerInputActions.Player.Interact.performed += context => InteractWith(interactableObject);
 
-        //_hotbar.OnSelectedSlotChanged += OnHotbarSelectionChanged;
         _inventoryAI.OnSelectedSlotChanged += OnHotbarSelectionChanged;
-        //InventorySlot slot = _hotbar.GetSelectedSlot();
-        
     }
 
     void Start()
@@ -123,13 +116,7 @@ internal class Cursor : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        //SetPosition();
-        //Debug.Log($"aa {interactableObject}");
-    }
-
-
+    
     private void OnEnable()
     {
         _playerInputActions.Enable();
