@@ -5,6 +5,7 @@ public class Slime: Monster
 {
     [SerializeField] private string _name;
     [SerializeField] private float _health;
+    [SerializeField] private float _speed;
     [SerializeField] private float _damage;
     [SerializeField] private float _seekDist;
     [SerializeField] private float _maxseekDist;
@@ -18,6 +19,7 @@ public class Slime: Monster
     {
         Name = _name;
         Health = _health;
+        Speed = _speed;
         SeekDistance = _seekDist;
         MaxSeekDistance = _maxseekDist;
         Damage = _damage;

@@ -252,6 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: "\u0421\u043B\u0430\u0439\u043C"
   _health: 35
+  _speed: 2.5
   _damage: 7
   _seekDist: 8
   _maxseekDist: 9
