@@ -82,14 +82,26 @@ public class InventoryAI : MonoBehaviour
     {
         if (itemToAdd == null || CheckFreePlaces(itemToAdd) < count) return false;
 
+        //Добавление предметов в уже существующие ячейки с предметами
         for (int i = 1; i < _length; i++)
         {
-            if (count > 0)
-            {
-                if (inventorySlots[i].ItemData == _defaultItem) inventorySlots[i].SetItem(itemToAdd, 0);
-                if (inventorySlots[i].ItemData != itemToAdd) continue;
-                count = inventorySlots[i].AddToSlot(count);
-            }
+            if (CheckCountOfItem(itemToAdd) <= 0) break;
+            if (count <= 0) break;
+            
+            if (inventorySlots[i].ItemData == itemToAdd) count = inventorySlots[i].AddToSlot(count);
+            else continue;
+            
+        }
+
+        //Добавление предметов в пустые ячейки
+        for (int i = 1; i < _length; i++)
+        {
+            if (count <= 0) break;
+            
+            if (inventorySlots[i].ItemData == _defaultItem) inventorySlots[i].SetItem(itemToAdd, 0);
+            if (inventorySlots[i].ItemData != itemToAdd) continue;
+            count = inventorySlots[i].AddToSlot(count);
+            
         }
 
         DrawLowerInventory();
@@ -186,6 +198,7 @@ public class InventoryAI : MonoBehaviour
         
 
         DrawLowerInventory();
+        OnSelectedSlotChanged?.Invoke(_activeIndex, GetActiveItem());
     }
 
 

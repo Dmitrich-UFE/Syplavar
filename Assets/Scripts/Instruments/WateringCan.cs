@@ -3,7 +3,7 @@ using UnityEngine;
 public class WateringCan: MonoBehaviour, IInstrument
 {
     [SerializeField] private uint _maxCapacity;
-    float IInstrument.Damage {get;} = 0;
+    float IInstrument.Damage {get;} = 1;
     [SerializeField] internal uint _waterCapaсity {get; private set;}
 
     void Start()

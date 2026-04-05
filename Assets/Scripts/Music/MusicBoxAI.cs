@@ -18,8 +18,8 @@ public class MusicBoxAI : MonoBehaviour
     [SerializeField] private float transitionSilence = 1.0f; // Пауза при смене режима
 
     [Header("Задержка между треками")]
-    [SerializeField] private float minDelayBetweenTracks = 2.0f;
-    [SerializeField] private float maxDelayBetweenTracks = 5.0f;
+    [SerializeField] private float minDelayBetweenTracks = 20.0f;
+    [SerializeField] private float maxDelayBetweenTracks = 30.0f;
 
     private Coroutine _transitionCoroutine;
     private bool _isCombatMode;
