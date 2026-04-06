@@ -15,6 +15,11 @@ public class DayLightHandler : MonoBehaviour
     //Управляемый градиент
     private Gradient mainGradient;
 
+    //Градиенты для UI
+    [SerializeField] private Gradient LightUIGradient;
+    [SerializeField] private Gradient RainyUIGradient;
+    private Gradient mainUIGradient;
+
     [SerializeField] private int dayDuration;
     [SerializeField] private Transform lightTransform;
     [SerializeField] private float delta;
@@ -35,12 +40,16 @@ public class DayLightHandler : MonoBehaviour
     public static int Minutes {get; private set;}
     public static int DayDuration => StaticDayDuration;
 
+    //Для раскраски интерфейса 
+    public static Color ActualDayColor {get; private set;}
+
 
     void Awake()
     {
         DayLightHandler.timeSpeedDuringSleep = NonStaticTimeSpeedDuringSleep;
         StaticDayDuration = dayDuration;
         mainGradient = LightGradient;
+        mainUIGradient = LightUIGradient;
 
         DayLightHandler.AddTime(12, 00);
         DayLightHandler.AddTime(18, 00);
@@ -78,9 +87,16 @@ public class DayLightHandler : MonoBehaviour
                 2 or 8 => RainyGradient,
                 _ => LightGradient
             };
+
+            mainUIGradient = num switch  
+            {
+                2 or 8 => RainyUIGradient,
+                _ => LightUIGradient
+            };
         }
         
         _directLight.color = mainGradient.Evaluate(dayProgress);
+        ActualDayColor = mainUIGradient.Evaluate(dayProgress);
 
         //обработка временных событий
         (int hh, int mm) time = GetReachedTime();
@@ -157,6 +173,22 @@ public class DayLightHandler : MonoBehaviour
         {
             Times[time] = false;
         }
+    }
+
+    //Метод для глушения цветов
+    private Color GetMutedColor(Color originalColor, float saturationFactor = 0.5f, float valueFactor = 0.9f)
+    {
+        // 1. Переводим RGB в HSV
+        Color.RGBToHSV(_directLight.color, out float h, out float s, out float v);
+
+        // 2. Снижаем насыщенность (делаем цвет "серым")
+        s *= saturationFactor; 
+
+        // 3. Слегка приглушаем яркость (чтобы не был слишком светлым)
+        v *= valueFactor;
+
+        // 4. Возвращаем обратно в RGB
+        return Color.HSVToRGB(h, s, v);
     }
 
     void OnDestroy()
