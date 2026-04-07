@@ -134,6 +134,8 @@ public class DayLightHandler : MonoBehaviour
         {
             daySpeedMultiple = timeSpeedDuringSleep;
             DayLightHandler._OnTimeReached += CheckWakeTime;
+            //обратиться к рассудку
+            //включить свою корутину, чтобы увеличить рассудок
         }
         else
         {
@@ -149,6 +151,7 @@ public class DayLightHandler : MonoBehaviour
         {
             daySpeedMultiple = 1;
             DayLightHandler._OnTimeReached -= CheckWakeTime;
+            //отключить корутину для накрутки рассудка
         }
 
     }
