@@ -1,15 +1,8 @@
 using UnityEngine;
-using System.Collections.Generic;
-using System;
 
 public class PlayerAnimator : MonoBehaviour
 {
-    
-
-    [SerializeField] private List<Sprite> idleAnimations;
-    [SerializeField] private SpriteRenderer playerSP;
-    //[SerializeField] private List<Animation> walkAnimations;
-    //[SerializeField] private List<Animation> runAnimations;
+    [SerializeField] private Animator playerAnimator;
     private PlayerInputActions _playerInputActions;
     private Vector2 _moveInput;
 
@@ -19,7 +12,18 @@ public class PlayerAnimator : MonoBehaviour
          set
          {
             _moveInput = value;
-            SetAnimation();
+            if (moveInput.magnitude > 0.01f)
+            {
+                // Обновляем направление только при движении
+                playerAnimator.SetFloat("MoveX", moveInput.x);
+                playerAnimator.SetFloat("MoveY", moveInput.y);
+                playerAnimator.SetFloat("Speed", moveInput.magnitude);
+            }
+            else
+            {
+                // Скорость 0 вернет нас в Idle Blend Tree (если оно есть)
+                playerAnimator.SetFloat("Speed", 0);
+            }
          }
     }
 
@@ -29,21 +33,8 @@ public class PlayerAnimator : MonoBehaviour
         _playerInputActions = new PlayerInputActions();
 
         _playerInputActions.Player.Movement.performed += context => moveInput = context.ReadValue<Vector2>();
-        //_playerInputActions.Player.Movement.canceled += context => moveInput = Vector2.zero;
-
-        //_playerInputActions.Player.Run.performed += context =>
-        //_playerInputActions.Player.Run.canceled += context => 
-    }
-
-    void SetAnimation()
-    {
-        playerSP.sprite = idleAnimations[((int)Math.Round(GetDegrees(moveInput))+180) / 45];
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _playerInputActions.Player.Movement.canceled += context => moveInput = Vector2.zero;
+        playerAnimator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -54,10 +45,5 @@ public class PlayerAnimator : MonoBehaviour
     private void OnDisable()
     {
         _playerInputActions.Disable();
-    }
-
-    private float GetDegrees(Vector2 vector)
-    {
-        return Mathf.Atan2(-vector.y, vector.x) * 180 / Mathf.PI;
     }
 }

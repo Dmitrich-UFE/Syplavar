@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 using System;
 
 public class PlantTree : MonoBehaviour, IInteractable
@@ -15,6 +16,9 @@ public class PlantTree : MonoBehaviour, IInteractable
     [SerializeField] private GameObject actualTreeObject;
     [SerializeField] private bool isNeedGenerate;
     [SerializeField] private GameObject EditorGO;
+
+    private Coroutine dampCoroutine;
+    private Vector3 startPos;
 
 
     void Awake()
@@ -38,6 +42,8 @@ public class PlantTree : MonoBehaviour, IInteractable
             DayLightHandler._OnTimeReached += Growing;
             actualTreeObject = Instantiate(smallTreeObject, this.transform);
         }
+
+        startPos = actualTreeObject.transform.localPosition;
     }
 
 
@@ -54,7 +60,16 @@ public class PlantTree : MonoBehaviour, IInteractable
             IInstrument axe = item.GameObject.GetComponent<IInstrument>();
             float damage = axe?.Damage ?? 0;
             health -= damage;
+
             Debug.Log($"Нанесено {damage} урона дереву");
+
+            if (dampCoroutine != null)
+            {
+                StopCoroutine(dampCoroutine);
+                actualTreeObject.transform.localPosition = new Vector3(startPos.x, startPos.y, startPos.z); 
+            } 
+
+            dampCoroutine = StartCoroutine(DampTree());
 
 
             if (actualTreeObject != null && health <= 0)
@@ -122,11 +137,44 @@ public class PlantTree : MonoBehaviour, IInteractable
         health = UnityEngine.Random.Range(10, 70);
     }
 
+    IEnumerator DampTree()
+    {
+        float x = 0f;
+        float res = 0f;
+        while (true)
+        {
+            res = DampedWave(x);
+            actualTreeObject.transform.localPosition = new Vector3(startPos.x + res, startPos.y, startPos.z);
+            x+=0.06f;
+
+            if (x > 10)
+            {
+                actualTreeObject.transform.localPosition = new Vector3(startPos.x, startPos.y, startPos.z);
+                yield break;
+            }
+
+            yield return null;
+        }  
+    }
+
+
+
+    /// <summary>
+    /// Вычисляет значение затухающей волны в момент времени t.
+    /// </summary>
+    /// <param name="t">Время или координата X</param>
+    /// <param name="amplitude">Начальная амплитуда</param>
+    /// <param name="frequency">Частота колебаний</param>
+    /// <param name="decay">Коэффициент затухания (чем больше, тем быстрее гаснет)</param>
+    float DampedWave(float t, float amplitude = 0.09f, float frequency = 1.0f, float decay = 1.0f)
+    {
+        // Формула: A * e^(-decay * t) * cos(2 * PI * f * t)
+        return amplitude * Mathf.Exp(-decay * t) * Mathf.Cos(2 * Mathf.PI * frequency * t);
+    }
+
     void OnDestroy()
     {
         DayLightHandler._OnTimeReached -= Growing;
     }
-
-
 
 }
