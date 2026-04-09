@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -6,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int maxHealth;
 
     private int _health;
+    public event System.Action OnHealthChanged;
 
     internal bool isDeath { get; private set; }
     internal int Health 
@@ -16,18 +18,34 @@ public class PlayerHealth : MonoBehaviour
         }
         set
         {
-            if (value <= 0) 
+            int newHealth = Mathf.Clamp(value, 0, maxHealth);
+        
+            if (newHealth == _health) return;
+
+            _health = newHealth;
+
+            OnHealthChanged?.Invoke();
+
+            if (_health <= 0 && !isDeath) 
             {
-                Debug.LogWarning("The health is less or equal zero!!!"); 
-                value = 0;
                 isDeath = TryDeath();
+                Debug.Log("Character has died.");
             }
-            if (value > maxHealth) _health = maxHealth;
-            _health = value;
         }
     }
 
-    void Awake() { Health = startHealth;}
+    internal float HealthInPercents
+    {
+        get 
+        {
+            return Health / (float)maxHealth;
+        }
+    }
+
+    void Awake() 
+    { 
+        Health = startHealth;
+    }
 
     bool TryDeath()
     {

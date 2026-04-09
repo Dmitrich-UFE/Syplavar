@@ -18,4 +18,4 @@ MonoBehaviour:
   _maxStack: 99
   _gameObject: {fileID: 0}
   _addingMind: 0
-  _addingHealth: 0
+  _addingHealth: 5

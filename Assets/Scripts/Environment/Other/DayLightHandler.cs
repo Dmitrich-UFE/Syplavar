@@ -50,6 +50,8 @@ public class DayLightHandler : MonoBehaviour
         StaticDayDuration = dayDuration;
         mainGradient = LightGradient;
         mainUIGradient = LightUIGradient;
+        _directLight.color = mainGradient.Evaluate(dayProgress);
+        ActualDayColor = mainUIGradient.Evaluate(dayProgress);
 
         DayLightHandler.AddTime(12, 00);
         DayLightHandler.AddTime(18, 00);

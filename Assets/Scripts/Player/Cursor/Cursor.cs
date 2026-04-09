@@ -5,6 +5,8 @@ internal class Cursor : MonoBehaviour
 {
     [SerializeField] private ItemData CurrentItem;
     [SerializeField] private InventoryAI _inventoryAI;
+    private PlayerHealth _playerHealth;
+    //private PlayerMind _playerMind;
     internal IInteractable interactableObject {get; private set;}
     [SerializeField] private Transform Archor;
     private Transform thisTransform;
@@ -103,8 +105,22 @@ internal class Cursor : MonoBehaviour
         _playerInputActions = new PlayerInputActions();
         thisTransform = GetComponent<Transform>();
         _playerInputActions.Player.Interact.performed += context => InteractWith(interactableObject);
+        _playerInputActions.Player.EatFood.performed += context => EatFood();
 
         _inventoryAI.OnSelectedSlotChanged += OnHotbarSelectionChanged;
+
+        _playerHealth = PlayerSeeker.GetPlayerHealth();
+    }
+
+    void EatFood()
+    {
+        ItemDataFood _food = CurrentItem as ItemDataFood;
+        if (_food != null)
+        {
+            _playerHealth.Health += _food.AddingHealth;
+            //_playerMind.AddMind(_food.AddingMind);
+            _inventoryAI.UseActiveItem();
+        }
     }
 
     void Start()

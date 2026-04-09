@@ -33,7 +33,7 @@ public class PickUpItem : MonoBehaviour, IInteractable
         List<IItem> retItems= new List<IItem>();
         for (int i = 0; i < countOfItems; i++)
         {
-            if (returningItem.GameObject != null)
+            if (returningItem != null)
             {
                 retItems.Add(returningItem);
             }
