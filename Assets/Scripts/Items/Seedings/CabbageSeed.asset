@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc48404ab25b87b4ca4e18851c35b81d, type: 3}
-  m_Name: Hand
+  m_Name: CabbageSeed
   m_EditorClassIdentifier: 
-  _itemID: -1
-  _texture: {fileID: 21300000, guid: 2929e1e76220a58499e3b4e228891fdb, type: 3}
-  _name: 
-  _maxStack: 1
-  _gameObject: {fileID: 1328194810300800774, guid: 7d239d73373239048949faf6136f81e2, type: 3}
+  _itemID: 51
+  _texture: {fileID: 927177795, guid: 4f7c1563b875d1e44a870174be4fa06c, type: 3}
+  _name: "\u0421\u0435\u043C\u0435\u043D\u0430 \u043A\u0430\u043F\u0443\u0441\u0442\u044B"
+  _maxStack: 99
+  _gameObject: {fileID: 1246113933929022538, guid: 111b44091ce34894694274dc85380276, type: 3}

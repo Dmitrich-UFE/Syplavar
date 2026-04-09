@@ -6,7 +6,7 @@ public class Slime: Monster
     [SerializeField] private string _name;
     [SerializeField] private float _health;
     [SerializeField] private float _speed;
-    [SerializeField] private float _damage;
+    [SerializeField] private int _damage;
     [SerializeField] private float _seekDist;
     [SerializeField] private float _maxseekDist;
     [SerializeField] private float _attkDist;
@@ -40,20 +40,4 @@ public class Slime: Monster
         isAvailableForAttack = false;
     }
 
-    
-    //private void OnTriggerEnter(Collider playerObj)
-    //{
-    //    if (playerObj.CompareTag("Player"))
-    //    {
-    //        playerHealth = playerHealth.GetComponent<PlayerHealth>();
-    //    }
-    //}
-
-    //private void OnTriggerExit(Collider playerObj)
-    //{
-    //    if (playerObj.CompareTag("Player"))
-    //    {
-    //        playerHealth = null;
-    //    }
-    //}
 }

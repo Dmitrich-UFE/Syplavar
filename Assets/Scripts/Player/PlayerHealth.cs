@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private float startHealth;
-    [SerializeField] private float maxHealth;
+    [SerializeField] private int startHealth;
+    [SerializeField] private int maxHealth;
 
-    private float _health;
+    private int _health;
 
     internal bool isDeath { get; private set; }
-    internal float Health 
+    internal int Health 
     {
         get
         {
@@ -39,10 +39,5 @@ public class PlayerHealth : MonoBehaviour
 
         return false;
     }
-
-
-
-
-
 
 }

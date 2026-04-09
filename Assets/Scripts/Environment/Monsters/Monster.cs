@@ -10,7 +10,7 @@ public abstract class Monster : MonoBehaviour
 
     public float SeekDistance { get; protected set; }
     public float MaxSeekDistance { get; protected set; }
-    public float Damage { get; protected set; }
+    public int Damage { get; protected set; }
     public float AttackDistance { get; protected set; }
     public NavMeshAgent Agent { get; protected set; }
 

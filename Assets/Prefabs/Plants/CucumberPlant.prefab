@@ -49,5 +49,5 @@ MonoBehaviour:
   _plantStatus: 0
   _growingPhasesSprites: {fileID: 11400000, guid: a06d1c26769c30f4b9a240d10b1a2094, type: 2}
   _returningItems:
-  - {fileID: 11400000, guid: c810aba57baf6eb4b93ff84eb671c07e, type: 2}
+  - {fileID: 11400000, guid: bc3fe0fda81fa7b4b86cb499344949fa, type: 2}
   - {fileID: 11400000, guid: da3436f41fbef2b48bd058b1eb975210, type: 2}

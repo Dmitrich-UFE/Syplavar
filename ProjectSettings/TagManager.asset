@@ -14,6 +14,7 @@ TagManager:
   - Axe
   - Monster
   - Sword
+  - MiniGrinder
   layers:
   - Default
   - TransparentFX

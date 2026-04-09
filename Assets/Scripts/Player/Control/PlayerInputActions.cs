@@ -171,6 +171,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EatFood"",
+                    ""type"": ""Button"",
+                    ""id"": ""44837e41-4049-4f93-91f2-44bfd8918e9b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=1.25)"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -415,6 +424,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""OpenBigInventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""931384f9-b2e5-4243-9135-e9a462dd70c1"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EatFood"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -444,6 +464,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_MouseScroll = m_Player.FindAction("MouseScroll", throwIfNotFound: true);
         m_Player_SelectItemByKeyboard = m_Player.FindAction("SelectItemByKeyboard", throwIfNotFound: true);
         m_Player_OpenBigInventory = m_Player.FindAction("OpenBigInventory", throwIfNotFound: true);
+        m_Player_EatFood = m_Player.FindAction("EatFood", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -533,6 +554,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MouseScroll;
     private readonly InputAction m_Player_SelectItemByKeyboard;
     private readonly InputAction m_Player_OpenBigInventory;
+    private readonly InputAction m_Player_EatFood;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -580,6 +602,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/OpenBigInventory".
         /// </summary>
         public InputAction @OpenBigInventory => m_Wrapper.m_Player_OpenBigInventory;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/EatFood".
+        /// </summary>
+        public InputAction @EatFood => m_Wrapper.m_Player_EatFood;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -633,6 +659,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @OpenBigInventory.started += instance.OnOpenBigInventory;
             @OpenBigInventory.performed += instance.OnOpenBigInventory;
             @OpenBigInventory.canceled += instance.OnOpenBigInventory;
+            @EatFood.started += instance.OnEatFood;
+            @EatFood.performed += instance.OnEatFood;
+            @EatFood.canceled += instance.OnEatFood;
         }
 
         /// <summary>
@@ -671,6 +700,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @OpenBigInventory.started -= instance.OnOpenBigInventory;
             @OpenBigInventory.performed -= instance.OnOpenBigInventory;
             @OpenBigInventory.canceled -= instance.OnOpenBigInventory;
+            @EatFood.started -= instance.OnEatFood;
+            @EatFood.performed -= instance.OnEatFood;
+            @EatFood.canceled -= instance.OnEatFood;
         }
 
         /// <summary>
@@ -787,5 +819,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnOpenBigInventory(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "EatFood" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEatFood(InputAction.CallbackContext context);
     }
 }

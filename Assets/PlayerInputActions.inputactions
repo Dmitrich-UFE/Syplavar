@@ -85,6 +85,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "EatFood",
+                    "type": "Button",
+                    "id": "44837e41-4049-4f93-91f2-44bfd8918e9b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Hold(duration=1.25)",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -327,6 +336,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "OpenBigInventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "931384f9-b2e5-4243-9135-e9a462dd70c1",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EatFood",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

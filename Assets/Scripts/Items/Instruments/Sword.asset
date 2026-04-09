@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc48404ab25b87b4ca4e18851c35b81d, type: 3}
-  m_Name: Hand
+  m_Name: Sword
   m_EditorClassIdentifier: 
-  _itemID: -1
-  _texture: {fileID: 21300000, guid: 2929e1e76220a58499e3b4e228891fdb, type: 3}
-  _name: 
+  _itemID: 4
+  _texture: {fileID: 21300000, guid: 964921319a8195141853aca2a4d1ec67, type: 3}
+  _name: "\u041C\u0435\u0447"
   _maxStack: 1
-  _gameObject: {fileID: 1328194810300800774, guid: 7d239d73373239048949faf6136f81e2, type: 3}
+  _gameObject: {fileID: 2636953156372063016, guid: 6be01f8222b0a094693450519181731d, type: 3}

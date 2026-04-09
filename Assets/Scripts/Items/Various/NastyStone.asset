@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc48404ab25b87b4ca4e18851c35b81d, type: 3}
-  m_Name: Hand
+  m_Name: NastyStone
   m_EditorClassIdentifier: 
-  _itemID: -1
-  _texture: {fileID: 21300000, guid: 2929e1e76220a58499e3b4e228891fdb, type: 3}
-  _name: 
-  _maxStack: 1
-  _gameObject: {fileID: 1328194810300800774, guid: 7d239d73373239048949faf6136f81e2, type: 3}
+  _itemID: 104
+  _texture: {fileID: 21300000, guid: 517d2a3af0d5df149ba8f98fb2ef0f45, type: 3}
+  _name: "\u0421\u043A\u0432\u0435\u0440\u043D\u043E\u043A\u0430\u043C\u0435\u043D\u044C"
+  _maxStack: 99
+  _gameObject: {fileID: 0}

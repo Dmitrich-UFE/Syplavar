@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc48404ab25b87b4ca4e18851c35b81d, type: 3}
-  m_Name: Hand
+  m_Name: WheatSeed
   m_EditorClassIdentifier: 
-  _itemID: -1
-  _texture: {fileID: 21300000, guid: 2929e1e76220a58499e3b4e228891fdb, type: 3}
-  _name: 
-  _maxStack: 1
-  _gameObject: {fileID: 1328194810300800774, guid: 7d239d73373239048949faf6136f81e2, type: 3}
+  _itemID: 55
+  _texture: {fileID: 1879999188, guid: 71f34652e3f57464eb54731197f5d07c, type: 3}
+  _name: "\u0421\u0435\u043C\u0435\u043D\u0430 \u043F\u0448\u0435\u043D\u0438\u0446\u044B"
+  _maxStack: 99
+  _gameObject: {fileID: 1246113933929022538, guid: 47b5915dcb67abf4fac21f53f5567390, type: 3}
