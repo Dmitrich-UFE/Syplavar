@@ -1,5 +1,8 @@
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using System.Collections;
+
 
 internal class Cursor : MonoBehaviour
 {
@@ -18,6 +21,7 @@ internal class Cursor : MonoBehaviour
     [SerializeField] GameObject unplowedLand_GameObject;
     internal IInteractable unplowedLand {get; private set;}
     [SerializeField] private SpriteRenderer _cursorSpriteR;
+    [SerializeField] private Image _eatIndicator;
 
 
     public void SetItem(ItemData newItem)
@@ -105,11 +109,13 @@ internal class Cursor : MonoBehaviour
         _playerInputActions = new PlayerInputActions();
         thisTransform = GetComponent<Transform>();
         _playerInputActions.Player.Interact.performed += context => InteractWith(interactableObject);
-        _playerInputActions.Player.EatFood.performed += context => EatFood();
 
         _inventoryAI.OnSelectedSlotChanged += OnHotbarSelectionChanged;
 
         _playerHealth = PlayerSeeker.GetPlayerHealth();
+        _playerInputActions.Player.EatFood.started += context => { if (CurrentItem is ItemDataFood) StartCoroutine(fillBar());};
+        _playerInputActions.Player.EatFood.canceled += context => {StopCoroutine(fillBar()); _eatIndicator.fillAmount = 0f;};
+        _playerInputActions.Player.EatFood.performed += context => EatFood();
     }
 
     void EatFood()
@@ -120,6 +126,24 @@ internal class Cursor : MonoBehaviour
             _playerHealth.Health += _food.AddingHealth;
             //_playerMind.AddMind(_food.AddingMind);
             _inventoryAI.UseActiveItem();
+        }
+    }
+
+    IEnumerator fillBar()
+    {
+        float duration = 0f;
+        while (CurrentItem is ItemDataFood)
+        {
+            duration = _playerInputActions.Player.EatFood.GetTimeoutCompletionPercentage();
+            _eatIndicator.fillAmount = duration;
+
+            if (duration >= 1f) 
+            {
+                _eatIndicator.fillAmount = 0f;
+                yield break;
+            }
+
+            yield return null;
         }
     }
 
