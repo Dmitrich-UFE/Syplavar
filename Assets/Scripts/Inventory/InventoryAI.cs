@@ -105,6 +105,7 @@ public class InventoryAI : MonoBehaviour
         }
 
         DrawLowerInventory();
+        OnSelectedSlotChanged?.Invoke(_activeIndex, GetActiveItem());
         Debug.Log("добавлены предметы");
         return true;
     }

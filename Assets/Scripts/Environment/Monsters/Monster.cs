@@ -39,17 +39,7 @@ public abstract class Monster : MonoBehaviour
     }
 
 
-    internal void TryDeath()
-    {
-        if (Health < 0.00001f)
-        {
-            StopCoroutine(LifeCoroutine);
-            if (isRegedAsBattling) BattleStatusTracker.RemoveMonsterInBattleMode();
-
-            BattleStatusTracker.BattleMode = BattleStatusTracker.MonstersInBattleMode != 0;
-            Destroy(this.gameObject);
-        }
-    }
+    internal abstract void TryDeath();
 
     void Update()
     {

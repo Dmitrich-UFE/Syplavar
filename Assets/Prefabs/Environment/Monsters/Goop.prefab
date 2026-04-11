@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 695471967561546082}
   - component: {fileID: 1785089788247026353}
+  - component: {fileID: 7408402276757257373}
   m_Layer: 0
   m_Name: ground
   m_TagString: Untagged
@@ -40,7 +41,7 @@ SpriteRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 646609943789824340}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -87,6 +88,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7408402276757257373
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646609943789824340}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6917e171c7d56a84399d185f4232e84d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2315679727004816137
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,8 +120,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7206824416098778399}
   - component: {fileID: 4011341749476934070}
+  - component: {fileID: 2288215872664587040}
   m_Layer: 0
-  m_Name: sprite
+  m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -174,6 +198,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2288215872664587040
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2315679727004816137}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6c5457e1ed48530418fe76828549b95b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5377996456500460675
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +306,9 @@ MonoBehaviour:
   _coolDownSec: 2.5
   agent: {fileID: 3043492201631244412}
   playerHealth: {fileID: 0}
+  destroyAfterDeath: 0
+  slimeBodyAnimator: {fileID: 2288215872664587040}
+  slimeGroundAnimator: {fileID: 7408402276757257373}
 --- !u!195 &3043492201631244412
 NavMeshAgent:
   m_ObjectHideFlags: 0
