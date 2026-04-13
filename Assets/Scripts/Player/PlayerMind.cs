@@ -18,6 +18,7 @@ public class PlayerMind : MonoBehaviour
 
     // ===== PROPERTIES =====
     internal int CurrentMind => currentMind;
+    internal int MaxMind => maxMind;
 
     internal float MindPercent => maxMind > 0 ? (float)currentMind / maxMind : 0f;
 
@@ -95,10 +96,11 @@ public class PlayerMind : MonoBehaviour
             OnMindChanged?.Invoke();
         }
 
-        // Рассудок закончился
+        // Рассудок закончился: если игрок неожиданно умирает  - проблема может быть здесь
         currentMind = 0;
+        playerHealth.Health = 0;
 
 
-        Debug.Log("Чел умер");
+        //Debug.Log("Чел умер");
     }
 }

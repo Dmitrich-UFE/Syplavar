@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
+using Unity.VisualScripting;
 
 //[ExecuteInEditMode]
 public class DayLightHandler : MonoBehaviour
@@ -39,13 +41,19 @@ public class DayLightHandler : MonoBehaviour
     public static int Hours {get; private set;}
     public static int Minutes {get; private set;}
     public static int DayDuration => StaticDayDuration;
+    private static float daySpeedMultipleStatic = 1; 
+    private static Coroutine AddMindCoroutine;
 
     //Для раскраски интерфейса 
     public static Color ActualDayColor {get; private set;}
 
+    //Одиночка
+    private static DayLightHandler instance;
+
 
     void Awake()
     {
+        instance = this;
         DayLightHandler.timeSpeedDuringSleep = NonStaticTimeSpeedDuringSleep;
         StaticDayDuration = dayDuration;
         mainGradient = LightGradient;
@@ -135,13 +143,27 @@ public class DayLightHandler : MonoBehaviour
         if (timeSpeedDuringSleep > 0)
         {
             daySpeedMultiple = timeSpeedDuringSleep;
+            daySpeedMultipleStatic = daySpeedMultiple;
+            AddMindCoroutine = instance.StartCoroutine(AddMind());
             DayLightHandler._OnTimeReached += CheckWakeTime;
+            
             //обратиться к рассудку
             //включить свою корутину, чтобы увеличить рассудок
         }
         else
         {
             Debug.LogWarning("Time multiple is negative. Please make it positive");
+        }
+    }
+
+    static IEnumerator AddMind()
+    {
+        PlayerMind _playerMind = PlayerSeeker.GetPlayerMind();
+        _playerMind.StopMindDrain();
+        while (_playerMind.MindPercent < 99.9f)
+        {
+            _playerMind.ChangeMind(_playerMind.MaxMind / 100);
+            yield return new WaitForSecondsRealtime(DayDuration / daySpeedMultipleStatic / 150f);
         }
     }
 
@@ -152,7 +174,10 @@ public class DayLightHandler : MonoBehaviour
         if (time == (07, 00))
         {
             daySpeedMultiple = 1;
+            daySpeedMultipleStatic = daySpeedMultiple;
             DayLightHandler._OnTimeReached -= CheckWakeTime;
+
+            if (AddMindCoroutine != null) instance.StopCoroutine(AddMindCoroutine);
             //отключить корутину для накрутки рассудка
         }
 

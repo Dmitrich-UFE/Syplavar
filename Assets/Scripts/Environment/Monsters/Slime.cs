@@ -94,7 +94,6 @@ public class Slime: Monster
     void OnEnable()
     {
         Start();
-        base.Start();
     }
 
 }
