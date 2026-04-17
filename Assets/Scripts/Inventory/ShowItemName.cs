@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class ShowItemName : MonoBehaviour
 {
@@ -51,7 +52,7 @@ public class ShowItemName : MonoBehaviour
         _uiText.text = data;
         _uiText.color = new Color(_uiText.color.r, _uiText.color.g, _uiText.color.b, 1);
 
-        coroutine = StartCoroutine(hideText());
+        if (this.isActiveAndEnabled) coroutine = StartCoroutine(hideText());
     }
 
     IEnumerator hideText()
@@ -66,5 +67,17 @@ public class ShowItemName : MonoBehaviour
         }
 
         yield break;
+    }
+
+    void OnEnable()
+    {
+        _inventoryAI.OnSelectedSlotChanged += OnHotbarSelectionChanged;
+        _cursor.OnSelectedItemUsed += OnCurrentObjUsed;
+    }
+
+    void OnDisable()
+    {
+        _inventoryAI.OnSelectedSlotChanged -= OnHotbarSelectionChanged;
+        _cursor.OnSelectedItemUsed -= OnCurrentObjUsed;
     }
 }

@@ -108,7 +108,7 @@ public class CraftManager : MonoBehaviour
     }
 
     // ===== CLOSE =====
-    internal void CloseCraftWindow()
+    public void CloseCraftWindow()
     {
         craftWindow.SetActive(false);
 

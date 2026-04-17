@@ -16,6 +16,7 @@ public class UIHandler : MonoBehaviour
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private GameObject _settingsMenu;
     [SerializeField] private GameObject _helpMenu;
+    [SerializeField] private GameObject _craftMenu;
 
     [Header("Элементы настроек")]
     [SerializeField] private Toggle fsToggle;
@@ -61,6 +62,7 @@ public class UIHandler : MonoBehaviour
         }
         else if (!isPauseMenuOpen)
         {
+            _craftMenu.SetActive(false);
             _lowerInventory.SetActive(false);
             _bigInventory.SetActive(true);
             Time.timeScale = 0f;
