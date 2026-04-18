@@ -23,13 +23,37 @@ public class PlantTree : MonoBehaviour, IInteractable
 
     void Awake()
     {
+        
+    }
+
+    internal void InitTree(TreeData data)
+    {
+        if (data != null)
+        {
+            isGrowed = data.Phase == 0? false : true;
+            if (isGrowed && data.Type < GrowedTreeObjects.Count)
+            {
+                GenerateTree(data.Type);
+            }
+            else
+            {
+                GenerateTree();
+            }
+        }
+        Awake();
+    }
+
+    private void GenerateTree(int type = -1)
+    {
         Destroy(EditorGO);
+
+        if (type == -1) type = UnityEngine.Random.Range(0, GrowedTreeObjects.Count - 1);
         
         this.transform.position = new Vector3(Mathf.Round(this.transform.position.x), this.transform.position.y, Mathf.Round(this.transform.position.z));
 
         if (isGrowed && isNeedGenerate)
         {
-            actualTreeObject = Instantiate(GrowedTreeObjects[UnityEngine.Random.Range(0, GrowedTreeObjects.Count - 1)], this.transform);
+            actualTreeObject = Instantiate(GrowedTreeObjects[type], this.transform);
             health = UnityEngine.Random.Range(10, 70);
         }
         else if (isGrowed && !isNeedGenerate)
