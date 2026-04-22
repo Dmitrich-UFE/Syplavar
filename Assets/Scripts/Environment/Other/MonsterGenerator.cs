@@ -6,16 +6,16 @@ public class MonsterGenerator : MonoBehaviour
 {
     public static MonsterGenerator instance;
 
-    [Header("Настройки монстров")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     [SerializeField] private GameObject monsterType1;
     [SerializeField] private GameObject monsterType2;
     [SerializeField] private int maxCountType1 = 5;
     [SerializeField] private int maxCountType2 = 5;
 
-    [Header("Зоны запрета")]
+    [Header("пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     [SerializeField] private ProhibitedArea[] prohibitedAreas;
 
-    [Header("Дистанции")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     [SerializeField] private float minMonsterGenDistance = 10f;
     [SerializeField] private float maxMonsterGenDistance = 30f;
     [SerializeField] private float maxMonsterExistDistance = 50f;
@@ -25,7 +25,7 @@ public class MonsterGenerator : MonoBehaviour
 
     private bool isGenerationTime = false;
 
-    #region Свойства
+    #region пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     public float MinMonsterGenDistance
     {
         get => minMonsterGenDistance;
@@ -58,10 +58,10 @@ public class MonsterGenerator : MonoBehaviour
 
     void Start()
     {
-        // Подписка на событие из твоего DayLightHandler
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ DayLightHandler
         DayLightHandler._OnTimeReached += CheckTime;
 
-        // Первоначальная проверка текущего времени
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         CheckTime((DayLightHandler.Hours, DayLightHandler.Minutes));
 
         StartCoroutine(MonsterLifecycleRoutine());
@@ -69,15 +69,15 @@ public class MonsterGenerator : MonoBehaviour
 
     void OnDestroy()
     {
-        // Обязательная отписка, чтобы не было ошибок при смене сцены
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         DayLightHandler._OnTimeReached -= CheckTime;
     }
 
     private void CheckTime((int hh, int mm) time)
     {
-        // Монстры генерируются с 18:00 до 06:00
-        //isGenerationTime = (time.hh >= 18 || time.hh < 6);
-        isGenerationTime = true;
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ 18:00 пїЅпїЅ 06:00
+        isGenerationTime = (time.hh >= 18 || time.hh < 6);
+        //isGenerationTime = true;
     }
 
     IEnumerator MonsterLifecycleRoutine()
@@ -89,7 +89,7 @@ public class MonsterGenerator : MonoBehaviour
             Transform player = PlayerSeeker.GetPlayerTransform();
             if (player == null) continue;
 
-            // 1. Проверка активных монстров: дистанция или неактивность
+            // 1. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             for (int i = activeMonsters.Count - 1; i >= 0; i--)
             {
                 GameObject monster = activeMonsters[i];
@@ -107,7 +107,7 @@ public class MonsterGenerator : MonoBehaviour
                 }
             }
 
-            // 2. Попытка генерации, если сейчас подходящее время суток
+            // 2. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
             if (isGenerationTime)
             {
                 TrySpawnMonster(monsterType1, maxCountType1);
@@ -120,7 +120,7 @@ public class MonsterGenerator : MonoBehaviour
     {
         if (prefab == null) return;
 
-        // Считаем сколько монстров этого типа сейчас активно
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         int currentCount = 0;
         foreach (var m in activeMonsters)
             if (m.name.StartsWith(prefab.name)) currentCount++;
@@ -139,7 +139,7 @@ public class MonsterGenerator : MonoBehaviour
     {
         Transform player = PlayerSeeker.GetPlayerTransform();
 
-        // Делаем до 10 попыток найти валидную точку
+        // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ 10 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         for (int i = 0; i < 10; i++)
         {
             Vector2 randomCircle = Random.insideUnitCircle.normalized * Random.Range(minMonsterGenDistance, maxMonsterGenDistance);
@@ -152,7 +152,7 @@ public class MonsterGenerator : MonoBehaviour
                 {
                     if (area == null) continue;
 
-                    // Создаем временную проверку позиции (без создания лишних объектов)
+                    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
                     if (IsPositionInArea(area, candidatePos))
                     {
                         inProhibited = true;
@@ -166,12 +166,12 @@ public class MonsterGenerator : MonoBehaviour
         return Vector3.zero;
     }
 
-    // Вспомогательный метод для проверки позиции в зоне без передачи Transform
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Transform
     private bool IsPositionInArea(ProhibitedArea area, Vector3 position)
     {
-        // Для работы InArea нужен Transform. Создаем один временный "пустышку" или используем существующий.
-        // Чтобы не спамить Instantiate, просто проверим через логику ProhibitedArea напрямую, 
-        // но так как InArea внутренний метод класса, воспользуемся временным объектом.
+        // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ InArea пїЅпїЅпїЅпїЅпїЅ Transform. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
+        // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ Instantiate, пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ ProhibitedArea пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, 
+        // пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ InArea пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
         GameObject temp = new GameObject();
         temp.transform.position = position;
         bool result = area.InArea(temp.transform);
@@ -192,7 +192,7 @@ public class MonsterGenerator : MonoBehaviour
         else
         {
             monster = Instantiate(prefab, position, Quaternion.identity);
-            monster.name = prefab.name; // Убираем (Clone) из имени для поиска в буфере
+            monster.name = prefab.name; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ (Clone) пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         }
         activeMonsters.Add(monster);
     }
