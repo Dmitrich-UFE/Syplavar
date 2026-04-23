@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CraftManager : MonoBehaviour
 {
@@ -16,6 +17,13 @@ public class CraftManager : MonoBehaviour
     [SerializeField] private Button craftButton;
     [SerializeField] private GameObject recipeButtonPrefab;
 
+    [Header("CraftUIWindow")]
+    [SerializeField] private Image[] slotImages;
+
+    [SerializeField] private TMP_Text[] slotCounts;
+    [SerializeField] private Image slotResultImage;
+    [SerializeField] private TMP_Text slotResultCount;
+
     private RecipeData currentRecipe;
 
     // ===== DRAW MENU =====
@@ -23,21 +31,16 @@ public class CraftManager : MonoBehaviour
     {
 
         ClearUI();
-        Debug.Log("asdsad");
 
         foreach (var recipe in recipes)
         {
             bool canCraft = CanCraft(recipe);
-
-        
 
             var buttonUI = Instantiate(recipeButtonPrefab, availableContainer);
 
             var component = buttonUI.GetComponent<RecipeButtonUI>();
 
             component.Init(recipe, canCraft, OnRecipeSelected);
-
-            Debug.Log("FDF");
         }
     }
 
@@ -80,6 +83,16 @@ public class CraftManager : MonoBehaviour
     // ===== OPEN =====
     internal void OpenCraftWindow(RecipeData recipe)
     {
+        for (int i = 0; i<recipe.IngredientsCount;++i)
+        {
+            var (item, count) = recipe[i];
+            slotImages[i].sprite = item.Texture; 
+            slotCounts[i].text = count.ToString();
+        }
+
+        slotResultImage.sprite = recipe.ResultItem.Texture;
+        slotResultCount.text= recipe.ResultCount.ToString();
+
         craftWindow.SetActive(true);
         currentRecipe = recipe;
         UpdateCraftWindow();
@@ -95,16 +108,34 @@ public class CraftManager : MonoBehaviour
     }
 
     // ===== CRAFT =====
-    internal void Craft()
+    public void Craft()
     {
         if (currentRecipe == null)
             return;
 
-        // ❗ Без доступа к Inventory — просто лог
-        Debug.Log("Скрафтили: " + currentRecipe.ResultItem.name);
+        bool canCraft = true;
+
+        for (int i = 0; i < currentRecipe.IngredientsCount; i++)
+        {   
+            var recipeItem = currentRecipe[i];
+            canCraft = canCraft && (inventory.CheckCountOfItem(recipeItem.item) > recipeItem.count);
+        }
+
+        if (canCraft)
+        {
+            for (int i = 0; i < currentRecipe.IngredientsCount; i++)
+            {   
+                var recipeItem = currentRecipe[i];
+                inventory.DebitItem(recipeItem.item, recipeItem.count);
+            }
+            Debug.Log("Скрафтили: " + currentRecipe.ResultItem.name);
+            inventory.AddToInventory(currentRecipe.ResultItem, currentRecipe.ResultCount);
+        }
+        
 
         UpdateCraftWindow();
         DrawCraftMenu();
+        inventory.DrawInventory();
     }
 
     // ===== CLOSE =====

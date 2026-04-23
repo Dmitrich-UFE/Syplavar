@@ -29,6 +29,7 @@ public class TreeManager : MonoBehaviour
 
     internal void GenerateTrees(List<TreeSaveData> treeSaveDatas)
     {
+        if (treeSaveDatas == null) return;
         foreach (TreeSaveData saveData in treeSaveDatas)
         {
             PlantTree tree = Instantiate(_TreePrefab, saveData.Position, Quaternion.identity, parent).GetComponent<PlantTree>();

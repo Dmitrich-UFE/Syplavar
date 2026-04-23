@@ -5120,6 +5120,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 23551751, guid: 6e1718786595f4b4399b929a99c04017, type: 3}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8823467325282970827, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_Name
       value: sloth1
@@ -5221,6 +5233,18 @@ PrefabInstance:
     - target: {fileID: 129802309439146820, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 23551751, guid: 6e1718786595f4b4399b929a99c04017, type: 3}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8823467325282970827, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_Name
@@ -5324,6 +5348,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 23551751, guid: 6e1718786595f4b4399b929a99c04017, type: 3}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8823467325282970827, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_Name
       value: sloth3
@@ -5425,6 +5461,18 @@ PrefabInstance:
     - target: {fileID: 129802309439146820, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 23551751, guid: 6e1718786595f4b4399b929a99c04017, type: 3}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8823467325282970827, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_Name

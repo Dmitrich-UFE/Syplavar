@@ -5,6 +5,7 @@ public class UnplowedLand : MonoBehaviour, IInteractable
 {
     [SerializeField] private GameObject _plowedLandPrefab;
     [SerializeField] private GameObject _TreeAdapterPrefab;
+    [SerializeField] private Transform _TreeParent;
     [SerializeField] private Cursor _cursor;
 
     private void Awake()
@@ -23,7 +24,7 @@ public class UnplowedLand : MonoBehaviour, IInteractable
 
         if (item != null && item.Name == "Саженец дерева" && !(_cursor.interactableObject is PlowedLand))
         {
-            Instantiate(_TreeAdapterPrefab, _cursor.gameObject.transform.position, Quaternion.identity);
+            Instantiate(_TreeAdapterPrefab, _cursor.gameObject.transform.position, Quaternion.identity, _TreeParent);
 
             return (true, null);
         } 

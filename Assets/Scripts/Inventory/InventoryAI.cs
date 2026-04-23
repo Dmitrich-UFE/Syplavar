@@ -111,7 +111,7 @@ public class InventoryAI : MonoBehaviour
     }
 
 
-    //Списывает айтемы. Возвращает true, если получилось
+    //Списывает айтемы с активного слота. Возвращает true, если получилось
     internal bool UseActiveItem(int count = 1)
     {
         InventorySlotAI actItem = GetActiveItem();
@@ -143,6 +143,24 @@ public class InventoryAI : MonoBehaviour
         DrawLowerInventory();
         return false;
     }
+
+    internal bool DebitItem(ItemData item, int count)
+    {
+        if (count > CheckCountOfItem(item)) return false;
+
+        foreach (var itemSlot in inventorySlots)
+        {
+            if (item.ItemID == itemSlot.ItemData.ItemID)
+            {
+                count = itemSlot.RemoveFromSlot(count);
+            }
+            if (count <= 0) break;
+        }
+
+        //DrawInventory();
+        return true;
+    }
+
 
     //Проверяет кол-во поданного предмета
     internal int CheckCountOfItem(ItemData item)

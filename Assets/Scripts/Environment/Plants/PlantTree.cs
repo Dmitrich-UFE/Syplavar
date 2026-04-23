@@ -15,6 +15,7 @@ public class PlantTree : MonoBehaviour, IInteractable
     [SerializeField] private List<GameObject> GrowedTreeObjects;
     [SerializeField] private GameObject actualTreeObject;
     [SerializeField] private bool isNeedGenerate;
+    [SerializeField] private bool UsedForTreeGenerator;
     [SerializeField] private GameObject EditorGO;
 
     private Coroutine dampCoroutine;
@@ -23,7 +24,10 @@ public class PlantTree : MonoBehaviour, IInteractable
 
     void Awake()
     {
-        
+        if (!UsedForTreeGenerator)
+        {
+            GenerateTree();
+        }
     }
 
     internal void InitTree(TreeData data)
@@ -40,7 +44,7 @@ public class PlantTree : MonoBehaviour, IInteractable
                 GenerateTree();
             }
         }
-        Awake();
+        //Awake();
     }
 
     private void GenerateTree(int type = -1)
