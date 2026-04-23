@@ -276,6 +276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &46902415
 GameObject:
@@ -373,6 +375,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!114 &86773248
 MonoBehaviour:
@@ -386,6 +390,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &89807917
 GameObject:
@@ -654,6 +660,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &104711941
 GameObject:
@@ -747,6 +755,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!114 &123540290
 MonoBehaviour:
@@ -796,6 +806,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!114 &138818326
 MonoBehaviour:
@@ -809,6 +821,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1001 &152986440
 PrefabInstance:
@@ -1046,6 +1060,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &182701498 stripped
 GameObject:
@@ -1064,6 +1080,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &209971015
 GameObject:
@@ -1797,6 +1815,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &228016441 stripped
 GameObject:
@@ -2146,6 +2166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1001 &256287278
 PrefabInstance:
@@ -2383,6 +2405,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!114 &273326071
 MonoBehaviour:
@@ -2396,6 +2420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &283086350 stripped
 GameObject:
@@ -2414,6 +2440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &292363249 stripped
 GameObject:
@@ -2639,7 +2667,174 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
+--- !u!43 &302679680
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 11
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 0
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 0
+    localAABB:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 0
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 0
+    _typelessdata: 
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_MeshUsageFlags: 0
+  m_CookingOptions: 30
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  'm_MeshMetrics[0]': 1
+  'm_MeshMetrics[1]': 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &314418182 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3104525754317895958, guid: 96299e96a0943fc43910ea6b8481b984, type: 3}
@@ -2744,6 +2939,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &391981579 stripped
 GameObject:
@@ -2991,6 +3188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!114 &422751219 stripped
 MonoBehaviour:
@@ -3123,6 +3322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &553503780 stripped
 GameObject:
@@ -3141,6 +3342,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &554331454 stripped
 GameObject:
@@ -3159,6 +3362,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 0
 --- !u!4 &566961244 stripped
 Transform:
@@ -3401,6 +3606,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &592151455 stripped
 GameObject:
@@ -3558,6 +3765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!4 &603782353 stripped
 Transform:
@@ -3822,6 +4031,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1001 &648559916
 PrefabInstance:
@@ -4059,6 +4270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &665434058 stripped
 GameObject:
@@ -4448,6 +4661,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1001 &721887568
 PrefabInstance:
@@ -4685,6 +4900,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &729223266
 GameObject:
@@ -4965,6 +5182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &773005321 stripped
 GameObject:
@@ -4983,6 +5202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1001 &841618019
 PrefabInstance:
@@ -5167,6 +5388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1001 &895458320
 PrefabInstance:
@@ -5375,6 +5598,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!4 &905679759 stripped
 Transform:
@@ -5649,6 +5874,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!4 &955802467 stripped
 Transform:
@@ -5672,6 +5899,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!114 &996411308 stripped
 MonoBehaviour:
@@ -5701,6 +5930,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &1033007420 stripped
 GameObject:
@@ -5719,6 +5950,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &1041156055 stripped
 GameObject:
@@ -5737,6 +5970,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1001 &1064688117
 PrefabInstance:
@@ -5969,6 +6204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1001 &1071661801
 PrefabInstance:
@@ -6331,6 +6568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &1102049836
 GameObject:
@@ -6505,6 +6744,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &1156892836 stripped
 GameObject:
@@ -6543,6 +6784,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &1168535537
 GameObject:
@@ -6875,6 +7118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &1216406803 stripped
 GameObject:
@@ -6893,6 +7138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &1217353649 stripped
 GameObject:
@@ -7239,6 +7486,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!114 &1243740667
 MonoBehaviour:
@@ -7325,171 +7574,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1433631759482740916, guid: 297c79de27d87d94ca7b64aa5eaba3f2, type: 3}
   m_PrefabInstance: {fileID: 1247810706}
   m_PrefabAsset: {fileID: 0}
---- !u!43 &1282738665
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 11
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 0
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 0
-    localAABB:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0, y: 0, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 0
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 0
-    _typelessdata: 
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  m_MeshUsageFlags: 0
-  m_CookingOptions: 30
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  'm_MeshMetrics[0]': 1
-  'm_MeshMetrics[1]': 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1001 &1292906352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7726,6 +7810,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!114 &1294859064 stripped
 MonoBehaviour:
@@ -7806,6 +7892,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 0
 --- !u!1001 &1343242787
 PrefabInstance:
@@ -8043,6 +8131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!224 &1345912663 stripped
 RectTransform:
@@ -8271,6 +8361,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!4 &1386692773 stripped
 Transform:
@@ -8484,6 +8576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &1398533184 stripped
 GameObject:
@@ -8502,6 +8596,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1001 &1404519965
 PrefabInstance:
@@ -8675,6 +8771,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 0
 --- !u!1001 &1486640899
 PrefabInstance:
@@ -8907,6 +9005,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!4 &1498458602 stripped
 Transform:
@@ -8988,6 +9088,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1001 &1527317042
 PrefabInstance:
@@ -9220,6 +9322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!114 &1587195239
 MonoBehaviour:
@@ -9253,6 +9357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &1596227904 stripped
 GameObject:
@@ -9271,6 +9377,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1001 &1626787536
 PrefabInstance:
@@ -9688,6 +9796,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!114 &1632709306 stripped
 MonoBehaviour:
@@ -9931,6 +10041,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1001 &1664492045
 PrefabInstance:
@@ -10699,6 +10811,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!114 &1664492093
 MonoBehaviour:
@@ -10712,6 +10826,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &1665955525 stripped
 GameObject:
@@ -10730,6 +10846,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &1683480135
 GameObject:
@@ -11103,6 +11221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1001 &1719478284
 PrefabInstance:
@@ -11340,6 +11460,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &1722071530
 GameObject:
@@ -11686,6 +11808,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &1726908350 stripped
 GameObject:
@@ -11704,6 +11828,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &1749022590 stripped
 GameObject:
@@ -11722,6 +11848,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &1753199937
 GameObject:
@@ -11999,6 +12127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!4 &1758393785 stripped
 Transform:
@@ -12022,6 +12152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1001 &1795017344
 PrefabInstance:
@@ -12259,6 +12391,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &1809005111
 GameObject:
@@ -12303,6 +12437,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!114 &1844826918 stripped
 MonoBehaviour:
@@ -12551,6 +12687,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &1880977304 stripped
 GameObject:
@@ -12812,6 +12950,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!114 &1899808105
 MonoBehaviour:
@@ -12840,6 +12980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1001 &1962635904
 PrefabInstance:
@@ -13077,6 +13219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &2046005588 stripped
 GameObject:
@@ -14826,6 +14970,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1 &2073801959 stripped
 GameObject:
@@ -15450,15 +15596,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: LightUIGradient.key0.b
-      value: 0.9622642
+      value: 0.8490566
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: LightUIGradient.key0.g
-      value: 0.7464429
+      value: 0.6688324
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: LightUIGradient.key0.r
-      value: 0.6581524
+      value: 0.59674263
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: LightUIGradient.key1.b
@@ -15486,27 +15632,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: LightUIGradient.key3.b
-      value: 0.8457191
+      value: 0.763172
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: LightUIGradient.key3.g
-      value: 0.95213723
+      value: 0.88091844
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: LightUIGradient.key3.r
-      value: 0.990566
+      value: 0.9245283
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: LightUIGradient.key4.b
-      value: 0.8470589
+      value: 0.76470596
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: LightUIGradient.key4.g
-      value: 0.95294124
+      value: 0.882353
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: LightUIGradient.key4.r
-      value: 0.9921569
+      value: 0.92549026
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: LightUIGradient.key5.b
@@ -15522,27 +15668,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: LightUIGradient.key6.b
-      value: 0.909804
+      value: 0.85098046
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: LightUIGradient.key6.g
-      value: 0.7058824
+      value: 0.67058825
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: LightUIGradient.key6.r
-      value: 0.62352943
+      value: 0.59607846
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: LightUIGradient.key7.b
-      value: 0.909804
+      value: 0.85098046
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: LightUIGradient.key7.g
-      value: 0.7058824
+      value: 0.67058825
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: LightUIGradient.key7.r
-      value: 0.62352943
+      value: 0.59607846
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: LightUIGradient.m_Mode
@@ -15574,75 +15720,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: RainyUIGradient.key0.b
-      value: 0.9607844
+      value: 0.85098046
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: RainyUIGradient.key0.g
-      value: 0.74509805
+      value: 0.67058825
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: RainyUIGradient.key0.r
-      value: 0.654902
+      value: 0.59607846
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: RainyUIGradient.key1.b
-      value: 0.9607844
+      value: 0.85098046
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: RainyUIGradient.key1.g
-      value: 0.74509805
+      value: 0.67058825
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: RainyUIGradient.key1.r
-      value: 0.654902
+      value: 0.59607846
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: RainyUIGradient.key2.b
-      value: 0.9339623
+      value: 0.8867924
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: RainyUIGradient.key2.g
-      value: 0.8633171
+      value: 0.8195659
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: RainyUIGradient.key2.r
-      value: 0.82382524
+      value: 0.78221786
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: RainyUIGradient.key3.b
-      value: 0.9333334
+      value: 0.8862746
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: RainyUIGradient.key3.g
-      value: 0.86274517
+      value: 0.8196079
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: RainyUIGradient.key3.r
-      value: 0.8235295
+      value: 0.7803922
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: RainyUIGradient.key4.b
-      value: 0.9607844
+      value: 0.85098046
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: RainyUIGradient.key4.g
-      value: 0.74509805
+      value: 0.67058825
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: RainyUIGradient.key4.r
-      value: 0.654902
+      value: 0.59607846
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: RainyUIGradient.key5.b
-      value: 0.9607844
+      value: 0.85098046
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: RainyUIGradient.key5.g
-      value: 0.74509805
+      value: 0.67058825
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: RainyUIGradient.key5.r
-      value: 0.654902
+      value: 0.59607846
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: RainyUIGradient.key6.b

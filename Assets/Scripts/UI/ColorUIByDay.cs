@@ -10,16 +10,20 @@ public class ColorUIByDay : MonoBehaviour
     [SerializeField] private Color _totalColor;
     [SerializeField] private bool IsBlendWithStartColor;
     Coroutine colorCoroutine;
+    bool _isInitialized;
+
+    void Awake() // Или в Start, но только один раз
+{
+    if (!_isInitialized)
+    {
+        _img = GetComponent<Image>();
+        _color = IsBlendWithStartColor ? _img.color : Color.white;
+        _isInitialized = true;
+    }
+}
 
     void Start()
     {
-        _img = GetComponent<Image>();
-        
-        if (IsBlendWithStartColor)
-            _color = new Color(_img.color.r, _img.color.g, _img.color.b, _img.color.a);
-        else
-            _color = new Color(1f, 1f, 1f, 1f);
-
         colorCoroutine = StartCoroutine(ColorUI());
     }
     
@@ -27,8 +31,7 @@ public class ColorUIByDay : MonoBehaviour
     {
         while(_img != null)
         {
-            _totalColor = DayLightHandler.ActualDayColor * _color;
-            _img.color = _totalColor;
+            _img.color = DayLightHandler.ActualDayColor * _color;
             yield return new WaitForSecondsRealtime(1.5f);
         }
     }
@@ -45,16 +48,6 @@ public class ColorUIByDay : MonoBehaviour
 
     void OnEnable()
     {
-        if (_img == null) 
-        {
-            _img = GetComponent<Image>();
-
-            if (IsBlendWithStartColor)
-                _color = _color = new Color(_img.color.r, _img.color.g, _img.color.b, _img.color.a);
-            else
-                _color = new Color(1f, 1f, 1f, 1f);
-        }
-
         if (colorCoroutine != null) StopCoroutine(colorCoroutine);
         colorCoroutine = StartCoroutine(ColorUI());
     }
