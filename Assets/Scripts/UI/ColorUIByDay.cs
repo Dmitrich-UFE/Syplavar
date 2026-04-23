@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class ColorUIByDay : MonoBehaviour
 {
     private Image _img;
-    private Color _color;
+    [SerializeField] private Color _color;
+    [SerializeField] private Color _totalColor;
     [SerializeField] private bool IsBlendWithStartColor;
     Coroutine colorCoroutine;
 
@@ -15,7 +16,7 @@ public class ColorUIByDay : MonoBehaviour
         _img = GetComponent<Image>();
         
         if (IsBlendWithStartColor)
-            _color = _img.color;
+            _color = new Color(_img.color.r, _img.color.g, _img.color.b, _img.color.a);
         else
             _color = new Color(1f, 1f, 1f, 1f);
 
@@ -24,21 +25,22 @@ public class ColorUIByDay : MonoBehaviour
     
     IEnumerator ColorUI()
     {
-        while(true)
+        while(_img != null)
         {
-            _img.color = DayLightHandler.ActualDayColor * _color;
-            yield return new WaitForSecondsRealtime(0.5f);
+            _totalColor = DayLightHandler.ActualDayColor * _color;
+            _img.color = _totalColor;
+            yield return new WaitForSecondsRealtime(1.5f);
         }
     }
 
     void OnDestroy()
     {
-        StopCoroutine(colorCoroutine);
+        if (colorCoroutine != null) StopCoroutine(colorCoroutine);
     }
 
     void OnDisable()
     {
-        StopCoroutine(colorCoroutine);
+        if (colorCoroutine != null) StopCoroutine(colorCoroutine);
     }
 
     void OnEnable()
@@ -48,10 +50,12 @@ public class ColorUIByDay : MonoBehaviour
             _img = GetComponent<Image>();
 
             if (IsBlendWithStartColor)
-                _color = _img.color;
+                _color = _color = new Color(_img.color.r, _img.color.g, _img.color.b, _img.color.a);
             else
                 _color = new Color(1f, 1f, 1f, 1f);
         }
+
+        if (colorCoroutine != null) StopCoroutine(colorCoroutine);
         colorCoroutine = StartCoroutine(ColorUI());
     }
 }

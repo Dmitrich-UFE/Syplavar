@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4528302, g: 0.3951584, b: 0.3951584, a: 1}
+  m_Color: {r: 0.7075472, g: 0.63746, b: 0.63746, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1930,7 +1930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  m_Color: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3456,7 +3456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
+  m_Color: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5129,6 +5129,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 23551751, guid: 6e1718786595f4b4399b929a99c04017, type: 3}
     - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
       value: 2
       objectReference: {fileID: 0}
@@ -5242,6 +5254,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 23551751, guid: 6e1718786595f4b4399b929a99c04017, type: 3}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
       value: 2
@@ -5357,6 +5381,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 23551751, guid: 6e1718786595f4b4399b929a99c04017, type: 3}
     - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
       value: 2
       objectReference: {fileID: 0}
@@ -5470,6 +5506,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 23551751, guid: 6e1718786595f4b4399b929a99c04017, type: 3}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
       value: 2

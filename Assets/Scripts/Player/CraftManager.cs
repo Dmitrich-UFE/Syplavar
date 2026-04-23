@@ -113,15 +113,15 @@ public class CraftManager : MonoBehaviour
         if (currentRecipe == null)
             return;
 
-        bool canCraft = true;
+        //bool canCraft = true;
 
-        for (int i = 0; i < currentRecipe.IngredientsCount; i++)
-        {   
-            var recipeItem = currentRecipe[i];
-            canCraft = canCraft && (inventory.CheckCountOfItem(recipeItem.item) > recipeItem.count);
-        }
+        //for (int i = 0; i < currentRecipe.IngredientsCount; i++)
+        //{   
+        //    var recipeItem = currentRecipe[i];
+        //    canCraft = canCraft && (inventory.CheckCountOfItem(recipeItem.item) >= recipeItem.count);
+        //}
 
-        if (canCraft)
+        if (CanCraft(currentRecipe))
         {
             for (int i = 0; i < currentRecipe.IngredientsCount; i++)
             {   
