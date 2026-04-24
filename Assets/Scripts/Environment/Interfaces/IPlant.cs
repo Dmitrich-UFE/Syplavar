@@ -4,6 +4,7 @@ public enum PlantStatus {seed, phase1, phase2, phase3, has_growed, phase1_dry, p
 
 public interface IPlant 
 {
+    PlantTypes Type { get; }
     int GrowingPhase { get; set; }
     Sprite PhaseSprite { get; set; }
     GrowableObject growableObject { get; }
