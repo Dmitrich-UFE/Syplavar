@@ -51,4 +51,4 @@ MonoBehaviour:
   _returningItems:
   - {fileID: 11400000, guid: 77336adbb6a21de4faa0c6a0b5d88012, type: 2}
   - {fileID: 11400000, guid: e74c1e186b7dfa84aad07e8cc8c39671, type: 2}
-  _type: 3
+  _type: 4

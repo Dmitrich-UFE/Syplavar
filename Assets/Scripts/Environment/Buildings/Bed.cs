@@ -5,6 +5,7 @@ public class Bed : MonoBehaviour, IInteractable
 {
     [SerializeField] private GameObject sleepingPlayer;
     [SerializeField] private GameObject Player;
+    [SerializeField] private GameObject Cursor;
     private bool isTimeToSleep;
     private bool isPlayerSleeping;
     private Vector3 _playerPos;
@@ -39,6 +40,7 @@ public class Bed : MonoBehaviour, IInteractable
                     Player.transform.position = _playerPos;
                     sleepingPlayer.SetActive(false);
                     Player.SetActive(true);
+                    Cursor.SetActive(true);
                     isPlayerSleeping = false;
                 }
             break;
@@ -53,6 +55,7 @@ public class Bed : MonoBehaviour, IInteractable
             DayLightHandler.SpeedupForSleep();
             sleepingPlayer.SetActive(true);
             Player.SetActive(false);
+            Cursor.SetActive(false);
             Player.transform.position = this.transform.position;
             isPlayerSleeping = true;
         }

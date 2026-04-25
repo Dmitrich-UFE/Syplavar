@@ -50,4 +50,5 @@ MonoBehaviour:
   _growingPhasesSprites: {fileID: 11400000, guid: 3cbed8afcba05f6498a5f2a5387bf22a, type: 2}
   _returningItems:
   - {fileID: 11400000, guid: 4090439c13289ab49855cb9010dae837, type: 2}
-  _type: 5
+  - {fileID: 11400000, guid: 4090439c13289ab49855cb9010dae837, type: 2}
+  _type: 6

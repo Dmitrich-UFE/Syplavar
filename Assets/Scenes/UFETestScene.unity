@@ -607,7 +607,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &101755513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7505,7 +7505,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1433631759482740916, guid: 297c79de27d87d94ca7b64aa5eaba3f2, type: 3}
   m_PrefabInstance: {fileID: 1247810706}
   m_PrefabAsset: {fileID: 0}
---- !u!43 &1265298077
+--- !u!43 &1272034393
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15706,7 +15706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: dayDuration
-      value: 240
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 5568379763850942487, guid: 514410309f7d6c14fb0ba498949ea9ff, type: 3}
       propertyPath: dayProgress
@@ -15986,6 +15986,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1137744390441804665, guid: 2ed6616d952a194408255b18ba28dc3b, type: 3}
+      propertyPath: Cursor
+      value: 
+      objectReference: {fileID: 8390486569090497060}
     - target: {fileID: 1137744390441804665, guid: 2ed6616d952a194408255b18ba28dc3b, type: 3}
       propertyPath: Player
       value: 

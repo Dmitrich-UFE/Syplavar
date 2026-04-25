@@ -38,7 +38,8 @@ public class PlantTree : MonoBehaviour, IInteractable
         {
             isGrowed = data.Phase == 0? false : true;
             id = data.ID;
-            if (isGrowed && data.Type < GrowedTreeObjects.Count)
+            _type = data.Type;
+            if (isGrowed && data.Type < GrowedTreeObjects.Count && data.Type >= 0)
             {
                 GenerateTree(data.Type);
             }
@@ -68,22 +69,22 @@ public class PlantTree : MonoBehaviour, IInteractable
     {
         Destroy(EditorGO);
 
-        if (type == -1) _type = UnityEngine.Random.Range(0, GrowedTreeObjects.Count - 1);
+        if (type == -1) type = UnityEngine.Random.Range(0, GrowedTreeObjects.Count - 1);
         
         this.transform.position = new Vector3(Mathf.Round(this.transform.position.x), this.transform.position.y, Mathf.Round(this.transform.position.z));
 
         if (isGrowed && isNeedGenerate)
         {
-            actualTreeObject = Instantiate(GrowedTreeObjects[_type], this.transform);
-            health = UnityEngine.Random.Range(10, 70);
+            actualTreeObject = Instantiate(GrowedTreeObjects[type], this.transform);
+            health = UnityEngine.Random.Range(20, 40);
         }
         else if (isGrowed && !isNeedGenerate)
         {
-            health = UnityEngine.Random.Range(10, 70);
+            health = UnityEngine.Random.Range(20, 40);
         }
         else
         {
-            daysBeforeGrow = UnityEngine.Random.Range(4, 12);
+            daysBeforeGrow = UnityEngine.Random.Range(3, 7);
             DayLightHandler._OnTimeReached += Growing;
             actualTreeObject = Instantiate(smallTreeObject, this.transform);
         }
@@ -183,7 +184,7 @@ public class PlantTree : MonoBehaviour, IInteractable
         Destroy(actualTreeObject);
         actualTreeObject = Instantiate(GrowedTreeObjects[UnityEngine.Random.Range(0, GrowedTreeObjects.Count - 1)], this.transform);
         isGrowed = true;
-        health = UnityEngine.Random.Range(10, 50);
+        health = UnityEngine.Random.Range(20, 40);
         TreeManager.Update(GetTreeData());
     }
 

@@ -28,9 +28,9 @@ public class PlowedLandManager : MonoBehaviour
             {
                 GameObject plowedLandObj = Instantiate(plowedLandPrefab, landData.Position, Quaternion.identity);
                 
-                IPlant iplant = GetCorrectPlant(landData);
+                GameObject iplant = GetCorrectPlant(landData);
 
-                landData.Plant = iplant;
+                landData.Plant = iplant != null? Instantiate(iplant, plowedLandObj.transform) : null;
                 PlowedLand plowedLand = plowedLandObj.GetComponent<PlowedLand>();
 
                 plowedLand.Init(landData);
@@ -57,7 +57,7 @@ public class PlowedLandManager : MonoBehaviour
     }
 
 
-    private IPlant GetCorrectPlant(PlowedLandData data)
+    private GameObject GetCorrectPlant(PlowedLandData data)
     {
         if (data.Type == PlantTypes.NullPlant) return null;
 
@@ -66,7 +66,7 @@ public class PlowedLandManager : MonoBehaviour
             IPlant iplant = plant.GetComponent<IPlant>();
             if (iplant.Type == data.Type)
             {
-                return iplant;
+                return plant;
             }
         }
 
@@ -80,7 +80,7 @@ public class PlowedLandManager : MonoBehaviour
             if (data.ID < 0)
             {
                 instance.PlowedLands.Remove(-data.ID);
-                Debug.LogWarning($"Удален объект: {data.ID}, в слваре: {instance.PlowedLands.Count}");
+                Debug.LogWarning($"Изменен объект: {data.ID}, в слваре: {instance.PlowedLands.Count}");
                 return;
             }
             instance.PlowedLands[data.ID] = data;
@@ -130,7 +130,7 @@ public class PlowedLandData
     public Vector3Int Position;
     public bool Wet;
     public PlantStatus PlantStatus;
-    public IPlant Plant;
+    public GameObject Plant;
 }
 
 [System.Serializable]

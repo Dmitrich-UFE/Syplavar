@@ -83,7 +83,7 @@ public class TreeDataGenerator : MonoBehaviour
             TreeSaveData treeSaveData = new TreeSaveData();
             treeSaveData.Position = pos;
             treeSaveData.GrowPhase = 1;
-            treeSaveData.Type = UnityEngine.Random.Range(0, _maxIndexOfTreeType);
+            treeSaveData.Type = UnityEngine.Random.Range(0, _maxIndexOfTreeType+1);
             TreeSaveDatas.Add(treeSaveData);
         }
     }

@@ -54,6 +54,7 @@ public class DayLightHandler : MonoBehaviour
     void Awake()
     {
         instance = this;
+        Times.Clear();
         DayLightHandler.timeSpeedDuringSleep = NonStaticTimeSpeedDuringSleep;
         StaticDayDuration = dayDuration;
         mainGradient = LightGradient;
@@ -188,7 +189,7 @@ public class DayLightHandler : MonoBehaviour
     {
         foreach (var time in Times)
         {
-            if (math.abs((time.Key.hh * 60f + time.Key.mm) - (Hours * 60f + Minutes)) <= 2f)
+            if (math.abs((time.Key.hh * 60f + time.Key.mm) - (Hours * 60f + Minutes)) <= 3f)
                 return time.Key;
         }
 

@@ -8,6 +8,7 @@ public class PlowedLand : MonoBehaviour, IInteractable
     private IGetable getable;
     private bool wet = false;
     private int plantID;
+    private GameObject _plantObj;
 
     [SerializeField] private SpriteRenderer seedPlaceSpriteRenderer;
     [SerializeField] private SpriteRenderer plantSpriteRenderer;
@@ -41,12 +42,18 @@ public class PlowedLand : MonoBehaviour, IInteractable
 
         if (data.Plant != null)
         {
-            plant = data.Plant;
+            _plantObj = data.Plant;
+            plant = data.Plant.GetComponent<IPlant>();
+            getable = data.Plant.GetComponent<IGetable>();
             if (plant != null)
-                plant.plantStatus = (PlantStatus)data.PlantStatus;
+            {
+                plant.plantStatus = data.PlantStatus;
+                plant.ToNextPhase();
+            }
         }
 
         UpdatePlowedLand();
+        PlowedLandManager.Update(GetPlantData());
     }
 
     internal PlowedLandData GetPlantData()
@@ -60,7 +67,7 @@ public class PlowedLand : MonoBehaviour, IInteractable
         if (plant != null)
         {
             data.PlantStatus = plant.plantStatus;
-            data.Plant = plant;
+            data.Plant = _plantObj;
             data.Type = plant.Type;
         }
         else
@@ -105,16 +112,15 @@ public class PlowedLand : MonoBehaviour, IInteractable
                         wet = false;
                     break;
             }
-
-            PlowedLandManager.Update(GetPlantData());
-            UpdatePlowedLand();
         }
         else
         {
-            //if (time == (00, 00))
-                //Destroy(this.gameObject);
+            if (time == (18, 00))
+                wet = false;
         }
-
+        
+        PlowedLandManager.Update(GetPlantData());
+        UpdatePlowedLand();
     }
 
     //обновление информации о грядке
@@ -129,9 +135,15 @@ public class PlowedLand : MonoBehaviour, IInteractable
         }
 
         if (plant?.plantStatus != 0)
+        {
+            plantSpriteRenderer.sprite = plant?.PhaseSprite;
             seedPlaceSpriteRenderer.sprite = null;
+        }
         else
+        {
+            seedPlaceSpriteRenderer.sprite = plant?.PhaseSprite;
             plantSpriteRenderer.sprite = null;
+        }
 
         if (wet)
             overGroundSpriteRenderer.color = new Color(0.7f, 0.7f, 0.7f, 1f);
@@ -143,7 +155,7 @@ public class PlowedLand : MonoBehaviour, IInteractable
     //реакция объекта на айтем
     (bool, List<IItem>) IInteractable.Interact(IItem item)
     {
-        if (plant?.plantStatus != PlantStatus.has_growed )
+        if (plant?.plantStatus != PlantStatus.has_growed)
         {
             if (item.GameObject == null)
             {
@@ -171,9 +183,9 @@ public class PlowedLand : MonoBehaviour, IInteractable
             //для семян(универсальный)
             if(item.GameObject.CompareTag("Plant"))
             {
-                GameObject _gameObject = Instantiate(item.GameObject, this.transform);
-                plant = _gameObject.GetComponent<IPlant>();
-                getable =_gameObject.GetComponent<IGetable>();
+                _plantObj = Instantiate(item.GameObject, this.transform);
+                plant = _plantObj.GetComponent<IPlant>();
+                getable = _plantObj.GetComponent<IGetable>();
 
                 plant.plantStatus = PlantStatus.seed;
                 plant.GrowingPhase = 0;
@@ -210,7 +222,7 @@ public class PlowedLand : MonoBehaviour, IInteractable
                 return (false, null);
             }
         }
-        else
+        else if (getable != null)
         {
             List<IItem> items = new List<IItem>(getable.Get());
             ClearCulture();
