@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
-using UnityEngine.Events;
-using System;
 
 public class InventoryAI : MonoBehaviour
 {
@@ -50,6 +48,43 @@ public class InventoryAI : MonoBehaviour
         }
 
         SetActiveSlot(_activeIndex);
+        LoadInventory();
+    }
+
+    //Сохранение инвентаря
+    public void SaveInventory()
+    {
+        List<InventorySlotData> invDatas = new List<InventorySlotData>(inventorySlots.Length);
+
+        for (int i = 0; i<inventorySlots.Length; i++)
+        {
+            if (inventorySlots[i] != null)
+            {
+                InventorySlotData data = new InventorySlotData
+                {ItemID = inventorySlots[i].ItemData.ItemID, count = inventorySlots[i].StackSize, SlotIndex = i};
+                invDatas.Add(data);
+            }
+        }
+
+        InventorySaveSystem.SaveInventory(invDatas);
+    }
+
+    //Загрузка инвентаря
+    public void LoadInventory()
+    {
+        List<InventorySlotData> invDatas = InventorySaveSystem.LoadInventory();
+
+        if (inventorySlots == null) inventorySlots = new InventorySlotAI[_length];
+
+        if (invDatas.Count > 0)
+        {
+            foreach (InventorySlotData data in invDatas)
+            {
+                AddToInventory(ItemManager.GetItemDataByID(data.ItemID), data.count, data.SlotIndex);
+            }
+        }
+
+        DrawLowerInventory();
     }
 
     //отрисовка нижнего инвентаря
@@ -110,6 +145,22 @@ public class InventoryAI : MonoBehaviour
         return true;
     }
 
+    //Добавляет предмет строго в определённую ячейку. Возвращает true, если получилось добавить всё
+    internal bool AddToInventory(ItemData itemToAdd, int count, int index)
+    {
+        if (index >= inventorySlots.Length) return false;
+
+        if (itemToAdd.ItemID != inventorySlots[index].ItemData.ItemID)
+        {
+            inventorySlots[index].SetItem(itemToAdd, 0);
+        }
+
+        count = inventorySlots[index].AddToSlot(count);
+
+        return count <= 0;
+        
+        //InventorySlotAI slot = 
+    }
 
     //Списывает айтемы с активного слота. Возвращает true, если получилось
     internal bool UseActiveItem(int count = 1)
@@ -281,3 +332,6 @@ public class InventoryAI : MonoBehaviour
         _playerInputActions.Disable();
     }
 }
+
+
+
