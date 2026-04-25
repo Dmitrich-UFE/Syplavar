@@ -158,8 +158,6 @@ public class InventoryAI : MonoBehaviour
         count = inventorySlots[index].AddToSlot(count);
 
         return count <= 0;
-        
-        //InventorySlotAI slot = 
     }
 
     //Списывает айтемы с активного слота. Возвращает true, если получилось

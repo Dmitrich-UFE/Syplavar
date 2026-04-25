@@ -26,6 +26,7 @@ public class DayLightHandler : MonoBehaviour
     [SerializeField] private Transform lightTransform;
     [SerializeField] private float delta;
     [SerializeField, Range(0f, 1f)] private float dayProgress;
+    private bool cloudy;
 
     private static float daySpeedMultiple = 1;
     private static float timeSpeedDuringSleep;
@@ -41,6 +42,7 @@ public class DayLightHandler : MonoBehaviour
     public static int Hours {get; private set;}
     public static int Minutes {get; private set;}
     public static int DayDuration => StaticDayDuration;
+    public static bool IsSleepTime {get; private set;}
     private static float daySpeedMultipleStatic = 1; 
     private static Coroutine AddMindCoroutine;
 
@@ -54,26 +56,67 @@ public class DayLightHandler : MonoBehaviour
     void Awake()
     {
         instance = this;
-        Times.Clear();
-        DayLightHandler.timeSpeedDuringSleep = NonStaticTimeSpeedDuringSleep;
-        StaticDayDuration = dayDuration;
-        mainGradient = LightGradient;
-        mainUIGradient = LightUIGradient;
-        _directLight.color = mainGradient.Evaluate(dayProgress);
-        ActualDayColor = mainUIGradient.Evaluate(dayProgress);
-
-        DayLightHandler.AddTime(12, 00);
-        DayLightHandler.AddTime(18, 00);
-        DayLightHandler.AddTime(22, 00);
-        DayLightHandler.AddTime(00, 00);
-        DayLightHandler.AddTime(02, 00);
-        DayLightHandler.AddTime(06, 00);
-        DayLightHandler.AddTime(07, 00);
     }
 
-    void Start()
+    void Init()
     {
-        
+        daySpeedMultiple = 1;
+        daySpeedMultipleStatic = daySpeedMultiple;
+
+        DayLightHandler.timeSpeedDuringSleep = NonStaticTimeSpeedDuringSleep;
+        StaticDayDuration = dayDuration;
+
+        mainGradient = cloudy? RainyGradient : LightGradient;
+        mainUIGradient = cloudy? RainyUIGradient : LightUIGradient;
+
+        _directLight.color = mainGradient.Evaluate(dayProgress);
+        ActualDayColor = mainUIGradient.Evaluate(dayProgress);
+    }
+
+    internal DayLightHandlerSaveData GetData()
+    {
+        DayLightHandlerSaveData data = new DayLightHandlerSaveData{DayMoment = dayProgress, Cloudy = cloudy};
+        List<dayTime> times = new List<dayTime>(Times.Count);
+
+        foreach (var time in Times)
+        {
+            times.Add(new dayTime{hh = time.Key.hh, mm = time.Key.mm, isReached = time.Value});
+        }
+
+        data.IsSleepTime = IsSleepTime;
+        data.Times = times;
+        return data;
+    }
+
+    internal void LoadData(DayLightHandlerSaveData data)
+    {
+        if (data == null)
+        {
+            dayProgress = 0.3f;
+            cloudy = false;
+            IsSleepTime = false;
+
+            DayLightHandler.AddTime(12, 00);
+            DayLightHandler.AddTime(18, 00);
+            DayLightHandler.AddTime(22, 00);
+            DayLightHandler.AddTime(00, 00);
+            DayLightHandler.AddTime(02, 00);
+            DayLightHandler.AddTime(06, 00);
+            DayLightHandler.AddTime(07, 00);
+        }
+        else
+        {
+            IsSleepTime = data.IsSleepTime;
+            dayProgress = data.DayMoment;
+            cloudy = data.Cloudy;
+
+            foreach (var time in data.Times)
+            {
+                Times[(time.hh, time.mm)] = time.isReached;
+            }
+        }
+
+        Init();
     }
 
     
@@ -93,17 +136,14 @@ public class DayLightHandler : MonoBehaviour
 
             int num = UnityEngine.Random.Range(1, 10);
 
-            mainGradient = num switch  
+            cloudy = num switch
             {
-                2 or 8 => RainyGradient,
-                _ => LightGradient
+                2 or 8 => true,
+                _ => false
             };
 
-            mainUIGradient = num switch  
-            {
-                2 or 8 => RainyUIGradient,
-                _ => LightUIGradient
-            };
+            mainGradient = cloudy? RainyGradient : LightGradient;
+            mainUIGradient = cloudy? RainyUIGradient : LightUIGradient;
         }
         
         _directLight.color = mainGradient.Evaluate(dayProgress);
@@ -116,7 +156,8 @@ public class DayLightHandler : MonoBehaviour
             Times[time] = true;
             _OnTimeReached?.Invoke(time);
         }
-            
+        
+        IsSleepTime = Hours >= 18 || Hours < 7;
     }
 
     //Запись времени
@@ -177,11 +218,11 @@ public class DayLightHandler : MonoBehaviour
             daySpeedMultiple = 1;
             daySpeedMultipleStatic = daySpeedMultiple;
             DayLightHandler._OnTimeReached -= CheckWakeTime;
+            IsSleepTime = false;
 
             if (AddMindCoroutine != null) instance.StopCoroutine(AddMindCoroutine);
             //отключить корутину для накрутки рассудка
         }
-
     }
 
     //если время в контейнере совпадает с нынешним, то возвращается подходящее время
@@ -225,5 +266,6 @@ public class DayLightHandler : MonoBehaviour
     void OnDestroy()
     {
         DayLightHandler._OnTimeReached -= CheckWakeTime;
+        if (AddMindCoroutine != null) instance.StopCoroutine(AddMindCoroutine);
     }
 }

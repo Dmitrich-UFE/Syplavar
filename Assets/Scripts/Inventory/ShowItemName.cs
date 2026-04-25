@@ -5,26 +5,26 @@ using Unity.VisualScripting;
 
 public class ShowItemName : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
 
-
-    [SerializeField] private StaticInventoryDisplay _hotbar;
     [SerializeField] private InventoryAI _inventoryAI;
     [SerializeField] private Cursor _cursor;
     [SerializeField] private float _delay;
     [SerializeField] private TMP_Text _uiText;
     Coroutine coroutine;
+    internal static ShowItemName instance;
+
 
     void Awake()
     {
-        //_hotbar.OnSelectedSlotChanged += OnHotbarSelectionChanged;
+        instance = this;
         _inventoryAI.OnSelectedSlotChanged += OnHotbarSelectionChanged;
         _cursor.OnSelectedItemUsed += OnCurrentObjUsed;
         _uiText.text = "";
     }
 
     //Смена слота
-    private void  OnHotbarSelectionChanged(int slotIndex, InventorySlotAI slot)
+    private void OnHotbarSelectionChanged(int slotIndex, InventorySlotAI slot)
     {
         if (this.enabled && slot != null && slot.ItemData != null)
         {
@@ -44,10 +44,10 @@ public class ShowItemName : MonoBehaviour
     }
 
     //Вывод любого текста
-    private void ShowActItemText(string data)
+    internal void ShowActItemText(string data)
     {
         if (coroutine != null)
-                StopCoroutine(coroutine);
+            StopCoroutine(coroutine);
 
         _uiText.text = data;
         _uiText.color = new Color(_uiText.color.r, _uiText.color.g, _uiText.color.b, 1);
