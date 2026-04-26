@@ -19,17 +19,17 @@ public class TreeDataGenerator : MonoBehaviour
     [SerializeField] private ShapeChecker[] _forestAreas;
     [SerializeField] private int _percentsForForestGen;
 
-    private HashSet<Vector3Int> existCoords;
+    internal HashSet<Vector3Int> existCoords {get; private set;}
 
     void Awake()
     {
-        
+        existCoords = new HashSet<Vector3Int>(_CountOfTrees);
     }
 
     internal List<TreeSaveData> GenerateTreeSaveData()
     {
         List<TreeSaveData> TreeSaveDatas = new List<TreeSaveData>(_CountOfTrees);
-        existCoords = new HashSet<Vector3Int>(_CountOfTrees);
+        
 
         int treesInForestTarget = Mathf.RoundToInt(_CountOfTrees * (_percentsForForestGen / 100f));
         int treesOutsideTarget = _CountOfTrees - treesInForestTarget;

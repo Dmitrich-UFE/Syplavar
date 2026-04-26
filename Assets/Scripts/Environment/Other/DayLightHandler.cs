@@ -71,6 +71,9 @@ public class DayLightHandler : MonoBehaviour
 
         _directLight.color = mainGradient.Evaluate(dayProgress);
         ActualDayColor = mainUIGradient.Evaluate(dayProgress);
+
+        Hours = (int)Math.Floor(dayProgress * 24);
+        Minutes = (int)Math.Floor(dayProgress * 1440 % 60);
     }
 
     internal DayLightHandlerSaveData GetData()

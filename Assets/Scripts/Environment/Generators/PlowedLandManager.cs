@@ -56,6 +56,16 @@ public class PlowedLandManager : MonoBehaviour
         SaveLoadPlowedLand.SaveLands(landDatas);
     }
 
+    internal HashSet<Vector3Int> GetPlowedLandCoords()
+    {
+        HashSet<Vector3Int> coords = new HashSet<Vector3Int>();
+        foreach (PlowedLandData landData in  PlowedLands.Values)
+        {
+            coords.Add(landData.Position);
+        }
+        return coords;
+    }
+
 
     private GameObject GetCorrectPlant(PlowedLandData data)
     {

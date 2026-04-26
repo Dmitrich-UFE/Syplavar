@@ -84,7 +84,7 @@ public class MonsterGenerator : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSecondsRealtime(5f);
 
             Transform player = PlayerSeeker.GetPlayerTransform();
             if (player == null) continue;

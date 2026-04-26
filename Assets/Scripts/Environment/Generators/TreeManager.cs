@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor.Overlays;
+using System;
 
 public class TreeManager : MonoBehaviour
 {
@@ -46,6 +47,18 @@ public class TreeManager : MonoBehaviour
                 _IDForNewTree++;
             }
         }
+    }
+
+    internal HashSet<Vector3Int> GetTreeCoords()
+    {
+        HashSet<Vector3Int> coords = new HashSet<Vector3Int>();
+        foreach (TreeData data in  Trees.Values)
+        {
+            Vector3 coordFl = data.Tree.transform.position;
+            Vector3Int coord = new Vector3Int((int)Math.Round(coordFl.x), 0, (int)Math.Round(coordFl.z));
+            coords.Add(coord);
+        }
+        return coords;
     }
 
     public void SaveTrees()
