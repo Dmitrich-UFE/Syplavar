@@ -110,9 +110,22 @@ public class DayLightHandler : MonoBehaviour
             dayProgress = data.DayMoment;
             cloudy = data.Cloudy;
 
-            foreach (var time in data.Times)
+            if (data.Times != null && data.Times.Count > 0)
             {
-                Times[(time.hh, time.mm)] = time.isReached;
+                foreach (var time in data.Times)
+                {
+                    Times[(time.hh, time.mm)] = time.isReached;
+                }
+            }
+            else
+            {
+                DayLightHandler.AddTime(12, 00);
+                DayLightHandler.AddTime(18, 00);
+                DayLightHandler.AddTime(22, 00);
+                DayLightHandler.AddTime(00, 00);
+                DayLightHandler.AddTime(02, 00);
+                DayLightHandler.AddTime(06, 00);
+                DayLightHandler.AddTime(07, 00);
             }
         }
 
@@ -221,6 +234,9 @@ public class DayLightHandler : MonoBehaviour
             IsSleepTime = false;
 
             if (AddMindCoroutine != null) instance.StopCoroutine(AddMindCoroutine);
+
+            PlayerMind _playerMind = PlayerSeeker.GetPlayerMind();
+            _playerMind.ResumeMindDrain();
             //отключить корутину для накрутки рассудка
         }
     }

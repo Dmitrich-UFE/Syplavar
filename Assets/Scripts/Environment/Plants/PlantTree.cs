@@ -129,7 +129,8 @@ public class PlantTree : MonoBehaviour, IInteractable
 
                     foreach (ItemData returningitem in returningItems)
                     {
-                        for (int i = 0; i < UnityEngine.Random.Range(2, 5); i++)
+                        int chance = UnityEngine.Random.Range(0, 10);
+                        if (chance > 5)
                         {
                             retItems.Add(returningitem);
                         }
