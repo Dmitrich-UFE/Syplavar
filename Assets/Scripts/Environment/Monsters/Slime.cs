@@ -68,7 +68,7 @@ public class Slime: Monster
 
             Agent.SetDestination(transform.position);
 
-            BattleStatusTracker.BattleMode = BattleStatusTracker.MonstersInBattleMode != 0;
+            BattleStatusTracker.BattleMode = BattleStatusTracker.MonstersInBattleMode > 0;
             slimeBodyAnimator.SetBool("IsDeath", true);
             slimeGroundAnimator.SetBool("IsDeath", true);
 
