@@ -10,6 +10,7 @@ public class NastyFlowerGenerator : MonoBehaviour
     [SerializeField] private ShapeChecker[] prohibitedAreas;
     [SerializeField] private TreeManager treeMan;
     [SerializeField] private PlowedLandManager plowedLandMan;
+    [SerializeField] private BushManager bushManager;
 
     [Header("DISTANCES")]
     [SerializeField] private float minGenDistance = 10f;
@@ -35,6 +36,7 @@ public class NastyFlowerGenerator : MonoBehaviour
 
         restrictedAreas.UnionWith(treeMan.GetTreeCoords());
         restrictedAreas.UnionWith(plowedLandMan.GetPlowedLandCoords());
+        restrictedAreas.UnionWith(bushManager.GetBushCoords());
 
         CheckTime((DayLightHandler.Hours, DayLightHandler.Minutes));
         //coroutine = StartCoroutine(GenerateFlowers());
@@ -72,6 +74,9 @@ public class NastyFlowerGenerator : MonoBehaviour
 
     IEnumerator GenerateFlowers()
     {
+        restrictedAreas.UnionWith(treeMan.GetTreeCoords());
+        restrictedAreas.UnionWith(plowedLandMan.GetPlowedLandCoords());
+
         while(isGenerationTime)
         {
             for (int i = flowers.Count-1; i >= 0; i--)

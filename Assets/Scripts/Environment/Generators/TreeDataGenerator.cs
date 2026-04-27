@@ -61,7 +61,7 @@ public class TreeDataGenerator : MonoBehaviour
                     AddTree(treeCandidatePosition);
                     forestCount++;
                 }
-            else if (!isInForest && outsideCount < treesOutsideTarget)
+                else if (!isInForest && outsideCount < treesOutsideTarget)
                 {
                     AddTree(treeCandidatePosition);
                     outsideCount++;
