@@ -26,7 +26,7 @@ public abstract class Monster : MonoBehaviour
     protected Coroutine PeaceCoroutine;
 
     [Header("Настройки эффекта")]
-    [SerializeField] private Color flashColor = Color.red;
+    [SerializeField] private Color flashColor = new Color(1f, 0f, 0f, 1f);
     [SerializeField] private float duration = 0.3f;
     [SerializeField] private string colorPropertyName = "_BaseColor";
 

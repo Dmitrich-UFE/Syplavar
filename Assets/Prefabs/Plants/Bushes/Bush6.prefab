@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1734506222294193074
 Transform:
@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 971e297c350c84f4a9cad5b017692396, type: 2}
+  - {fileID: 2100000, guid: e03db71cb3de17b448472ba4486e1aeb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -103,7 +103,7 @@ GameObject:
   m_TagString: InteractableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3128231872797658838
 Transform:
@@ -155,9 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 5
-  returningItems50:
-  - {fileID: 11400000, guid: 1011370e4de663140b0650434a20d65f, type: 2}
-  - {fileID: 11400000, guid: 1011370e4de663140b0650434a20d65f, type: 2}
+  returningItems50: []
   returningItems10:
   - {fileID: 11400000, guid: 66797af8420bef74a9c8690947c316da, type: 2}
   - {fileID: 11400000, guid: 8133053b5c9696b41b4a5e7a5a95648c, type: 2}
