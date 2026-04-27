@@ -137,6 +137,10 @@ MonoBehaviour:
   isGrowed: 0
   returningItems:
   - {fileID: 11400000, guid: 7f99dd9d3c89c884daa772998c71b281, type: 2}
+  - {fileID: 11400000, guid: 7f99dd9d3c89c884daa772998c71b281, type: 2}
+  - {fileID: 11400000, guid: 7f99dd9d3c89c884daa772998c71b281, type: 2}
+  - {fileID: 11400000, guid: 7f99dd9d3c89c884daa772998c71b281, type: 2}
+  - {fileID: 11400000, guid: c7a51efce309f144b9c0f145c013c136, type: 2}
   - {fileID: 11400000, guid: c7a51efce309f144b9c0f145c013c136, type: 2}
   smallTreeObject: {fileID: 6299266095500019138, guid: 20bd474f848c6a847a4eae80c2b01220, type: 3}
   GrowedTreeObjects:
@@ -145,6 +149,7 @@ MonoBehaviour:
   - {fileID: 6486694774368947603, guid: 3e0acf824ac6f8848b4ae78c23f57851, type: 3}
   actualTreeObject: {fileID: 0}
   isNeedGenerate: 1
+  UsedForTreeGenerator: 0
   EditorGO: {fileID: 1060607217069520191}
 --- !u!65 &2743246507100379181
 BoxCollider:

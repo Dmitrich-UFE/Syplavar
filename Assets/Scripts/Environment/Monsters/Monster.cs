@@ -74,7 +74,7 @@ public abstract class Monster : MonoBehaviour
     //Контролирующая корутина для смены режима монстра
     IEnumerator Life()
     {
-        PeaceCoroutine = StartCoroutine(PeaceMode());
+        //PeaceCoroutine = StartCoroutine(PeaceMode());
 
         while (true)
         {
@@ -101,7 +101,7 @@ public abstract class Monster : MonoBehaviour
         //Debug.Log("InPeaceMode");
 
         if (isRegedAsBattling) BattleStatusTracker.RemoveMonsterInBattleMode();
-        BattleStatusTracker.BattleMode = BattleStatusTracker.MonstersInBattleMode != 0;
+        BattleStatusTracker.BattleMode = BattleStatusTracker.MonstersInBattleMode > 0;
         isRegedAsBattling = false;
         Agent.speed = Speed / 2.5f;
 

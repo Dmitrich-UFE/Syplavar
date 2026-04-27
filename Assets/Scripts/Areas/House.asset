@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: House
   m_EditorClassIdentifier: 
   _p1: {x: 0, y: 0, z: 0}
-  _p2: {x: 4, y: 0, z: 0}
-  _p3: {x: 4, y: 0, z: 7}
-  _p4: {x: 0, y: 0, z: 7}
+  _p2: {x: 16, y: 0, z: 0}
+  _p3: {x: 16, y: 0, z: 14}
+  _p4: {x: 0, y: 0, z: 14}

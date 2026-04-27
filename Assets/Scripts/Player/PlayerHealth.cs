@@ -42,6 +42,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    internal void ResetHealth()
+    {
+        Health = maxHealth;
+    }
+
     void Awake() 
     { 
         Health = startHealth;

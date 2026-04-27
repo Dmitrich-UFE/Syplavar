@@ -17,7 +17,11 @@ public class PlayerMind : MonoBehaviour
     public event Action OnMindChanged;
 
     // ===== PROPERTIES =====
-    internal int CurrentMind => currentMind;
+    internal int CurrentMind 
+    {
+        get => currentMind;
+        set {currentMind = value; OnMindChanged?.Invoke();}
+    }
     internal int MaxMind => maxMind;
 
     internal float MindPercent => maxMind > 0 ? (float)currentMind / maxMind : 0f;

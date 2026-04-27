@@ -197,7 +197,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!95 &2288215872664587040
 Animator:
   serializedVersion: 7
@@ -265,7 +265,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5377996456500460675}
   serializedVersion: 5
-  m_Mass: 2000000
+  m_Mass: 5
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -363,5 +363,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.8306208, y: 1, z: 0.37373394}
-  m_Center: {x: 0.014078617, y: 0, z: 0.03146866}
+  m_Size: {x: 1.8306208, y: 1, z: 0.5004765}
+  m_Center: {x: 0.014078617, y: 0, z: 0.094839945}
