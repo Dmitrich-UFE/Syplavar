@@ -76,6 +76,7 @@ public class NastyFlowerGenerator : MonoBehaviour
     {
         restrictedAreas.UnionWith(treeMan.GetTreeCoords());
         restrictedAreas.UnionWith(plowedLandMan.GetPlowedLandCoords());
+        restrictedAreas.UnionWith(bushManager.GetBushCoords());
 
         while(isGenerationTime)
         {

@@ -160,8 +160,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1011370e4de663140b0650434a20d65f, type: 2}
   returningItems10:
   - {fileID: 11400000, guid: 179e37b2bb686e84cbfd0616e0ff763f, type: 2}
-  - {fileID: 11400000, guid: f3b8e00b0ce91484d9a146d1eeaf132d, type: 2}
   - {fileID: 11400000, guid: da3436f41fbef2b48bd058b1eb975210, type: 2}
-  - {fileID: 11400000, guid: 66797af8420bef74a9c8690947c316da, type: 2}
   - {fileID: 11400000, guid: 8133053b5c9696b41b4a5e7a5a95648c, type: 2}
-  - {fileID: 11400000, guid: e74c1e186b7dfa84aad07e8cc8c39671, type: 2}

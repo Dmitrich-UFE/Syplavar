@@ -51,9 +51,12 @@ public class BushManager : MonoBehaviour
         HashSet<Vector3Int> coords = new HashSet<Vector3Int>();
         foreach (BushData data in  Bushes.Values)
         {
-            Vector3 coordFl = data.Bush.transform.position;
-            Vector3Int coord = new Vector3Int((int)Math.Round(coordFl.x), 0, (int)Math.Round(coordFl.z));
-            coords.Add(coord);
+            if (data != null)
+            {
+                Vector3 coordFl = data.Bush.transform.position;
+                Vector3Int coord = new Vector3Int((int)Math.Round(coordFl.x), 0, (int)Math.Round(coordFl.z));
+                coords.Add(coord);
+            }
         }
         return coords;
     }

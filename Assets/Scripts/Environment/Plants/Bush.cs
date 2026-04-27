@@ -16,7 +16,7 @@ public class Bush : MonoBehaviour, IInteractable
 
     void Awake()
     {
-        
+
     }
 
     internal void Init(BushData data)
@@ -25,6 +25,7 @@ public class Bush : MonoBehaviour, IInteractable
         {
             id = data.ID;
             type = data.Type;
+            BushManager.Update(data);
         }
     }
 
@@ -69,6 +70,8 @@ public class Bush : MonoBehaviour, IInteractable
                     retItems.Add(returningitem);
                 }
             }
+
+            BushManager.Update(null);
 
             return (false, retItems);
         }
