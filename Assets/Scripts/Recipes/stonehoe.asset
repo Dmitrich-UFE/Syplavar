@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35ead931bdfda64499c75a6cadf5401c, type: 3}
-  m_Name: bricks
+  m_Name: stonehoe
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 11400000, guid: 1d0540b456076924dbd10058273c1eef, type: 2}
-  counts: 04000000
-  resultItem: {fileID: 11400000, guid: 1e57bc21caeb7994e85decf04491bb93, type: 2}
+  - {fileID: 11400000, guid: 1e57bc21caeb7994e85decf04491bb93, type: 2}
+  - {fileID: 11400000, guid: 1011370e4de663140b0650434a20d65f, type: 2}
+  counts: 0100000001000000
+  resultItem: {fileID: 11400000, guid: bd77c9ba9ff38a94aa9019a56e48293e, type: 2}
   resultCount: 1
-  craftID: 12
+  craftID: 13

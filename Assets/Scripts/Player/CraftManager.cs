@@ -17,6 +17,7 @@ public class CraftManager : MonoBehaviour
 
     [SerializeField] private Button craftButton;
     [SerializeField] private GameObject recipeButtonPrefab;
+    [SerializeField] private Sprite defaultSprite;
 
     [Header("CraftUIWindow")]
     [SerializeField] private Image[] slotImages;
@@ -86,11 +87,20 @@ public class CraftManager : MonoBehaviour
     // ===== OPEN =====
     internal void OpenCraftWindow(RecipeData recipe)
     {
-        for (int i = 0; i<recipe.IngredientsCount;++i)
+        for (int i = 0; i<slotImages.Length; ++i)
         {
-            var (item, count) = recipe[i];
-            slotImages[i].sprite = item.Texture; 
-            slotCounts[i].text = count.ToString();
+            if (i < recipe.IngredientsCount)
+            {
+                var (item, count) = recipe[i];
+                slotImages[i].sprite = item.Texture;
+                slotCounts[i].text = count.ToString();
+            }
+            else
+            {
+                // Если ингредиентов меньше, заполняем дефолтными значениями
+                slotImages[i].sprite = defaultSprite;
+                slotCounts[i].text = "";
+            }
         }
 
         slotResultImage.sprite = recipe.ResultItem.Texture;

@@ -9,7 +9,7 @@ internal class Cursor : MonoBehaviour
     [SerializeField] private ItemData CurrentItem;
     [SerializeField] private InventoryAI _inventoryAI;
     private PlayerHealth _playerHealth;
-    //private PlayerMind _playerMind;
+    private PlayerMind _playerMind;
     internal IInteractable interactableObject {get; private set;}
     [SerializeField] private Transform Archor;
     private Transform thisTransform;
@@ -126,6 +126,7 @@ internal class Cursor : MonoBehaviour
         _inventoryAI.OnSelectedSlotChanged += OnHotbarSelectionChanged;
 
         _playerHealth = PlayerSeeker.GetPlayerHealth();
+        _playerMind = PlayerSeeker.GetPlayerMind();
         _playerInputActions.Player.EatFood.started += context => { if (CurrentItem is ItemDataFood) StartCoroutine(fillBar());};
         _playerInputActions.Player.EatFood.canceled += context => {StopCoroutine(fillBar()); _eatIndicator.fillAmount = 0f;};
         _playerInputActions.Player.EatFood.performed += context => EatFood();
@@ -137,7 +138,7 @@ internal class Cursor : MonoBehaviour
         if (_food != null)
         {
             _playerHealth.Health += _food.AddingHealth;
-            //_playerMind.AddMind(_food.AddingMind);
+            _playerMind.ChangeMind(_food.AddingMind);
             _inventoryAI.UseActiveItem();
         }
     }

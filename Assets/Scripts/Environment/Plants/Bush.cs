@@ -6,6 +6,7 @@ public class Bush : MonoBehaviour, IInteractable
 {
     [Header("BASEN")]
     [SerializeField] private int type;
+    [SerializeField] private bool canBeBrokenByHand;
     private int id;
 
     [Header("Returning items (50% for each)")]
@@ -47,7 +48,7 @@ public class Bush : MonoBehaviour, IInteractable
 
         IInstrument instrument = item.GameObject.GetComponent<IInstrument>();
 
-        if (instrument != null)
+        if (instrument != null || (canBeBrokenByHand && item.GameObject.CompareTag("Hand")))
         {
             Destroy(this.gameObject);
 

@@ -78,15 +78,6 @@ public class PlowedLand : MonoBehaviour, IInteractable
         return data;
     }
 
-
-    /*public int ID; 7
-    public PlantTypes Type; 7
-    public Vector3Int Position;7
-    public bool Wet; 7
-    public PlantStatus PlantStatus; 7
-    public IPlant Plant; 7 */ 
-
-
     //Метод-событие для смены дня и ночи
     void ToNextPhasePlant((int hh, int mm) time)
     {
@@ -195,13 +186,6 @@ public class PlowedLand : MonoBehaviour, IInteractable
                 UpdatePlowedLand();
                 PlowedLandManager.Update(GetPlantData());
                 return (true, null);
-            }
-
-            //для руки
-            //Зачисление игроку 1 единицы продукта
-            if (item.GameObject.CompareTag("Hand"))
-            {
-
             }
 
             //для лейки

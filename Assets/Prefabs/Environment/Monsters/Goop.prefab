@@ -315,7 +315,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 361e04617851ba442984772edc527a3b, type: 2}
   - {fileID: 11400000, guid: 4ba74d1304702464793a8fc15150b44a, type: 2}
   - {fileID: 11400000, guid: 4ba74d1304702464793a8fc15150b44a, type: 2}
-  percentsForDropItem: 50
+  - {fileID: 11400000, guid: 4ba74d1304702464793a8fc15150b44a, type: 2}
+  percentsForDropItem: 30
   agent: {fileID: 3043492201631244412}
   playerHealth: {fileID: 0}
   destroyAfterDeath: 0
