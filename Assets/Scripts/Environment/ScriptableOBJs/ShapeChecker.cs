@@ -3,10 +3,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ShapeChecker", menuName = "Shapes/ShapeChecker")]
 public class ShapeChecker : ScriptableObject
 {
-    [SerializeField] internal Vector3 _p1;
-    [SerializeField] internal Vector3 _p2;
-    [SerializeField] internal Vector3 _p3;
-    [SerializeField] internal Vector3 _p4;
+    [SerializeField] internal Vector3 _LB;
+    [SerializeField] internal Vector3 _LT;
+    [SerializeField] internal Vector3 _RT;
+    [SerializeField] internal Vector3 _RB;
 
     private const float Padding = 0.5f;
     private const float Threshold = 1000000f;
@@ -59,7 +59,7 @@ public class ShapeChecker : ScriptableObject
 
     public Vector2[] GetValidPoints()
     {
-        var all = new[] { _p1, _p2, _p3, _p4 };
+        var all = new[] { _LB, _LT, _RT, _RB };
         int count = 0;
         for (; count < all.Length; count++) if (all[count].y >= Threshold) break;
         
@@ -75,7 +75,7 @@ public class ShapeChecker : ScriptableObject
         if (pts.Length == 0) return;
 
         Gizmos.color = new Color(1, 0, 0, 0.6f);
-        float y = _p1.y < Threshold ? _p1.y : 0;
+        float y = _LB.y < Threshold ? _LB.y : 0;
 
         // Для визуализации честного Padding 0.5 лучше всего подходит проход по сетке 
         // или рисование толстых линий. Для упрощения нарисуем контур и углы:

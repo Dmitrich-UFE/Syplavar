@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07b9ab0fa40c41c43b1e610497cc0c42, type: 3}
-  m_Name: House
+  m_Name: FenceLeft
   m_EditorClassIdentifier: 
-  _LB: {x: -7, y: 0, z: -6}
-  _LT: {x: -7, y: 0, z: 10}
-  _RT: {x: 7, y: 0, z: 10}
-  _RB: {x: 7, y: 0, z: -6}
+  _LB: {x: -15.5, y: 0, z: -10}
+  _LT: {x: -15.5, y: 0, z: 10}
+  _RT: {x: -15, y: 0, z: 10}
+  _RB: {x: -15, y: 0, z: -10}

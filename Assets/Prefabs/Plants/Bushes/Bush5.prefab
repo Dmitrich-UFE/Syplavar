@@ -68,7 +68,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 4
-  returningItems50: []
+  returningItems50:
+  - {fileID: 11400000, guid: 66797af8420bef74a9c8690947c316da, type: 2}
   returningItems10:
   - {fileID: 11400000, guid: da3436f41fbef2b48bd058b1eb975210, type: 2}
   - {fileID: 11400000, guid: 66797af8420bef74a9c8690947c316da, type: 2}

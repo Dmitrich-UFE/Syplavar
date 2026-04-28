@@ -15,15 +15,13 @@ public class RoofFader : MonoBehaviour
 
     private MaterialPropertyBlock _propBlock;
     private Coroutine _fadeRoutine;
+    private float _currentAlpha = 1f; // Храним состояние здесь для надежности
 
-    void Start()
+    void Awake() // Лучше инициализировать блок в Awake
     {
         _propBlock = new MaterialPropertyBlock();
-
         if (targetSprites.Count == 0)
-        {
             targetSprites.AddRange(GetComponentsInChildren<SpriteRenderer>());
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -47,23 +45,18 @@ public class RoofFader : MonoBehaviour
     IEnumerator FadeRoutine(float endAlpha)
     {
         float elapsed = 0f;
-        float startAlpha = GetCurrentAlpha();
+        float startAlpha = _currentAlpha;
 
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
-            float newAlpha = Mathf.Lerp(startAlpha, endAlpha, elapsed / duration);
-            ApplyAlpha(newAlpha);
+            _currentAlpha = Mathf.Lerp(startAlpha, endAlpha, elapsed / duration);
+            ApplyAlpha(_currentAlpha);
             yield return null;
         }
+        _currentAlpha = endAlpha;
         ApplyAlpha(endAlpha);
-    }
-
-    private float GetCurrentAlpha()
-    {
-        if (targetSprites.Count > 0 && targetSprites[0] != null) 
-            return targetSprites[0].color.a;
-        return 1f;
+        _fadeRoutine = null; // Обнуляем для корректности
     }
 
     private void ApplyAlpha(float alpha)
@@ -72,11 +65,14 @@ public class RoofFader : MonoBehaviour
         {
             if (sr == null) continue;
 
-            Color c = sr.color;
-            c.a = alpha;
-            sr.color = c;
-
+            // Мы не трогаем sr.color, работаем только через PropertyBlock
+            // для максимальной производительности (SRP Batcher)
             sr.GetPropertyBlock(_propBlock);
+            
+            // Получаем текущий цвет из блока, чтобы не затереть RGB каналы
+            Color c = Color.white; // По умолчанию, если ничего не задано
+            c.a = alpha;
+            
             _propBlock.SetColor(colorPropertyName, c);
             sr.SetPropertyBlock(_propBlock);
         }

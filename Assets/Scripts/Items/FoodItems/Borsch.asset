@@ -17,5 +17,5 @@ MonoBehaviour:
   _name: "\u041C\u0438\u0441\u043A\u0430 \u0431\u043E\u0440\u0449\u0430"
   _maxStack: 99
   _gameObject: {fileID: 0}
-  _addingMind: 0
+  _addingMind: 5
   _addingHealth: 27

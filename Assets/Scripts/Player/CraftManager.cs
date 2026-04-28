@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 using TMPro;
 
 public class CraftManager : MonoBehaviour
@@ -31,6 +32,8 @@ public class CraftManager : MonoBehaviour
     {
 
         ClearUI();
+
+        recipes = recipes.OrderByDescending(x => CanCraft(x)).ToArray();
 
         foreach (var recipe in recipes)
         {

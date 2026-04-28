@@ -23,6 +23,7 @@ internal class Cursor : MonoBehaviour
     [SerializeField] private SpriteRenderer _cursorSpriteR;
     [SerializeField] private Image _eatIndicator;
 
+    private bool isRestrictedArea = false;
 
     public void SetItem(ItemData newItem)
     {
@@ -32,6 +33,8 @@ internal class Cursor : MonoBehaviour
     //если интерактивный объект будет null, то имеет смысл присваивать свойству объект голой земли через ??
     void InteractWith(IInteractable interactableObject)
     {
+        if (isRestrictedArea) return;
+
         if (interactableObject == null || interactableObject.Equals(null))
         {
             this.interactableObject = unplowedLand;
@@ -73,6 +76,11 @@ internal class Cursor : MonoBehaviour
             Debug.Log($"столкновение с {interactableObject.gameObject.name}");
             this.interactableObject = interactableObject.gameObject.GetComponent<IInteractable>();
         }
+        if (interactableObject.CompareTag("IgnoreCursor")) 
+        {
+            Debug.Log("Вход в запретную зону");
+            isRestrictedArea = true;
+        }
     }
 
     private void OnTriggerExit(Collider interactableObject)
@@ -81,6 +89,11 @@ internal class Cursor : MonoBehaviour
         {
             _cursorSpriteR.color = new Color(1, 0, 0, 1); 
             this.interactableObject = null;
+        }
+        if (interactableObject.CompareTag("IgnoreCursor")) 
+        {
+            Debug.Log("Выход из запретной зоны");
+            isRestrictedArea = false;
         }
     }
 

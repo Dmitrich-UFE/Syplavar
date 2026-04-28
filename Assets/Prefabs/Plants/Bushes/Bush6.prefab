@@ -155,7 +155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 5
-  returningItems50: []
+  returningItems50:
+  - {fileID: 11400000, guid: e74c1e186b7dfa84aad07e8cc8c39671, type: 2}
   returningItems10:
   - {fileID: 11400000, guid: 66797af8420bef74a9c8690947c316da, type: 2}
   - {fileID: 11400000, guid: 8133053b5c9696b41b4a5e7a5a95648c, type: 2}

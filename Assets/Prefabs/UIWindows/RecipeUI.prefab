@@ -275,6 +275,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!114 &1715858883159016948
 MonoBehaviour:
@@ -293,6 +295,7 @@ MonoBehaviour:
   - {fileID: 6106048369717904701}
   - {fileID: 4363551344255792850}
   - {fileID: 40557301243951835}
+  defaultSprite: {fileID: 21300000, guid: 2929e1e76220a58499e3b4e228891fdb, type: 3}
   slotCounts:
   - {fileID: 2442667288839570733}
   - {fileID: 5320264659496285890}
@@ -515,6 +518,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1001 &3561358329650061651
 PrefabInstance:
@@ -732,6 +737,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1001 &6439871456154440380
 PrefabInstance:
@@ -933,6 +940,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!114 &6106048369717904701 stripped
 MonoBehaviour:
@@ -1123,6 +1132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!114 &1329356773159062622 stripped
 MonoBehaviour:
