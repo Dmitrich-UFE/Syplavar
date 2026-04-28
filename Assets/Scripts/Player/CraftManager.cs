@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using System.Collections.Generic;
 using TMPro;
 
 public class CraftManager : MonoBehaviour
 {
     // ===== DATA =====
-    [SerializeField] private RecipeData[] recipes;
+    [SerializeField] private List<RecipeData> recipes;
     private PlayerInputActions ButtonE;
     [SerializeField] private InventoryAI inventory;
 
@@ -34,7 +35,7 @@ public class CraftManager : MonoBehaviour
 
         ClearUI();
 
-        recipes = recipes.OrderByDescending(x => CanCraft(x)).ToArray();
+        recipes = recipes.OrderByDescending(x => CanCraft(x)).ToList();
 
         foreach (var recipe in recipes)
         {
@@ -126,14 +127,6 @@ public class CraftManager : MonoBehaviour
         if (currentRecipe == null)
             return;
 
-        //bool canCraft = true;
-
-        //for (int i = 0; i < currentRecipe.IngredientsCount; i++)
-        //{   
-        //    var recipeItem = currentRecipe[i];
-        //    canCraft = canCraft && (inventory.CheckCountOfItem(recipeItem.item) >= recipeItem.count);
-        //}
-
         if (CanCraft(currentRecipe))
         {
             for (int i = 0; i < currentRecipe.IngredientsCount; i++)
@@ -160,6 +153,18 @@ public class CraftManager : MonoBehaviour
         {
             inventory.DrawInventory();
         }
+    }
+
+    internal void AddRecipe(RecipeData recipe)
+    {
+        if (recipe != null)
+            recipes.Add(recipe);
+    }
+
+    internal void RemoveRecipe(RecipeData recipe)
+    {
+        if (recipe != null)
+            recipes.Remove(recipe);
     }
 
     private void OnEnable()
