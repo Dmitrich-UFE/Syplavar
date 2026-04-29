@@ -7,33 +7,63 @@ using System.IO;
 
 public class VNLDialogueWindow : MonoBehaviour
 {
+    [Header("Поля элементов диалога VNL")]
     [SerializeField] private GameObject _DialogueWindow;
     [SerializeField] private GameObject _NameObject;
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private TMP_Text nameText;
+    [SerializeField] private GameObject EoSIndicator;
     [SerializeField] private CanvasGroup _dialogueWindowCanvas;
+
+    [Header("Параметры вывода/анимаций")]
     [SerializeField] private float fadeSpeed;
     [SerializeField] private float printSpeed;
 
-    private WaitForSecondsRealtime tick;
+    [Header("Выключаемые элементы при активном диалоге")]
+    [SerializeField] private GameObject lowerInventory;
+    [SerializeField] private GameObject gameCharacteristics;
+    [SerializeField] private GameObject uiHandler;
+    [SerializeField] private Movement movement;
+    [SerializeField] private GameObject cursor;
+
+    [Header("Прочее")]
+    [SerializeField] private TextAsset textAsset;
+
+
+
+    private WaitForSecondsRealtime fadetick;
     private WaitForSecondsRealtime printtick;
     private List<string> assetStrings;
     private string pattern = @">(?<key>.*?)>\s*""(?<value>.*)""";
     private Queue<string> cuttedLetters;
     private PlayerInputActions _playerInputActions;
+    private Coroutine fadeCoroutine;
+    private bool IsReadyForPrint = false;
+    private bool _skipRequested;
 
 
     void Awake()
     {
-        tick = new WaitForSecondsRealtime(fadeSpeed > 0 ? fadeSpeed : 0.01f);
-        printtick = new WaitForSecondsRealtime(printSpeed > 0 ? fadeSpeed : 0.01f);
+        fadetick = new WaitForSecondsRealtime(fadeSpeed != 0 ? 1 / fadeSpeed : 0.01f);
+        printtick = new WaitForSecondsRealtime(printSpeed != 0 ? 1 / printSpeed : 0.02f);
+
         cuttedLetters = new Queue<string>(); 
+        assetStrings = new  List<string>();
+
         _playerInputActions = new PlayerInputActions();
+        _playerInputActions.Player.SkipDialogue.performed += _ => _skipRequested = true;
     }
 
+    void Start()
+    {
+        StartPrint(textAsset);
+    }
+
+    //Подготовка к печати
     internal void StartPrint(TextAsset textAsset)
     {
         assetStrings.Clear();
+        EoSIndicator.SetActive(false);
 
         using (StringReader reader = new StringReader(textAsset.text))
         {
@@ -44,14 +74,26 @@ public class VNLDialogueWindow : MonoBehaviour
             }
         }
 
-        
+        if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
+        fadeCoroutine = StartCoroutine(FadeInWindow());
+
+        StartCoroutine(PrintText());
     }
 
+    //Процесс печати 
     private IEnumerator PrintText()
     {
+        while (!IsReadyForPrint)
+        {
+            yield return fadetick;
+        }
+
         foreach (string assetString in assetStrings)
         {
             cuttedLetters.Clear();
+            EoSIndicator.SetActive(false);
+            _skipRequested = false;
+
             (string name, string text) parsedAssetString = ParseTextAssetString(assetString);
             cuttedLetters = CutStringByLetters(parsedAssetString.text);
 
@@ -61,15 +103,34 @@ public class VNLDialogueWindow : MonoBehaviour
 
             dialogueText.text = "";
 
-            while(cuttedLetters.Count != 0)
+            
+            while(cuttedLetters.Count > 0 && !_skipRequested)
             {
                 dialogueText.text += cuttedLetters.Dequeue();
                 yield return printtick;
             }
 
-            //TODO: дописать далее переход на следующую строку через кастомный yield
+            if (cuttedLetters.Count > 0)
+            {
+                dialogueText.text += string.Join("", cuttedLetters.ToArray());
+                cuttedLetters.Clear();
+                _skipRequested = false;
+            }
+            
+            EoSIndicator.SetActive(true);
 
+            yield return null;
+            yield return new WaitForInputAction(_playerInputActions.Player.SkipDialogue);
         }
+
+        EndPrint();
+    }
+
+    //закрытие окна
+    private void EndPrint()
+    {
+        if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
+        fadeCoroutine = StartCoroutine(FadeOutWindow());
     }
 
 
@@ -89,6 +150,7 @@ public class VNLDialogueWindow : MonoBehaviour
         return ("", "");
     }
 
+    //Режет строку на буквы и теги
     private Queue<string> CutStringByLetters(string Sentence)
     {
         Queue<string> SymbolsQueue = new Queue<string>();
@@ -105,30 +167,56 @@ public class VNLDialogueWindow : MonoBehaviour
     {
         _dialogueWindowCanvas.alpha = 0f;
         _DialogueWindow.SetActive(true);
+        SetOffComponentsBeforeDialogue();
 
         while (_dialogueWindowCanvas.alpha < 1f)
         {
             _dialogueWindowCanvas.alpha+=0.04f;
-            yield return tick;
+            yield return fadetick;
         }
+
+        IsReadyForPrint = true;
     }
 
     private IEnumerator  FadeOutWindow()
     {
+        IsReadyForPrint = false;
         _dialogueWindowCanvas.alpha = 1f;
 
         while (_dialogueWindowCanvas.alpha > 0f)
         {
             _dialogueWindowCanvas.alpha-=0.04f;
-            yield return tick;
+            yield return fadetick;
         }
 
         _DialogueWindow.SetActive(false);
+        SetOnComponentsBeforeDialogue();
+    }
+
+    private void SetOffComponentsBeforeDialogue()
+    {
+        uiHandler.SetActive(false);
+        cursor.SetActive(false);
+        movement.enabled = false;
+        lowerInventory.SetActive(false);
+        gameCharacteristics.SetActive(false);
+        Time.timeScale = 0f;
+    }
+
+    private void SetOnComponentsBeforeDialogue()
+    {
+        uiHandler.SetActive(true);
+        cursor.SetActive(true);
+        movement.enabled = true;
+        lowerInventory.SetActive(true);
+        gameCharacteristics.SetActive(true);
+        Time.timeScale = 1f;
     }
 
     private void OnEnable()
     {
         _playerInputActions.Enable();
+        _playerInputActions.Player.SkipDialogue.performed += _ => _skipRequested = true;
     }
 
     private void OnDisable()

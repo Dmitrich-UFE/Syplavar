@@ -180,6 +180,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Hold(duration=1.25)"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SkipDialogue"",
+                    ""type"": ""Button"",
+                    ""id"": ""14d67620-af6e-4ca7-989d-2416de37bf7d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -435,6 +444,39 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""EatFood"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""892873c3-5e3b-41e6-940b-02e5cfc936c2"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SkipDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""23c1a029-762e-4e69-b48e-ccc9c5b31fb7"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SkipDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""abf4d52b-ccca-48ab-aadc-14d2a2e8123e"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SkipDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -465,6 +507,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_SelectItemByKeyboard = m_Player.FindAction("SelectItemByKeyboard", throwIfNotFound: true);
         m_Player_OpenBigInventory = m_Player.FindAction("OpenBigInventory", throwIfNotFound: true);
         m_Player_EatFood = m_Player.FindAction("EatFood", throwIfNotFound: true);
+        m_Player_SkipDialogue = m_Player.FindAction("SkipDialogue", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -555,6 +598,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SelectItemByKeyboard;
     private readonly InputAction m_Player_OpenBigInventory;
     private readonly InputAction m_Player_EatFood;
+    private readonly InputAction m_Player_SkipDialogue;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -606,6 +650,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/EatFood".
         /// </summary>
         public InputAction @EatFood => m_Wrapper.m_Player_EatFood;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/SkipDialogue".
+        /// </summary>
+        public InputAction @SkipDialogue => m_Wrapper.m_Player_SkipDialogue;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -662,6 +710,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @EatFood.started += instance.OnEatFood;
             @EatFood.performed += instance.OnEatFood;
             @EatFood.canceled += instance.OnEatFood;
+            @SkipDialogue.started += instance.OnSkipDialogue;
+            @SkipDialogue.performed += instance.OnSkipDialogue;
+            @SkipDialogue.canceled += instance.OnSkipDialogue;
         }
 
         /// <summary>
@@ -703,6 +754,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @EatFood.started -= instance.OnEatFood;
             @EatFood.performed -= instance.OnEatFood;
             @EatFood.canceled -= instance.OnEatFood;
+            @SkipDialogue.started -= instance.OnSkipDialogue;
+            @SkipDialogue.performed -= instance.OnSkipDialogue;
+            @SkipDialogue.canceled -= instance.OnSkipDialogue;
         }
 
         /// <summary>
@@ -826,5 +880,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnEatFood(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SkipDialogue" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSkipDialogue(InputAction.CallbackContext context);
     }
 }
