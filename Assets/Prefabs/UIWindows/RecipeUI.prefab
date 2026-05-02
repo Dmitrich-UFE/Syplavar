@@ -275,7 +275,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsBlendWithStartColor: 0
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
+  IsBlendWithStartColor: 1
 --- !u!114 &1715858883159016948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,11 +295,12 @@ MonoBehaviour:
   - {fileID: 6106048369717904701}
   - {fileID: 4363551344255792850}
   - {fileID: 40557301243951835}
-  slotResultImage: {fileID: 7433684454154669134}
+  defaultSprite: {fileID: 21300000, guid: 2929e1e76220a58499e3b4e228891fdb, type: 3}
   slotCounts:
   - {fileID: 2442667288839570733}
   - {fileID: 5320264659496285890}
   - {fileID: 8487883383767956171}
+  slotResultImage: {fileID: 7433684454154669134}
   slotResultCount: {fileID: 1329356773159062622}
 --- !u!1001 &968864334955507034
 PrefabInstance:
@@ -429,15 +432,15 @@ PrefabInstance:
       objectReference: {fileID: 1743297566, guid: 4efb4906609b10f4fa0ae84f9eacbdde, type: 3}
     - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_Color.b
-      value: 0.6981132
+      value: 0.8396226
       objectReference: {fileID: 0}
     - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_Color.g
-      value: 0.6981132
+      value: 0.8396226
       objectReference: {fileID: 0}
     - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_Color.r
-      value: 0.6981132
+      value: 0.8396226
       objectReference: {fileID: 0}
     - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
@@ -515,6 +518,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1001 &3561358329650061651
 PrefabInstance:
@@ -646,15 +651,15 @@ PrefabInstance:
       objectReference: {fileID: 1743297566, guid: 4efb4906609b10f4fa0ae84f9eacbdde, type: 3}
     - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_Color.b
-      value: 0.6981132
+      value: 0.8396226
       objectReference: {fileID: 0}
     - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_Color.g
-      value: 0.6981132
+      value: 0.8396226
       objectReference: {fileID: 0}
     - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_Color.r
-      value: 0.6981132
+      value: 0.8396226
       objectReference: {fileID: 0}
     - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
@@ -732,6 +737,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!1001 &6439871456154440380
 PrefabInstance:
@@ -863,15 +870,15 @@ PrefabInstance:
       objectReference: {fileID: 1743297566, guid: 4efb4906609b10f4fa0ae84f9eacbdde, type: 3}
     - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_Color.b
-      value: 0.6981132
+      value: 0.8396226
       objectReference: {fileID: 0}
     - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_Color.g
-      value: 0.6981132
+      value: 0.8396226
       objectReference: {fileID: 0}
     - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_Color.r
-      value: 0.6981132
+      value: 0.8396226
       objectReference: {fileID: 0}
     - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
@@ -933,6 +940,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!114 &6106048369717904701 stripped
 MonoBehaviour:
@@ -1064,15 +1073,15 @@ PrefabInstance:
       objectReference: {fileID: 1743297566, guid: 4efb4906609b10f4fa0ae84f9eacbdde, type: 3}
     - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_Color.b
-      value: 0.6981132
+      value: 0.8396226
       objectReference: {fileID: 0}
     - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_Color.g
-      value: 0.6981132
+      value: 0.8396226
       objectReference: {fileID: 0}
     - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_Color.r
-      value: 0.6981132
+      value: 0.8396226
       objectReference: {fileID: 0}
     - target: {fileID: 6670940235108974449, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
@@ -1123,6 +1132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feed45a7bccaec446840d3e42246f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _color: {r: 0, g: 0, b: 0, a: 0}
+  _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
 --- !u!114 &1329356773159062622 stripped
 MonoBehaviour:

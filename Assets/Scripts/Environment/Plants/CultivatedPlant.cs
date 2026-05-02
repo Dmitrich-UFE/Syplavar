@@ -8,8 +8,12 @@ public class CultivatedPlant : MonoBehaviour, IPlant, IGetable
     [SerializeField] private PlantStatus _plantStatus;
     [SerializeField] private GrowableObject _growingPhasesSprites;
     [SerializeField] private List<ItemData> _returningItems;
+    [SerializeField] private PlantTypes _type;
 
-
+    PlantTypes IPlant.Type
+    {
+        get { return _type; }
+    }
     int IPlant.GrowingPhase
     {
         get{ return _growingPhase; } 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,16 +7,75 @@ public class PlowedLand : MonoBehaviour, IInteractable
     private IPlant plant;
     private IGetable getable;
     private bool wet = false;
+    private int plantID;
+    private GameObject _plantObj;
 
     [SerializeField] private SpriteRenderer seedPlaceSpriteRenderer;
     [SerializeField] private SpriteRenderer plantSpriteRenderer;
     [SerializeField] private SpriteRenderer overGroundSpriteRenderer;
+    [SerializeField] private bool IsGenerateByManager;
 
 
     void Awake()
     {
-
         DayLightHandler._OnTimeReached += ToNextPhasePlant;
+        if (!IsGenerateByManager)
+        {
+            GeneratePlowedLandDataWhenPlayerCreates();
+        }
+    }
+
+    internal void GeneratePlowedLandDataWhenPlayerCreates()
+    {
+        plantID = PlowedLandManager.GetID();
+        PlowedLandData data = GetPlantData();
+        data.ID = plantID;
+        PlowedLandManager.Update(data);
+        UpdatePlowedLand();
+    }
+
+    internal void Init(PlowedLandData data)
+    {
+        plantID = data.ID;
+        wet = data.Wet;
+        this.transform.position = data.Position;
+
+        if (data.Plant != null)
+        {
+            _plantObj = data.Plant;
+            plant = data.Plant.GetComponent<IPlant>();
+            getable = data.Plant.GetComponent<IGetable>();
+            if (plant != null)
+            {
+                plant.plantStatus = data.PlantStatus;
+                plant.ToNextPhase();
+            }
+        }
+
+        UpdatePlowedLand();
+        PlowedLandManager.Update(GetPlantData());
+    }
+
+    internal PlowedLandData GetPlantData()
+    {
+        PlowedLandData data = new PlowedLandData();
+        data.ID = plantID;
+        data.Wet = wet;
+        Vector3 actPos = this.transform.position;
+        data.Position = new Vector3Int((int)Math.Round(actPos.x), (int)Math.Round(actPos.y), (int)Math.Round(actPos.z));
+
+        if (plant != null)
+        {
+            data.PlantStatus = plant.plantStatus;
+            data.Plant = _plantObj;
+            data.Type = plant.Type;
+        }
+        else
+        {
+            data.Type = PlantTypes.NullPlant;
+        }
+    
+        return data;
     }
 
     //Метод-событие для смены дня и ночи
@@ -43,15 +103,15 @@ public class PlowedLand : MonoBehaviour, IInteractable
                         wet = false;
                     break;
             }
-
-            UpdatePlowedLand();
         }
         else
         {
-            //if (time == (00, 00))
-                //Destroy(this.gameObject);
+            if (time == (18, 00))
+                wet = false;
         }
-
+        
+        PlowedLandManager.Update(GetPlantData());
+        UpdatePlowedLand();
     }
 
     //обновление информации о грядке
@@ -66,9 +126,15 @@ public class PlowedLand : MonoBehaviour, IInteractable
         }
 
         if (plant?.plantStatus != 0)
+        {
+            plantSpriteRenderer.sprite = plant?.PhaseSprite;
             seedPlaceSpriteRenderer.sprite = null;
+        }
         else
+        {
+            seedPlaceSpriteRenderer.sprite = plant?.PhaseSprite;
             plantSpriteRenderer.sprite = null;
+        }
 
         if (wet)
             overGroundSpriteRenderer.color = new Color(0.7f, 0.7f, 0.7f, 1f);
@@ -80,7 +146,7 @@ public class PlowedLand : MonoBehaviour, IInteractable
     //реакция объекта на айтем
     (bool, List<IItem>) IInteractable.Interact(IItem item)
     {
-        if (plant?.plantStatus != PlantStatus.has_growed )
+        if (plant?.plantStatus != PlantStatus.has_growed)
         {
             if (item.GameObject == null)
             {
@@ -94,21 +160,23 @@ public class PlowedLand : MonoBehaviour, IInteractable
                 if (plant == null)
                 {
                     Destroy(this.gameObject);
+                    plantID = -plantID;
                 }
 
                 ClearCulture();
 
                 UpdatePlowedLand();
-
+                
+                PlowedLandManager.Update(GetPlantData());
                 return (false, null);
             }  
         
             //для семян(универсальный)
             if(item.GameObject.CompareTag("Plant"))
             {
-                GameObject _gameObject = Instantiate(item.GameObject, this.transform);
-                plant = _gameObject.GetComponent<IPlant>();
-                getable =_gameObject.GetComponent<IGetable>();
+                _plantObj = Instantiate(item.GameObject, this.transform);
+                plant = _plantObj.GetComponent<IPlant>();
+                getable = _plantObj.GetComponent<IGetable>();
 
                 plant.plantStatus = PlantStatus.seed;
                 plant.GrowingPhase = 0;
@@ -116,13 +184,8 @@ public class PlowedLand : MonoBehaviour, IInteractable
                 seedPlaceSpriteRenderer.sprite = plant?.PhaseSprite;
 
                 UpdatePlowedLand();
+                PlowedLandManager.Update(GetPlantData());
                 return (true, null);
-            }
-
-            //для руки
-            //Зачисление игроку 1 единицы продукта
-            if (item.GameObject.CompareTag("Hand"))
-            {
             }
 
             //для лейки
@@ -138,17 +201,19 @@ public class PlowedLand : MonoBehaviour, IInteractable
                 Debug.Log("растение полито");
                 }
             
-
+                PlowedLandManager.Update(GetPlantData());
                 UpdatePlowedLand();
                 return (false, null);
             }
         }
-        else
+        else if (getable != null)
         {
             List<IItem> items = new List<IItem>(getable.Get());
             ClearCulture();
 
             UpdatePlowedLand();
+
+            PlowedLandManager.Update(GetPlantData());
             return (false, items);
         }
 

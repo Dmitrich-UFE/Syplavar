@@ -166,7 +166,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 971e297c350c84f4a9cad5b017692396, type: 2}
+  - {fileID: 2100000, guid: add19fc8dd6fd1340bb3f0416d8e05ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -197,7 +197,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!95 &2288215872664587040
 Animator:
   serializedVersion: 7
@@ -265,7 +265,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5377996456500460675}
   serializedVersion: 5
-  m_Mass: 2000000
+  m_Mass: 500
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -296,6 +296,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243ac4a0eb853a141914fa32d7d3de26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flashColor: {r: 1, g: 0, b: 0, a: 1}
+  duration: 1
+  colorPropertyName: _FlashColor
+  targetRenderers:
+  - {fileID: 4011341749476934070}
   _name: "\u0421\u043B\u0430\u0439\u043C"
   _health: 35
   _speed: 2.5
@@ -304,11 +309,20 @@ MonoBehaviour:
   _maxseekDist: 9
   _attkDist: 2
   _coolDownSec: 2.5
+  returningItems:
+  - {fileID: 11400000, guid: 4ba74d1304702464793a8fc15150b44a, type: 2}
+  - {fileID: 11400000, guid: 4ba74d1304702464793a8fc15150b44a, type: 2}
+  - {fileID: 11400000, guid: 361e04617851ba442984772edc527a3b, type: 2}
+  - {fileID: 11400000, guid: 4ba74d1304702464793a8fc15150b44a, type: 2}
+  - {fileID: 11400000, guid: 4ba74d1304702464793a8fc15150b44a, type: 2}
+  - {fileID: 11400000, guid: 4ba74d1304702464793a8fc15150b44a, type: 2}
+  percentsForDropItem: 30
   agent: {fileID: 3043492201631244412}
   playerHealth: {fileID: 0}
   destroyAfterDeath: 0
   slimeBodyAnimator: {fileID: 2288215872664587040}
   slimeGroundAnimator: {fileID: 7408402276757257373}
+  inventoryAI: {fileID: 0}
 --- !u!195 &3043492201631244412
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -350,5 +364,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.8306208, y: 1, z: 0.37373394}
-  m_Center: {x: 0.014078617, y: 0, z: 0.03146866}
+  m_Size: {x: 1.8306208, y: 1, z: 0.5004765}
+  m_Center: {x: 0.014078617, y: 0, z: 0.094839945}

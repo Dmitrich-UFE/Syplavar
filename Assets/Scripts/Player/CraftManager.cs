@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
+using System.Collections.Generic;
+using TMPro;
 
 public class CraftManager : MonoBehaviour
 {
     // ===== DATA =====
-    [SerializeField] private RecipeData[] recipes;
+    [SerializeField] private List<RecipeData> recipes;
     private PlayerInputActions ButtonE;
     [SerializeField] private InventoryAI inventory;
 
@@ -15,6 +18,14 @@ public class CraftManager : MonoBehaviour
 
     [SerializeField] private Button craftButton;
     [SerializeField] private GameObject recipeButtonPrefab;
+    [SerializeField] private Sprite defaultSprite;
+
+    [Header("CraftUIWindow")]
+    [SerializeField] private Image[] slotImages;
+
+    [SerializeField] private TMP_Text[] slotCounts;
+    [SerializeField] private Image slotResultImage;
+    [SerializeField] private TMP_Text slotResultCount;
 
     private RecipeData currentRecipe;
 
@@ -23,21 +34,18 @@ public class CraftManager : MonoBehaviour
     {
 
         ClearUI();
-        Debug.Log("asdsad");
+
+        recipes = recipes.OrderByDescending(x => CanCraft(x)).ToList();
 
         foreach (var recipe in recipes)
         {
             bool canCraft = CanCraft(recipe);
-
-        
 
             var buttonUI = Instantiate(recipeButtonPrefab, availableContainer);
 
             var component = buttonUI.GetComponent<RecipeButtonUI>();
 
             component.Init(recipe, canCraft, OnRecipeSelected);
-
-            Debug.Log("FDF");
         }
     }
 
@@ -80,6 +88,25 @@ public class CraftManager : MonoBehaviour
     // ===== OPEN =====
     internal void OpenCraftWindow(RecipeData recipe)
     {
+        for (int i = 0; i<slotImages.Length; ++i)
+        {
+            if (i < recipe.IngredientsCount)
+            {
+                var (item, count) = recipe[i];
+                slotImages[i].sprite = item.Texture;
+                slotCounts[i].text = count.ToString();
+            }
+            else
+            {
+                // Если ингредиентов меньше, заполняем дефолтными значениями
+                slotImages[i].sprite = defaultSprite;
+                slotCounts[i].text = "";
+            }
+        }
+
+        slotResultImage.sprite = recipe.ResultItem.Texture;
+        slotResultCount.text= recipe.ResultCount.ToString();
+
         craftWindow.SetActive(true);
         currentRecipe = recipe;
         UpdateCraftWindow();
@@ -95,20 +122,30 @@ public class CraftManager : MonoBehaviour
     }
 
     // ===== CRAFT =====
-    internal void Craft()
+    public void Craft()
     {
         if (currentRecipe == null)
             return;
 
-        // ❗ Без доступа к Inventory — просто лог
-        Debug.Log("Скрафтили: " + currentRecipe.ResultItem.name);
+        if (CanCraft(currentRecipe))
+        {
+            for (int i = 0; i < currentRecipe.IngredientsCount; i++)
+            {   
+                var recipeItem = currentRecipe[i];
+                inventory.DebitItem(recipeItem.item, recipeItem.count);
+            }
+            Debug.Log("Скрафтили: " + currentRecipe.ResultItem.name);
+            inventory.AddToInventory(currentRecipe.ResultItem, currentRecipe.ResultCount);
+        }
+        
 
         UpdateCraftWindow();
         DrawCraftMenu();
+        inventory.DrawInventory();
     }
 
     // ===== CLOSE =====
-    internal void CloseCraftWindow()
+    public void CloseCraftWindow()
     {
         craftWindow.SetActive(false);
 
@@ -116,6 +153,18 @@ public class CraftManager : MonoBehaviour
         {
             inventory.DrawInventory();
         }
+    }
+
+    internal void AddRecipe(RecipeData recipe)
+    {
+        if (recipe != null)
+            recipes.Add(recipe);
+    }
+
+    internal void RemoveRecipe(RecipeData recipe)
+    {
+        if (recipe != null)
+            recipes.Remove(recipe);
     }
 
     private void OnEnable()

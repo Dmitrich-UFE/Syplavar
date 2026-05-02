@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8866122169056907206
 Transform:
@@ -51,3 +51,4 @@ MonoBehaviour:
   _returningItems:
   - {fileID: 11400000, guid: 77336adbb6a21de4faa0c6a0b5d88012, type: 2}
   - {fileID: 11400000, guid: e74c1e186b7dfa84aad07e8cc8c39671, type: 2}
+  _type: 4

@@ -15,34 +15,82 @@ public class PlantTree : MonoBehaviour, IInteractable
     [SerializeField] private List<GameObject> GrowedTreeObjects;
     [SerializeField] private GameObject actualTreeObject;
     [SerializeField] private bool isNeedGenerate;
+    [SerializeField] private bool UsedForTreeGenerator;
     [SerializeField] private GameObject EditorGO;
 
     private Coroutine dampCoroutine;
     private Vector3 startPos;
+    private int _type;
+    private int id;
 
 
     void Awake()
     {
+        if (!UsedForTreeGenerator)
+        {
+            GenerateTree();
+        }
+    }
+
+    internal void InitTree(TreeData data)
+    {
+        if (data != null)
+        {
+            isGrowed = data.Phase == 0? false : true;
+            id = data.ID;
+            _type = data.Type;
+            if (isGrowed && data.Type < GrowedTreeObjects.Count && data.Type >= 0)
+            {
+                GenerateTree(data.Type);
+            }
+            else
+            {
+                GenerateTree();
+            }
+        }
+        //Awake();
+    }
+
+    internal TreeSaveData GetSaveData()
+    {
+        TreeSaveData saveData = new TreeSaveData();
+        saveData.Position = new Vector3Int((int)Math.Round(transform.position.x), (int)Math.Round(transform.position.y), (int)Math.Round(transform.position.z));;
+        saveData.Type = _type;
+        saveData.GrowPhase = isGrowed? 1:0;
+        return saveData;
+    }
+
+    internal TreeData GetTreeData()
+    {
+        return new TreeData(id, isGrowed? 1:0, _type, this);
+    }
+
+    private void GenerateTree(int type = -1)
+    {
         Destroy(EditorGO);
+
+        if (type == -1) type = UnityEngine.Random.Range(0, GrowedTreeObjects.Count - 1);
         
         this.transform.position = new Vector3(Mathf.Round(this.transform.position.x), this.transform.position.y, Mathf.Round(this.transform.position.z));
 
         if (isGrowed && isNeedGenerate)
         {
-            actualTreeObject = Instantiate(GrowedTreeObjects[UnityEngine.Random.Range(0, GrowedTreeObjects.Count - 1)], this.transform);
-            health = UnityEngine.Random.Range(10, 70);
+            actualTreeObject = Instantiate(GrowedTreeObjects[type], this.transform);
+            health = UnityEngine.Random.Range(20, 40);
         }
         else if (isGrowed && !isNeedGenerate)
         {
-            health = UnityEngine.Random.Range(10, 70);
+            health = UnityEngine.Random.Range(20, 40);
         }
         else
         {
-            daysBeforeGrow = UnityEngine.Random.Range(4, 12);
+            daysBeforeGrow = UnityEngine.Random.Range(3, 7);
             DayLightHandler._OnTimeReached += Growing;
             actualTreeObject = Instantiate(smallTreeObject, this.transform);
         }
 
+        id = TreeManager.GetID();
+        TreeManager.Update(GetTreeData());
         startPos = actualTreeObject.transform.localPosition;
     }
 
@@ -81,7 +129,8 @@ public class PlantTree : MonoBehaviour, IInteractable
 
                     foreach (ItemData returningitem in returningItems)
                     {
-                        for (int i = 0; i < UnityEngine.Random.Range(2, 5); i++)
+                        int chance = UnityEngine.Random.Range(0, 10);
+                        if (chance > 5)
                         {
                             retItems.Add(returningitem);
                         }
@@ -90,6 +139,7 @@ public class PlantTree : MonoBehaviour, IInteractable
                     Destroy(actualTreeObject);
                     actualTreeObject = null;
                     Destroy(this.gameObject);
+                    TreeManager.Update(new TreeData(id, isGrowed? 1:0, _type, null));
                     return (false, retItems);
                 }
 
@@ -98,6 +148,7 @@ public class PlantTree : MonoBehaviour, IInteractable
                     Destroy(actualTreeObject);
                     actualTreeObject = null;
                     Destroy(this.gameObject);
+                    TreeManager.Update(new TreeData(id, isGrowed? 1:0, _type, null));
                     return (false, null);
                 }
             }
@@ -134,7 +185,8 @@ public class PlantTree : MonoBehaviour, IInteractable
         Destroy(actualTreeObject);
         actualTreeObject = Instantiate(GrowedTreeObjects[UnityEngine.Random.Range(0, GrowedTreeObjects.Count - 1)], this.transform);
         isGrowed = true;
-        health = UnityEngine.Random.Range(10, 70);
+        health = UnityEngine.Random.Range(20, 40);
+        TreeManager.Update(GetTreeData());
     }
 
     IEnumerator DampTree()

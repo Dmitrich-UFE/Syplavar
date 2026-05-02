@@ -15,6 +15,7 @@ TagManager:
   - Monster
   - Sword
   - MiniGrinder
+  - IgnoreCursor
   layers:
   - Default
   - TransparentFX

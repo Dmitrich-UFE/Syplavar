@@ -16,7 +16,7 @@ public class InventorySlotAI
         _stackSize = amount;
     }
 
-    //меняет предмет на новый. Возвращает кол-во добавленных предметов
+    //меняет предмет на новый. 
     internal void SetItem(ItemData item, int amount)
     {
         _itemData = item;

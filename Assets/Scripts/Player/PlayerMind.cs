@@ -17,7 +17,12 @@ public class PlayerMind : MonoBehaviour
     public event Action OnMindChanged;
 
     // ===== PROPERTIES =====
-    internal int CurrentMind => currentMind;
+    internal int CurrentMind 
+    {
+        get => currentMind;
+        set {currentMind = value; OnMindChanged?.Invoke();}
+    }
+    internal int MaxMind => maxMind;
 
     internal float MindPercent => maxMind > 0 ? (float)currentMind / maxMind : 0f;
 
@@ -95,10 +100,11 @@ public class PlayerMind : MonoBehaviour
             OnMindChanged?.Invoke();
         }
 
-        // Рассудок закончился
+        // Рассудок закончился: если игрок неожиданно умирает  - проблема может быть здесь
         currentMind = 0;
+        playerHealth.Health = 0;
 
 
-        Debug.Log("Чел умер");
+        //Debug.Log("Чел умер");
     }
 }

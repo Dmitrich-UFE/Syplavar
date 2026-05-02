@@ -5,6 +5,7 @@ public class GameCharacteristicsUIHandler : MonoBehaviour
 {
 
     private PlayerHealth _playerHealth;
+    private PlayerMind _playerMind;
     [SerializeField] private Image _healthBar;
     [SerializeField] private Image _mindBar;
 
@@ -12,8 +13,11 @@ public class GameCharacteristicsUIHandler : MonoBehaviour
     void Start()
     {
         _playerHealth = PlayerSeeker.GetPlayerHealth();
+        _playerMind = PlayerSeeker.GetPlayerMind();
         _playerHealth.OnHealthChanged += SetHealthUI;
+        _playerMind.OnMindChanged += SetMindUI;
         SetHealthUI();
+        SetMindUI();
     }
 
     void SetHealthUI()
@@ -21,9 +25,15 @@ public class GameCharacteristicsUIHandler : MonoBehaviour
         _healthBar.fillAmount = _playerHealth.HealthInPercents;
     }
 
+    void SetMindUI()
+    {
+        _mindBar.fillAmount = _playerMind.MindPercent;
+    }
+
 
     void OnDestroy()
     {
         _playerHealth.OnHealthChanged -= SetHealthUI;
+        _playerMind.OnMindChanged -= SetMindUI;
     }
 }

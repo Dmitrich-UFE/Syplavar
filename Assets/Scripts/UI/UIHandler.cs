@@ -16,6 +16,7 @@ public class UIHandler : MonoBehaviour
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private GameObject _settingsMenu;
     [SerializeField] private GameObject _helpMenu;
+    [SerializeField] private GameObject _craftMenu;
 
     [Header("Элементы настроек")]
     [SerializeField] private Toggle fsToggle;
@@ -25,6 +26,7 @@ public class UIHandler : MonoBehaviour
     
     bool isBigInvOpen;
     bool isPauseMenuOpen;
+    bool isDeathMenuOpen;
 
     void Awake()
     {
@@ -33,6 +35,17 @@ public class UIHandler : MonoBehaviour
         isPauseMenuOpen = false;
         fsToggle.isOn = Screen.fullScreen;
         fsToggle.onValueChanged.AddListener(SetFullScreen);
+    }
+
+    internal void SetDeath(bool param)
+    {
+        isDeathMenuOpen = param;
+
+        if (param)
+        {
+            ClosePauseMenu();
+            CloseBigInventory();
+        }
     }
 
     public void ClosePauseMenu()
@@ -47,6 +60,20 @@ public class UIHandler : MonoBehaviour
         SetOnCursor();
     }
 
+    public void CloseBigInventory()
+    {
+        if (isBigInvOpen)
+        {
+            _inventoryAI.DrawLowerInventory();
+            Time.timeScale = 1f;
+            _lowerInventory.SetActive(true);
+            _bigInventory.SetActive(false);
+            isBigInvOpen = false;
+
+            SetOnCursor();
+        }
+    }
+
     void OpenBigInventory(InputAction.CallbackContext context)
     {
         if (isBigInvOpen)
@@ -59,8 +86,9 @@ public class UIHandler : MonoBehaviour
 
             SetOnCursor();
         }
-        else if (!isPauseMenuOpen)
+        else if (!isPauseMenuOpen && !isDeathMenuOpen)
         {
+            _craftMenu.SetActive(false);
             _lowerInventory.SetActive(false);
             _bigInventory.SetActive(true);
             Time.timeScale = 0f;
@@ -73,7 +101,7 @@ public class UIHandler : MonoBehaviour
 
     void OpenPauseMenu(InputAction.CallbackContext context)
     {
-        if (!isPauseMenuOpen && !isBigInvOpen)
+        if (!isPauseMenuOpen && !isBigInvOpen && !isDeathMenuOpen)
         {
             _lowerInventory.SetActive(false);
             _pauseMenu.SetActive(true);

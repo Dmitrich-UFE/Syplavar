@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
+using System.Collections.Generic;
 
 public abstract class Monster : MonoBehaviour
 {
@@ -23,11 +24,34 @@ public abstract class Monster : MonoBehaviour
     protected Coroutine LifeCoroutine;
     protected Coroutine AttackCoroutine;
     protected Coroutine PeaceCoroutine;
+
+    [Header("Настройки эффекта")]
+    [SerializeField] private Color flashColor = new Color(1f, 0f, 0f, 1f);
+    [SerializeField] private float duration = 0.3f;
+    [SerializeField] private string colorPropertyName = "_BaseColor";
+
+    [Header("Ссылки на части монстра")]
+    [Tooltip("Перетащите сюда все дочерние объекты с Renderer")]
+    [SerializeField] private List<Renderer> targetRenderers;
+
+    private MaterialPropertyBlock _propBlock;
+    private Color _originalColor;
+    private Coroutine _flashRoutine;
     
     protected virtual void Start()
     {
         isAvailableForAttack = true;
         LifeCoroutine = StartCoroutine(Life());
+
+        _propBlock = new MaterialPropertyBlock();
+
+        // Берем базовый цвет из первого объекта в списке
+        if (targetRenderers != null && targetRenderers.Count > 0 && targetRenderers[0] != null)
+        {
+            _originalColor = targetRenderers[0].sharedMaterial.HasProperty(colorPropertyName) 
+                ? targetRenderers[0].sharedMaterial.GetColor(colorPropertyName) 
+                : Color.white;
+        }
     }
 
     internal void GetDamage(float damage)
@@ -35,21 +59,22 @@ public abstract class Monster : MonoBehaviour
         if (Health > 0.00001f)
         {
             Health -=damage;
+            if (targetRenderers == null || targetRenderers.Count == 0) return;
+        
+            if (_flashRoutine != null) StopCoroutine(_flashRoutine);
+            _flashRoutine = StartCoroutine(FlashRoutine());
         }
     }
 
 
     internal abstract void TryDeath();
 
-    void Update()
-    {
-        
-    }
+    
 
     //Контролирующая корутина для смены режима монстра
     IEnumerator Life()
     {
-        PeaceCoroutine = StartCoroutine(PeaceMode());
+        //PeaceCoroutine = StartCoroutine(PeaceMode());
 
         while (true)
         {
@@ -76,7 +101,7 @@ public abstract class Monster : MonoBehaviour
         //Debug.Log("InPeaceMode");
 
         if (isRegedAsBattling) BattleStatusTracker.RemoveMonsterInBattleMode();
-        BattleStatusTracker.BattleMode = BattleStatusTracker.MonstersInBattleMode != 0;
+        BattleStatusTracker.BattleMode = BattleStatusTracker.MonstersInBattleMode > 0;
         isRegedAsBattling = false;
         Agent.speed = Speed / 2.5f;
 
@@ -134,5 +159,28 @@ public abstract class Monster : MonoBehaviour
     void switchisAvailableforAttackToTrue()
     {
         isAvailableForAttack = true;
+    }
+
+    IEnumerator FlashRoutine()
+    {
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            ApplyColor(Color.Lerp(flashColor, _originalColor, elapsed / duration));
+            yield return null;
+        }
+        ApplyColor(_originalColor);
+    }
+
+    private void ApplyColor(Color color)
+    {
+        foreach (var r in targetRenderers)
+        {
+            if (r == null) continue;
+            r.GetPropertyBlock(_propBlock);
+            _propBlock.SetColor(colorPropertyName, color);
+            r.SetPropertyBlock(_propBlock);
+        }
     }
 }

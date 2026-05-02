@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stone
   m_EditorClassIdentifier: 
   _itemID: 105
-  _texture: {fileID: 21300000, guid: 62aa442dc3817e94c906c2a5db3f4d1a, type: 3}
+  _texture: {fileID: 21300000, guid: 9ede94d7b9e55974a9283c7572237705, type: 3}
   _name: "\u041A\u0430\u043C\u0435\u043D\u044C"
   _maxStack: 99
   _gameObject: {fileID: 0}
