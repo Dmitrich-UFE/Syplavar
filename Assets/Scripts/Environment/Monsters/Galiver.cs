@@ -14,6 +14,7 @@ public class Galiver : Monster
 
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private PlayerHealth playerHealth;
+    [SerializeField] private Transform playerTarget;
 
     [SerializeField] private bool destroyAfterDeath;
 
@@ -37,6 +38,7 @@ public class Galiver : Monster
         CoolDownSec = _coolDownSec;
 
         playerHealth = PlayerSeeker.GetPlayerHealth();
+        playerTarget = PlayerSeeker.GetPlayerTransform();
 
         agent = GetComponent<NavMeshAgent>();
         Agent = agent;
@@ -48,7 +50,8 @@ public class Galiver : Monster
     {
         if (fireballPrefab == null || firePoint == null) return;
 
-        Vector3 dir = (playerHealth.transform.position - firePoint.position).normalized;
+        Vector3 playerTargetPos = new Vector3(playerTarget.position.x, playerTarget.position.y + 1f, playerTarget.position.z);
+        Vector3 dir = (playerTargetPos - firePoint.position).normalized;
 
         GameObject fb = Instantiate(fireballPrefab, firePoint.position, Quaternion.identity);
 

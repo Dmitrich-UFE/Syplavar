@@ -56,7 +56,7 @@ public class VNLDialogueWindow : MonoBehaviour
 
     void Start()
     {
-        StartPrint(textAsset);
+        //StartPrint(textAsset);
     }
 
     //Подготовка к печати
