@@ -41,6 +41,8 @@ public class VNLDialogueWindow : MonoBehaviour
     private bool IsReadyForPrint = false;
     private bool _skipRequested;
 
+    internal VNLprintStatus Status {get; private set;}
+
 
     void Awake()
     {
@@ -64,6 +66,7 @@ public class VNLDialogueWindow : MonoBehaviour
     {
         assetStrings.Clear();
         EoSIndicator.SetActive(false);
+        Status = VNLprintStatus.started;
 
         using (StringReader reader = new StringReader(textAsset.text))
         {
@@ -88,8 +91,13 @@ public class VNLDialogueWindow : MonoBehaviour
             yield return fadetick;
         }
 
+        int index = 0;
+
         foreach (string assetString in assetStrings)
         {
+            if (index == 0) {Status = VNLprintStatus.first;}
+            if (index == assetStrings.Count - 1) {Status = VNLprintStatus.last;}
+
             cuttedLetters.Clear();
             EoSIndicator.SetActive(false);
             _skipRequested = false;
@@ -130,6 +138,7 @@ public class VNLDialogueWindow : MonoBehaviour
     private void EndPrint()
     {
         if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
+        Status = VNLprintStatus.ended;
         fadeCoroutine = StartCoroutine(FadeOutWindow());
     }
 
@@ -224,3 +233,5 @@ public class VNLDialogueWindow : MonoBehaviour
         _playerInputActions.Disable();
     }
 }
+
+public enum VNLprintStatus {started, first, last, ended}

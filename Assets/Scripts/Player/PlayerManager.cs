@@ -28,6 +28,8 @@ public class PlayerManager : MonoBehaviour
         set {spawnPoint.position = value;}
     }
 
+    internal Vector3 PlayerPosition => playerPosition;
+
 
     void Awake()
     {
@@ -75,6 +77,10 @@ public class PlayerManager : MonoBehaviour
             {
                 player.transform.position = data.Position;
             }
+        }
+        else
+        {
+            player.transform.position = SpawnPointPosition;
         }
     }
 
