@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject deathWindow;
     [SerializeField] private UIHandler uiHandler;
+    [SerializeField] private TaskManager taskManager;
     private CanvasGroup deathCanvasGroup;
 
     private Vector3 playerPosition;
@@ -28,7 +29,7 @@ public class PlayerManager : MonoBehaviour
         set {spawnPoint.position = value;}
     }
 
-    internal Vector3 PlayerPosition => playerPosition;
+    internal Vector3 PlayerPosition => player.transform.position;
 
 
     void Awake()
@@ -72,6 +73,10 @@ public class PlayerManager : MonoBehaviour
             {
                 //player.transform.position = data.Spawnpoint;
                 Respawn();
+            }
+            else if (!taskManager.isStoryCompleted())
+            {
+                player.transform.position = SpawnPointPosition;
             }
             else
             {

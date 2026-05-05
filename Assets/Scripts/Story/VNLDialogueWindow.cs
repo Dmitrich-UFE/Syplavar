@@ -25,6 +25,7 @@ public class VNLDialogueWindow : MonoBehaviour
     [SerializeField] private GameObject uiHandler;
     [SerializeField] private Movement movement;
     [SerializeField] private GameObject cursor;
+    [SerializeField] private GameObject storyUI;
 
     [Header("Прочее")]
     [SerializeField] private TextAsset textAsset;
@@ -199,7 +200,7 @@ public class VNLDialogueWindow : MonoBehaviour
         }
 
         _DialogueWindow.SetActive(false);
-        SetOnComponentsBeforeDialogue();
+        SetOnComponentsAfterDialogue();
     }
 
     private void SetOffComponentsBeforeDialogue()
@@ -209,16 +210,18 @@ public class VNLDialogueWindow : MonoBehaviour
         movement.enabled = false;
         lowerInventory.SetActive(false);
         gameCharacteristics.SetActive(false);
+        storyUI.SetActive(false);
         Time.timeScale = 0f;
     }
 
-    private void SetOnComponentsBeforeDialogue()
+    private void SetOnComponentsAfterDialogue()
     {
         uiHandler.SetActive(true);
         cursor.SetActive(true);
         movement.enabled = true;
         lowerInventory.SetActive(true);
         gameCharacteristics.SetActive(true);
+        storyUI.SetActive(true);
         Time.timeScale = 1f;
     }
 
