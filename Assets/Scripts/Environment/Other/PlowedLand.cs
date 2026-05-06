@@ -85,7 +85,7 @@ public class PlowedLand : MonoBehaviour, IInteractable
         {
             switch (time)
             {
-                case (12, 00):
+                case (07, 00):
                     if (wet)
                         plant.Grow();   
                     break;
@@ -185,6 +185,8 @@ public class PlowedLand : MonoBehaviour, IInteractable
 
                 UpdatePlowedLand();
                 PlowedLandManager.Update(GetPlantData());
+
+                EventManager.SendEvent("PLANTPLANT", 1);
                 return (true, null);
             }
 
@@ -198,7 +200,7 @@ public class PlowedLand : MonoBehaviour, IInteractable
                 if (waterCanReturned.isSucceed)
                 {
                     wet = true;
-                Debug.Log("растение полито");
+                    EventManager.SendEvent("WATERPLANT", 1);
                 }
             
                 PlowedLandManager.Update(GetPlantData());

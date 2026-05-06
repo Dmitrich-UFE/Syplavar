@@ -56,6 +56,7 @@ public class TaskManager : MonoBehaviour
         {
             index = 0;
             TaskHintText = "";
+            Status = 1;
             taskNameText.text = tasks[index].Name;
             taskGoalText.text = tasks[index].GoalDescription;
             tasks[index].Activate();
@@ -68,6 +69,7 @@ public class TaskManager : MonoBehaviour
         {
             tasks[index].Complete();
             index++;
+            Status = 1;
             StorySaveSystem.SaveStory(new StorySaveData{index = index, status = Status});
 
             playerManager.SpawnPointPosition = playerManager.PlayerPosition;

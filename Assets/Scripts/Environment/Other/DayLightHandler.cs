@@ -236,6 +236,7 @@ public class DayLightHandler : MonoBehaviour
             DayLightHandler._OnTimeReached -= CheckWakeTime;
             IsSleepTime = false;
 
+            EventManager.SendEvent("SLEEPCOMPLETED", 1);
             if (AddMindCoroutine != null) instance.StopCoroutine(AddMindCoroutine);
 
             PlayerMind _playerMind = PlayerSeeker.GetPlayerMind();

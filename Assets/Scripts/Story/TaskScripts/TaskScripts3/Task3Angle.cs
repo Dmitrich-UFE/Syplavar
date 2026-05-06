@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Task3Angle : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Task3Angle : MonoBehaviour
     bool isVisited = false;
     bool isGotItems = false;
 
+    WaitForSecondsRealtime tick = new WaitForSecondsRealtime(2f);
+    Coroutine cor;
+
     
 
     void OnTriggerEnter(Collider other)
@@ -19,7 +23,7 @@ public class Task3Angle : MonoBehaviour
             vnl.StartPrint(text);
             task3main.CountOfExploredPlaces++;
             isVisited = true;
-            getItem();
+            cor = StartCoroutine(checkStatus());
             //EventManager.OnEventHappened += getItemEvent;
         }
     }
@@ -28,24 +32,39 @@ public class Task3Angle : MonoBehaviour
     {
         if (!isGotItems)
         {
-            inventory.AddToInventory(55, 6);
+            inventory.AddToInventory(55, 8);
             inventory.AddToInventory(2, 1);
             inventory.AddToInventory(3, 1);
-            inventory.AddToInventory(53, 3);
+            inventory.AddToInventory(53, 4);
             task3main.CountOfExploredPlaces++;
             isGotItems = true;
-            taskManager.Status += 100;
+            taskManager.Status *= 5;
             this.gameObject.SetActive(false);
         }
     }
 
+    IEnumerator checkStatus()
+    {
+        while (!(vnl.Status == VNLprintStatus.ended))
+        {
+            yield return tick;
+        }
+        getItem();
+    }
+
     void OnEnable()
     {
-        if (taskManager.Status >= 100)
+        if (taskManager.Status % 5 == 0)
         {
             task3main.CountOfExploredPlaces+=2;
             isGotItems = true;
             this.gameObject.SetActive(false);
         }
+    }
+
+    void OnDisable()
+    {
+        if (cor != null) StopCoroutine(cor);
+        cor = null;
     }
 }

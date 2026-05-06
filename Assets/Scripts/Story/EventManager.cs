@@ -9,4 +9,7 @@ public static class EventManager
     {
         OnEventHappened?.Invoke(new EventMessage(tag, data));
     }
+
+    //EventManager.SendEvent(1, 1);
+    //EventManager.OnEventHappened
 }
