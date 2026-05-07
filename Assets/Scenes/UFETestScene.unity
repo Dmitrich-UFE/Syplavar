@@ -366,6 +366,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &31750783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 31750784}
+  - component: {fileID: 31750785}
+  m_Layer: 0
+  m_Name: Task43
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &31750784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31750783}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &31750785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31750783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 42
+  _Name: "\u0424\u0438\u043D\u0430\u043B?"
+  _Description: "\u0424\u0438\u043D\u0430\u043B \u0436\u0435, \u0434\u0430?"
+  _GoalDescription: "\u0412\u0435\u0440\u043D\u0438\u0442\u0435\u0441\u044C \u043D\u0430
+    \u0444\u0435\u0440\u043C\u0443"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!1 &46902415
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,7 +635,62 @@ MonoBehaviour:
     \u043E \u043F\u043E\u043B\u0438\u0432\u0435 \u0440\u0430\u0441\u0442\u0435\u043D\u0438\u0439..."
   _GoalDescription: "\u0412\u0435\u0440\u043D\u0438\u0442\u0435\u0441\u044C \u043D\u0430
     \u0444\u0435\u0440\u043C\u0443 \u0438 \u043F\u043E\u043B\u0435\u0439\u0442\u0435
-    \u0440\u0430\u0441\u0442\u0435\u043D\u0438\u044F"
+    \u0440\u0430\u0441\u0442\u0435\u043D\u0438\u044F (9)"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
+--- !u!1 &81010065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 81010066}
+  - component: {fileID: 81010067}
+  m_Layer: 0
+  m_Name: Task28
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &81010066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81010065}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &81010067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81010065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 27
+  _Name: "\u041F\u043E \u0433\u0440\u0438\u0431\u044B?"
+  _Description: "\u0412 \u0441\u043F\u0435\u0448\u043A\u0435 \u0440\u0430\u0437\u0431\u0440\u043E\u0441\u0430\u043D\u043D\u044B\u0435
+    \u0437\u0430\u043F\u0438\u0441\u0438 \u0437\u0430\u0446\u0435\u043F\u0438\u043B\u0438
+    \u0432\u0430\u0448 \u0433\u043B\u0430\u0437. \u0412\u043E\u0437\u043C\u043E\u0436\u043D\u043E,
+    \u0432\u044B \u043D\u0430\u0439\u0434\u0451\u0442\u0435 \u0447\u0442\u043E-\u0442\u043E,
+    \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u0432\u0448\u0438\u0441\u044C \u043D\u0430
+    <color=blue>\u0441\u0435\u0432\u0435\u0440</color>(\u0432\u0432\u0435\u0440\u0445)."
+  _GoalDescription: "...\u0438 \u0435\u0436\u0435\u043D\u043E\u0447\u043D\u043E \u0441\u043F\u0430\u0442\u044C."
   _TaskObject: {fileID: 0}
   _isCompleted: 0
 --- !u!114 &86773248
@@ -602,6 +708,59 @@ MonoBehaviour:
   _color: {r: 0, g: 0, b: 0, a: 0}
   _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
+--- !u!1 &89150063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 89150064}
+  - component: {fileID: 89150065}
+  m_Layer: 0
+  m_Name: Task22
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &89150064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89150063}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &89150065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89150063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 21
+  _Name: "\u041D\u043E\u0447\u043D\u0430\u044F (\u043D\u0435)\u043F\u0440\u0438\u044F\u0442\u043D\u043E\u0441\u0442\u044C"
+  _Description: "\u041D\u0443 \u0438 \u043D\u043E\u0447\u044C! \u0412\u043E\u0442
+    \u043F\u0440\u043E \u043A\u0430\u043A\u0438\u0445 \"\u0432\u0441\u044F\u043A\u0438\u0445\"
+    \u0433\u043E\u0432\u043E\u0440\u0438\u043B\u0430 \u0437\u0430\u043F\u0438\u0441\u043A\u0430."
+  _GoalDescription: "\u041F\u043E\u043B\u0435\u0439\u0442\u0435 \u0440\u0430\u0441\u0442\u0435\u043D\u0438\u044F
+    \u0432\u0435\u0447\u0435\u0440\u043E\u043C (9)"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!1 &89807917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,6 +1240,64 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!1 &118459916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 118459917}
+  - component: {fileID: 118459918}
+  m_Layer: 0
+  m_Name: Task29
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &118459917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118459916}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &118459918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118459916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 28
+  _Name: "\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u043A \u044D\u043A\u0441\u043F\u0435\u0434\u0438\u0446\u0438\u0438"
+  _Description: "\u0412\u044B \u0442\u0430\u043A\u0442\u0438\u0447\u0435\u0441\u043A\u0438
+    \u0441\u0431\u0435\u0436\u0430\u043B\u0438 \u043E\u0431\u0440\u0430\u0442\u043D\u043E
+    \u043D\u0430 \u0444\u0435\u0440\u043C\u0443, \u0432\u0435\u0434\u044C \u0432\u044B
+    \u0434\u043E \u0441\u0438\u0445 \u043F\u043E\u0440 \u0433\u043E\u043B\u043E\u0434\u043D\u044B
+    \u0438 \u043D\u0435 \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u044B \u0432\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C
+    \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435. \u0414\u0430\u0432\u0430\u0439\u0442\u0435
+    \u044D\u0442\u043E \u0438\u0441\u043F\u0440\u0430\u0432\u0438\u043C!"
+  _GoalDescription: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0430\u0439\u0442\u0435
+    \u0432\u044B\u0440\u0430\u0449\u0438\u0432\u0430\u0442\u044C \u0440\u0430\u0441\u0442\u0435\u043D\u0438\u044F
+    (\u0438 \u043E\u0441\u043E\u0431\u0435\u043D\u043D\u043E \u043F\u0448\u0435\u043D\u0438\u0446\u0443)"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!114 &123540290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2514,6 +2731,171 @@ MonoBehaviour:
   cursor: {fileID: 8390486569090497060}
   storyUI: {fileID: 979324937}
   textAsset: {fileID: 4900000, guid: e0a44b2b699d63b4a8532066310b3d61, type: 3}
+--- !u!43 &246427625
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 11
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 0
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 0
+    localAABB:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 0
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 0
+    _typelessdata: 
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_MeshUsageFlags: 0
+  m_CookingOptions: 30
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  'm_MeshMetrics[0]': 1
+  'm_MeshMetrics[1]': 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1001 &255975927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3082,6 +3464,58 @@ MonoBehaviour:
   text: {fileID: 4900000, guid: d0644862489e9bc4eb42be826806bbe6, type: 3}
   taskManager: {fileID: 1740463839}
   multiplyNum: 2
+--- !u!1 &273219720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 273219721}
+  - component: {fileID: 273219722}
+  m_Layer: 0
+  m_Name: Task35
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &273219721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273219720}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &273219722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273219720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 34
+  _Name: "\u0421\u043E\u0440\u0432\u0430\u0442\u044C \u0446\u0432\u0435\u0442\u043E\u0447\u0435\u043A"
+  _Description: "\u041D\u043E\u0432\u044B\u0435 \u0432\u0435\u0449\u0438 \u0434\u043E\u043B\u0436\u043D\u044B
+    \u043F\u043E\u043C\u043E\u0447\u044C. "
+  _GoalDescription: "\u041D\u0430\u043F\u0440\u0430\u0432\u043B\u044F\u0439\u0442\u0435\u0441\u044C
+    \u043A \u0446\u0432\u0435\u0442\u043A\u0443"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!114 &273326071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3857,6 +4291,117 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &426492768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 426492769}
+  - component: {fileID: 426492770}
+  m_Layer: 0
+  m_Name: Task42
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &426492769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426492768}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &426492770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426492768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 41
+  _Name: "\u0424\u0438\u043D\u0430\u043B?"
+  _Description: "\u0424\u0438\u043D\u0430\u043B. \u0414\u043E\u0431\u0435\u0439\u0442\u0435
+    \u0438 \u0431\u043E\u043B\u044C\u0448\u043E\u0439 \u0446\u0432\u0435\u0442\u043E\u043A
+    \u0442\u043E\u0436\u0435. \u041C\u043E\u0436\u0435\u0442, \u0447\u0442\u043E-\u0442\u043E
+    \u043F\u0440\u043E\u0438\u0437\u043E\u0439\u0434\u0451\u0442."
+  _GoalDescription: "\u0414\u043E\u0431\u0435\u0439\u0442\u0435 \u0431\u043E\u043B\u044C\u0448\u043E\u0439
+    \u0446\u0432\u0435\u0442\u043E\u043A \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u043E\u043C"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
+--- !u!1 &435025239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 435025240}
+  - component: {fileID: 435025241}
+  m_Layer: 0
+  m_Name: Task26
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &435025240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435025239}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &435025241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435025239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 25
+  _Name: "\u041F\u043E \u0433\u0440\u0438\u0431\u044B?"
+  _Description: "\u0412 \u0441\u043F\u0435\u0448\u043A\u0435 \u0440\u0430\u0437\u0431\u0440\u043E\u0441\u0430\u043D\u043D\u044B\u0435
+    \u0437\u0430\u043F\u0438\u0441\u0438 \u0437\u0430\u0446\u0435\u043F\u0438\u043B\u0438
+    \u0432\u0430\u0448 \u0433\u043B\u0430\u0437. \u0412\u043E\u0437\u043C\u043E\u0436\u043D\u043E,
+    \u0432\u044B \u043D\u0430\u0439\u0434\u0451\u0442\u0435 \u0447\u0442\u043E-\u0442\u043E,
+    \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u0432\u0448\u0438\u0441\u044C \u043D\u0430
+    <color=blue>\u0441\u0435\u0432\u0435\u0440</color>(\u0432\u0432\u0435\u0440\u0445)."
+  _GoalDescription: "\u0422\u0430\u043A\u0442\u0438\u0447\u0435\u0441\u043A\u0438
+    \u043E\u0442\u0441\u0442\u0443\u043F\u0430\u0439\u0442\u0435 \u043E\u0431\u0440\u0430\u0442\u043D\u043E
+    \u043D\u0430 \u0444\u0435\u0440\u043C\u0443"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!1001 &455246731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4231,6 +4776,62 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 369090118}
   m_SourcePrefab: {fileID: 100100000, guid: 741806ca1259af94f9f16c9e8e0df1ae, type: 3}
+--- !u!1 &505900711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 505900712}
+  - component: {fileID: 505900713}
+  m_Layer: 0
+  m_Name: Task34
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &505900712
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505900711}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &505900713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505900711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 33
+  _Name: "\u041E\u0445\u043E\u0442\u0430 \u043D\u0430 \u043C\u043E\u043D\u0441\u0442\u0440\u043E\u0432"
+  _Description: "\u0412\u044B \u0443\u0437\u043D\u0430\u043B\u0438 \u043E \u043D\u043E\u0432\u044B\u0445
+    \u0440\u0435\u0446\u0435\u043F\u0442\u0430\u0445 \u0438\u0437 \u0440\u0430\u0437\u0431\u0440\u043E\u0441\u0430\u043D\u043D\u044B\u0445
+    \u0437\u0430\u043F\u0438\u0441\u0435\u0439. \u0421\u0434\u0435\u043B\u0430\u0435\u043C
+    \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B \u043F\u043E \u044D\u0442\u0438\u043C
+    \u0440\u0435\u0446\u0435\u043F\u0442\u0430\u043C \u0438 \u043E\u043F\u0440\u043E\u0431\u0443\u0435\u043C
+    \u0435\u0433\u043E \u043D\u0430 \u0446\u0432\u0435\u0442\u043A\u0435! "
+  _GoalDescription: "\u0441\u0434\u0435\u043B\u0430\u0439\u0442\u0435 \u043D\u0435\u043E\u0431\u044B\u0447\u043D\u044B\u0435
+    \u0432\u0435\u0449\u0438 (3)"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!1 &514693465
 GameObject:
   m_ObjectHideFlags: 0
@@ -4284,6 +4885,57 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.7567997, y: 4.988844, z: 0.20000005}
   m_Center: {x: 4.5317097, y: -1.5584326, z: 6.2750437e-15}
+--- !u!1 &523830609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 523830610}
+  - component: {fileID: 523830611}
+  m_Layer: 0
+  m_Name: Task37
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &523830610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523830609}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &523830611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523830609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 36
+  _Name: "\u0421\u043E\u0440\u0432\u0430\u0442\u044C \u0446\u0432\u0435\u0442\u043E\u0447\u0435\u043A"
+  _Description: "\u041D\u043E\u0432\u044B\u0435 \u0432\u0435\u0449\u0438 \u0434\u043E\u043B\u0436\u043D\u044B
+    \u043F\u043E\u043C\u043E\u0447\u044C. "
+  _GoalDescription: "\u041E\u0434\u043E\u043B\u0435\u0439\u0442\u0435 \u043C\u043E\u043D\u0441\u0442\u0440\u043E\u0432"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!1 &529123068
 GameObject:
   m_ObjectHideFlags: 0
@@ -4400,6 +5052,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   task: {fileID: 1446152744}
   taskManager: {fileID: 1740463839}
+--- !u!1 &537255082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 537255083}
+  - component: {fileID: 537255084}
+  m_Layer: 0
+  m_Name: Task38
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &537255083
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537255082}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &537255084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537255082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 37
+  _Name: "\u0421\u043E\u0440\u0432\u0430\u0442\u044C \u0446\u0432\u0435\u0442\u043E\u0447\u0435\u043A"
+  _Description: "\u041D\u043E\u0432\u044B\u0435 \u0432\u0435\u0449\u0438 \u0434\u043E\u043B\u0436\u043D\u044B
+    \u043F\u043E\u043C\u043E\u0447\u044C. "
+  _GoalDescription: "\u041D\u0430\u0439\u0434\u0438\u0442\u0435 \u043D\u043E\u0432\u044B\u0439
+    \u0446\u0432\u0435\u0442\u043E\u043A \u0438 \u0443\u043D\u0438\u0447\u0442\u043E\u0436\u044C\u0442\u0435
+    \u0435\u0433\u043E"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!1 &543837925
 GameObject:
   m_ObjectHideFlags: 0
@@ -5760,8 +6465,8 @@ MonoBehaviour:
   _Description: "\u0412\u0430\u043C \u0441\u0442\u0430\u043B\u043E \u0438\u043D\u0442\u0435\u0440\u0435\u0441\u043D\u043E,
     \u043A\u0430\u043A\u0438\u0435 \u0440\u0435\u0441\u0443\u0440\u0441\u044B \u0436\u0434\u0443\u0442
     \u0432 \u043B\u0435\u0441\u0443"
-  _GoalDescription: "\u0421\u043E\u0431\u0438\u0440\u0430\u0439\u0442\u0435 \u0441\u0443\u0447\u043A\u0438
-    \u0438 \u043A\u0430\u043C\u043D\u0438"
+  _GoalDescription: "\u0421\u043E\u0431\u0438\u0440\u0430\u0439\u0442\u0435 \u0441\u0443\u0447\u043A\u0438,
+    \u0440\u0430\u0441\u0442\u0435\u043D\u0438\u044F \u0438 \u043A\u0430\u043C\u043D\u0438"
   _TaskObject: {fileID: 0}
   _isCompleted: 0
 --- !u!4 &691967222 stripped
@@ -6380,7 +7085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ID: 15
+  _ID: 44
   _Name: 
   _Description: 
   _GoalDescription: 
@@ -6417,6 +7122,167 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2128912430}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &741500469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 741500470}
+  - component: {fileID: 741500471}
+  m_Layer: 0
+  m_Name: Task41
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &741500470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741500469}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &741500471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741500469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 40
+  _Name: "\u0421\u043E\u0440\u0432\u0430\u0442\u044C \u0446\u0432\u0435\u0442\u043E\u0447\u0435\u043A"
+  _Description: "\u0421\u043A\u043E\u043B\u044C\u043A\u043E \u0435\u0449\u0451 \u0442\u0430\u043A\u0438\u0445
+    \u0446\u0432\u0435\u0442\u043A\u043E\u0432 \u0431\u0443\u0434\u0435\u0442?"
+  _GoalDescription: "\u041E\u0434\u043E\u043B\u0435\u0439\u0442\u0435 \u043C\u043E\u043D\u0441\u0442\u0440\u043E\u0432"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
+--- !u!1 &742777767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 742777768}
+  - component: {fileID: 742777769}
+  m_Layer: 0
+  m_Name: Task32
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &742777768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742777767}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &742777769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742777767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 31
+  _Name: "\u041E\u0445\u043E\u0442\u0430 \u043D\u0430 \u043C\u043E\u043D\u0441\u0442\u0440\u043E\u0432"
+  _Description: "\u0412\u044B \u043D\u0430\u0443\u0447\u0438\u043B\u0438\u0441\u044C
+    \u0433\u043E\u0442\u043E\u0432\u0438\u0442\u044C - \u0430 \u0437\u043D\u0430\u0447\u0438\u0442,
+    \u0432 \u0431\u043E\u044E \u0432\u044B \u043D\u0435 \u043F\u0440\u043E\u043F\u0430\u0434\u0451\u0442\u0435.
+    \u0410 \u0442\u0435\u043F\u0435\u0440\u044C - \u043F\u0440\u0438\u0434\u0451\u0442\u0441\u044F
+    \u0432\u044B\u0439\u0442\u0438 \u043D\u0430 \u043D\u043E\u0447\u043D\u0443\u044E
+    \u043E\u0445\u043E\u0442\u0443."
+  _GoalDescription: "\u0414\u043E\u0436\u0434\u0438\u0442\u0435\u0441\u044C \u043D\u043E\u0447\u0438
+    \u0438 \u0432\u044B\u0445\u043E\u0434\u0438\u0442\u0435 \u043D\u0430 \u043E\u0445\u043E\u0442\u0443"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
+--- !u!1 &749477994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 749477995}
+  - component: {fileID: 749477996}
+  m_Layer: 0
+  m_Name: Task21
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &749477995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749477994}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &749477996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749477994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 20
+  _Name: "\u041D\u043E\u0447\u043D\u0430\u044F (\u043D\u0435)\u043F\u0440\u0438\u044F\u0442\u043D\u043E\u0441\u0442\u044C"
+  _Description: "\u041D\u0443 \u0438 \u043D\u043E\u0447\u044C! \u0412\u043E\u0442
+    \u043F\u0440\u043E \u043A\u0430\u043A\u0438\u0445 \"\u0432\u0441\u044F\u043A\u0438\u0445\"
+    \u0433\u043E\u0432\u043E\u0440\u0438\u043B\u0430 \u0437\u0430\u043F\u0438\u0441\u043A\u0430."
+  _GoalDescription: "\u041E\u0437\u043D\u0430\u043A\u043E\u043C\u044C\u0442\u0435\u0441\u044C
+    \u0441 \u0440\u0430\u0437\u0431\u0440\u043E\u0441\u0430\u043D\u043D\u044B\u043C\u0438
+    \u0437\u0430\u043F\u0438\u0441\u044F\u043C\u0438"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!1 &753783474 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1703093344907476083, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
@@ -7430,6 +8296,59 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1487144398115483184, guid: 14558f4251d71ac4bbcb9e8250aac000, type: 3}
   m_PrefabInstance: {fileID: 1177562305}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &988479767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 988479768}
+  - component: {fileID: 988479769}
+  m_Layer: 0
+  m_Name: Task18
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &988479768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988479767}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &988479769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988479767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 17
+  _Name: "\u041D\u043E\u0447\u043D\u0430\u044F (\u043D\u0435)\u043F\u0440\u0438\u044F\u0442\u043D\u043E\u0441\u0442\u044C"
+  _Description: "\u041D\u0443 \u0438 \u043D\u043E\u0447\u044C! \u0412\u043E\u0442
+    \u043F\u0440\u043E \u043A\u0430\u043A\u0438\u0445 \"\u0432\u0441\u044F\u043A\u0438\u0445\"
+    \u0433\u043E\u0432\u043E\u0440\u0438\u043B\u0430 \u0437\u0430\u043F\u0438\u0441\u043A\u0430."
+  _GoalDescription: "\u0412\u0435\u0440\u043D\u0438\u0442\u0435\u0441\u044C \u043A
+    \u043C\u0435\u0441\u0442\u0443, \u0433\u0434\u0435 \u0431\u044B\u043B \u043E\u0334\u033E\u0332\u043D\u0335\u030C\u0329"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!114 &996411308 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1434456667670369898, guid: 96299e96a0943fc43910ea6b8481b984, type: 3}
@@ -7556,6 +8475,58 @@ MonoBehaviour:
   _color: {r: 0, g: 0, b: 0, a: 0}
   _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
+--- !u!1 &1034940391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1034940392}
+  - component: {fileID: 1034940393}
+  m_Layer: 0
+  m_Name: Task19
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1034940392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034940391}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1034940393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034940391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 18
+  _Name: "\u041D\u043E\u0447\u043D\u0430\u044F (\u043D\u0435)\u043F\u0440\u0438\u044F\u0442\u043D\u043E\u0441\u0442\u044C"
+  _Description: "\u041D\u0443 \u0438 \u043D\u043E\u0447\u044C! \u0412\u043E\u0442
+    \u043F\u0440\u043E \u043A\u0430\u043A\u0438\u0445 \"\u0432\u0441\u044F\u043A\u0438\u0445\"
+    \u0433\u043E\u0432\u043E\u0440\u0438\u043B\u0430 \u0437\u0430\u043F\u0438\u0441\u043A\u0430."
+  _GoalDescription: "\u041E\u0441\u043C\u043E\u0442\u0440\u0438\u0442\u0435 \u043B\u0435\u0441"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!1 &1041156055 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8794039533564814941, guid: 43dbc7df8e6f62a4e93662a1f9c4d721, type: 3}
@@ -8539,6 +9510,59 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132704582}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1141352672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1141352673}
+  - component: {fileID: 1141352674}
+  m_Layer: 0
+  m_Name: Task20
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1141352673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141352672}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1141352674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141352672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 19
+  _Name: "\u041D\u043E\u0447\u043D\u0430\u044F (\u043D\u0435)\u043F\u0440\u0438\u044F\u0442\u043D\u043E\u0441\u0442\u044C"
+  _Description: "\u041D\u0443 \u0438 \u043D\u043E\u0447\u044C! \u0412\u043E\u0442
+    \u043F\u0440\u043E \u043A\u0430\u043A\u0438\u0445 \"\u0432\u0441\u044F\u043A\u0438\u0445\"
+    \u0433\u043E\u0432\u043E\u0440\u0438\u043B\u0430 \u0437\u0430\u043F\u0438\u0441\u043A\u0430."
+  _GoalDescription: "\u0412\u0435\u0440\u043D\u0438\u0442\u0435\u0441\u044C \u043D\u0430
+    \u0444\u0435\u0440\u043C\u0443"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!114 &1148334668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8666,6 +9690,59 @@ MonoBehaviour:
   _forestAreas:
   - {fileID: 11400000, guid: db8366d0f101e244c8e67966214b8dee, type: 2}
   _percentsForForestGen: 5
+--- !u!1 &1168629430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1168629431}
+  - component: {fileID: 1168629432}
+  m_Layer: 0
+  m_Name: Task40
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1168629431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168629430}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1168629432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168629430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 39
+  _Name: "\u0421\u043E\u0440\u0432\u0430\u0442\u044C \u0446\u0432\u0435\u0442\u043E\u0447\u0435\u043A"
+  _Description: "\u0421\u043A\u043E\u043B\u044C\u043A\u043E \u0435\u0449\u0451 \u0442\u0430\u043A\u0438\u0445
+    \u0446\u0432\u0435\u0442\u043A\u043E\u0432 \u0431\u0443\u0434\u0435\u0442?"
+  _GoalDescription: "\u041D\u0430\u0439\u0434\u0438\u0442\u0435 \u0435\u0449\u0435
+    \u043E\u0434\u0438\u043D \u0446\u0432\u0435\u0442\u043E\u043A \u0438 \u0443\u043D\u0438\u0447\u0442\u043E\u0436\u044C\u0442\u0435
+    \u0435\u0433\u043E"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!1001 &1177562305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8868,6 +9945,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1190516417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1190516418}
+  - component: {fileID: 1190516419}
+  m_Layer: 0
+  m_Name: Task24
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1190516418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190516417}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1190516419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190516417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 23
+  _Name: "\u041F\u043E \u0433\u0440\u0438\u0431\u044B?"
+  _Description: "\u0412 \u0441\u043F\u0435\u0448\u043A\u0435 \u0440\u0430\u0437\u0431\u0440\u043E\u0441\u0430\u043D\u043D\u044B\u0435
+    \u0437\u0430\u043F\u0438\u0441\u0438 \u0437\u0430\u0446\u0435\u043F\u0438\u043B\u0438
+    \u0432\u0430\u0448 \u0433\u043B\u0430\u0437. \u0412\u043E\u0437\u043C\u043E\u0436\u043D\u043E,
+    \u0432\u044B \u043D\u0430\u0439\u0434\u0451\u0442\u0435 \u0447\u0442\u043E-\u0442\u043E,
+    \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u0432\u0448\u0438\u0441\u044C \u043D\u0430
+    <color=blue>\u0441\u0435\u0432\u0435\u0440</color>(\u0432\u0432\u0435\u0440\u0445)."
+  _GoalDescription: "\u041E\u0442\u043F\u0440\u0430\u0432\u043B\u044F\u0439\u0442\u0435\u0441\u044C
+    \u0432 \u043B\u0435\u0441 \u043D\u0430 \u0443\u043A\u0430\u0437\u0430\u043D\u043D\u043E\u0435
+    \u0432 \u0437\u0430\u043F\u0438\u0441\u044F\u0445 \u043C\u0435\u0441\u0442\u043E"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!1001 &1191315229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9236,6 +10370,59 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 5.2447457}
   m_Center: {x: 0, y: -7.5548054e-16, z: 0.5531621}
+--- !u!1 &1231283135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1231283136}
+  - component: {fileID: 1231283137}
+  m_Layer: 0
+  m_Name: Task33
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1231283136
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231283135}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1231283137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231283135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 32
+  _Name: "\u041E\u0445\u043E\u0442\u0430 \u043D\u0430 \u043C\u043E\u043D\u0441\u0442\u0440\u043E\u0432"
+  _Description: "\u0414\u0435\u0440\u0436\u0438\u0442\u0435\u0441\u044C, \u0447\u0443\u0434\u0438\u0449\u0430
+    \u043E\u043A\u0430\u044F\u043D\u043D\u044B\u0435! \u042F \u0432\u0430\u043C \u0441\u0435\u0439\u0447\u0430\u0441
+    \u043D\u0430\u0434\u0430\u044E!"
+  _GoalDescription: "\u0414\u043E\u0431\u0443\u0434\u044C\u0442\u0435 \u0440\u0435\u0441\u0443\u0440\u0441\u044B
+    \u0441 \u043C\u043E\u043D\u0441\u0442\u0440\u043E\u0432"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!1001 &1236764564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9600,14 +10787,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ID: 14
-  _Name: "\u041D\u0430\u0447\u0430\u043B\u043E"
-  _Description: "\u0412\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u043B\u0438 \u0441\u0435\u043C\u0435\u043D\u0430
-    \u0438 \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u044B\u0435 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u044B.
-    \u0422\u0430\u043A \u0434\u0430\u0432\u0430\u0439\u0442\u0435 \u0438\u043C\u0438
-    \u0432\u043E\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u043C\u0441\u044F!"
-  _GoalDescription: "\u0421\u0434\u0435\u043B\u0430\u0439\u0442\u0435 \u0433\u0440\u044F\u0434\u043A\u0438
-    \u0438 \u043F\u043E\u0441\u0430\u0434\u0438\u0442\u0435 \u0440\u0430\u0441\u0442\u0435\u043D\u0438\u044F
-    (9)"
+  _Name: "\u041D\u043E\u0447\u043D\u0430\u044F (\u043D\u0435)\u043F\u0440\u0438\u044F\u0442\u043D\u043E\u0441\u0442\u044C"
+  _Description: "\u0412\u044B \u0443\u0432\u0438\u0434\u0435\u043B\u0438 \u043A\u043E\u0433\u043E-\u0442\u043E
+    \u0432 \u043E\u043A\u043D\u0435. \u042D\u0442\u043E \u043D\u0435\u0447\u0442\u043E,
+    \u043A\u043E\u0442\u043E\u0440\u043E\u0435 \u0441\u043C\u043E\u0442\u0440\u0438\u0442
+    \u043F\u0440\u044F\u043C\u043E \u043D\u0430 \u0432\u0430\u0441 \u0438\u0437-\u0437\u0430
+    \u0437\u0430\u0431\u043E\u0440\u0430. \u0412\u044B \u0447\u0443\u0432\u0441\u0442\u0432\u0443\u0435\u0442\u0435
+    \u0441\u0442\u0440\u0430\u0445"
+  _GoalDescription: "\u041F\u0440\u0438\u0431\u043B\u0438\u0437\u044C\u0442\u0435\u0441\u044C
+    \u043A \u043D\u0336\u0307\u0308\u032E\u0349\u0435\u0335\u030A\u0306\u0319\u0323\u043C\u0334\u0305\u0319\u0443\u0337\u0313\u032C"
   _TaskObject: {fileID: 0}
   _isCompleted: 0
 --- !u!1001 &1292906352
@@ -10066,171 +11254,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1845569982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &1339884077
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 11
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 0
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 0
-    localAABB:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0, y: 0, z: 0}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 0
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 0
-    _typelessdata: 
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  m_MeshUsageFlags: 0
-  m_CookingOptions: 30
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  'm_MeshMetrics[0]': 1
-  'm_MeshMetrics[1]': 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1001 &1343242787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10475,6 +11498,64 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7978997783350410756, guid: b74e30f4cbf2f2745b1b1a30f26af2d9, type: 3}
   m_PrefabInstance: {fileID: 7840766314811783406}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1369956764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1369956765}
+  - component: {fileID: 1369956766}
+  m_Layer: 0
+  m_Name: Task30
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1369956765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369956764}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1369956766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369956764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 29
+  _Name: "\u041F\u0438\u0440 \u043D\u0430 \u0432\u0435\u0441\u044C \u043C\u0438\u0440"
+  _Description: "\u0412\u044B \u0442\u0430\u043A\u0442\u0438\u0447\u0435\u0441\u043A\u0438
+    \u0441\u0431\u0435\u0436\u0430\u043B\u0438 \u043E\u0431\u0440\u0430\u0442\u043D\u043E
+    \u043D\u0430 \u0444\u0435\u0440\u043C\u0443, \u0432\u0435\u0434\u044C \u0432\u044B
+    \u0434\u043E \u0441\u0438\u0445 \u043F\u043E\u0440 \u0433\u043E\u043B\u043E\u0434\u043D\u044B
+    \u0438 \u043D\u0435 \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u044B \u0432\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C
+    \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435. \u0414\u0430\u0432\u0430\u0439\u0442\u0435
+    \u044D\u0442\u043E \u0438\u0441\u043F\u0440\u0430\u0432\u0438\u043C!"
+  _GoalDescription: "\u0421\u0434\u0435\u043B\u0430\u0439\u0442\u0435 \u0447\u0442\u043E-\u043D\u0438\u0431\u0443\u0434\u044C
+    \u0441\u044A\u0435\u0441\u0442\u043D\u043E\u0435 \u0438\u0437 \u0432\u044B\u0440\u0430\u0449\u0435\u043D\u043D\u044B\u0445
+    \u0440\u0430\u0441\u0442\u0435\u043D\u0438\u0439"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!114 &1386557443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12076,14 +13157,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ID: 15
-  _Name: "\u041D\u0430\u0447\u0430\u043B\u043E"
-  _Description: "\u0412\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u043B\u0438 \u0441\u0435\u043C\u0435\u043D\u0430
-    \u0438 \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u044B\u0435 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u044B.
-    \u0422\u0430\u043A \u0434\u0430\u0432\u0430\u0439\u0442\u0435 \u0438\u043C\u0438
-    \u0432\u043E\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0435\u043C\u0441\u044F!"
-  _GoalDescription: "\u0421\u0434\u0435\u043B\u0430\u0439\u0442\u0435 \u0433\u0440\u044F\u0434\u043A\u0438
-    \u0438 \u043F\u043E\u0441\u0430\u0434\u0438\u0442\u0435 \u0440\u0430\u0441\u0442\u0435\u043D\u0438\u044F
-    (9)"
+  _Name: "\u041D\u043E\u0447\u043D\u0430\u044F (\u043D\u0435)\u043F\u0440\u0438\u044F\u0442\u043D\u043E\u0441\u0442\u044C"
+  _Description: "\u0412\u044B \u0447\u0443\u0432\u0441\u0442\u0432\u0443\u0435\u0442\u0435
+    \u0441\u0442\u0440\u0430\u0445. \u041D\u043E \u0432\u044B \u0434\u043E\u043B\u0436\u043D\u044B
+    \u0441\u0434\u0435\u043B\u0430\u0442\u044C \u042D\u0422\u041E."
+  _GoalDescription: "\u0423\u0431\u0435\u0439\u0442\u0435 \u0435\u0338\u030C\u032A\u0327\u0433\u0338\u0343\u0349\u0354\u043E\u0336\u030A\u0355\u0349
+    \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u043E\u043C"
   _TaskObject: {fileID: 0}
   _isCompleted: 0
 --- !u!114 &1587195239
@@ -12805,6 +13884,62 @@ MonoBehaviour:
   _color: {r: 0, g: 0, b: 0, a: 0}
   _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
+--- !u!1 &1651074952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1651074953}
+  - component: {fileID: 1651074954}
+  m_Layer: 0
+  m_Name: Task25
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1651074953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651074952}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1651074954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651074952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 24
+  _Name: "\u041F\u043E \u0433\u0440\u0438\u0431\u044B?"
+  _Description: "\u0412 \u0441\u043F\u0435\u0448\u043A\u0435 \u0440\u0430\u0437\u0431\u0440\u043E\u0441\u0430\u043D\u043D\u044B\u0435
+    \u0437\u0430\u043F\u0438\u0441\u0438 \u0437\u0430\u0446\u0435\u043F\u0438\u043B\u0438
+    \u0432\u0430\u0448 \u0433\u043B\u0430\u0437. \u0412\u043E\u0437\u043C\u043E\u0436\u043D\u043E,
+    \u0432\u044B \u043D\u0430\u0439\u0434\u0451\u0442\u0435 \u0447\u0442\u043E-\u0442\u043E,
+    \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u0432\u0448\u0438\u0441\u044C \u043D\u0430
+    <color=blue>\u0441\u0435\u0432\u0435\u0440</color>(\u0432\u0432\u0435\u0440\u0445)."
+  _GoalDescription: "\u0418\u0441\u0441\u043B\u0435\u0434\u0443\u0439\u0442\u0435
+    \u0446\u0432\u0435\u0442\u043E\u043A"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!1 &1663140456
 GameObject:
   m_ObjectHideFlags: 0
@@ -13696,6 +14831,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1845569982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1678781038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1678781039}
+  - component: {fileID: 1678781040}
+  m_Layer: 0
+  m_Name: Task36
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1678781039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678781038}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1678781040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678781038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 35
+  _Name: "\u0421\u043E\u0440\u0432\u0430\u0442\u044C \u0446\u0432\u0435\u0442\u043E\u0447\u0435\u043A"
+  _Description: "\u041D\u043E\u0432\u044B\u0435 \u0432\u0435\u0449\u0438 \u0434\u043E\u043B\u0436\u043D\u044B
+    \u043F\u043E\u043C\u043E\u0447\u044C. "
+  _GoalDescription: "\u0412\u043E\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439\u0442\u0435\u0441\u044C
+    \u043E\u0441\u043E\u0431\u043E\u0439 \u0432\u0435\u0449\u044C\u044E. \u041F\u0440\u0438\u0434\u0451\u0442\u0441\u044F
+    \u043F\u043E\u0434\u0431\u0438\u0440\u0430\u0442\u044C \u043F\u0440\u0435\u0434\u043C\u0435\u0442
+    \u043C\u0435\u0442\u043E\u0434\u043E\u043C \u043F\u0440\u043E\u0431 \u0438 \u043E\u0448\u0438\u0431\u043E\u043A"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!1 &1683480135
 GameObject:
   m_ObjectHideFlags: 0
@@ -14802,6 +15991,57 @@ MonoBehaviour:
   _color: {r: 0, g: 0, b: 0, a: 0}
   _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
+--- !u!1 &1739744255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1739744256}
+  - component: {fileID: 1739744257}
+  m_Layer: 0
+  m_Name: Task39
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1739744256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739744255}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1739744257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739744255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 38
+  _Name: "\u0421\u043E\u0440\u0432\u0430\u0442\u044C \u0446\u0432\u0435\u0442\u043E\u0447\u0435\u043A"
+  _Description: "\u041D\u043E\u0432\u044B\u0435 \u0432\u0435\u0449\u0438 \u0434\u043E\u043B\u0436\u043D\u044B
+    \u043F\u043E\u043C\u043E\u0447\u044C. "
+  _GoalDescription: "\u041E\u0434\u043E\u043B\u0435\u0439\u0442\u0435 \u043C\u043E\u043D\u0441\u0442\u0440\u043E\u0432"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!1 &1740463837
 GameObject:
   m_ObjectHideFlags: 0
@@ -15788,6 +17028,34 @@ Transform:
   - {fileID: 660414479}
   - {fileID: 1257555487}
   - {fileID: 1584006807}
+  - {fileID: 2005518673}
+  - {fileID: 988479768}
+  - {fileID: 1034940392}
+  - {fileID: 1141352673}
+  - {fileID: 749477995}
+  - {fileID: 89150064}
+  - {fileID: 1935758874}
+  - {fileID: 1190516418}
+  - {fileID: 1651074953}
+  - {fileID: 435025240}
+  - {fileID: 1999130928}
+  - {fileID: 81010066}
+  - {fileID: 118459917}
+  - {fileID: 1369956765}
+  - {fileID: 1951464424}
+  - {fileID: 742777768}
+  - {fileID: 1231283136}
+  - {fileID: 505900712}
+  - {fileID: 273219721}
+  - {fileID: 1678781039}
+  - {fileID: 523830610}
+  - {fileID: 537255083}
+  - {fileID: 1739744256}
+  - {fileID: 1168629431}
+  - {fileID: 741500470}
+  - {fileID: 426492769}
+  - {fileID: 31750784}
+  - {fileID: 2062709205}
   - {fileID: 738095987}
   m_Father: {fileID: 1302164705}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16867,6 +18135,115 @@ MonoBehaviour:
   _color: {r: 0, g: 0, b: 0, a: 0}
   _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
+--- !u!1 &1935758873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1935758874}
+  - component: {fileID: 1935758875}
+  m_Layer: 0
+  m_Name: Task23
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1935758874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935758873}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1935758875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935758873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 22
+  _Name: "\u041D\u043E\u0447\u043D\u0430\u044F (\u043D\u0435)\u043F\u0440\u0438\u044F\u0442\u043D\u043E\u0441\u0442\u044C"
+  _Description: "\u041D\u0443 \u0438 \u043D\u043E\u0447\u044C! \u0412\u043E\u0442
+    \u043F\u0440\u043E \u043A\u0430\u043A\u0438\u0445 \"\u0432\u0441\u044F\u043A\u0438\u0445\"
+    \u0433\u043E\u0432\u043E\u0440\u0438\u043B\u0430 \u0437\u0430\u043F\u0438\u0441\u043A\u0430."
+  _GoalDescription: "\u041B\u043E\u0436\u0438\u0442\u0435\u0441\u044C \u0441\u043F\u0430\u0442\u044C"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
+--- !u!1 &1951464423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1951464424}
+  - component: {fileID: 1951464425}
+  m_Layer: 0
+  m_Name: Task31
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1951464424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951464423}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1951464425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951464423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 30
+  _Name: "\u041F\u0438\u0440 \u043D\u0430 \u0432\u0435\u0441\u044C \u043C\u0438\u0440"
+  _Description: "\u0412\u044B \u0442\u0430\u043A\u0442\u0438\u0447\u0435\u0441\u043A\u0438
+    \u0441\u0431\u0435\u0436\u0430\u043B\u0438 \u043E\u0431\u0440\u0430\u0442\u043D\u043E
+    \u043D\u0430 \u0444\u0435\u0440\u043C\u0443, \u0432\u0435\u0434\u044C \u0432\u044B
+    \u0434\u043E \u0441\u0438\u0445 \u043F\u043E\u0440 \u0433\u043E\u043B\u043E\u0434\u043D\u044B
+    \u0438 \u043D\u0435 \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u044B \u0432\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C
+    \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435. \u0414\u0430\u0432\u0430\u0439\u0442\u0435
+    \u044D\u0442\u043E \u0438\u0441\u043F\u0440\u0430\u0432\u0438\u043C!"
+  _GoalDescription: "\u0421\u044A\u0435\u0448\u044C\u0442\u0435 \u0441\u0434\u0435\u043B\u0430\u043D\u043D\u0443\u044E
+    \u0435\u0434\u0443"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!1 &1962270255 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7810378655505132942, guid: 96299e96a0943fc43910ea6b8481b984, type: 3}
@@ -17137,6 +18514,113 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1999130927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1999130928}
+  - component: {fileID: 1999130929}
+  m_Layer: 0
+  m_Name: Task27
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1999130928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999130927}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1999130929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999130927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 26
+  _Name: "\u041F\u043E \u0433\u0440\u0438\u0431\u044B?"
+  _Description: "\u0412 \u0441\u043F\u0435\u0448\u043A\u0435 \u0440\u0430\u0437\u0431\u0440\u043E\u0441\u0430\u043D\u043D\u044B\u0435
+    \u0437\u0430\u043F\u0438\u0441\u0438 \u0437\u0430\u0446\u0435\u043F\u0438\u043B\u0438
+    \u0432\u0430\u0448 \u0433\u043B\u0430\u0437. \u0412\u043E\u0437\u043C\u043E\u0436\u043D\u043E,
+    \u0432\u044B \u043D\u0430\u0439\u0434\u0451\u0442\u0435 \u0447\u0442\u043E-\u0442\u043E,
+    \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u0432\u0448\u0438\u0441\u044C \u043D\u0430
+    <color=blue>\u0441\u0435\u0432\u0435\u0440</color>(\u0432\u0432\u0435\u0440\u0445)."
+  _GoalDescription: "\u041D\u0430\u043F\u043E\u043C\u043D\u044E, \u0447\u0442\u043E
+    \u0432\u044B \u0434\u043E\u043B\u0436\u043D\u044B \u0435\u0436\u0435\u043D\u043E\u0447\u043D\u043E
+    \u043F\u043E\u043B\u0438\u0432\u0430\u0442\u044C \u0440\u0430\u0441\u0442\u0435\u043D\u0438\u044F..."
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
+--- !u!1 &2005518672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2005518673}
+  - component: {fileID: 2005518674}
+  m_Layer: 0
+  m_Name: Task17
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2005518673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005518672}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2005518674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005518672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 16
+  _Name: "\u041D\u043E\u0447\u043D\u0430\u044F (\u043D\u0435)\u043F\u0440\u0438\u044F\u0442\u043D\u043E\u0441\u0442\u044C"
+  _Description: "\u0421\u043B\u0430\u0434\u043A\u0438\u0445 \u0441\u043D\u043E\u0432!"
+  _GoalDescription: "\u041B\u043E\u0436\u0438\u0442\u0435\u0441\u044C \u0441\u043F\u0430\u0442\u044C"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!1 &2008336203
 GameObject:
   m_ObjectHideFlags: 0
@@ -19053,6 +20537,59 @@ MonoBehaviour:
   _color: {r: 0, g: 0, b: 0, a: 0}
   _totalColor: {r: 0, g: 0, b: 0, a: 0}
   IsBlendWithStartColor: 1
+--- !u!1 &2062709204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2062709205}
+  - component: {fileID: 2062709206}
+  m_Layer: 0
+  m_Name: Task44
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2062709205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062709204}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845569982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2062709206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062709204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eabcef1643682c4fa2c7548b47d72b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ID: 43
+  _Name: "\u0424\u0438\u043D\u0430\u043B?"
+  _Description: "\u0424\u0438\u043D\u0430\u043B \u0436\u0435, \u0434\u0430?"
+  _GoalDescription: "\u0422\u0337\u0305\u0313\u030C\u0309\u0352\u030C\u0352\u0305\u033F\u030B\u033D\u0310\u030C\u0358\u0350\u030A\u035D\u0311\u0344\u033E\u030F\u0316\u034D\u032C\u033C\u031D\u044B\u0336\u034A\u0360\u035D\u034B\u034A\u0309\u034B\u0357\u0323\u0332\u0356\u0325\u0333\u0331\u031E\u032C\u0356\u0355\u031C\u0319\u0356\u0316\u0317\u031D\u031D\u033C\u0345
+    \u0335\u0342\u035D\u0341\u033F\u0305\u0312\u033E\u0300\u0355\u035A\u0349\u0317\u033A\u0339\u035A\u0359\u031E\u0348\u0326\u0318\u0333\u032D\u0339\u033C\u0323\u0436\u0336\u0311\u0307\u0310\u0315\u030A\u0342\u0303\u0314\u0350\u0306\u0356\u0359\u034E\u032B\u0324\u0330\u033A\u0323\u0435\u0338\u0301\u030F\u0358\u035D\u0344\u0342\u0351\u0313\u0311\u033F\u0309\u035D\u030B\u034A\u035B\u030F\u0343\u033F\u030F\u0357\u0325\u0328\u0356\u0333\u031E\u0345\u0356\u031C\u032D\u0354\u0354\u035A\u031E\u032F\u032A\u0322\u0330\u034E\u032B\u0330\u0317\u0331\u033B
+    \u0337\u0358\u0344\u030E\u0308\u0314\u030D\u0300\u0305\u034B\u030D\u0344\u0315\u0358\u030B\u0339\u032F\u034E\u034E\u0326\u0320\u0328\u031E\u031C\u0316\u0349\u032F\u034D\u032B\u033A\u0324\u043E\u0338\u0309\u034A\u0351\u030A\u0312\u0315\u030F\u030C\u0309\u030C\u0358\u034C\u0303\u0304\u0360\u034C\u035D\u033E\u0360\u0306\u0328\u032D\u0355\u0356\u032A\u035A\u032D\u031F\u0317\u0324\u0326\u031E\u0325\u0441\u0336\u030F\u034A\u035D\u0302\u034C\u0302\u0342\u0346\u0352\u0309\u031A\u0310\u0315\u033F\u0313\u0313\u0315\u0358\u0313\u034B\u0358\u032A\u031C\u0354\u0348\u0324\u031E\u0320\u033C\u0327\u0355\u033C\u0325\u0328\u0442\u0334\u0352\u0342\u031A\u0304\u033D\u0340\u032A\u0430\u0334\u0358\u035D\u0360\u034B\u0342\u0340\u033D\u033F\u035D\u0303\u0316\u0354\u043D\u0338\u0306\u030F\u0312\u0300\u0346\u033E\u0310\u0346\u031A\u0300\u033F\u0311\u034B\u0313\u0326\u0330\u032C\u0435\u0335\u0308\u0313\u0344\u030F\u0343\u0341\u031B\u034B\u031A\u0358\u0312\u030E\u0311\u034C\u035D\u0357\u035B\u0315\u0310\u0358\u0330\u032D\u032E\u0327\u0355\u0320\u0319\u033C\u035C\u032C\u0348\u0321\u034E\u032B\u0325\u033B\u0322\u0318\u031C\u033A\u0316\u035C\u0317\u0448\u0336\u031A\u034C\u034A\u0346\u0314\u0344\u0352\u0306\u0352\u0358\u031B\u0305\u0324\u032A\u034E\u0329\u031C\u0330\u0330\u044C\u0335\u033E\u0346\u0305\u0314\u030A\u0351\u0313\u034B\u0304\u0312\u032F\u0353\u0359\u0320\u0333\u034E\u032E\u0349\u0345\u0316\u0328\u0328\u0318\u032B\u0322\u032B\u0330\u0323\u032A\u0316\u0323\u0324\u0326\u0441\u0334\u0310\u0315\u0315\u0310\u030D\u0314\u0310\u0351\u0305\u035B\u031B\u0342\u0360\u030A\u030E\u033D\u035B\u034A\u0327\u033A\u034E\u0339\u0326\u0321\u032E\u035C\u0330\u0359\u033C\u0349\u0345\u032F\u044F\u0335\u0357\u034A\u035B\u0300\u035B\u030F\u0313\u0360\u0308\u031A\u033D\u0350\u0351\u030E\u0341\u0312\u030F\u035D\u0357\u035C\u0354\u0355\u0332\u034E\u032C\u033B\u0316\u035A\u0327
+    \u0334\u0346\u0344\u0348\u0326\u035A\u035C\u0339\u0355\u0317\u035A\u0355\u035C\u0437\u0338\u0360\u0343\u0357\u0300\u0352\u030E\u035D\u0344\u0314\u0300\u0305\u0305\u0357\u034C\u0344\u0300\u031A\u0343\u0307\u0360\u0348\u0326\u0356\u034E\u0347\u0328\u033C\u0325\u0355\u0355\u0316\u033B\u0327\u0339\u0324\u0434\u0334\u035D\u0351\u0344\u0310\u0302\u0323\u0348\u032D\u032E\u0355\u0328\u0329\u0324\u031F\u0316\u0435\u0336\u030D\u0346\u0315\u0303\u0300\u034A\u031B\u0341\u0340\u0344\u0314\u030F\u035B\u0308\u034B\u034C\u0353\u033C\u0332\u033B\u031F\u031F\u0326\u0355\u0441\u0336\u0312\u030C\u0343\u033F\u031A\u0344\u0302\u0358\u0349\u044C\u0337\u0305\u031A\u0351\u0351\u0300\u030B\u0343\u030D\u0340\u030F\u030B\u0358\u0340\u0347\u0324\u0347\u0348\u0354\u0317\u032F\u034E\u032A\u031E\u033C\u031D\u0345\u031D\u031D\u032E\u0318\u0319\u0327\u031E\u032B?\u0335\u0304\u0312\u0341\u030D\u031A\u033D\u030B\u0309\u030C\u034A\u030C\u0342\u033E\u035B\u0300\u035A\u0345\u0328"
+  _TaskObject: {fileID: 0}
+  _isCompleted: 0
 --- !u!1 &2073801959 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1703093344907476083, guid: 1fa29b56cc66679469074b6efe7741fc, type: 3}
