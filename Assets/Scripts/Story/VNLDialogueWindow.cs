@@ -65,9 +65,10 @@ public class VNLDialogueWindow : MonoBehaviour
     //Подготовка к печати
     internal void StartPrint(TextAsset textAsset)
     {
+        Status = VNLprintStatus.started;
+        dialogueText.text = "";
         assetStrings.Clear();
         EoSIndicator.SetActive(false);
-        Status = VNLprintStatus.started;
 
         using (StringReader reader = new StringReader(textAsset.text))
         {
@@ -200,6 +201,7 @@ public class VNLDialogueWindow : MonoBehaviour
         }
 
         _DialogueWindow.SetActive(false);
+        //Status = VNLprintStatus.nil;
         SetOnComponentsAfterDialogue();
     }
 
@@ -237,4 +239,4 @@ public class VNLDialogueWindow : MonoBehaviour
     }
 }
 
-public enum VNLprintStatus {started, first, last, ended}
+public enum VNLprintStatus {started, first, last, ended, nil}

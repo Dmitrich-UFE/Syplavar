@@ -32,7 +32,7 @@ public class Task3Angle : MonoBehaviour
     {
         if (!isGotItems)
         {
-            inventory.AddToInventory(55, 8);
+            inventory.AddToInventory(55, 10);
             inventory.AddToInventory(2, 1);
             inventory.AddToInventory(3, 1);
             inventory.AddToInventory(53, 4);

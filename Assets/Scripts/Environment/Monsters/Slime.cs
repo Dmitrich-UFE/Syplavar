@@ -112,7 +112,7 @@ public class Slime: Monster
 
     void OnDisable()
     {
-
+        
     }
 
     void OnEnable()

@@ -10,13 +10,11 @@ public class InventoryAI : MonoBehaviour
     [SerializeField] private InventorySlotUIAI[] lowerInventorySlotsUI;
 
     private PlayerInputActions _playerInputActions;
-    private Vector2 _mouseMoveInput;
     [SerializeField] private int _activeIndex;
     [SerializeField] private int _length;
     [SerializeField] private int _maxCountLowInventory;
     [SerializeField] private ItemData _defaultItem;
 
-    //public UnityAction<InventorySlot> OnInventorySlotChanged;
     public event System.Action<int, InventorySlotAI> OnSelectedSlotChanged;
 
     //инициализация
@@ -90,7 +88,6 @@ public class InventoryAI : MonoBehaviour
     //отрисовка нижнего инвентаря
     internal void DrawLowerInventory()
     {
-        Debug.Log("Отрисован нижний инвентарь");
         for (int i = 1; i < _maxCountLowInventory; i++)
         {
             lowerInventorySlotsUI[i].Redraw();
@@ -105,11 +102,6 @@ public class InventoryAI : MonoBehaviour
             inventorySlotsUI[i].Redraw();
         }
     }
-
-
-    //void UseSelectItem(int amount = 1) вызывает OnSelectedSlotChanged?.Invoke(_currentSelectedIndex, GetSelectedSlot());
-
-    //bool AddToInventory(ItemData itemToAdd, int amountToAdd) вызывает UnityAction<InventorySlot> OnInventorySlotChanged;
 
 
     //Добавляет айтемы. Возвращает true, если получилось добавить ВСЁ
@@ -141,7 +133,7 @@ public class InventoryAI : MonoBehaviour
 
         DrawLowerInventory();
         OnSelectedSlotChanged?.Invoke(_activeIndex, GetActiveItem());
-        EventManager.SendEvent("GETITEM", $"{itemToAdd.ItemID}>>{count}");
+        EventManager.SendEvent("GETITEM", itemToAdd.ItemID);
         return true;
     }
 
@@ -191,7 +183,6 @@ public class InventoryAI : MonoBehaviour
             }
 
             OnSelectedSlotChanged?.Invoke(_activeIndex, GetActiveItem());
-            Debug.Log("Списаны предметы");
             DrawLowerInventory();
             return true;
         }

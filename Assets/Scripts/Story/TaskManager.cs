@@ -1,7 +1,7 @@
 using UnityEngine;
-using System.Collections.Generic;
+using System.Collections;
 using System.IO;
-using System.Linq;
+using UnityEngine.UI;
 using TMPro;
 
 public class TaskManager : MonoBehaviour
@@ -17,16 +17,22 @@ public class TaskManager : MonoBehaviour
     [SerializeField] private TMP_Text taskNameText;
     [SerializeField] private TMP_Text taskGoalText;
     [SerializeField] private TMP_Text taskHintText;
+    [SerializeField] private Image blackImage;
 
 
     //EventManager;
     internal string TaskHintText {get => taskHintText.text; set { taskHintText.text = value;}}
     internal int Status {get => status; set { status = value; StorySaveSystem.SaveStory(new StorySaveData{index = index, status = Status});}}
 
+    private WaitForSecondsRealtime tick;
+    private Coroutine coroutine;
+
+
 
     void Awake()
     {
         StorySaveData data = StorySaveSystem.LoadStory();
+        tick = new WaitForSecondsRealtime(0.01f);
 
         if (data != null)
         {
@@ -90,8 +96,59 @@ public class TaskManager : MonoBehaviour
 
     internal bool isStoryCompleted()
     {
-        return index == tasks.Length;
+        return index == tasks.Length-1;
     } 
+
+    internal void OpenBlackPanel()
+    {
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+            coroutine = null;
+        }
+        coroutine = StartCoroutine(AnimateBlackUI(true));
+    }
+
+    internal void OpenBlackPanelNoFade()
+    {
+        blackImage.color = new Color(0f, 0f, 0f, 1f);
+    }
+
+    internal void CloseBlackPanel()
+    {
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+            coroutine = null;
+        }
+        coroutine = StartCoroutine(AnimateBlackUI(false));
+    }
+
+    internal void CloseBlackPanelNoFade()
+    {
+        blackImage.color = new Color(0f, 0f, 0f, 0f);
+    }
+
+    IEnumerator AnimateBlackUI(bool fadein)
+    {
+        if (fadein)
+        {
+            while (blackImage.color.a < 1f)
+            {
+                blackImage.color = new Color(0f, 0f, 0f, blackImage.color.a + 0.05f);
+                yield return tick;
+            }
+        }
+        else
+        {
+            while (blackImage.color.a > 0f)
+            {
+                blackImage.color = new Color(0f, 0f, 0f, blackImage.color.a - 0.05f);
+                yield return tick;
+            }
+        }
+        
+    }
 }
 
 public static class StorySaveSystem

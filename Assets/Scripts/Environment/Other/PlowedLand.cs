@@ -83,13 +83,13 @@ public class PlowedLand : MonoBehaviour, IInteractable
     {
         if (plant != null)
         {
-            switch (time)
+            switch (time.hh)
             {
-                case (07, 00):
+                case 7:
                     if (wet)
                         plant.Grow();   
                     break;
-                case (18, 00):
+                case 18:
                     if (!wet)
                     {
                         if ((int)plant.plantStatus > 0 && (int)plant.plantStatus < 4)
@@ -106,7 +106,7 @@ public class PlowedLand : MonoBehaviour, IInteractable
         }
         else
         {
-            if (time == (18, 00))
+            if (time.hh == 18)
                 wet = false;
         }
         

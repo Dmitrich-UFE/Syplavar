@@ -4,10 +4,11 @@ public class TaskScript7 : MonoBehaviour
 {
     [SerializeField] private Task task;
     [SerializeField] private TaskManager taskManager;
+    [SerializeField] private string hintText = "Наведитесь на кровать и нажмите ПКМ";
 
     void OnEnable()
     {
-        taskManager.TaskHintText = "Наведитесь на кровать и нажмите ПКМ";
+        taskManager.TaskHintText = hintText;
         EventManager.OnEventHappened += CheckSleep;
     }
 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07b9ab0fa40c41c43b1e610497cc0c42, type: 3}
   m_Name: Forest1
   m_EditorClassIdentifier: 
-  _p1: {x: 12, y: 0, z: 16}
-  _p2: {x: 12, y: 0, z: 22}
-  _p3: {x: 22, y: 0, z: 22}
-  _p4: {x: 22, y: 0, z: 16}
+  _LB: {x: -96, y: 0, z: 0}
+  _LT: {x: -65, y: 0, z: 62}
+  _RT: {x: -39, y: 0, z: 61}
+  _RB: {x: -39, y: 0, z: 0}

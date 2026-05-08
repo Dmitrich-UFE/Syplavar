@@ -17,6 +17,8 @@ public class UIHandler : MonoBehaviour
     [SerializeField] private GameObject _settingsMenu;
     [SerializeField] private GameObject _helpMenu;
     [SerializeField] private GameObject _craftMenu;
+    [SerializeField] private GameObject _storyUI;
+
 
     [Header("Элементы настроек")]
     [SerializeField] private Toggle fsToggle;
@@ -82,6 +84,7 @@ public class UIHandler : MonoBehaviour
             Time.timeScale = 1f;
             _lowerInventory.SetActive(true);
             _bigInventory.SetActive(false);
+            _storyUI.SetActive(true);
             isBigInvOpen = false;
 
             SetOnCursor();
@@ -90,6 +93,7 @@ public class UIHandler : MonoBehaviour
         {
             _craftMenu.SetActive(false);
             _lowerInventory.SetActive(false);
+            _storyUI.SetActive(false);
             _bigInventory.SetActive(true);
             Time.timeScale = 0f;
             _inventoryAI.DrawInventory();
@@ -104,6 +108,7 @@ public class UIHandler : MonoBehaviour
         if (!isPauseMenuOpen && !isBigInvOpen && !isDeathMenuOpen)
         {
             _lowerInventory.SetActive(false);
+            _storyUI.SetActive(false);
             _pauseMenu.SetActive(true);
             Time.timeScale = 0f;
             isPauseMenuOpen = true;
@@ -113,6 +118,7 @@ public class UIHandler : MonoBehaviour
         else if (isPauseMenuOpen)
         {
             _lowerInventory.SetActive(true);
+            _storyUI.SetActive(true);
             _settingsMenu.SetActive(false);
             _helpMenu.SetActive(false);
             _pauseMenu.SetActive(false);

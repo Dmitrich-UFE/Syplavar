@@ -106,6 +106,7 @@ public class DayLightHandler : MonoBehaviour
             DayLightHandler.AddTime(02, 00);
             DayLightHandler.AddTime(06, 00);
             DayLightHandler.AddTime(07, 00);
+            DayLightHandler.AddTime(08, 00);
         }
         else
         {
@@ -129,6 +130,7 @@ public class DayLightHandler : MonoBehaviour
                 DayLightHandler.AddTime(02, 00);
                 DayLightHandler.AddTime(06, 00);
                 DayLightHandler.AddTime(07, 00);
+                DayLightHandler.AddTime(08, 00);
             }
         }
 
@@ -192,6 +194,12 @@ public class DayLightHandler : MonoBehaviour
             throw new InvalidOperationException("This value cant be deleted because this value is no exists");
     }
 
+    internal static void SetDayProgress(float value)
+    {
+        instance.dayProgress = Mathf.Clamp01(value);
+        instance.FixedUpdate();
+    }
+
     //ускорение хода времени для сна
     public static void SpeedupForSleep()
     {
@@ -204,6 +212,7 @@ public class DayLightHandler : MonoBehaviour
             daySpeedMultipleStatic = daySpeedMultiple;
             AddMindCoroutine = instance.StartCoroutine(AddMind());
             DayLightHandler._OnTimeReached += CheckWakeTime;
+            EventManager.SendEvent("SLEEPSTARTED", 1);
             
             //обратиться к рассудку
             //включить свою корутину, чтобы увеличить рассудок
@@ -225,11 +234,26 @@ public class DayLightHandler : MonoBehaviour
         }
     }
 
+    internal static void AbortSleep()
+    {
+        daySpeedMultiple = 1;
+        daySpeedMultipleStatic = daySpeedMultiple;
+        DayLightHandler._OnTimeReached -= CheckWakeTime;
+
+        instance.ClearUsedTimes();
+
+        EventManager.SendEvent("SLEEPABORTED", 1);
+        if (AddMindCoroutine != null) instance.StopCoroutine(AddMindCoroutine);
+
+        PlayerMind _playerMind = PlayerSeeker.GetPlayerMind();
+        _playerMind.ResumeMindDrain();
+    }
+
     //вспомогательный метод для ускорения времени во время сна
     private static void CheckWakeTime((int hh, int mm) time)
     {
-        //Debug.Log($"{time.hh} {time.mm}");
-        if (time == (07, 00))
+        Debug.Log($"{time.hh} {time.mm}");
+        if (time.hh >= 7 && time.hh < 18)
         {
             daySpeedMultiple = 1;
             daySpeedMultipleStatic = daySpeedMultiple;

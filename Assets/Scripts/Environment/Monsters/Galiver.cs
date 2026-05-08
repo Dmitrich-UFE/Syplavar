@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
+using System;
 
 public class Galiver : Monster
 {
@@ -26,6 +28,9 @@ public class Galiver : Monster
     [SerializeField] private float fireballSpeed = 8f;
     [SerializeField] private float fireballLifeTime = 3f;
 
+    private Coroutine cor;
+    private WaitForSecondsRealtime tickGal = new WaitForSecondsRealtime(0.1f);
+
     protected override void Start()
     {
         Name = _name;
@@ -42,6 +47,7 @@ public class Galiver : Monster
 
         agent = GetComponent<NavMeshAgent>();
         Agent = agent;
+        cor = StartCoroutine(AnimGaliver());
 
         base.Start();
     }
@@ -65,7 +71,7 @@ public class Galiver : Monster
 
         isAvailableForAttack = false;
 
-        Invoke("SwitchIsAttackingToFalse", CoolDownSec - 0.5f);
+        Invoke("SwitchIsAttackingToFalse", 0.9f);
     }
 
     internal override void TryDeath()
@@ -106,12 +112,34 @@ public class Galiver : Monster
 
     void OnDisable()
     {
-
+        StopCoroutine(cor);
     }
+
 
     void OnEnable()
     {
         Start();
-        base.Start();
+    }
+
+    IEnumerator AnimGaliver()
+    {
+        while (true)
+        {
+            Vector3 direction = Agent.velocity.normalized;
+
+            float forwardSpeed = direction.z; // Скорость вперед/назад
+            float sideSpeed = direction.x;    // Скорость влево/вправо
+            float speed = forwardSpeed + sideSpeed;
+            galiverAnimator.SetFloat("Speed", speed);
+
+            if (Math.Abs(speed) > 0f)
+            {
+                galiverAnimator.SetFloat("MoveX", sideSpeed);
+                galiverAnimator.SetFloat("MoveY", forwardSpeed);
+            }
+
+            yield return tickGal;
+        }
+
     }
 }

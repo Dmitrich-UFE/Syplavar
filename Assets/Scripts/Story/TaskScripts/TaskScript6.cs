@@ -1,7 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System.Net.Http.Headers;
-
 public class TaskScript6 : MonoBehaviour
 {
     [SerializeField] private Task task;
@@ -18,7 +16,7 @@ public class TaskScript6 : MonoBehaviour
         
         DayLightHandler._OnTimeReached += CheckTime;
         
-        if (taskManager.Status % 59049 == 0)
+        if (taskManager.Status % 19683 == 0)
         {
             vnl.StartPrint(textAfterWatering);
             cor = StartCoroutine(checkStatus2());

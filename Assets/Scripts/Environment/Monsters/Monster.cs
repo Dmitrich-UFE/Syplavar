@@ -183,4 +183,18 @@ public abstract class Monster : MonoBehaviour
             r.SetPropertyBlock(_propBlock);
         }
     }
+
+    void OnDisable()
+    {
+        if (AttackCoroutine != null) StopCoroutine(AttackCoroutine);
+        if (PeaceCoroutine != null) StopCoroutine(PeaceCoroutine);
+        if (LifeCoroutine != null) StopCoroutine(LifeCoroutine);
+        
+        LifeCoroutine = null;
+        AttackCoroutine = null;
+        PeaceCoroutine = null;
+
+        if (isRegedAsBattling) BattleStatusTracker.RemoveMonsterInBattleMode();
+        BattleStatusTracker.BattleMode = BattleStatusTracker.MonstersInBattleMode > 0;
+    }
 }

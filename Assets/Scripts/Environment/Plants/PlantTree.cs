@@ -162,9 +162,9 @@ public class PlantTree : MonoBehaviour, IInteractable
 
     void Growing((int hh, int mm) time)
     {
-        switch (time)
+        switch (time.hh)
         {
-            case (6, 00):
+            case (6):
                 daysBeforeGrow -= 1;
 
                 if (daysBeforeGrow == 0)
@@ -173,7 +173,7 @@ public class PlantTree : MonoBehaviour, IInteractable
                     Growed();
                 }
                 break;
-            case (0, 0):
+            case (0):
                 if (actualTreeObject == null)
                     Destroy(this.gameObject);
                 break;

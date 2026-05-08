@@ -8,11 +8,14 @@ public class Bed : MonoBehaviour, IInteractable
     [SerializeField] private GameObject Cursor;
     private bool isTimeToSleep;
     private bool isPlayerSleeping;
+    private bool isBlockedSleep;
     private Vector3 _playerPos;
+    private string _bedThoughts;
 
 
     void Awake()
     {
+        _bedThoughts = "Спать можно только ночью";
         DayLightHandler._OnTimeReached += CheckTimeToSleep;
         isTimeToSleep = DayLightHandler.IsSleepTime;
         if (Player == null) Player = PlayerSeeker.GetPlayer();
@@ -39,10 +42,38 @@ public class Bed : MonoBehaviour, IInteractable
         }
     }
 
+    internal void BlockSleep()
+    {
+        DayLightHandler._OnTimeReached -= CheckTimeToSleep;
+        isTimeToSleep = false;
+        isBlockedSleep = true;
+        if (isPlayerSleeping)
+        {
+            Player.transform.position = _playerPos;
+            sleepingPlayer.SetActive(false);
+            Player.SetActive(true);
+            Cursor.SetActive(true);
+            isPlayerSleeping = false;
+            DayLightHandler.AbortSleep();
+        }
+        else
+        {
+            _bedThoughts = "Вы не можете уснуть...";
+        }
+    }
+
+    internal void UnlockSleep()
+    {
+        _bedThoughts = "Спать можно только ночью";
+        isBlockedSleep = false;
+        DayLightHandler._OnTimeReached += CheckTimeToSleep;
+        CheckTimeToSleep((DayLightHandler.Hours, DayLightHandler.Minutes));
+    }
+
     (bool, List<IItem>) IInteractable.Interact(IItem item)
     {
         isTimeToSleep = DayLightHandler.IsSleepTime;
-        if (isTimeToSleep)
+        if (isTimeToSleep && !isBlockedSleep)
         {
             _playerPos = Player.transform.position; 
             DayLightHandler.SpeedupForSleep();
@@ -54,7 +85,7 @@ public class Bed : MonoBehaviour, IInteractable
         }
         else
         {
-            ShowItemName.instance.ShowActItemText("Спать можно только ночью");
+            ShowItemName.instance.ShowActItemText(_bedThoughts);
         }
         return (false, null);
     }

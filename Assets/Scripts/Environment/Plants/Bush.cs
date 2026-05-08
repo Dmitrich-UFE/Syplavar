@@ -48,9 +48,10 @@ public class Bush : MonoBehaviour, IInteractable
 
         IInstrument instrument = item.GameObject.GetComponent<IInstrument>();
 
-        if (instrument != null || (canBeBrokenByHand && item.GameObject.CompareTag("Hand")))
+        if (instrument != null || canBeBrokenByHand)
         {
             Destroy(this.gameObject);
+            EventManager.SendEvent("BRAKEBUSH", type);
 
             List<IItem> retItems = new List<IItem>();
 
