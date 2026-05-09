@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35ead931bdfda64499c75a6cadf5401c, type: 3}
+  m_Name: story_item_4
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 11400000, guid: 361e04617851ba442984772edc527a3b, type: 2}
+  - {fileID: 11400000, guid: 4ba74d1304702464793a8fc15150b44a, type: 2}
+  counts: 0600000006000000
+  resultItem: {fileID: 11400000, guid: 406de74f711be444fbb6cdeec1d3091d, type: 2}
+  resultCount: 1
+  craftID: 8

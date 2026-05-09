@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic; // Для работы с List
+using System.Collections.Generic;
 
 public class MusicBoxAI : MonoBehaviour
 {
@@ -15,75 +15,121 @@ public class MusicBoxAI : MonoBehaviour
     [Header("Настройки переходов")]
     [SerializeField] private float fastFadeTime = 0.5f;
     [SerializeField] private float slowFadeTime = 2.0f;
-    [SerializeField] private float silenceDelay = 1.0f;
+    [SerializeField] private float transitionSilence = 1.0f;
 
-    private Coroutine _musicCoroutine;
+    [Header("Задержка между треками")]
+    [SerializeField] private float minDelayBetweenTracks = 20.0f;
+    [SerializeField] private float maxDelayBetweenTracks = 30.0f;
 
+    private Coroutine _transitionCoroutine;
+    private Coroutine _waitTrackCoroutine;
+    private Coroutine _monitorCoroutine;
+
+    private bool _isCombatMode;
+    private bool _isWaitingForNextTrack;
 
     void Awake()
     {
-        SwitchToClassicMusic();
         BattleStatusTracker._OnBattleModeOn += SwitchToBattleMusic;
         BattleStatusTracker._OnBattleModeOff += SwitchToClassicMusic;
     }
 
-    void SwitchToBattleMusic()
+    void Start()
     {
-        SwitchMode(true);
+        // Запускаем монитор один раз при старте
+        _monitorCoroutine = StartCoroutine(PlaylistMonitor());
+        // Устанавливаем начальное состояние без лишних проверок
+        _isCombatMode = false;
+        _transitionCoroutine = StartCoroutine(SlowPeacefulTransition());
     }
 
-    void SwitchToClassicMusic()
+    private IEnumerator PlaylistMonitor()
     {
-        SwitchMode(false);
+        var checkWait = new WaitForSeconds(1.0f);
+        while (true)
+        {
+            // Проверяем условия для запуска нового трека
+            if (_transitionCoroutine == null && !_isWaitingForNextTrack)
+            {
+                bool combatFinished = _isCombatMode && !combatSource.isPlaying;
+                bool peacefulFinished = !_isCombatMode && !peacefulSource.isPlaying;
+
+                if (combatFinished)
+                    _waitTrackCoroutine = StartCoroutine(WaitAndPlayNext(combatSource, combatTracks));
+                else if (peacefulFinished)
+                    _waitTrackCoroutine = StartCoroutine(WaitAndPlayNext(peacefulSource, peacefulTracks));
+            }
+            yield return checkWait;
+        }
     }
 
-    //BattleStatusTracker.BattleMode
-
-    void OnDestroy()
+    private IEnumerator WaitAndPlayNext(AudioSource source, List<AudioClip> playlist)
     {
-        BattleStatusTracker._OnBattleModeOn -= SwitchToBattleMusic;
-        BattleStatusTracker._OnBattleModeOff -= SwitchToClassicMusic;
+        _isWaitingForNextTrack = true;
+        float delay = Random.Range(minDelayBetweenTracks, maxDelayBetweenTracks);
+        yield return new WaitForSeconds(delay);
+
+        if (_transitionCoroutine == null)
+        {
+            PlayNextTrack(source, playlist);
+        }
+
+        _isWaitingForNextTrack = false;
+        _waitTrackCoroutine = null;
     }
 
+    private void PlayNextTrack(AudioSource source, List<AudioClip> playlist)
+    {
+        if (playlist == null || playlist.Count == 0) return;
+        source.clip = playlist[Random.Range(0, playlist.Count)];
+        source.volume = 1f; 
+        source.Play();
+    }
+
+    void SwitchToBattleMusic() { if (!_isCombatMode) SwitchMode(true); }
+    void SwitchToClassicMusic() { if (_isCombatMode) SwitchMode(false); }
 
     void SwitchMode(bool isCombat)
     {
-        if (_musicCoroutine != null) StopCoroutine(_musicCoroutine);
+        _isCombatMode = isCombat;
+
+        // Останавливаем активные переходы и ожидания, но НЕ трогаем PlaylistMonitor
+        if (_transitionCoroutine != null) StopCoroutine(_transitionCoroutine);
+        if (_waitTrackCoroutine != null) 
+        {
+            StopCoroutine(_waitTrackCoroutine);
+            _isWaitingForNextTrack = false;
+        }
 
         if (isCombat)
-            // В бой врываемся быстро (без пауз)
-            _musicCoroutine = StartCoroutine(QuickCombatTransition());
+            _transitionCoroutine = StartCoroutine(QuickCombatTransition());
         else
-            // В мир выходим через "затухание -> пауза -> появление"
-            _musicCoroutine = StartCoroutine(SlowPeacefulTransition());
+            _transitionCoroutine = StartCoroutine(SlowPeacefulTransition());
     }
 
-    // Быстрый кроссфейд для боя
     private IEnumerator QuickCombatTransition()
     {
         PrepareSource(combatSource, combatTracks);
-        
         float time = 0;
         float startPeacefulVol = peacefulSource.volume;
 
         while (time < fastFadeTime)
         {
             time += Time.deltaTime;
-            float ratio = time / fastFadeTime;
-            
-            peacefulSource.volume = Mathf.Lerp(startPeacefulVol, 0, ratio);
-            combatSource.volume = Mathf.Lerp(0, 1, ratio);
+            peacefulSource.volume = Mathf.Lerp(startPeacefulVol, 0, time / fastFadeTime);
+            combatSource.volume = Mathf.Lerp(combatSource.volume, 1, time / fastFadeTime);
             yield return null;
         }
         peacefulSource.Stop();
+        _transitionCoroutine = null;
     }
 
-    // Последовательный переход для мира
     private IEnumerator SlowPeacefulTransition()
     {
-        // 1. Затухание боевой музыки
         float time = 0;
         float startCombatVol = combatSource.volume;
+        
+        // Угасание боевой музыки
         while (time < slowFadeTime)
         {
             time += Time.deltaTime;
@@ -92,10 +138,9 @@ public class MusicBoxAI : MonoBehaviour
         }
         combatSource.Stop();
 
-        // 2. Пауза тишины
-        yield return new WaitForSeconds(silenceDelay);
+        yield return new WaitForSeconds(transitionSilence);
 
-        // 3. Плавное появление мирной музыки
+        // Плавное появление мирной музыки
         PrepareSource(peacefulSource, peacefulTracks);
         time = 0;
         while (time < slowFadeTime)
@@ -104,14 +149,20 @@ public class MusicBoxAI : MonoBehaviour
             peacefulSource.volume = Mathf.Lerp(0, 1, time / slowFadeTime);
             yield return null;
         }
+        _transitionCoroutine = null;
     }
 
     private void PrepareSource(AudioSource source, List<AudioClip> playlist)
     {
         if (playlist == null || playlist.Count == 0) return;
-        
         source.clip = playlist[Random.Range(0, playlist.Count)];
         source.volume = 0;
         source.Play();
+    }
+
+    void OnDestroy()
+    {
+        BattleStatusTracker._OnBattleModeOn -= SwitchToBattleMusic;
+        BattleStatusTracker._OnBattleModeOff -= SwitchToClassicMusic;
     }
 }

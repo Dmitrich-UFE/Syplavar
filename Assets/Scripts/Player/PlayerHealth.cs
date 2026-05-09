@@ -1,14 +1,16 @@
+using System;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private float startHealth;
-    [SerializeField] private float maxHealth;
+    [SerializeField] private int startHealth;
+    [SerializeField] private int maxHealth;
 
-    private float _health;
+    private int _health;
+    public event System.Action OnHealthChanged;
 
     internal bool isDeath { get; private set; }
-    internal float Health 
+    internal int Health 
     {
         get
         {
@@ -16,18 +18,39 @@ public class PlayerHealth : MonoBehaviour
         }
         set
         {
-            if (value <= 0) 
+            int newHealth = Mathf.Clamp(value, 0, maxHealth);
+        
+            if (newHealth == _health) return;
+
+            _health = newHealth;
+
+            OnHealthChanged?.Invoke();
+
+            if (_health <= 0 && !isDeath) 
             {
-                Debug.LogWarning("The health is less or equal zero!!!"); 
-                value = 0;
                 isDeath = TryDeath();
+                Debug.Log("Character has died.");
             }
-            if (value > maxHealth) _health = maxHealth;
-            _health = value;
         }
     }
 
-    void Awake() { Health = startHealth;}
+    internal float HealthInPercents
+    {
+        get 
+        {
+            return Health / (float)maxHealth;
+        }
+    }
+
+    internal void ResetHealth()
+    {
+        Health = maxHealth;
+    }
+
+    void Awake() 
+    { 
+        Health = startHealth;
+    }
 
     bool TryDeath()
     {
@@ -39,10 +62,5 @@ public class PlayerHealth : MonoBehaviour
 
         return false;
     }
-
-
-
-
-
 
 }

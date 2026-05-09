@@ -259,7 +259,8 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 8
     m_NumAlphaKeys: 2
-  DayDuration: 120
+  dayDuration: 300
   lightTransform: {fileID: 2957164697217425161}
-  dayProgress: 0.628
+  delta: 0
+  dayProgress: 0.194
   NonStaticTimeSpeedDuringSleep: 80

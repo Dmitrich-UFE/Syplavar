@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 
 public class UIHandler : MonoBehaviour
@@ -16,15 +17,28 @@ public class UIHandler : MonoBehaviour
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private GameObject _settingsMenu;
     [SerializeField] private GameObject _helpMenu;
+    [SerializeField] private GameObject _craftMenu;
+    [SerializeField] private GameObject _storyUI;
+
+    [Header("Окно с задачей")]
+    [SerializeField] private GameObject _TaskWindow;
+    [SerializeField] private TaskManager taskManager;
+    [SerializeField] private TMP_Text logoText;
+    [SerializeField] private TMP_Text descText;
+    [SerializeField] private TMP_Text goalText;
+
 
     [Header("Элементы настроек")]
     [SerializeField] private Toggle fsToggle;
     [SerializeField] private Slider _musicSlider;
     [SerializeField] private Slider _ambientSlider;
     [SerializeField] private Slider _soundSlider;
+
     
     bool isBigInvOpen;
     bool isPauseMenuOpen;
+    bool isDeathMenuOpen;
+    bool isTaskMenuOpen;
 
     void Awake()
     {
@@ -35,6 +49,17 @@ public class UIHandler : MonoBehaviour
         fsToggle.onValueChanged.AddListener(SetFullScreen);
     }
 
+    internal void SetDeath(bool param)
+    {
+        isDeathMenuOpen = param;
+
+        if (param)
+        {
+            ClosePauseMenu();
+            CloseBigInventory();
+        }
+    }
+
     public void ClosePauseMenu()
     {
         isPauseMenuOpen = false;
@@ -42,9 +67,25 @@ public class UIHandler : MonoBehaviour
         _helpMenu.SetActive(false);
         _pauseMenu.SetActive(false);
         Time.timeScale = 1f;
+        _storyUI.SetActive(true);
         _lowerInventory.SetActive(true);
 
         SetOnCursor();
+    }
+
+    public void CloseBigInventory()
+    {
+        if (isBigInvOpen)
+        {
+            _inventoryAI.DrawLowerInventory();
+            Time.timeScale = 1f;
+            _lowerInventory.SetActive(true);
+            _storyUI.SetActive(true);
+            _bigInventory.SetActive(false);
+            isBigInvOpen = false;
+
+            SetOnCursor();
+        }
     }
 
     void OpenBigInventory(InputAction.CallbackContext context)
@@ -55,13 +96,16 @@ public class UIHandler : MonoBehaviour
             Time.timeScale = 1f;
             _lowerInventory.SetActive(true);
             _bigInventory.SetActive(false);
+            _storyUI.SetActive(true);
             isBigInvOpen = false;
 
             SetOnCursor();
         }
-        else if (!isPauseMenuOpen)
+        else if (!isPauseMenuOpen && !isDeathMenuOpen && !isTaskMenuOpen)
         {
+            _craftMenu.SetActive(false);
             _lowerInventory.SetActive(false);
+            _storyUI.SetActive(false);
             _bigInventory.SetActive(true);
             Time.timeScale = 0f;
             _inventoryAI.DrawInventory();
@@ -73,9 +117,12 @@ public class UIHandler : MonoBehaviour
 
     void OpenPauseMenu(InputAction.CallbackContext context)
     {
-        if (!isPauseMenuOpen && !isBigInvOpen)
+        if (!isPauseMenuOpen && !isBigInvOpen && !isDeathMenuOpen && !isTaskMenuOpen)
         {
             _lowerInventory.SetActive(false);
+            _storyUI.SetActive(false);
+            _TaskWindow.SetActive(false);
+
             _pauseMenu.SetActive(true);
             Time.timeScale = 0f;
             isPauseMenuOpen = true;
@@ -85,6 +132,7 @@ public class UIHandler : MonoBehaviour
         else if (isPauseMenuOpen)
         {
             _lowerInventory.SetActive(true);
+            _storyUI.SetActive(true);
             _settingsMenu.SetActive(false);
             _helpMenu.SetActive(false);
             _pauseMenu.SetActive(false);
@@ -96,8 +144,34 @@ public class UIHandler : MonoBehaviour
         }
     }
 
+    void OpenTaskMenuUI(InputAction.CallbackContext context)
+    {
+        if (isTaskMenuOpen)
+        {
+            _lowerInventory.SetActive(true);
+            _storyUI.SetActive(true);
+            Time.timeScale = 1f;
+            isTaskMenuOpen = false;
+
+            _TaskWindow.SetActive(false);
+        }
+        else if (!isPauseMenuOpen && !isDeathMenuOpen && !isBigInvOpen)
+        {
+            logoText.text = taskManager.TaskLogoText;
+            descText.text = taskManager.TaskDescriptionText;
+            goalText.text = taskManager.TaskGoalText;
+            _lowerInventory.SetActive(false);
+            _storyUI.SetActive(false);
+            Time.timeScale = 0f;
+            isTaskMenuOpen = true;
+
+            _TaskWindow.SetActive(true);
+        }
+    }
+
     public void OpenSettings()
     {
+        if (AudioVolumes.audioVolumes == null) return;
         AudioVolumes.audioVolumes.LoadSettings();
         _settingsMenu.SetActive(true);
         fsToggle.isOn = Screen.fullScreen;
@@ -119,6 +193,7 @@ public class UIHandler : MonoBehaviour
 
     public void EscapeToMainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -144,13 +219,15 @@ public class UIHandler : MonoBehaviour
     {
         _playerInputActions.Player.OpenBigInventory.performed += OpenBigInventory;
         _playerInputActions.Player.EscapeTo.performed += OpenPauseMenu;
+        _playerInputActions.Player.OpenTaskMenu.performed += OpenTaskMenuUI;
         _playerInputActions.Enable();
     }
 
     private void OnDisable()
     {
         _playerInputActions.Player.OpenBigInventory.performed -= OpenBigInventory;
-        _playerInputActions.Player.EscapeTo.performed += OpenPauseMenu;
+        _playerInputActions.Player.EscapeTo.performed -= OpenPauseMenu;
+        _playerInputActions.Player.OpenTaskMenu.performed -= OpenTaskMenuUI;
         _playerInputActions.Disable();
     }
 }

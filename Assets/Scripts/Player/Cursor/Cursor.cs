@@ -1,16 +1,17 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using System.Collections;
+
 
 internal class Cursor : MonoBehaviour
 {
     [SerializeField] private ItemData CurrentItem;
-    //[SerializeField] private ItemData _CurrentItem;
-    [SerializeField] private StaticInventoryDisplay _hotbar;
     [SerializeField] private InventoryAI _inventoryAI;
-
-    //internal IItem CurrentItem { get; private set; }
+    private PlayerHealth _playerHealth;
+    private PlayerMind _playerMind;
     internal IInteractable interactableObject {get; private set;}
     [SerializeField] private Transform Archor;
-    [SerializeField] private InventoryHolder _inventoryHolder;
     private Transform thisTransform;
     private PlayerInputActions _playerInputActions;
 
@@ -20,7 +21,9 @@ internal class Cursor : MonoBehaviour
     [SerializeField] GameObject unplowedLand_GameObject;
     internal IInteractable unplowedLand {get; private set;}
     [SerializeField] private SpriteRenderer _cursorSpriteR;
+    [SerializeField] private Image _eatIndicator;
 
+    private bool isRestrictedArea = false;
 
     public void SetItem(ItemData newItem)
     {
@@ -30,6 +33,8 @@ internal class Cursor : MonoBehaviour
     //если интерактивный объект будет null, то имеет смысл присваивать свойству объект голой земли через ??
     void InteractWith(IInteractable interactableObject)
     {
+        if (isRestrictedArea) return;
+
         if (interactableObject == null || interactableObject.Equals(null))
         {
             this.interactableObject = unplowedLand;
@@ -45,7 +50,6 @@ internal class Cursor : MonoBehaviour
         if (val.isDebitNeed)
         {
             // Списать предмет, если вернул true.
-            //_hotbar.UseSelectItem();
             _inventoryAI.UseActiveItem();
         }
 
@@ -55,11 +59,13 @@ internal class Cursor : MonoBehaviour
             {
                 //закинуть по предмету в инвентарь
                 _inventoryAI.AddToInventory((ItemData)item, 1);
-                //_inventoryHolder.InventorySystem.AddToInventory((ItemData)item, 1);
             }
-
-
         }
+
+        //if (interactableObject.IsUnityNull() || ReferenceEquals(interactableObject, null) || interactableObject == null)
+        //{
+        //    _cursorSpriteR.color = new Color(1, 0, 0, 1); 
+        //}
     }
     
     private void OnTriggerEnter(Collider interactableObject)
@@ -67,8 +73,12 @@ internal class Cursor : MonoBehaviour
         if (interactableObject.CompareTag("InteractableObject"))
         {
             _cursorSpriteR.color = new Color(1, 1, 1, 1); 
-            Debug.Log($"столкновение с {interactableObject.gameObject.name}");
+            //Debug.Log($"столкновение с {interactableObject.gameObject.name}");
             this.interactableObject = interactableObject.gameObject.GetComponent<IInteractable>();
+        }
+        if (interactableObject.CompareTag("IgnoreCursor")) 
+        {
+            isRestrictedArea = true;
         }
     }
 
@@ -78,6 +88,10 @@ internal class Cursor : MonoBehaviour
         {
             _cursorSpriteR.color = new Color(1, 0, 0, 1); 
             this.interactableObject = null;
+        }
+        if (interactableObject.CompareTag("IgnoreCursor")) 
+        {
+            isRestrictedArea = false;
         }
     }
 
@@ -102,16 +116,49 @@ internal class Cursor : MonoBehaviour
     void Awake()
     {
         unplowedLand = unplowedLand_GameObject.GetComponent<IInteractable>();
-        //CurrentItem = _CurrentItem;
 
         _playerInputActions = new PlayerInputActions();
         thisTransform = GetComponent<Transform>();
         _playerInputActions.Player.Interact.performed += context => InteractWith(interactableObject);
 
-        //_hotbar.OnSelectedSlotChanged += OnHotbarSelectionChanged;
         _inventoryAI.OnSelectedSlotChanged += OnHotbarSelectionChanged;
-        //InventorySlot slot = _hotbar.GetSelectedSlot();
-        
+
+        _playerHealth = PlayerSeeker.GetPlayerHealth();
+        _playerMind = PlayerSeeker.GetPlayerMind();
+        _playerInputActions.Player.EatFood.started += context => { if (CurrentItem is ItemDataFood) StartCoroutine(fillBar());};
+        _playerInputActions.Player.EatFood.canceled += context => {StopCoroutine(fillBar()); _eatIndicator.fillAmount = 0f;};
+        _playerInputActions.Player.EatFood.performed += context => EatFood();
+    }
+
+    void EatFood()
+    {
+        ItemDataFood _food = CurrentItem as ItemDataFood;
+        if (_food != null)
+        {
+            _playerHealth.Health += _food.AddingHealth;
+            _playerMind.ChangeMind(_food.AddingMind);
+            _inventoryAI.UseActiveItem();
+            
+            EventManager.SendEvent("EATFOOD", _food.ItemID);
+        }
+    }
+
+    IEnumerator fillBar()
+    {
+        float duration = 0f;
+        while (CurrentItem is ItemDataFood)
+        {
+            duration = _playerInputActions.Player.EatFood.GetTimeoutCompletionPercentage();
+            _eatIndicator.fillAmount = duration;
+
+            if (duration >= 1f) 
+            {
+                _eatIndicator.fillAmount = 0f;
+                yield break;
+            }
+
+            yield return null;
+        }
     }
 
     void Start()
@@ -123,13 +170,7 @@ internal class Cursor : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        //SetPosition();
-        //Debug.Log($"aa {interactableObject}");
-    }
-
-
+    
     private void OnEnable()
     {
         _playerInputActions.Enable();

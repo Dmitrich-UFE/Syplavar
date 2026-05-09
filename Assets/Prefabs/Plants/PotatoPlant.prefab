@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8866122169056907206
 Transform:
@@ -49,4 +49,6 @@ MonoBehaviour:
   _plantStatus: 0
   _growingPhasesSprites: {fileID: 11400000, guid: 3cbed8afcba05f6498a5f2a5387bf22a, type: 2}
   _returningItems:
-  - {fileID: 11400000, guid: 6326a52c08850b44daf84332bf405270, type: 2}
+  - {fileID: 11400000, guid: 4090439c13289ab49855cb9010dae837, type: 2}
+  - {fileID: 11400000, guid: 4090439c13289ab49855cb9010dae837, type: 2}
+  _type: 6

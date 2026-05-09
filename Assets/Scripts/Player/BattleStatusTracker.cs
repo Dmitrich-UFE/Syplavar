@@ -2,23 +2,34 @@ using UnityEngine;
 
 public class BattleStatusTracker : MonoBehaviour
 {
-    private static bool battleMode;
+    private bool battleMode;
+    private int _MonstersInBattleMode;
 
+    private static BattleStatusTracker instance;
+    void Awake()
+    {
+        instance = this;
+    }
 
-    internal static int MonstersInBattleMode {get; private set; }
+    internal static int MonstersInBattleMode 
+    {
+        get {return instance._MonstersInBattleMode;}
+        private set {instance._MonstersInBattleMode = value;} 
+    }
+
     internal static bool BattleMode 
     {
         get
         {
-            return battleMode;
+            return instance.battleMode;
         }
         set
         {
-            if (battleMode != value)
+            if (instance.battleMode != value)
             {
-                battleMode = value;
+                instance.battleMode = value;
 
-                if (battleMode) 
+                if (instance.battleMode) 
                     _OnBattleModeOn?.Invoke(); 
                 else
                     _OnBattleModeOff?.Invoke();
@@ -38,6 +49,11 @@ public class BattleStatusTracker : MonoBehaviour
         BattleMode = _battleMode;
     }
 
-    internal static void AddMonsterInBattleMode() {++MonstersInBattleMode;}
-    internal static void RemoveMonsterInBattleMode() {--MonstersInBattleMode;}
+    internal static void AddMonsterInBattleMode() 
+    {++MonstersInBattleMode;}
+    internal static void RemoveMonsterInBattleMode() 
+    {
+        --MonstersInBattleMode;
+        if (MonstersInBattleMode < 0) MonstersInBattleMode = 0;
+    }
 }

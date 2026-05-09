@@ -14,18 +14,20 @@ TagManager:
   - Axe
   - Monster
   - Sword
+  - MiniGrinder
+  - IgnoreCursor
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Monster
   - Water
   - UI
   - DirectRender
   - InteractableObjects
   - Terrain
-  - 
-  - 
+  - Player
+  - MinimapOnly
   - 
   - 
   - 

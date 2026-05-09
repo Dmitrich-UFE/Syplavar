@@ -25,6 +25,7 @@ public class Well : MonoBehaviour, IInteractable
             IInstrument _wateringCan = gameObject.GetComponent<IInstrument>();
 
             _wateringCan.GetRes();
+            EventManager.SendEvent("FULLCAN", 1);
         }
 
         return (false, null);
