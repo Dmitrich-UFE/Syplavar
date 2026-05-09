@@ -19,6 +19,7 @@ public class TaskScript15 : MonoBehaviour
     void OnEnable()
     {
         bed.BlockSleep();
+        taskManager.CloseBlackPanelNoFade();
         DayLightHandler.SetDayProgress(0.01f);
         DayLightH.SetActive(false);
         Monster.SetActive(true);
@@ -32,6 +33,8 @@ public class TaskScript15 : MonoBehaviour
             vnl.StartPrint(textAtHome);
             cor = StartCoroutine(checkStatus());
         }
+
+        taskManager.CloseBlackPanelNoFade();
     }
 
     void OnDisable()

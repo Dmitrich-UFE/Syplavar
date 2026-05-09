@@ -11,6 +11,7 @@ public class TaskScript19 : MonoBehaviour
     void OnEnable()
     {
         DayLightHandler._OnTimeReached += CheckTime;
+        CheckTime((DayLightHandler.Hours, DayLightHandler.Minutes));
     }
 
     void CheckTime((int hh, int mm) time)
@@ -19,7 +20,8 @@ public class TaskScript19 : MonoBehaviour
         {
             taskManager.CompleteTask(task.ID);
         }
-        else if (time.hh >= mintargetTime && time.hh <= maxtargetTime)
+
+        if (!beetweenDays && time.hh >= mintargetTime && time.hh <= maxtargetTime)
         {
             taskManager.CompleteTask(task.ID);
         }

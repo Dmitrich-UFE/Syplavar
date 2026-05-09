@@ -17,6 +17,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1011370e4de663140b0650434a20d65f, type: 2}
   - {fileID: 11400000, guid: 4ba74d1304702464793a8fc15150b44a, type: 2}
   counts: 010000000200000001000000
-  resultItem: {fileID: 11400000, guid: 406de74f711be444fbb6cdeec1d3091d, type: 2}
+  resultItem: {fileID: 11400000, guid: 42bd10750ed2e334095fdc15cda940a1, type: 2}
   resultCount: 1
   craftID: 3

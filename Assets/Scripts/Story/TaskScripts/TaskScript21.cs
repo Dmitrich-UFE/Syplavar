@@ -37,6 +37,7 @@ public class TaskScript21 : MonoBehaviour
 
     void OnDisable()
     {
+        papers.SetActive(false);
         if (cor != null) StopCoroutine(cor);
         cor = null;
     }

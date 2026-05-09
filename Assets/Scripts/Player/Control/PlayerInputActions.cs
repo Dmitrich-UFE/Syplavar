@@ -189,6 +189,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""OpenTaskMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""f1aceec9-1ec8-44a3-9028-81edb5ae629f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -477,6 +486,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""SkipDialogue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""428fc835-5558-45d1-9a86-c79a8a6fc0f5"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenTaskMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -508,6 +528,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_OpenBigInventory = m_Player.FindAction("OpenBigInventory", throwIfNotFound: true);
         m_Player_EatFood = m_Player.FindAction("EatFood", throwIfNotFound: true);
         m_Player_SkipDialogue = m_Player.FindAction("SkipDialogue", throwIfNotFound: true);
+        m_Player_OpenTaskMenu = m_Player.FindAction("OpenTaskMenu", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -599,6 +620,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_OpenBigInventory;
     private readonly InputAction m_Player_EatFood;
     private readonly InputAction m_Player_SkipDialogue;
+    private readonly InputAction m_Player_OpenTaskMenu;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -654,6 +676,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/SkipDialogue".
         /// </summary>
         public InputAction @SkipDialogue => m_Wrapper.m_Player_SkipDialogue;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/OpenTaskMenu".
+        /// </summary>
+        public InputAction @OpenTaskMenu => m_Wrapper.m_Player_OpenTaskMenu;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -713,6 +739,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SkipDialogue.started += instance.OnSkipDialogue;
             @SkipDialogue.performed += instance.OnSkipDialogue;
             @SkipDialogue.canceled += instance.OnSkipDialogue;
+            @OpenTaskMenu.started += instance.OnOpenTaskMenu;
+            @OpenTaskMenu.performed += instance.OnOpenTaskMenu;
+            @OpenTaskMenu.canceled += instance.OnOpenTaskMenu;
         }
 
         /// <summary>
@@ -757,6 +786,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SkipDialogue.started -= instance.OnSkipDialogue;
             @SkipDialogue.performed -= instance.OnSkipDialogue;
             @SkipDialogue.canceled -= instance.OnSkipDialogue;
+            @OpenTaskMenu.started -= instance.OnOpenTaskMenu;
+            @OpenTaskMenu.performed -= instance.OnOpenTaskMenu;
+            @OpenTaskMenu.canceled -= instance.OnOpenTaskMenu;
         }
 
         /// <summary>
@@ -887,5 +919,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSkipDialogue(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "OpenTaskMenu" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOpenTaskMenu(InputAction.CallbackContext context);
     }
 }

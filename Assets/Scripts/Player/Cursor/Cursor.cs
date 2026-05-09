@@ -73,12 +73,11 @@ internal class Cursor : MonoBehaviour
         if (interactableObject.CompareTag("InteractableObject"))
         {
             _cursorSpriteR.color = new Color(1, 1, 1, 1); 
-            Debug.Log($"столкновение с {interactableObject.gameObject.name}");
+            //Debug.Log($"столкновение с {interactableObject.gameObject.name}");
             this.interactableObject = interactableObject.gameObject.GetComponent<IInteractable>();
         }
         if (interactableObject.CompareTag("IgnoreCursor")) 
         {
-            Debug.Log("Вход в запретную зону");
             isRestrictedArea = true;
         }
     }
@@ -92,7 +91,6 @@ internal class Cursor : MonoBehaviour
         }
         if (interactableObject.CompareTag("IgnoreCursor")) 
         {
-            Debug.Log("Выход из запретной зоны");
             isRestrictedArea = false;
         }
     }
@@ -140,6 +138,8 @@ internal class Cursor : MonoBehaviour
             _playerHealth.Health += _food.AddingHealth;
             _playerMind.ChangeMind(_food.AddingMind);
             _inventoryAI.UseActiveItem();
+            
+            EventManager.SendEvent("EATFOOD", _food.ItemID);
         }
     }
 

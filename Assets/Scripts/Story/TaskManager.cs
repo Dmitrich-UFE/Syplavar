@@ -19,13 +19,29 @@ public class TaskManager : MonoBehaviour
     [SerializeField] private TMP_Text taskHintText;
     [SerializeField] private Image blackImage;
 
+    [Header("OTHER")]
+    [SerializeField] private GameObject MonsterGenerator;
+    [SerializeField] private GameObject NastyFlowersGenerator;
+    [SerializeField] private GameObject BigFlower;
+    [SerializeField] private RecipeData[] AddingRecipes;
+    [SerializeField] private CraftManager craftManager;
+
+    [Header("HOUSE")]
+    [SerializeField] private GameObject StandartHouse;
+    [SerializeField] private GameObject BrokenHouse;
+
 
     //EventManager;
     internal string TaskHintText {get => taskHintText.text; set { taskHintText.text = value;}}
     internal int Status {get => status; set { status = value; StorySaveSystem.SaveStory(new StorySaveData{index = index, status = Status});}}
+    internal string TaskLogoText => tasks[index].Name;
+    internal string TaskDescriptionText => tasks[index].Description;
+    internal string TaskGoalText => tasks[index].GoalDescription;
+
 
     private WaitForSecondsRealtime tick;
     private Coroutine coroutine;
+    private bool isAddedRecipes;
 
 
 
@@ -45,10 +61,6 @@ public class TaskManager : MonoBehaviour
                 taskGoalText.text = tasks[index].GoalDescription;
                 tasks[index].Activate();
             }
-            else if (index == tasks.Length)
-            {
-
-            }
             else
             {
                 index = 0;
@@ -56,6 +68,41 @@ public class TaskManager : MonoBehaviour
                 taskNameText.text = tasks[index].Name;
                 taskGoalText.text = tasks[index].GoalDescription;
                 tasks[index].Activate();
+            }
+
+            if (index > 20 && !isAddedRecipes)
+            {
+                foreach (RecipeData rData in AddingRecipes)
+                {
+                    craftManager.AddRecipe(rData);
+                }
+                isAddedRecipes = true;
+            }
+
+            if (index >= 23 && index <= 41)
+            {
+                BigFlower.SetActive(true);
+            }
+            else
+            {
+                if (BigFlower != null) BigFlower.SetActive(false);
+            }
+
+            if (index > 31)
+            {
+                MonsterGenerator.SetActive(true);
+                NastyFlowersGenerator.SetActive(true);
+            }
+
+            if (index > 41 && index != tasks.Length - 1)
+            {
+                BrokenHouse.SetActive(true);
+                StandartHouse.SetActive(false);
+            }
+            else
+            {
+                BrokenHouse.SetActive(false);
+                StandartHouse.SetActive(true);
             }
         }
         else
@@ -91,6 +138,41 @@ public class TaskManager : MonoBehaviour
                 taskGoalText.text = tasks[index].GoalDescription;
                 tasks[index].Activate();
             }
+
+            if (index > 20 && !isAddedRecipes)
+            {
+                foreach (RecipeData rData in AddingRecipes)
+                {
+                    craftManager.AddRecipe(rData);
+                }
+                isAddedRecipes = true;
+            }
+
+            if (index >= 23 && index <= 41)
+            {
+                BigFlower.SetActive(true);
+            }
+            else
+            {
+                if (BigFlower != null) BigFlower.SetActive(false);
+            }
+
+            if (index > 31)
+            {
+                MonsterGenerator.SetActive(true);
+                NastyFlowersGenerator.SetActive(true);
+            }
+
+            if (index > 41 && index != tasks.Length - 1)
+            {
+                BrokenHouse.SetActive(true);
+                StandartHouse.SetActive(false);
+            }
+            else
+            {
+                BrokenHouse.SetActive(false);
+                StandartHouse.SetActive(true);
+            }
         }
     }
 
@@ -111,6 +193,11 @@ public class TaskManager : MonoBehaviour
 
     internal void OpenBlackPanelNoFade()
     {
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+            coroutine = null;
+        }
         blackImage.color = new Color(0f, 0f, 0f, 1f);
     }
 
@@ -126,6 +213,11 @@ public class TaskManager : MonoBehaviour
 
     internal void CloseBlackPanelNoFade()
     {
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+            coroutine = null;
+        }
         blackImage.color = new Color(0f, 0f, 0f, 0f);
     }
 
@@ -135,7 +227,7 @@ public class TaskManager : MonoBehaviour
         {
             while (blackImage.color.a < 1f)
             {
-                blackImage.color = new Color(0f, 0f, 0f, blackImage.color.a + 0.05f);
+                blackImage.color = new Color(0f, 0f, 0f, blackImage.color.a + 0.035f);
                 yield return tick;
             }
         }
@@ -143,7 +235,7 @@ public class TaskManager : MonoBehaviour
         {
             while (blackImage.color.a > 0f)
             {
-                blackImage.color = new Color(0f, 0f, 0f, blackImage.color.a - 0.05f);
+                blackImage.color = new Color(0f, 0f, 0f, blackImage.color.a - 0.035f);
                 yield return tick;
             }
         }

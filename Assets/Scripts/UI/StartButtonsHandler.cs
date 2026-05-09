@@ -25,25 +25,54 @@ public class StartButtonsHandler : MonoBehaviour
         }
     }
 
+    // public void DeleteData()
+    // {
+    //     string path = Application.persistentDataPath;
+
+    //     if (Directory.Exists(path))
+    //     {
+    //         // 1. Удаляем все файлы
+    //         string[] files = Directory.GetFiles(path);
+    //         foreach (string file in files)
+    //         {
+    //             File.Delete(file);
+    //         }
+
+    //         // 2. Удаляем все подпапки (true — рекурсивно)
+    //         string[] folders = Directory.GetDirectories(path);
+    //         foreach (string folder in folders)
+    //         {
+    //         Directory.Delete(folder, true);
+    //         }
+    //     }
+    // }
+
     public void DeleteData()
+{
+    string path = Application.persistentDataPath;
+    if (!Directory.Exists(path)) return;
+
+    DirectoryInfo di = new DirectoryInfo(path);
+
+    // Удаляем файлы
+    foreach (FileInfo file in di.GetFiles())
     {
-        string path = Application.persistentDataPath;
-
-        if (Directory.Exists(path))
-        {
-            // 1. Удаляем все файлы
-            string[] files = Directory.GetFiles(path);
-            foreach (string file in files)
-            {
-                File.Delete(file);
-            }
-
-            // 2. Удаляем все подпапки (true — рекурсивно)
-            string[] folders = Directory.GetDirectories(path);
-            foreach (string folder in folders)
-            {
-            Directory.Delete(folder, true);
-            }
+        try {
+            file.Delete();
+        } catch (System.IO.IOException e) {
+            Debug.LogWarning($"Файл занят и не может быть удален: {file.Name}. Ошибка: {e.Message}");
         }
     }
+
+    // Удаляем папки
+    foreach (DirectoryInfo dir in di.GetDirectories())
+    {
+        try {
+            dir.Delete(true);
+        } catch (System.IO.IOException e) {
+            Debug.LogWarning($"Папка занята: {dir.Name}");
+        }
+    }
+}
+
 }

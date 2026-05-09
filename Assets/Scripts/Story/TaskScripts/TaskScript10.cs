@@ -23,6 +23,7 @@ public class TaskScript10 : MonoBehaviour
         else
         {
             EventManager.OnEventHappened += CheckItems;
+            CheckItems(new EventMessage("GETITEM", 1));
         }
     }
 
@@ -34,6 +35,7 @@ public class TaskScript10 : MonoBehaviour
         + inventory.CheckCountOfItemByID(56) > 8))
         {
             taskManager.Status *= 2;
+            EventManager.OnEventHappened -= CheckItems;
             vnl.StartPrint(text);
             cor = StartCoroutine(checkStatus());
         }
@@ -51,6 +53,7 @@ public class TaskScript10 : MonoBehaviour
 
     void OnDisable()
     {
+        EventManager.OnEventHappened -= CheckItems;
         if (cor != null) StopCoroutine(cor);
         cor = null;
     }

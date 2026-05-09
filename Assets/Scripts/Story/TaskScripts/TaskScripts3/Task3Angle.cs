@@ -8,6 +8,7 @@ public class Task3Angle : MonoBehaviour
     [SerializeField] private TextAsset text;
     [SerializeField] private InventoryAI inventory;
     [SerializeField] private TaskManager taskManager;
+    [SerializeField] private CentralSaveSystem saveSystem;
     bool isVisited = false;
     bool isGotItems = false;
 
@@ -39,6 +40,7 @@ public class Task3Angle : MonoBehaviour
             task3main.CountOfExploredPlaces++;
             isGotItems = true;
             taskManager.Status *= 5;
+            saveSystem.SaveData();
             this.gameObject.SetActive(false);
         }
     }
@@ -57,8 +59,11 @@ public class Task3Angle : MonoBehaviour
         if (taskManager.Status % 5 == 0)
         {
             task3main.CountOfExploredPlaces+=2;
-            isGotItems = true;
             this.gameObject.SetActive(false);
+        }
+        else
+        {
+
         }
     }
 

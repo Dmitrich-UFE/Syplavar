@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Linq;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 
 public class CraftManager : MonoBehaviour
 {
@@ -133,6 +134,14 @@ public class CraftManager : MonoBehaviour
             {   
                 var recipeItem = currentRecipe[i];
                 inventory.DebitItem(recipeItem.item, recipeItem.count);
+                if (recipeItem.item.GameObject != null)
+                {
+                    IInstrument instrument = recipeItem.item.GameObject.GetComponent<IInstrument>();
+                    if (instrument != null)
+                    {
+                        inventory.AddToInventory(recipeItem.item, recipeItem.count);
+                    }
+                }
             }
             Debug.Log("Скрафтили: " + currentRecipe.ResultItem.name);
             inventory.AddToInventory(currentRecipe.ResultItem, currentRecipe.ResultCount);

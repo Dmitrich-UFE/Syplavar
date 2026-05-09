@@ -28,6 +28,12 @@ public class Galiver : Monster
     [SerializeField] private float fireballSpeed = 8f;
     [SerializeField] private float fireballLifeTime = 3f;
 
+    [Header("Дроп с монстров")]
+    [SerializeField] private ItemData[] returningItems;
+    [SerializeField] private int percentsForDropItem;
+    [SerializeField] private InventoryAI inventoryAI;
+     
+
     private Coroutine cor;
     private WaitForSecondsRealtime tickGal = new WaitForSecondsRealtime(0.1f);
 
@@ -44,6 +50,7 @@ public class Galiver : Monster
 
         playerHealth = PlayerSeeker.GetPlayerHealth();
         playerTarget = PlayerSeeker.GetPlayerTransform();
+        inventoryAI = PlayerSeeker.GetPlayerInventoryAI();
 
         agent = GetComponent<NavMeshAgent>();
         Agent = agent;
@@ -87,6 +94,16 @@ public class Galiver : Monster
 
             galiverAnimator.SetBool("IsDeath", true);
 
+            //Дроп
+            foreach (var item in returningItems)
+            {
+                int helpInt = UnityEngine.Random.Range(0, 100);
+                if (helpInt < percentsForDropItem)
+                {
+                    inventoryAI.AddToInventory(item, 1);
+                }
+            }
+
             if (destroyAfterDeath) Invoke("DestroyThis", 1f);
             else Invoke("SetOff", 1f);
         }
@@ -112,6 +129,9 @@ public class Galiver : Monster
 
     void OnDisable()
     {
+        if (isRegedAsBattling) BattleStatusTracker.RemoveMonsterInBattleMode();
+
+        BattleStatusTracker.BattleMode = BattleStatusTracker.MonstersInBattleMode != 0;
         StopCoroutine(cor);
     }
 
